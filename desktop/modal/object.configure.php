@@ -73,7 +73,7 @@ sendVarToJs('object_id', $object->getId());
 							<select class="form-control objectAttr" data-l1key="father_id">
 								<option value="">{{Aucun}}</option>
 								<?php
-foreach (object::all() as $object_all) {
+foreach (jeeObject::all() as $object_all) {
 	if ($object_all->getId() == $object->getId()) {
 		continue;
 	}
