@@ -28,54 +28,72 @@ if (!isConnect()) {
 			</label>
 		</div>
 	</div>
-  <div class="col-md-3 selectEtage hidden">
+	<div class="col-md-3 selectEtage hidden">
     <ul class="nav nav-pills nav-stacked">
-      <li role="etage" class="active"><a href="#">RDC</a></li>
-      <li role="etage"><a href="#">Dans ton cul</a></li>
-      <li role="etage"><a href="#">A l'arriere de la maison</a></li>
+      <li role="etage" class="active"><a href="#">Rez de chaussée</a></li>
+      <li role="etage"><a href="#">Etage 1</a></li>
+      <li role="etage"><a href="#">Jardin</a></li>
+			<li role="etage"><a href="#">Ajouter</a></li>
     </ul>
   </div>
   <div class="col-md-9 selectObject hidden">
-
-      <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
-        <label class="image-checkbox">
-          <img class="img-responsive" src="/core/img/object_background/chambre/chambre_1.jpg" />
-          <input type="checkbox" name="image[]" value="" />
-          <i class="fa fa-check hidden"></i>
-          Chambre 1
-        </label>
-      </div>
-      <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
-        <label class="image-checkbox">
-          <img class="img-responsive" src="/core/img/object_background/chambre/chambre_3.jpg" />
-          <input type="checkbox" name="image[]" value="" />
-          <i class="fa fa-check hidden"></i>
-          Chambre 2
-        </label>
-      </div>
-      <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
-        <label class="image-checkbox">
-          <img class="img-responsive" src="/core/img/object_background/chambre/chambre_4.jpg" />
-          <input type="checkbox" name="image[]" value="" />
-          <i class="fa fa-check hidden"></i>
-          Chambre 3
-        </label>
-      </div>
-      <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
-        <label class="image-checkbox">
-          <img class="img-responsive" src="/core/img/object_background/chambre/chambre_6.jpg" />
-          <input type="checkbox" name="image[]" value="" />
-          <i class="fa fa-check hidden"></i>
-          Chambre 4
-        </label>
-      </div>
-      <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
-        <label class="image-checkbox">
-          <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
-          <input type="checkbox" name="image[]" value="" />
-          <i class="fa fa-check hidden"></i>
-        </label>
-      </div>
+		<div class="col-md-12 text-center"><h2>{{Sélectionnez les pièces}}</h2></div>
+		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+      <label class="image-checkbox">
+        <img class="img-responsive" src="/core/img/object_background/chambre/chambre_1.jpg" />
+        <input type="checkbox" name="image[]" value="" />
+        <i class="fa fa-check hidden"></i>
+        {{Chambre 1}}
+      </label>
+    </div>
+    <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+      <label class="image-checkbox">
+        <img class="img-responsive" src="/core/img/object_background/chambre/chambre_3.jpg" />
+        <input type="checkbox" name="image[]" value="" />
+        <i class="fa fa-check hidden"></i>
+        {{Chambre 2}}
+      </label>
+    </div>
+		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+      <label class="image-checkbox">
+        <img class="img-responsive" src="/core/img/object_background/chambre/chambre_4.jpg" />
+        <input type="checkbox" name="image[]" value="" />
+        <i class="fa fa-check hidden"></i>
+        {{Chambre 3}}
+      </label>
+    </div>
+		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_2.jpg" />
+				<input type="checkbox" name="image[]" value="" />
+				<i class="fa fa-check hidden"></i>
+				{{Cuisine}}
+			</label>
+		</div>
+		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/salle_a_manger/salle_a_manger_1.jpg" />
+				<input type="checkbox" name="image[]" value="" />
+				<i class="fa fa-check hidden"></i>
+				{{Salle à manger}}
+			</label>
+		</div>
+		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/salon/salon_2.jpg" />
+				<input type="checkbox" name="image[]" value="" />
+				<i class="fa fa-check hidden"></i>
+				{{Salon}}
+			</label>
+		</div>
+		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/salle_de_bain/salle_de_bain_1.jpg" />
+				<input type="checkbox" name="image[]" value="" />
+				<i class="fa fa-check hidden"></i>
+				{{Salle de bain}}
+			</label>
+		</div>
 
 
   </div>
@@ -111,7 +129,6 @@ if (!isConnect()) {
 .image-checkbox input[type="checkbox"] {
 	display: none;
 }
-
 .image-checkbox-checked {
 	border-color: #4783B0;
 }
@@ -149,7 +166,7 @@ $(".selectType").on("click", function (e) {
 
 			break;
 		case 'selectWork':
-			
+
 			break;
 		default:
 
