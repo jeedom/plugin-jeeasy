@@ -6,7 +6,7 @@ if (!isConnect()) {
 if( file_exists( config::byKey('path_wizard') ) )
   $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
 else
-  $path_wizard = 'plugin/jeeasy/core/data/wizard.json';
+  $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.json'), true );
 ?>
 <legend>
     <a class='btn btn-default btn-xs pull-right' id='bt_doNotDisplayFirstUse'><i class="fas fa-eye-slash"></i> Ne plus afficher</a>
