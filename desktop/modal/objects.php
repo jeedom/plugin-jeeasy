@@ -4,17 +4,38 @@ if (!isConnect()) {
 }
 ?>
 
-<p>Nous vous proposons la configuration type suivante, vous pouvez déselectionner les pièces que vous ne souhaitez utiliser :
-</p>
+<!--<p>Nous vous proposons la configuration type suivante, vous pouvez déselectionner les pièces que vous ne souhaitez utiliser :
+</p>-->
 <div class="row globalObject">
-  <div class="col-md-3 selectEtage">
+	<div id="divSelecthouse" class="col-md-12">
+		<div class="col-md-12 text-center"><h2>{{Que souhaitez-vous configurer ?}}</h2></div>
+		<div id="selectHouse" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/salon/salon_5.jpg" />
+				{{Une maison}}
+			</label>
+		</div>
+		<div id="selectApartment" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_1.jpg" />
+				{{Un appartement}}
+			</label>
+		</div>
+		<div id="selectWork" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/bureau/bureau_1.jpg" />
+				{{Un bureau}}
+			</label>
+		</div>
+	</div>
+  <div class="col-md-3 selectEtage hidden">
     <ul class="nav nav-pills nav-stacked">
       <li role="etage" class="active"><a href="#">RDC</a></li>
       <li role="etage"><a href="#">Dans ton cul</a></li>
       <li role="etage"><a href="#">A l'arriere de la maison</a></li>
     </ul>
   </div>
-  <div class="col-md-9 selectObject">
+  <div class="col-md-9 selectObject hidden">
 
       <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
         <label class="image-checkbox">
@@ -117,7 +138,23 @@ $(".image-checkbox").each(function () {
     $(this).removeClass('image-checkbox-checked');
   }
 });
+$(".selectType").on("click", function (e) {
+	$('#divSelecthouse').addClass('hidden');
+	$('.selectObject').removeClass('hidden');
+	switch ($(this).attr('id')) {
+		case 'selectHouse':
+			$('.selectEtage').removeClass('hidden');
+			break;
+		case 'selectApartment':
 
+			break;
+		case 'selectWork':
+			
+			break;
+		default:
+
+	}
+});
 // sync the state to the input
 $(".image-checkbox").on("click", function (e) {
   $(this).toggleClass('image-checkbox-checked');
