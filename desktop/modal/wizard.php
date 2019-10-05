@@ -45,6 +45,7 @@ else
   </div>
   <div class="nextDiv">
     <i class="next fas fa-arrow-circle-right cursor" id="bt_next"></i>
+		<i class="next fas fa-check-circle cursor" id="bt_save"></i>
   </div>
 
 </div>
@@ -199,6 +200,10 @@ $( document ).ready(function() {
     $('#contentModal').addClass('fadeOut');
     $('#contentModal').addClass('animated');
     $( '#' + next ).addClass('js-active current');
+		if((current + 1) == (stepObject.length - 1)){
+      $('#bt_next').hide();
+      $('#bt_save').show();
+    }
     setTimeout(NextWizard( next ), 2000);
   });
 });
