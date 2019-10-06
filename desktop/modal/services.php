@@ -6,7 +6,7 @@ if (!isConnect()) {
 <div class="col-md-12 text-center"><h2>{{Les services complémentaires}}</h2></div>
 <div class="nos-services text-center">
     <div id="backup" class="col-xs-18 col-sm-6 col-md-3 services">
-        <div class="thumbnail" style="box-shadow: 1px 1px 12px #93cc0180;"><img src="plugins/jeeasy/core/img/service_backup.jpg" alt="" class="img-fullsize" style="border-radius:5px 5px 0 0; height: 5OOpx;">
+        <div class="thumbnail" style="box-shadow: 1px 1px 12px #93cc0180; height: 500px;"><img src="plugins/jeeasy/core/img/service_backup.jpg" alt="" class="img-fullsize" style="border-radius:5px 5px 0 0;">
             <div class="caption">
                 <h4>Les Sauvegardes Cloud</h4>
                 <p></p>
@@ -17,7 +17,7 @@ if (!isConnect()) {
         </div>
     </div>
     <div class="col-xs-18 col-sm-6 col-md-3 services" style="">
-        <div class="thumbnail" style="box-shadow: rgba(147, 204, 1, 0.501961) 1px 1px 12px;"><img src="plugins/jeeasy/core/img/service_sms.jpg" alt="" class="img-fullsize" style="border-radius:5px 5px 0 0; height: 5OOpx;">
+        <div class="thumbnail" style="box-shadow: rgba(147, 204, 1, 0.501961) 1px 1px 12px;  height: 500px;"><img src="plugins/jeeasy/core/img/service_sms.jpg" alt="" class="img-fullsize" style="border-radius:5px 5px 0 0; height: 5OOpx;">
             <div class="caption">
                 <h4>SMS et Appels</h4>
                 <p></p>
@@ -28,7 +28,7 @@ if (!isConnect()) {
         </div>
     </div>
     <div class="col-xs-18 col-sm-6 col-md-3 services">
-        <div class="thumbnail" style="box-shadow: 1px 1px 12px #93cc0180;"><img src="plugins/jeeasy/core/img/service_monitoring.jpg" alt="" class="img-fullsize" style="border-radius:5px 5px 0 0; height: 5OOpx;">
+        <div class="thumbnail" style="box-shadow: 1px 1px 12px #93cc0180;  height: 500px;"><img src="plugins/jeeasy/core/img/service_monitoring.jpg" alt="" class="img-fullsize" style="border-radius:5px 5px 0 0; height: 5OOpx;">
             <div class="caption">
                 <h4>Monitoring</h4>
                 <p></p>
