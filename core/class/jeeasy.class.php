@@ -33,12 +33,12 @@ class jeeasy extends eqLogic {
 
 	public static function saveJson($_json) {
 		$jsonFile = __DIR__ . '/../../../../data/custom/wizard.json';
-		if (!open($jsonFile, 'w')) {
+		if (!$fh = fopen($jsonFile, 'w')) {
 			throw new Exception(__('Impossible d ouvrir : ', __FILE__) . $jsonFile);
 		}
 		fwrite($fh, $_json);
 		fclose($fh);
-		return true;*/
+		return true;
 	}
 
 	public static function checkPlugin($_plugin) {
