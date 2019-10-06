@@ -43,8 +43,13 @@ else
       <p class="text-center">Votre Assistant va vous aider à configurer votre <?php echo config::byKey('product_name'); ?>.</p>-->
     </div>
   </div>
+	<div class="prevDiv">
+		<i class="next fas fa-arrow-circle-left cursor" id="bt_prev"></i>
+	</div>
   <div class="nextDiv">
     <i class="next fas fa-arrow-circle-right cursor" id="bt_next"></i>
+	</div>
+	<div class="saveDiv">
 		<i class="next fas fa-check-circle cursor" id="bt_save"></i>
   </div>
 
@@ -64,6 +69,24 @@ else
 .next {
   font-size: 50px;
   color: rgba(147,204,1,1);
+}
+
+.saveDiv {
+  width: 100px;
+  height: 100px;
+  margin-right: -45px;
+  bottom: -40px;
+  right: 5px;
+  position: absolute;
+}
+
+.prevDiv {
+  width: 100px;
+  height: 100px;
+  margin-right: -45px;
+  bottom: -40px;
+  left: 5px;
+  position: absolute;
 }
 
 .nextDiv {
@@ -189,21 +212,42 @@ else
 <script>
 
 $( document ).ready(function() {
+	$('.prevDiv').hide();
+	$('.saveDiv').hide();
   var stepObject = JSON.parse('<?php echo json_encode($step); ?>');
   $('#contentModal').load('index.php?v=d&plugin=jeeasy&modal='+stepObject[0]['wizard']);
-  $('#bt_next').click( function() {
+	$('#bt_prev').click( function() {
+    var current = $( '.current' ).data( 'stepwizard' );
+    $( '.current' ).removeClass('current');
+    var prev = $(".multisteps-form__progress").find("[data-stepwizard='" + (current - 1) + "']").attr('id');
+    $('#contentModal').removeClass('animated').removeClass('fadeIn');
+    $('#contentModal').addClass('fadeOut');
+    $('#contentModal').addClass('animated');
+    $( '#' + prev ).addClass('js-active current');
+		if((current - 1) == 0){
+      $('.prevDiv').hide();
+      $('.nextDiv').show();
+    }else{
+			$('.prevDiv').show();
+			$('.nextDiv').show();
+		}
+    setTimeout(NextWizard( prev ), 2000);
+  });
+	$('#bt_next').click( function() {
     var current = $( '.current' ).data( 'stepwizard' );
     $( '.current' ).removeClass('current');
     var next = $(".multisteps-form__progress").find("[data-stepwizard='" + (current + 1) + "']").attr('id');
-
     $('#contentModal').removeClass('animated').removeClass('fadeIn');
     $('#contentModal').addClass('fadeOut');
     $('#contentModal').addClass('animated');
     $( '#' + next ).addClass('js-active current');
 		if((current + 1) == (stepObject.length - 1)){
-      $('#bt_next').hide();
-      $('#bt_save').show();
-    }
+      $('.nextDiv').hide();
+      $('.saveDiv').show();
+    }else{
+			$('.prevDiv').show();
+			$('.nextDiv').show();
+		}
     setTimeout(NextWizard( next ), 2000);
   });
 });
