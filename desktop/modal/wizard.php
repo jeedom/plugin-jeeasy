@@ -221,6 +221,7 @@ $( document ).ready(function() {
     $('#contentModal').addClass('fadeOut');
     $('#contentModal').addClass('animated');
     $( '#' + prev ).addClass('js-active current');
+		$('.saveDiv').hide();
 		if((current - 1) == 0){
       $('.prevDiv').hide();
       $('.nextDiv').show();
@@ -246,6 +247,7 @@ $( document ).ready(function() {
       $('.nextDiv').hide();
       $('.saveDiv').show();
     }else{
+			$('.saveDiv').hide();
 			$('.prevDiv').show();
 			$('.nextDiv').show();
 		}
