@@ -20,14 +20,14 @@ try {
 	require_once __DIR__ . '/../../../../core/php/core.inc.php';
 	include_file('core', 'authentification', 'php');
 
-	if (!isConnect('admin')) {
-		throw new Exception(__('401 - Accès non autorisé', __FILE__));
-	}
-
 	ajax::init();
 
 	if (init('action') == 'generateScenario') {
 		ajax::success(jeeasy::generateScenario(init('name'), json_decode(init('replace'), true)));
+	}
+
+	if (init('action') == 'saveJson') {
+		ajax::success(jeeasy::saveJson(init('json')));
 	}
 
 	throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));

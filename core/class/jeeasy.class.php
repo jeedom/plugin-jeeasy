@@ -31,6 +31,16 @@ class jeeasy extends eqLogic {
 		return json_decode(str_replace(array_keys($_replace), $_replace, json_encode(json_decode(file_get_contents(__DIR__ . '/../config/' . $_name . '.json'), true))), true);
 	}
 
+	public static function saveJson($_json) {
+		$jsonFile = __DIR__ . '/../../../../data/custom/wizard.json';
+		if (!open($jsonFile, 'w')) {
+			throw new Exception(__('Impossible d ouvrir : ', __FILE__) . $jsonFile);
+		}
+		fwrite($fh, $_json);
+		fclose($fh);
+		return true;*/
+	}
+
 	public static function checkPlugin($_plugin) {
 		$plugin = plugin::byId($_plugin);
 		if (!is_object($plugin)) {
