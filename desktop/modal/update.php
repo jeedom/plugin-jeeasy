@@ -81,6 +81,13 @@ config::save('updateWizard', 'okay', 'jeeasy');
 </style>
 
 <script>
+$('#dada').click(function() {
+	$('#md_modal').dialog({title: "{{Configuration de votre}} <?php echo config::byKey('product_name'); ?>"});
+	$('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=wizard').dialog('open');
+});
+</script>
+
+<script>
 var progress = -2;
 
 function updateProgressBar(){
