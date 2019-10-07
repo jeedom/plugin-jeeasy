@@ -12,7 +12,7 @@ config::save('updateWizard', 'okay', 'jeeasy');
   <div class="multisteps-form">
     <div class="row" id="contentModal">
 	    <div class="col-md-12 text-center"><h2>{{Initialisation de }} <?php echo config::byKey('product_name'); ?></h2></div>
-		<div class="col-md-12 text-center"><img class="img-responsive center-block" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
+		<div class="col-md-8 col-md-offset-2 text-center"><img class="img-responsive center-block" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
 		<div class="col-md-12 text-center"><p class="text-center"><br/>{{Veuillez patienter quelques instants, cela peut prendre au maximum 10 minutes}}</p>
 
 		<div id="contenuTextSpan" class="progress">
