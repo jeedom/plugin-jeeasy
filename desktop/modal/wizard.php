@@ -287,7 +287,7 @@ $('.saveDiv').click( function() {
                 $('#div_alertFirstUse').showAlert({message: '{{Sauvegarde réussie}}', level: 'success'});
             }
         });
-  $('#md_modal').dialog('close');
+  $('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=wizard').dialog('open');
 });
 
 
