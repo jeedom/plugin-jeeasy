@@ -12,18 +12,21 @@ if (!isConnect()) {
 		<div id="selectHouse" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salon/salon_5.jpg" />
+				<input type="checkbox" name="selectHouse[house]" value="1" />
 				{{Une maison}}
 			</label>
 		</div>
 		<div id="selectApartment" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_1.jpg" />
+				<input type="checkbox" name="selectHouse[apartment]" value="1" />
 				{{Un appartement}}
 			</label>
 		</div>
 		<div id="selectWork" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/bureau/bureau_1.jpg" />
+				<input type="checkbox" name="selectHouse[work]" value="1" />
 				{{Un bureau}}
 			</label>
 		</div>
@@ -41,7 +44,7 @@ if (!isConnect()) {
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
       <label class="image-checkbox">
         <img class="img-responsive" src="/core/img/object_background/chambre/chambre_1.jpg" />
-        <input type="checkbox" name="image[]" value="" />
+        <input type="checkbox" name="selectObject[chambre1]" value="1" />
         <i class="fa fa-check hidden"></i>
         {{Chambre 1}}
       </label>
@@ -49,7 +52,7 @@ if (!isConnect()) {
     <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
       <label class="image-checkbox">
         <img class="img-responsive" src="/core/img/object_background/chambre/chambre_3.jpg" />
-        <input type="checkbox" name="image[]" value="" />
+        <input type="checkbox" name="selectObject[chambre2]" value="1" />
         <i class="fa fa-check hidden"></i>
         {{Chambre 2}}
       </label>
@@ -57,7 +60,7 @@ if (!isConnect()) {
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
       <label class="image-checkbox">
         <img class="img-responsive" src="/core/img/object_background/chambre/chambre_4.jpg" />
-        <input type="checkbox" name="image[]" value="" />
+        <input type="checkbox" name="selectObject[chambre3]" value="1" />
         <i class="fa fa-check hidden"></i>
         {{Chambre 3}}
       </label>
@@ -65,7 +68,7 @@ if (!isConnect()) {
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_2.jpg" />
-				<input type="checkbox" name="image[]" value="" />
+				<input type="checkbox" name="selectObject[cuisine]" value="1" />
 				<i class="fa fa-check hidden"></i>
 				{{Cuisine}}
 			</label>
@@ -73,7 +76,7 @@ if (!isConnect()) {
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salle_a_manger/salle_a_manger_1.jpg" />
-				<input type="checkbox" name="image[]" value="" />
+				<input type="checkbox" name="selectObject[sam]" value="1" />
 				<i class="fa fa-check hidden"></i>
 				{{Salle à manger}}
 			</label>
@@ -81,7 +84,7 @@ if (!isConnect()) {
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salon/salon_2.jpg" />
-				<input type="checkbox" name="image[]" value="" />
+				<input type="checkbox" name="selectObject[salon]" value="1" />
 				<i class="fa fa-check hidden"></i>
 				{{Salon}}
 			</label>
@@ -89,7 +92,7 @@ if (!isConnect()) {
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salle_de_bain/salle_de_bain_1.jpg" />
-				<input type="checkbox" name="image[]" value="" />
+				<input type="checkbox" name="selectObject[sdb]" value="1" />
 				<i class="fa fa-check hidden"></i>
 				{{Salle de bain}}
 			</label>
@@ -160,7 +163,7 @@ $(".selectType").on("click", function (e) {
 	$('.selectObject').removeClass('hidden');
 	switch ($(this).attr('id')) {
 		case 'selectHouse':
-			$('.selectEtage').removeClass('hidden');
+			//$('.selectEtage').removeClass('hidden');
 			break;
 		case 'selectApartment':
 

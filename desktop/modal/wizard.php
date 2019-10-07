@@ -1,12 +1,25 @@
 <?php
 if (!isConnect()) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+    throw new Exception('{{401 - Accès non autorisé}}');
 }
 
 if( file_exists( config::byKey('path_wizard') ) )
   $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
 else
   $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.json'), true );
+if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
+  if(isset($path_wizard['update']) && $path_wizard['update'] == 1){
+    $jeeObjects = jeeObject::all();
+    if(!is_object($jeeObjects)){
+      ?>
+        <script>
+        $('#md_modal').dialog({title: "{{Initialisation de votre}} <?php echo config::byKey('product_name'); ?>"});
+        $('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=update').dialog('open');
+        </script>
+      <?php
+    }
+ 	}
+}
 ?>
 <legend>
     <a class='btn btn-default btn-xs pull-right' id='bt_doNotDisplayFirstUse'><i class="fas fa-eye-slash"></i> Ne plus afficher</a>
@@ -236,13 +249,22 @@ $( document ).ready(function() {
 		var stateArr = {};
 		stateArr.name = $( '.current' ).prop( 'id' );
 		stateArr.state = "ok";
-		saveJson(JSON.stringify(stateArr));
+		//saveJson(JSON.stringify(stateArr));
+		if($( '.current' ).prop( 'id' ) == "objects"){
+			var ArrSelected = [];
+			$(document).find('input[type="checkbox"]:checked').each(function () {
+				ArrSelected.push(this.name);
+
+			});
+			sendObjects(ArrSelected);
+		}
     $( '.current' ).removeClass('current');
     var next = $(".multisteps-form__progress").find("[data-stepwizard='" + (current + 1) + "']").attr('id');
     $('#contentModal').removeClass('animated').removeClass('fadeIn');
     $('#contentModal').addClass('fadeOut');
     $('#contentModal').addClass('animated');
     $( '#' + next ).addClass('js-active current');
+
 		if((current + 1) == (stepObject.length - 1)){
       $('.nextDiv').hide();
       $('.saveDiv').show();
@@ -269,6 +291,28 @@ function saveJson(json){
 		data: {
 			action: "saveJson",
 			json : json
+		},
+		global:false,
+		dataType: 'json',
+		error: function (request, status, error) {
+			handleAjaxError(request, status, error,$('#div_AlertJeeasyLight'));
+		},
+		success: function (data) {
+			if (data.state != 'ok') {
+				$('#div_AlertJeeasyLight').showAlert({message: data.result, level: 'danger'});
+				return;
+			}
+		}
+	});
+}
+
+function sendObjects(objects){
+	$.ajax({
+		type: "POST",
+		url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
+		data: {
+			action: "sendObjects",
+			objects : JSON.stringify(objects)
 		},
 		global:false,
 		dataType: 'json',

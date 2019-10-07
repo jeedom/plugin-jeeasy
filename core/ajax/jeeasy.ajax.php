@@ -30,6 +30,10 @@ try {
 		ajax::success(jeeasy::saveJson(init('json')));
 	}
 
+	if (init('action') == 'sendObjects') {
+		ajax::success(jeeasy::sendObjects(init('objects')));
+	}
+
 	throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
 	/*     * *********Catch exeption*************** */
 } catch (Exception $e) {
