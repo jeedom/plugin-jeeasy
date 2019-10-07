@@ -48,7 +48,7 @@ class jeeasy extends eqLogic {
 				'level'  => 1,
 				'name'   => 'Cuisine',
 				'image'  => 'core/img/object_background/cuisine/cuisine_2.jpg',
-				'icon'   => '',
+				'icon'   => '<i class="icon maison-kitchen56"></i>',
 				'parent' => ''
 			),
 			// 'bureau' => array(
@@ -62,42 +62,42 @@ class jeeasy extends eqLogic {
 				'level'  => 1,
 				'name'   => 'Salle à manger',
 				'image'  => 'core/img/object_background/salle_a_manger/salle_a_manger_1.jpg',
-				'icon'   => '',
+				'icon'   => '<i class="icon maison-dining3"></i>',
 				'parent' => ''
 			),
 			'salon' => array(
 				'level'  => 1,
 				'name'   => 'Salon',
 				'image'  => 'core/img/object_background/salon/salon_2.jpg',
-				'icon'   => '',
+				'icon'   => '<i class="icon maison-sofa5"></i>',
 				'parent' => ''
 			),
 			'sdb' => array(
 				'level'  => 1,
 				'name'   => 'Salle de bain',
 				'image'  => 'core/img/object_background/salle_de_bain/salle_de_bain_1.jpg',
-				'icon'   => '',
+				'icon'   => '<i class="icon maison-bathroom22"></i>',
 				'parent' => ''
 			),
 			'chambre1' => array(
 				'level'  => 1,
 				'name'   => 'Chambre 1',
 				'image'  => 'core/img/object_background/chambre/chambre_1.jpg',
-				'icon'   => '',
+				'icon'   => '<i class="icon maison-queen9"></i>',
 				'parent' => ''
 			),
 			'chambre2' => array(
 				'level'  => 1,
 				'name'   => 'Chambre 2',
 				'image'  => 'core/img/object_background/chambre/chambre_3.jpg',
-				'icon'   => '',
+				'icon'   => '<i class="icon maison-queen9"></i>',
 				'parent' => ''
 			),
 			'chambre3' => array(
 				'level'  => 1,
 				'name'   => 'Chambre 3',
 				'image'  => 'core/img/object_background/chambre/chambre_4.jpg',
-				'icon'   => '',
+				'icon'   => '<i class="icon maison-baby139"></i>',
 				'parent' => ''
 			)
 		);
@@ -105,18 +105,18 @@ class jeeasy extends eqLogic {
 		$houseData = array(
 			'house' => array(
 				'name'   => 'Maison',
-				'image'  => 'core/img/object_background/maison/maison_1.jpg',
-				'icon'   => ''
+				'image'  => 'core/img/object_background/salon/salon_5.jpg',
+				'icon'   => '<i class="icon maison-modern13"></i>'
 			),
-			'appartment' => array(
+			'apartment' => array(
 				'name'   => 'Appartement',
-				'image'  => 'core/img/object_background/maison/maison_1.jpg',
-				'icon'   => ''
+				'image'  => 'core/img/object_background/cuisine/cuisine_1.jpg',
+				'icon'   => '<i class="icon maison-building33"></i>'
 			),
 			'work' => array(
 				'name'   => 'Travail',
-				'image'  => 'core/img/object_background/maison/maison_1.jpg',
-				'icon'   => ''
+				'image'  => 'core/img/object_background/bureau/bureau_1.jpg',
+				'icon'   => '<i class="icon maison-man337"></i>'
 			),
 		);
 
@@ -124,10 +124,6 @@ class jeeasy extends eqLogic {
 
 		preg_match('/\[([^]]+)\]/', $_objects[0], $key);
 		$main = $key[1];
-		log::add('jeeasy', 'error', '$main ' . print_r($main,true));
-
-		log::add('jeeasy', 'error', '$main1 ' . print_r($houseData[$main],true));
-
 		$house = jeeObject::byName($houseData[$main]['name']);
 
     if (!is_object($house)) {
@@ -136,7 +132,20 @@ class jeeasy extends eqLogic {
         $house->setName($houseData[$main]['name']);
         $house->setIsVisible(1);
         $house->setFather_id(0);
-				//$house->setImage($houseData[$main]['image']);
+				$house->save();
+				$house->setDisplay('icon',$houseData[$main]['icon']);
+				$files = ls( __DIR__ . '/../../../../data/object/','object'.$house->getId().'*');
+        if(count($files)  > 0){
+            foreach ($files as $file) {
+                unlink( __DIR__ . '/../../../../data/object/'.$file);
+            }
+        }
+				$house->setImage('type', 'jpg');
+				$image =  __DIR__ . '/../../../../'.$houseData[$main]['image'];
+				$house->setImage('sha512', sha512(file_get_contents($image)));
+        $filename = 'object'.$house->getId().'-'.$house->getImage('sha512') . '.' . $house->getImage('type');
+        $filepath = __DIR__ . '/../../../../data/object/' . $filename;
+        file_put_contents($filepath,file_get_contents($image));
         $house->save();
     }
 
@@ -161,8 +170,21 @@ class jeeasy extends eqLogic {
 				$room->setName($roomsDatas[$currentRoom]['name']);
 				$room->setIsVisible(1);
 				$room->setFather_id($houseId);
-				//$room->setJsonAttr($roomsDatas[$main]['image']);
 				$room->save();
+				$room->setDisplay('icon',$roomsDatas[$currentRoom]['icon']);
+				$files = ls( __DIR__ . '/../../../../data/object/','object'.$room->getId().'*');
+        if(count($files)  > 0){
+            foreach ($files as $file) {
+                unlink( __DIR__ . '/../../../../data/object/'.$file);
+            }
+        }
+				$room->setImage('type', 'jpg');
+				$image =  __DIR__ . '/../../../../'.$roomsDatas[$currentRoom]['image'];
+				$room->setImage('sha512', sha512(file_get_contents($image)));
+        $filename = 'object'.$room->getId().'-'.$room->getImage('sha512') . '.' . $room->getImage('type');
+        $filepath = __DIR__ . '/../../../../data/object/' . $filename;
+        file_put_contents($filepath,file_get_contents($image));
+        $room->save();
 			}
 		}
 		$json = json_encode($structure);

@@ -4,7 +4,7 @@ if (!isConnect('admin')) {
 }
 ?>
 <br/>
-<div class="alert alert-info"><center>{{Bienvenu sur la page de configuration facile de Jeedom. Que voulez-vous faire ?}}</center></div>
+<!--<div class="alert alert-info"><center>{{Bienvenu sur la page de configuration facile de Jeedom. Que voulez-vous faire ?}}</center></div>
 <div class="row">
 
 	<div class="col-sm-4" style="margin-bottom: 10px;">
@@ -35,6 +35,8 @@ if (!isConnect('admin')) {
 		</div>
 	</div>
 
-</div>
+</div>-->
+
+Très bientôt de nouveaux wizards de configuration.
 
 <?php include_file('desktop', 'jeeasy', 'js', 'jeeasy');?>
