@@ -288,6 +288,7 @@ $('.saveDiv').click( function() {
             }
         });
   $('#md_modal').dialog('close');
+	location.reload(true);
 });
 
 
