@@ -277,6 +277,20 @@ $( document ).ready(function() {
   });
 });
 
+$('.saveDiv').click( function() {
+  jeedom.config.save({
+            configuration: {'jeedom::firstUse': 0},
+            error: function (error) {
+                $('#div_alertFirstUse').showAlert({message: error.message, level: 'danger'});
+            },
+            success: function () {
+                $('#div_alertFirstUse').showAlert({message: '{{Sauvegarde réussie}}', level: 'success'});
+            }
+        });
+  $('#md_modal').dialog('close');
+});
+
+
 function NextWizard( step ) {
   $('#contentModal').removeClass('animated').removeClass('fadeOut').addClass('fadeIn');
   $('#contentModal').load('index.php?v=d&plugin=jeeasy&modal='+step);

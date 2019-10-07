@@ -42,29 +42,29 @@ if (!isConnect()) {
   <div class="col-md-9 selectObject hidden">
 		<div class="col-md-12 text-center"><h2>{{Sélectionnez les pièces}}</h2></div>
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
-      <label class="image-checkbox">
-        <img class="img-responsive" src="/core/img/object_background/chambre/chambre_1.jpg" />
-        <input type="checkbox" name="selectObject[chambre1]" value="1" />
-        <i class="fa fa-check hidden"></i>
-        {{Chambre 1}}
-      </label>
-    </div>
-    <div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
-      <label class="image-checkbox">
-        <img class="img-responsive" src="/core/img/object_background/chambre/chambre_3.jpg" />
-        <input type="checkbox" name="selectObject[chambre2]" value="1" />
-        <i class="fa fa-check hidden"></i>
-        {{Chambre 2}}
-      </label>
-    </div>
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_1.jpg" />
+				<input type="checkbox" name="selectObject[chambre1]" value="1" />
+				<i class="fa fa-check hidden"></i>
+				{{Chambre 1}}
+			</label>
+    	</div>
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
-      <label class="image-checkbox">
-        <img class="img-responsive" src="/core/img/object_background/chambre/chambre_4.jpg" />
-        <input type="checkbox" name="selectObject[chambre3]" value="1" />
-        <i class="fa fa-check hidden"></i>
-        {{Chambre 3}}
-      </label>
-    </div>
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_3.jpg" />
+				<input type="checkbox" name="selectObject[chambre2]" value="1" />
+				<i class="fa fa-check hidden"></i>
+				{{Chambre 2}}
+			</label>
+		</div>
+		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+			<label class="image-checkbox">
+				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_4.jpg" />
+				<input type="checkbox" name="selectObject[chambre3]" value="1" />
+				<i class="fa fa-check hidden"></i>
+				{{Chambre 3}}
+			</label>
+    	</div>
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_2.jpg" />
@@ -97,8 +97,6 @@ if (!isConnect()) {
 				{{Salle de bain}}
 			</label>
 		</div>
-
-
   </div>
 </div>
 
