@@ -1,10 +1,10 @@
 {
 	"id" : "jeeasy",
 	"name" : "Jeeasy",
-	"description" : "Plugin permettant de configurer facielement Jeedom",
+	"description" : "Plugin permettant de configurer facilement Jeedom",
 	"licence" : "AGPL",
 	"author" : "Jeedom SAS",
-	"require" : "3.2",
+	"require" : "4.0",
 	"category" : "programming",
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,

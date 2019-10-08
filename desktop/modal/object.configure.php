@@ -20,7 +20,7 @@ if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-$object = object::byId(init('object_id'));
+$object = jeeObject::byId(init('object_id'));
 if (!is_object($object)) {
 	echo '<div class="alert alert-danger">' . __('Désolé je n\'arrive pas à trouver votre pièce  : ', __FILE__) . init('object_id') . '</div>';
 	die();
@@ -73,7 +73,7 @@ sendVarToJs('object_id', $object->getId());
 							<select class="form-control objectAttr" data-l1key="father_id">
 								<option value="">{{Aucun}}</option>
 								<?php
-foreach (object::all() as $object_all) {
+foreach (jeeObject::all() as $object_all) {
 	if ($object_all->getId() == $object->getId()) {
 		continue;
 	}
