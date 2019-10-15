@@ -67,4 +67,16 @@ $JEEDOM_JEEASY_DISCOVER = array(
       array('id' => '2260','name' => 'Neato','certification' => 'official')
     ),
   ),
+  array(
+    'search' => array('Wibrain'),
+    'plugins' => array(
+      array('id' => '2530','name' => 'JeeLink','certification' => 'official'),
+    ),
+  ),
+  array(
+    'search' => array('Espressif'),
+    'plugins' => array(
+      array('id' => '2819','name' => 'Nuki','certification' => 'official'),
+    ),
+  )
 );
