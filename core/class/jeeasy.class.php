@@ -51,7 +51,7 @@ class jeeasy extends eqLogic {
 		foreach ($return as &$device) {
 			foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
 				foreach ($discover['search'] as $search) {
-					if(strpos($device['name'],$search) !== false){
+					if(strpos($device['name'],$search) !== false || strpos($device['ip'],$search) !== false){
 						$device['plugin'] = $discover['plugins'];
 						continue(3);
 					}
