@@ -78,5 +78,11 @@ $JEEDOM_JEEASY_DISCOVER = array(
     'plugins' => array(
       array('id' => '2819','name' => 'Nuki','certification' => 'official'),
     ),
+  ),
+  array(
+    'search' => array('KNX'),
+    'plugins' => array(
+      array('id' => '203','name' => 'EIB - KNX','certification' => 'partenaire'),
+    ),
   )
 );
