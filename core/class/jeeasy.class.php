@@ -36,17 +36,17 @@ class jeeasy extends eqLogic {
 		$return = array();
 		$previous = null;
 		foreach ($results as $line) {
-			if(strpos($line,'MAC Address') !== false){
-				preg_match('/MAC Address: (.*?) \((.*?)\)/',$line,$matches);
+			if(strpos($line,'Nmap scan report') !== false){
+				preg_match('/Nmap scan report for (.*?)$/',$line,$matches);
 				$previous = $matches[1];
-				$return[$previous] = array('name' => $matches[2]);
-				continue;
 			}
 			if($previous == null){
 				continue;
 			}
-			preg_match('/Nmap scan report for (.*?)$/',$line,$matches);
-			$return[$previous]['ip'] = $matches[1];
+			if(strpos($line,'MAC Address') !== false){
+				preg_match('/MAC Address: (.*?) \((.*?)\)/',$line,$matches);
+				$return[$matches[1]] = array('name' => $matches[2],'ip' => $previous);
+			}
 		}
 		foreach ($return as &$device) {
 			foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
