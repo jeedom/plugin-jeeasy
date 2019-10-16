@@ -84,5 +84,11 @@ $JEEDOM_JEEASY_DISCOVER = array(
     'plugins' => array(
       array('id' => '203','name' => 'EIB - KNX','certification' => 'partenaire'),
     ),
+  ),
+  array(
+    'search' => array('Xiaomi Electronics,co.'),
+    'plugins' => array(
+      array('id' => '2723','name' => 'Xiaomi Home','certification' => 'partenaire'),
+    ),
   )
 );
