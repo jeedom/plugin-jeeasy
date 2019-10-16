@@ -7,8 +7,8 @@ $discovers = jeeasy::discoverNetwork();
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th>{{Nom}}</th>
       <th>{{Ip}}</th>
+      <th>{{Nom}}</th>
       <th>{{MAC}}</th>
       <th>{{Plugins suggeré}}</th>
     </tr>
@@ -18,10 +18,10 @@ $discovers = jeeasy::discoverNetwork();
     foreach ($discovers as $mac => $value) {
       echo '<tr>';
       echo '<td>';
-      echo $value['name'];
+      echo $value['ip'];
       echo '</td>';
       echo '<td>';
-      echo $value['ip'];
+      echo $value['name'];
       echo '</td>';
       echo '<td>';
       echo $mac;

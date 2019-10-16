@@ -49,6 +49,9 @@ class jeeasy extends eqLogic {
 			}
 		}
 		foreach ($return as &$device) {
+			if($device['name'] == 'Unknown'){
+				$device['name'] = '';
+			}
 			foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
 				foreach ($discover['search'] as $search) {
 					if(strpos(strtolower($device['name']),strtolower($search)) !== false || strpos(strtolower($device['ip']),strtolower($search)) !== false){
