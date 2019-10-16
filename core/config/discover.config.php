@@ -90,5 +90,11 @@ $JEEDOM_JEEASY_DISCOVER = array(
     'plugins' => array(
       array('id' => '2723','name' => 'Xiaomi Home','certification' => 'partenaire'),
     ),
+  ),
+  array(
+    'search' => array('amazon'),
+    'plugins' => array(
+      array('id' => '3409','name' => 'Amazon Alexa','certification' => 'official'),
+    ),
   )
 );
