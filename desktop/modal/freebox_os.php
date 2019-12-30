@@ -165,7 +165,6 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 		}
     	</script>
 
-?>
 <div class="col-md-12 text-center"><h2>{{Autorisation Freebox}}</h2></div>
 <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-freeboxOS" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
 <div class="col-md-12 text-center"><p class="text-center"><h3 class="textFreebox">{{Merci d'appuyer sur le bouton V de votre Freebox, afin de confirmer l'autorisation d'accès à votre Delta}}</h3></p>
