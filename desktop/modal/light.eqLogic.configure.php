@@ -143,7 +143,7 @@ if (is_object($cmd_lightoff)) {
 		<div class="jeeasyDisplay end" style="display:none;">
 			<center><i class="fa fa-check" style="font-size: 10em;"></i></center>
 			<br/>
-			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre frigo :  }}<strong><?php echo $eqLogic->getHumanName() ?></strong></div></center>
+			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre lumière :  }}<strong><?php echo $eqLogic->getHumanName() ?></strong></div></center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
 			<br/>
 			<center><a class="btn btn-success bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a></center>
