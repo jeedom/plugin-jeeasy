@@ -1,0 +1,12 @@
+{
+"trame": {
+  "welcome" :
+    {
+      "title": "Bienvenue",
+      "wizard": "welcome",
+      "order": 0,
+      "custom": "",
+      "visible": 1
+    },
+  "update": 0
+}

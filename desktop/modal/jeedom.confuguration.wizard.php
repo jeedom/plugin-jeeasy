@@ -4,9 +4,9 @@ if (!isConnect()) {
 }
 
 if( file_exists( config::byKey('path_wizard') ) )
-  $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
+  $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard_configuration' ) ), true );
 else
-  $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.json'), true );
+  $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.configuration.json'), true );
 if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
   if(isset($path_wizard['update']) && $path_wizard['update'] == 1){
     $jeeObjects = jeeObject::all();
