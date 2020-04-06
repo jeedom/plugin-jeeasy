@@ -116,6 +116,11 @@
         "Cliquez sur sauvegarder pour valider votre configuration": "",
         "Configuration sauvegardée": ""
     },
+    "plugins\/jeeasy\/desktop\/modal\/jeedom.confuguration.wizard.php": {
+        "401 - Accès non autorisé": "401-不正アクセス",
+        "Initialisation de votre": "",
+        "Sauvegarde réussie": "成功したバックアップ"
+    },
     "plugins\/jeeasy\/desktop\/modal\/philipshue.include.php": {
         "401 - Accès non autorisé": "401-不正アクセス",
         "Accueil": "家庭",
@@ -377,11 +382,13 @@
     },
     "plugins\/jeeasy\/desktop\/php\/jeeasy.php": {
         "401 - Accès non autorisé": "401-不正アクセス",
-        "Bienvenu sur la page de configuration facile de Jeedom. Que voulez-vous faire ?": "",
-        "Configuration mon ": "",
-        "Configuration ma maison": "",
+        "Bienvenu sur la page de configuration facile de": "",
+        "Configurer mon": "",
+        "Detecter mes equipements": "",
+        "Configurer ma maison": "",
         "Ajouter un équipement": "",
-        "Configuration un équipement": ""
+        "Configurer un équipement": "",
+        "Relancer le Wizard": ""
     },
     "plugins\/jeeasy\/desktop\/js\/jeeasy.js": {
         "Frigo": "",
@@ -401,6 +408,8 @@
         "Ajout d'un module Sonos": "",
         "Ajout d'un module Philips Hue": "",
         "Configuration frgigo": "",
+        "Discovery": "",
+        "Bienvenu": "",
         "Très bien configurons votre maison que souhaitez vous faire ?": "",
         "Créer une nouvelle piece": "",
         "Modifier une pièce existante": "",
