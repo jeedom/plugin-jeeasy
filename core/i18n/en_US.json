@@ -39,7 +39,7 @@
         "Multi Antennes déportées": "",
         "Application native IOS\/Android": "",
         "DNS dynamique et HTTPS": "",
-        "Backup cloud": "",
+        "Backup cloud": "Backup Cloud",
         "2€\/mois": "",
         "Monitoring": "Monitoring",
         "1€\/mois": "",
@@ -136,7 +136,7 @@
         "Synchroniser": "Synchronize",
         "Bravo !!! Vous avez fini d'ajouter votre module": "",
         "Cliquez sur sauvegarder pour valider votre configuration": "",
-        "Synchronisation réussie": ""
+        "Synchronisation réussie": "Synchronization successful"
     },
     "plugins\/jeeasy\/desktop\/modal\/update.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
@@ -215,7 +215,7 @@
         "Protocole": "Protocol",
         "Aucun": "None",
         "Accès externe": "External access",
-        "DNS (proxy)": "",
+        "DNS (proxy)": "DNS (proxy)",
         "Attention : cette fonctionnalité n\\'est pas disponible dans le service pack community (voir votre service pack sur votre page profil sur le market)": "Please note: this feature is not available in the community service pack (see your service pack on your profile page on the market)",
         "Utiliser les DNS": "Use DNS",
         "Statut DNS": "DNS status",
@@ -265,11 +265,11 @@
         "Synchroniser": "Synchronize",
         "Bravo !!! Vous avez fini d'ajouter votre module": "",
         "Cliquez sur sauvegarder pour valider votre configuration": "",
-        "Synchronisation réussie": ""
+        "Synchronisation réussie": "Synchronization successful"
     },
     "plugins\/jeeasy\/desktop\/modal\/freebox_os.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Installation du Plugin Freebox en cours.": "",
+        "Installation du Plugin Freebox en cours.": "Installation of the Freebox Plugin in progress.",
         "Demande d\\'autorisation sur votre Freebox Delta": "",
         "Merci d\\'appuyer sur le bouton V de votre Freebox, afin de confirmer l\\'autorisation d\\'accès à votre Delta.": "",
         "Vous n\\'avez pas validé à temps, il faut vous rendre sur le plugin freebox pour relancer l\\'association. Merci": "",

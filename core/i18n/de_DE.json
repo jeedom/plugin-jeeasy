@@ -136,7 +136,7 @@
         "Synchroniser": "Synchronize",
         "Bravo !!! Vous avez fini d'ajouter votre module": "",
         "Cliquez sur sauvegarder pour valider votre configuration": "",
-        "Synchronisation réussie": ""
+        "Synchronisation réussie": "Erfolgreiche Synchronisation"
     },
     "plugins\/jeeasy\/desktop\/modal\/update.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
@@ -265,7 +265,7 @@
         "Synchroniser": "Synchronize",
         "Bravo !!! Vous avez fini d'ajouter votre module": "",
         "Cliquez sur sauvegarder pour valider votre configuration": "",
-        "Synchronisation réussie": ""
+        "Synchronisation réussie": "Erfolgreiche Synchronisation"
     },
     "plugins\/jeeasy\/desktop\/modal\/freebox_os.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
