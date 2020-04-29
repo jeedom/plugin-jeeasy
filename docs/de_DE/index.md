@@ -1,1 +1,1 @@
- !
+Jeeasy ist im Moment nur dem Assistenten des ersten Starts von Jeedom gewidmet. Bald wird es Unterstützung für die Erstellung von Objekten (Stücken), die Installation von Plugins und vieles mehr geben !
