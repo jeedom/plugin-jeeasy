@@ -73,7 +73,7 @@
         "Sauvegarder": "Salvar",
         "Suivant": "Seguinte",
         "Précédent": "Anterior",
-        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial.",
+        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial",
         "Cliquez sur suivant pour commencer": "Clique ao lado para começar",
         "C'est partie, lançons nous. Cliquez sur le bouton \"inclusion\" pour lancer l'ajout": "Acabou, vamos começar. Clique no botão \"inclusão\" para começar a adicionar",
         "Vous etes en mode inclusion. Recliquez sur le bouton d\\'inclusion pour sortir de ce mode": "Você é a inclusão de modo. Clique novamente no botão \\ de inclusão para sair deste modo",
@@ -129,9 +129,9 @@
         "Sauvegarder": "Salvar",
         "Suivant": "Seguinte",
         "Précédent": "Anterior",
-        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial.",
+        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial",
         "Cliquez sur suivant pour commencer": "Clique ao lado para começar",
-        "C'est partie, lançons nous. Pour commencer ajoutez votre nouveau module à l'application Philips Hue.": "Acabou, vamos começar. Para começar, adicione seu novo módulo ao aplicativo Philips Hue.",
+        "C'est partie, lançons nous. Pour commencer ajoutez votre nouveau module à l'application Philips Hue.": "Acabou, vamos começar. Para começar, adicione seu novo módulo ao aplicativo Philips Hue",
         "Puis une fois le module ajouté cliquez simplement sur le bouton synchroniser ci-dessous": "Depois que o módulo for adicionado, clique no botão sincronizar abaixo",
         "Synchroniser": "Sincronizar",
         "Bravo !!! Vous avez fini d'ajouter votre module": "Bem feito !!! Você terminou de adicionar seu módulo",
@@ -165,7 +165,7 @@
         "Précédent": "Anterior",
         "Très bien configurons ensemble votre Frigo : ": "Muito bem, vamos configurar o seu refrigerador juntos:",
         "Cliquez sur suivant pour commencer": "Clique ao lado para começar",
-        "Nous allons ici configurer l'affichage de votre frigo à travers quelque(s) question(s) très simple": "Aqui, configuraremos a exibição da sua geladeira através de perguntas simples.",
+        "Nous allons ici configurer l'affichage de votre frigo à travers quelque(s) question(s) très simple": "Aqui, configuraremos a exibição da sua geladeira através de perguntas simples",
         "Voulez vous voir votre frigo sur le dashboard ?": "Deseja ver sua geladeira no painel?",
         "Oui": "Sim",
         "Nous allons ici configurer des alertes sur votre frigo en cas de soucis à travers quelque(s) question(s) très simple": "Aqui, configuraremos alertas em sua geladeira em caso de preocupações através de algumas perguntas muito simples",
@@ -184,8 +184,8 @@
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
         "Guide de démarrage <?php echo config::byKey('product_name'); ?>": "Guia de primeiros passos <?php echo config::byKey('product_name'); ?>",
-        "Ce guide va vous aider à configurer votre <?php echo config::byKey('product_name'); ?> en quelques étapes.": "Este guia o ajudará a configurar seu <?php echo config::byKey('product_name'); ?> em alguns passos.",
-        "Cliquez sur la flêche pour commencer la configuration.": "Clique na seta para iniciar a configuração."
+        "Ce guide va vous aider à configurer votre <?php echo config::byKey('product_name'); ?> en quelques étapes.": "Este guia o ajudará a configurar seu <?php echo config::byKey('product_name'); ?> em alguns passos",
+        "Cliquez sur la flêche pour commencer la configuration.": "Clique na seta para iniciar a configuração"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
@@ -258,9 +258,9 @@
         "Sauvegarder": "Salvar",
         "Suivant": "Seguinte",
         "Précédent": "Anterior",
-        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial.",
+        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial",
         "Cliquez sur suivant pour commencer": "Clique ao lado para começar",
-        "C'est partie, lançons nous. Pour commencer ajoutez votre nouveau module à l'application Sonos.": "Acabou, vamos começar. Para começar, adicione seu novo módulo ao aplicativo Sonos.",
+        "C'est partie, lançons nous. Pour commencer ajoutez votre nouveau module à l'application Sonos.": "Acabou, vamos começar. Para começar, adicione seu novo módulo ao aplicativo Sonos",
         "Puis une fois le module ajouté cliquez simplement sur le bouton synchroniser ci-dessous": "Depois que o módulo for adicionado, clique no botão sincronizar abaixo",
         "Synchroniser": "Sincronizar",
         "Bravo !!! Vous avez fini d'ajouter votre module": "Bem feito !!! Você terminou de adicionar seu módulo",
@@ -269,11 +269,11 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/freebox_os.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Installation du Plugin Freebox en cours.": "Instalação do plug-in Freebox em andamento.",
+        "Installation du Plugin Freebox en cours.": "Instalação do plug-in Freebox em andamento",
         "Demande d\\'autorisation sur votre Freebox Delta": "Pedido de autorização no seu Delta Freebox",
-        "Merci d\\'appuyer sur le bouton V de votre Freebox, afin de confirmer l\\'autorisation d\\'accès à votre Delta.": "Por favor, pressione o botão V no seu Freebox para confirmar a autorização para acessar o seu Delta.",
+        "Merci d\\'appuyer sur le bouton V de votre Freebox, afin de confirmer l\\'autorisation d\\'accès à votre Delta.": "Por favor, pressione o botão V no seu Freebox para confirmar a autorização para acessar o seu Delta",
         "Vous n\\'avez pas validé à temps, il faut vous rendre sur le plugin freebox pour relancer l\\'association. Merci": "Você não validou a tempo, você deve acessar o plug-in de caixa gratuita para reiniciar a associação. Obrigada",
-        "Félicitation votre Freebox est maintenant reliée à Jeedom.": "Parabéns, seu Freebox agora está conectado ao Jeedom.",
+        "Félicitation votre Freebox est maintenant reliée à Jeedom.": "Parabéns, seu Freebox agora está conectado ao Jeedom",
         "Vous avez refusé, il faut vous rendre sur le plugin freebox pour relancer l\\'association. Merci": "Você recusou, você deve acessar o plug-in de caixa gratuita para reiniciar a associação. Obrigada",
         "Autorisation Freebox": "Autorização de caixa livre",
         "Merci d'appuyer sur le bouton V de votre Freebox, afin de confirmer l'autorisation d'accès à votre Delta": "Por favor, pressione o botão V no seu Freebox para confirmar a autorização para acessar o seu Delta"
@@ -291,7 +291,7 @@
         "Précédent": "Anterior",
         "Très bien configurons ensemble votre lumière : ": "Muito bem, vamos configurar sua luz juntos:",
         "Cliquez sur suivant pour commencer": "Clique ao lado para começar",
-        "Nous allons ici configurer l'affichage de votre frigo à travers quelque(s) question(s) très simple": "Aqui, configuraremos a exibição da sua geladeira através de perguntas simples.",
+        "Nous allons ici configurer l'affichage de votre frigo à travers quelque(s) question(s) très simple": "Aqui, configuraremos a exibição da sua geladeira através de perguntas simples",
         "Voulez vous voir votre lumière sur le dashboard ?": "Deseja ver sua luz no painel?",
         "Oui": "Sim",
         "Nous allons ici configurer l'allumage automatique de votre lumiere en fonction d'une présence ou non": "Aqui vamos configurar a iluminação automática da sua luz de acordo com uma presença ou não",
@@ -334,7 +334,7 @@
         "Sauvegarder": "Salvar",
         "Suivant": "Seguinte",
         "Précédent": "Anterior",
-        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial.",
+        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial",
         "Cliquez sur suivant pour commencer": "Clique ao lado para começar",
         "C'est partie, lançons nous. Cliquez sur le bouton \"inclusion\" pour lancer l'ajout": "Acabou, vamos começar. Clique no botão \"inclusão\" para começar a adicionar",
         "Vous etes en mode inclusion. Recliquez sur le bouton d\\'inclusion pour sortir de ce mode": "Você é a inclusão de modo. Clique novamente no botão \\ de inclusão para sair deste modo",
@@ -361,7 +361,7 @@
         "Sauvegarder": "Salvar",
         "Suivant": "Seguinte",
         "Précédent": "Anterior",
-        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial.",
+        "Très bien ajoutons un module à votre domotique.": "Muito bem, vamos adicionar um módulo à sua automação residencial",
         "Cliquez sur suivant pour commencer": "Clique ao lado para começar",
         "C'est partie, lançons nous. Cliquez sur le bouton \"inclusion\" pour lancer l'ajout": "Acabou, vamos começar. Clique no botão \"inclusão\" para começar a adicionar",
         "Vous etes en mode inclusion. Recliquez sur le bouton d\\'inclusion pour sortir de ce mode": "Você é a inclusão de modo. Clique novamente no botão \\ de inclusão para sair deste modo",
@@ -419,7 +419,7 @@
     },
     "plugins\/jeeasy\/core\/ajax\/jeeasy.ajax.php": {
         "Impossible de trouver l\\'objet associé : ": "Não foi possível encontrar o objeto associado:",
-        "Aucune méthode correspondante à : ": "Aucune methode correspondante à : "
+        "Aucune méthode correspondante à : ": "Aucune methode correspondante à :"
     },
     "plugins\/jeeasy\/core\/class\/jeeasy.class.php": {
         "Impossible de trouver le scénario : ": "Não foi possível encontrar o cenário:",
