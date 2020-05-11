@@ -1,5 +1,16 @@
 {
+    "changelog.md": {
+        "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto",
+        " IMPORTANT.": " Importante.",
+        " IMPORTANT?": " Importante?",
+        "IMPORTANT ": "Importante ",
+        "[IMPORTANT": "[Importante",
+        "IMPORTANT]": "Importante]",
+        "*IMPORTANT": "*Importante",
+        "IMPORTANT*": "Importante*"
+    },
     "index.md": {
+        "Plugin Jeeasy": "Complemento Jeeasy",
         "Jeeasy est pour le moment uniquement dédié au Wizard de premier lancement de Jeedom, bientot il y aurra l'acompagnement a la creation d'objets (pieces), installation de plugin et encore bien plus": "Jeeasy por el momento solo se dedica al Asistente del primer lanzamiento de Jeedom, pronto habrá soporte para la creación de objetos (habitaciones), instalación de plugins y mucho más"
     }
 }
