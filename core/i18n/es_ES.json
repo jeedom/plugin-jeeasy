@@ -23,7 +23,7 @@
         "Découvrez nos Services Packs": "Descubra nuestros Service Packs",
         "Inclus avec": "Incluido con",
         "Tous": "Todos",
-        "Box Smart": "Box Smart",
+        "Box Smart": "Caja inteligente",
         "En option (45€)": "Opcional (45 €)",
         "Box Pro": "Box Pro",
         "Plugins offerts": "Complementos gratis",
@@ -400,7 +400,7 @@
         "EnOcean": "EnOcean",
         "Rfxcom": "RFXcom",
         "Zwave": "Zwave",
-        "Sonos": "Sonos",
+        "Sonos": "Su hueso",
         "Philips Hue": "Philips Hue",
         "Ajout d'un module enOcean": "Adición de un módulo enOcean",
         "Ajout d'un module RFXcom": "Adición de un módulo RFXcom",
@@ -434,5 +434,8 @@
         "Installation des dépendances réussies": "Instalación de dependencias exitosas",
         "Malheureusement nous n\\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de regarder les logs et\/ou de contacter le support. Plugin : ": "Lamentablemente, no podemos iniciar el plugin deamon. Le recomendamos que consulte los registros y \/ o póngase en contacto con el soporte. Plugin",
         "Lancement du démon réussi": "Lanzamiento exitoso del demonio"
+    },
+    "info.json": {
+        "Plugin permettant de configurer facilement Jeedom": "Complemento para configurar fácilmente Jeedom"
     }
 }

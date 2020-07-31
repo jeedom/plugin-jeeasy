@@ -1,7 +1,13 @@
 {
     "id": "jeeasy",
     "name": "Jeeasy",
-    "description": "Plugin permettant de configurer facilement Jeedom",
+    "description": {
+        "fr_FR": "Plugin permettant de configurer facilement Jeedom",
+        "en_US": "Plugin to easily configure Jeedom",
+        "es_ES": "Complemento para configurar fácilmente Jeedom",
+        "de_DE": "Plugin zur einfachen Konfiguration von Jeedom",
+        "pt_PT": "Plugin para configurar facilmente o Jeedom"
+    },
     "licence": "AGPL",
     "author": "Jeedom SAS",
     "require": "4.0",
@@ -11,6 +17,20 @@
     "maxDependancyInstallTime": 0,
     "changelog": "https:\/\/doc.jeedom.com\/#language#\/plugins\/programming\/jeeasy\/changelog",
     "documentation": "https:\/\/doc.jeedom.com\/#language#\/plugins\/programming\/jeeasy\/",
-  "language" : ["fr_FR","en_US","de_DE","sp_SP"],
-"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"]
+    "language": [
+        "fr_FR",
+        "en_US",
+        "es_ES",
+        "de_DE",
+        "pt_PT"
+    ],
+    "compatibility": [
+        "miniplus",
+        "smart",
+        "rpi",
+        "docker",
+        "diy",
+        "mobile",
+        "v4"
+    ]
 }

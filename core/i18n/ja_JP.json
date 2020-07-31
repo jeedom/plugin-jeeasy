@@ -434,5 +434,8 @@
         "Installation des dépendances réussies": "",
         "Malheureusement nous n\\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de regarder les logs et\/ou de contacter le support. Plugin : ": "",
         "Lancement du démon réussi": ""
+    },
+    "info.json": {
+        "Plugin permettant de configurer facilement Jeedom": ""
     }
 }

@@ -5,10 +5,10 @@
         " IMPORTANT.": " Important.",
         " IMPORTANT?": " Important?",
         "IMPORTANT ": "Important ",
-        "[IMPORTANT": "[Important",
-        "IMPORTANT]": "Important]",
-        "*IMPORTANT": "*Important",
-        "IMPORTANT*": "Important*"
+        " IMPORTANT]": " Important]",
+        "[IMPORTANT]": "[Important]",
+        "*IMPORTANT*": "*Important*",
+        " IMPORTANT*": " Important*"
     },
     "index.md": {
         "Plugin Jeeasy": "Jeeasy plugin",
