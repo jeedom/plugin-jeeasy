@@ -3,13 +3,13 @@ if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 ?>
-<br/>
+<br />
 <div class="textInfoJeeasy">{{Bienvenu sur la page de configuration facile de}} <?php echo config::byKey('product_name'); ?></div>
 <div class="row">
 
 	<div class="col-sm-4" style="margin-bottom: 10px;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyMainConfiguration">
-			<i class="fa fa-cogs iconTableJeeasy"></i>
+			<i class="fas fa-cogs iconTableJeeasy"></i>
 			<br />
 			{{Configurer mon}} <?php echo config::byKey('product_name'); ?>
 		</div>
@@ -17,7 +17,7 @@ if (!isConnect('admin')) {
 
 	<div class="col-sm-4" style="margin-bottom: 10px;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyDiscovery">
-			<i class="fa fa-wifi iconTableJeeasy"></i>
+			<i class="fas fa-wifi iconTableJeeasy"></i>
 			<br />
 			{{Detecter mes equipements}}
 		</div>
@@ -25,7 +25,7 @@ if (!isConnect('admin')) {
 
 	<div class="col-sm-4" style="margin-bottom: 10px;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyObjectConfiguration">
-			<i class="fa fa-home iconTableJeeasy"></i>
+			<i class="fas fa-home iconTableJeeasy"></i>
 			<br />
 			{{Configurer ma maison}}
 		</div>
@@ -33,7 +33,7 @@ if (!isConnect('admin')) {
 
 	<div class="col-sm-4" style="margin-bottom: 10px;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyIncludeConfiguration">
-			<i class="fa fa-plus iconTableJeeasy"></i>
+			<i class="fas fa-plus iconTableJeeasy"></i>
 			<br />
 			{{Ajouter un équipement}}
 		</div>
@@ -41,7 +41,7 @@ if (!isConnect('admin')) {
 
 	<div class="col-sm-4" style="margin-bottom: 10px;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyEqLogicConfiguration">
-			<i class="fa fa-wrench iconTableJeeasy"></i>
+			<i class="fas fa-wrench iconTableJeeasy"></i>
 			<br />
 			{{Configurer un équipement}}
 		</div>
@@ -57,5 +57,5 @@ if (!isConnect('admin')) {
 
 </div>
 
-<?php include_file('desktop', 'jeeasy', 'js', 'jeeasy');?>
-<?php include_file('desktop', 'jeeasy', 'css', 'jeeasy');?>
+<?php include_file('desktop', 'jeeasy', 'js', 'jeeasy'); ?>
+<?php include_file('desktop', 'jeeasy', 'css', 'jeeasy'); ?>

@@ -33,36 +33,40 @@ $configs = config::byKeys($keys);
 	<div class="col-lg-2">
 		<div class="bs-sidebar">
 			<ul class="nav nav-list bs-sidenav">
-				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fa fa-home"></i> {{Accueil}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="main"><a><i class="fa fa-wrench"></i> {{Général}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="network"><a><i class="fa fa-wifi"></i> {{Réseaux}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="log"><a><i class="fa fa-file"></i> {{Logs}}</a></li>
+				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fas fa-home"></i> {{Accueil}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="main"><a><i class="fas fa-wrench"></i> {{Général}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="network"><a><i class="fas fa-wifi"></i> {{Réseaux}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="log"><a><i class="far fa-file"></i> {{Logs}}</a></li>
 				<li class="cursor li_jeeEasySummary" data-href="eqLogic"><a><i class="icon divers-svg"></i> {{Equipement}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="market"><a><i class="fa fa-credit-card"></i> {{Market}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="alerts"><a><i class="fa fa-bell"></i> {{Alertes}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fa fa-check"></i> {{Fin}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="market"><a><i class="far fa-credit-card"></i> {{Market}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="alerts"><a><i class="fas fa-bell"></i> {{Alertes}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fas fa-check"></i> {{Fin}}</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="col-lg-10" id="div_jeeasyConfigureJeedom">
-		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a>
-		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a>
-		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fa fa-angle-double-left"></i> {{Précédent}}</a>
-		<br/><br/>
+		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a>
+		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a>
+		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fas fa-angle-double-left"></i> {{Précédent}}</a>
+		<br /><br />
 		<div class="jeeasyDisplay home">
-			<center><i class="fa fa-home" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Bienvenu sur l'assistant de configuration de votre}} <?php echo config::byKey('product_name'); ?></div></center>
+			<center><i class="fas fa-home" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Bienvenu sur l'assistant de configuration de votre}} <?php echo config::byKey('product_name'); ?></div>
+			</center>
 			<center>{{Cliquez sur suivant pour commencer}}</center>
-			<br/>
-			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a></center>
+			<br />
+			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>
 		</div>
 
 		<div class="jeeasyDisplay main" style="display:none;">
-			<center><i class="fa fa-wrench" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous allons ici configurer les principaux paramètre de votre}} <?php echo config::byKey('product_name'); ?></div></center>
+			<center><i class="fas fa-wrench" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous allons ici configurer les principaux paramètre de votre}} <?php echo config::byKey('product_name'); ?></div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
@@ -193,9 +197,11 @@ $configs = config::byKeys($keys);
 		</div>
 
 		<div class="jeeasyDisplay network" style="display:none;">
-			<center><i class="fa fa-wifi" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous allons ici configurer le réseaux de votre}} <?php echo config::byKey('product_name'); ?>.{{La pluspart du temps la configuration par défaut est correcte et vous n'avez pas à la modifier}}</div></center>
+			<center><i class="fas fa-wifi" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous allons ici configurer le réseaux de votre}} <?php echo config::byKey('product_name'); ?>.{{La pluspart du temps la configuration par défaut est correcte et vous n'avez pas à la modifier}}</div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<legend>{{Accès interne}}</legend>
@@ -245,51 +251,53 @@ $configs = config::byKeys($keys);
 			<form class="form-horizontal">
 				<fieldset>
 					<?php
-foreach ($repos as $key => $value) {
-	if (!isset($value['scope']['proxy']) || $value['scope']['proxy'] === false) {
-		continue;
-	}
-	if ($configs[$key . '::enable'] == 0) {
-		continue;
-	}
-	echo '<legend>{{DNS (proxy)}} ' . $value['name'] . '</legend>';
-	if ($configs['dns::token'] == '') {
-		echo '<div class="alert alert-warning">{{Attention : cette fonctionnalité n\'est pas disponible dans le service pack community (voir votre service pack sur votre page profil sur le market)}}</div>';
-		continue;
-	}
-	echo '<div class="form-group">';
-	echo '<label class="col-xs-4 control-label">{{Utiliser les DNS}} ' . config::byKey('product_name') . '</label>';
-	echo '<div class="col-xs-8">';
-	echo '<input type="checkbox" class="configKey" data-l1key="' . $key . '::allowDNS" />';
-	echo '</div>';
-	echo '</div>';
-	echo '<div class="form-group">';
-	echo '<label class="col-xs-4 control-label">{{Statut DNS}}</label>';
-	echo '<div class="col-xs-8">';
-	if ($configs['market::allowDNS'] == 1 && network::dns_run()) {
-		echo '<span class="label label-success" style="font-size : 1em;">{{Démarré : }} <a href="' . network::getNetworkAccess('external') . '" target="_blank" style="color:white;text-decoration: underline;">' . network::getNetworkAccess('external') . '</a></span>';
-	} else {
-		echo '<span class="label label-warning" title="{{Normal si vous n\'avez pas coché la case : Utiliser les DNS}} ' . config::byKey('product_name') . '">{{Arrêté}}</span>';
-	}
-	echo '</div>';
-	echo '</div>';
-	echo '<div class="form-group">';
-	echo '<label class="col-xs-4 control-label">{{Gestion}}</label>';
-	echo '<div class="col-xs-8">';
-	echo '<a class="btn btn-success" id="bt_restartDns"><i class=\'fa fa-play\'></i> {{(Re)démarrer}}</a> ';
-	echo '<a class="btn btn-danger" id="bt_haltDns"><i class=\'fa fa-stop\'></i> {{Arrêter}}</a>';
-	echo '</div>';
-	echo '</div>';
-}
-?>
+					foreach ($repos as $key => $value) {
+						if (!isset($value['scope']['proxy']) || $value['scope']['proxy'] === false) {
+							continue;
+						}
+						if ($configs[$key . '::enable'] == 0) {
+							continue;
+						}
+						echo '<legend>{{DNS (proxy)}} ' . $value['name'] . '</legend>';
+						if ($configs['dns::token'] == '') {
+							echo '<div class="alert alert-warning">{{Attention : cette fonctionnalité n\'est pas disponible dans le service pack community (voir votre service pack sur votre page profil sur le market)}}</div>';
+							continue;
+						}
+						echo '<div class="form-group">';
+						echo '<label class="col-xs-4 control-label">{{Utiliser les DNS}} ' . config::byKey('product_name') . '</label>';
+						echo '<div class="col-xs-8">';
+						echo '<input type="checkbox" class="configKey" data-l1key="' . $key . '::allowDNS" />';
+						echo '</div>';
+						echo '</div>';
+						echo '<div class="form-group">';
+						echo '<label class="col-xs-4 control-label">{{Statut DNS}}</label>';
+						echo '<div class="col-xs-8">';
+						if ($configs['market::allowDNS'] == 1 && network::dns_run()) {
+							echo '<span class="label label-success" style="font-size : 1em;">{{Démarré : }} <a href="' . network::getNetworkAccess('external') . '" target="_blank" style="color:white;text-decoration: underline;">' . network::getNetworkAccess('external') . '</a></span>';
+						} else {
+							echo '<span class="label label-warning" title="{{Normal si vous n\'avez pas coché la case : Utiliser les DNS}} ' . config::byKey('product_name') . '">{{Arrêté}}</span>';
+						}
+						echo '</div>';
+						echo '</div>';
+						echo '<div class="form-group">';
+						echo '<label class="col-xs-4 control-label">{{Gestion}}</label>';
+						echo '<div class="col-xs-8">';
+						echo '<a class="btn btn-success" id="bt_restartDns"><i class=\'fas fa-play\'></i> {{(Re)démarrer}}</a> ';
+						echo '<a class="btn btn-danger" id="bt_haltDns"><i class=\'fas fa-stop\'></i> {{Arrêter}}</a>';
+						echo '</div>';
+						echo '</div>';
+					}
+					?>
 				</fieldset>
 			</form>
 		</div>
 
 		<div class="jeeasyDisplay log" style="display:none;">
-			<center><i class="fa fa-file" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous allons ici configurer les logs de votre}} <?php echo config::byKey('product_name'); ?></div></center>
+			<center><i class="far fa-file" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous allons ici configurer les logs de votre}} <?php echo config::byKey('product_name'); ?></div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
@@ -309,8 +317,10 @@ foreach ($repos as $key => $value) {
 
 		<div class="jeeasyDisplay eqLogic" style="display:none;">
 			<center><i class="icon divers-svg" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous allons ici configurer les logs de votre}} <?php echo config::byKey('product_name'); ?></div></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous allons ici configurer les logs de votre}} <?php echo config::byKey('product_name'); ?></div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
@@ -330,81 +340,85 @@ foreach ($repos as $key => $value) {
 		</div>
 
 		<div class="jeeasyDisplay market" style="display:none;">
-			<center><i class="fa fa-credit-card" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous allons ici configurer la connexion de votre }} <?php echo config::byKey('product_name'); ?> {{au market}}</div></center>
+			<center><i class="far fa-credit-card" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous allons ici configurer la connexion de votre }} <?php echo config::byKey('product_name'); ?> {{au market}}</div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<?php
-foreach ($repos as $key => $value) {
-	if ($key != 'market') {
-		continue;
-	}
-	$active = ($key == 'market') ? 'active' : '';
-	echo '<div role="tabpanel" class="tab-pane ' . $active . '" id="tab' . $key . '">';
-	echo '<br/>';
-	echo '<div class="form-group">';
-	echo '<label class="col-lg-4 col-md-6 col-sm-6 col-xs-6 control-label">{{Activer}} ' . $value['name'] . '</label>';
-	echo '<div class="col-sm-1">';
-	echo '<input type="checkbox" class="configKey enableRepository" data-repo="' . $key . '" data-l1key="' . $key . '::enable"/>';
-	echo '</div>';
-	echo '</div>';
-	if ($value['scope']['hasConfiguration'] === false) {
-		echo '</div>';
-		continue;
-	}
-	echo '<div class="repositoryConfiguration' . $key . '">';
-	foreach ($value['configuration']['configuration'] as $pKey => $parameter) {
-		echo '<div class="form-group">';
-		echo '<label class="col-lg-4 col-md-6 col-sm-6 col-xs-6 control-label">';
-		echo $parameter['name'];
-		echo '</label>';
-		echo '<div class="col-sm-6">';
-		$default = (isset($parameter['default'])) ? $parameter['default'] : '';
-		switch ($parameter['type']) {
-			case 'checkbox':
-				echo '<input type="checkbox" class="configKey" data-l1key="' . $key . '::' . $pKey . '" value="' . $default . '" />';
-				break;
-			case 'input':
-				echo '<input class="configKey form-control" data-l1key="' . $key . '::' . $pKey . '" value="' . $default . '" />';
-				break;
-			case 'number':
-				echo '<input type="number" class="configKey form-control" data-l1key="' . $key . '::' . $pKey . '" value="' . $default . '" />';
-				break;
-			case 'password':
-				echo '<input type="password" class="configKey form-control" data-l1key="' . $key . '::' . $pKey . '" value="' . $default . '" />';
-				break;
-			case 'select':
-				echo '<select class="configKey form-control" data-l1key="' . $key . '::' . $pKey . '">';
-				foreach ($parameter['values'] as $optkey => $optval) {
-					echo '<option value="' . $optkey . '">' . $optval . '</option>';
-				}
-				echo '</select>';
-				break;
-		}
-		echo '</div>';
-		echo '</div>';
-	}
-	if (isset($value['scope']['test']) && $value['scope']['test']) {
-		echo '<div class="form-group">';
-		echo '<label class="col-lg-4 col-md-6 col-sm-6 col-xs-6 control-label">{{Tester}}</label>';
-		echo '<div class="col-sm-4">';
-		echo '<a class="btn btn-default testRepoConnection" data-repo="' . $key . '"><i class="fas fa-check"></i> {{Tester}}</a>';
-		echo '</div>';
-		echo '</div>';
-	}
-	echo '</div>';
-	echo '</div>';
-}
-?>
+					foreach ($repos as $key => $value) {
+						if ($key != 'market') {
+							continue;
+						}
+						$active = ($key == 'market') ? 'active' : '';
+						echo '<div role="tabpanel" class="tab-pane ' . $active . '" id="tab' . $key . '">';
+						echo '<br/>';
+						echo '<div class="form-group">';
+						echo '<label class="col-lg-4 col-md-6 col-sm-6 col-xs-6 control-label">{{Activer}} ' . $value['name'] . '</label>';
+						echo '<div class="col-sm-1">';
+						echo '<input type="checkbox" class="configKey enableRepository" data-repo="' . $key . '" data-l1key="' . $key . '::enable"/>';
+						echo '</div>';
+						echo '</div>';
+						if ($value['scope']['hasConfiguration'] === false) {
+							echo '</div>';
+							continue;
+						}
+						echo '<div class="repositoryConfiguration' . $key . '">';
+						foreach ($value['configuration']['configuration'] as $pKey => $parameter) {
+							echo '<div class="form-group">';
+							echo '<label class="col-lg-4 col-md-6 col-sm-6 col-xs-6 control-label">';
+							echo $parameter['name'];
+							echo '</label>';
+							echo '<div class="col-sm-6">';
+							$default = (isset($parameter['default'])) ? $parameter['default'] : '';
+							switch ($parameter['type']) {
+								case 'checkbox':
+									echo '<input type="checkbox" class="configKey" data-l1key="' . $key . '::' . $pKey . '" value="' . $default . '" />';
+									break;
+								case 'input':
+									echo '<input class="configKey form-control" data-l1key="' . $key . '::' . $pKey . '" value="' . $default . '" />';
+									break;
+								case 'number':
+									echo '<input type="number" class="configKey form-control" data-l1key="' . $key . '::' . $pKey . '" value="' . $default . '" />';
+									break;
+								case 'password':
+									echo '<input type="password" class="configKey form-control" data-l1key="' . $key . '::' . $pKey . '" value="' . $default . '" />';
+									break;
+								case 'select':
+									echo '<select class="configKey form-control" data-l1key="' . $key . '::' . $pKey . '">';
+									foreach ($parameter['values'] as $optkey => $optval) {
+										echo '<option value="' . $optkey . '">' . $optval . '</option>';
+									}
+									echo '</select>';
+									break;
+							}
+							echo '</div>';
+							echo '</div>';
+						}
+						if (isset($value['scope']['test']) && $value['scope']['test']) {
+							echo '<div class="form-group">';
+							echo '<label class="col-lg-4 col-md-6 col-sm-6 col-xs-6 control-label">{{Tester}}</label>';
+							echo '<div class="col-sm-4">';
+							echo '<a class="btn btn-default testRepoConnection" data-repo="' . $key . '"><i class="fas fa-check"></i> {{Tester}}</a>';
+							echo '</div>';
+							echo '</div>';
+						}
+						echo '</div>';
+						echo '</div>';
+					}
+					?>
 				</fieldset>
 			</form>
 		</div>
 
 		<div class="jeeasyDisplay alerts" style="display:none;">
-			<center><i class="fa fa-bell" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous allons voir ici comment votre}} <?php echo config::byKey('product_name'); ?> {{peut vous contacter}}</div></center>
+			<center><i class="fas fa-bell" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous allons voir ici comment votre}} <?php echo config::byKey('product_name'); ?> {{peut vous contacter}}</div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<legend>{{Alertes}}</legend>
@@ -415,111 +429,131 @@ foreach ($repos as $key => $value) {
 						</div>
 					</div>
 					<div id="div_actionOnMessage"></div>
-					<hr/>
+					<hr />
 					<?php
-foreach ($JEEDOM_INTERNAL_CONFIG['alerts'] as $level => $value) {
-	if (!in_array($level, array('timeout', 'batterydanger', 'danger'))) {
-		continue;
-	}
-	echo '<div class="form-group">';
-	echo '<label class="col-xs-3 control-label">{{Commande sur}} ' . $value['name'] . '</label>';
-	echo '<div class="col-xs-4">';
-	echo '<div class="input-group">';
-	echo '<input type="text"  class="configKey form-control" data-l1key="alert::' . $level . 'Cmd" />';
-	echo '<span class="input-group-btn">';
-	echo '<a class="btn btn-default cursor bt_selectAlertCmd" title="Rechercher une commande" data-type="' . $level . '"><i class="fas fa-list-alt"></i></a>';
-	echo '</span>';
-	echo '</div>';
-	echo '</div>';
-	echo '</div>';
-}
-?>
+					foreach ($JEEDOM_INTERNAL_CONFIG['alerts'] as $level => $value) {
+						if (!in_array($level, array('timeout', 'batterydanger', 'danger'))) {
+							continue;
+						}
+						echo '<div class="form-group">';
+						echo '<label class="col-xs-3 control-label">{{Commande sur}} ' . $value['name'] . '</label>';
+						echo '<div class="col-xs-4">';
+						echo '<div class="input-group">';
+						echo '<input type="text"  class="configKey form-control" data-l1key="alert::' . $level . 'Cmd" />';
+						echo '<span class="input-group-btn">';
+						echo '<a class="btn btn-default cursor bt_selectAlertCmd" title="Rechercher une commande" data-type="' . $level . '"><i class="fas fa-list-alt"></i></a>';
+						echo '</span>';
+						echo '</div>';
+						echo '</div>';
+						echo '</div>';
+					}
+					?>
 				</fieldset>
 			</form>
 		</div>
 
 		<div class="jeeasyDisplay end" style="display:none;">
-			<center><i class="fa fa-check" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre}} <?php echo config::byKey('product_name'); ?></div></center>
+			<center><i class="fas fa-check" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre}} <?php echo config::byKey('product_name'); ?></div>
+			</center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
-			<br/>
-			<center><a class="btn btn-success bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a></center>
+			<br />
+			<center><a class="btn btn-success bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a></center>
 		</div>
 
 	</div>
 </div>
 
 <script type="text/javascript">
-	$('.bt_jeeasyNext').off('click').on('click',function(){
+	$('.bt_jeeasyNext').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').next().click();
 	});
-	$('.bt_jeeasyPrevious').off('click').on('click',function(){
+	$('.bt_jeeasyPrevious').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').prev().click();
 	});
-	$('.li_jeeEasySummary').off('click').on('click',function(){
+	$('.li_jeeEasySummary').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').removeClass('active');
 		$(this).addClass('active');
 		$('.jeeasyDisplay').hide();
-		$('.jeeasyDisplay.'+$(this).attr('data-href')).show();
-		$(this).attr('data-display',1);
+		$('.jeeasyDisplay.' + $(this).attr('data-href')).show();
+		$(this).attr('data-display', 1);
 	});
 
-	$('.bt_selectAlertCmd').off('click').on('click', function () {
-		var type=$(this).attr('data-type');
-		jeedom.cmd.getSelectModal({cmd: {type: 'action', subType: 'message'}}, function (result) {
-			$('.configKey[data-l1key="alert::'+type+'Cmd"]').value(result.human);
+	$('.bt_selectAlertCmd').off('click').on('click', function() {
+		var type = $(this).attr('data-type');
+		jeedom.cmd.getSelectModal({
+			cmd: {
+				type: 'action',
+				subType: 'message'
+			}
+		}, function(result) {
+			$('.configKey[data-l1key="alert::' + type + 'Cmd"]').value(result.human);
 		});
 	});
 
-	$("body").delegate(".listCmdAction", 'click', function () {
+	$("body").delegate(".listCmdAction", 'click', function() {
 		var el = $(this).closest('.actionOnMessage').find('.expressionAttr[data-l1key=cmd]');
-		jeedom.cmd.getSelectModal({cmd: {type: 'action'}}, function (result) {
+		jeedom.cmd.getSelectModal({
+			cmd: {
+				type: 'action'
+			}
+		}, function(result) {
 			el.value(result.human);
-			jeedom.cmd.displayActionOption(el.value(), '', function (html) {
+			jeedom.cmd.displayActionOption(el.value(), '', function(html) {
 				el.closest('.actionOnMessage').find('.actionOptions').html(html);
 				taAutosize();
 			});
 		});
 	});
 
-	$("body").delegate(".listAction", 'click', function () {
+	$("body").delegate(".listAction", 'click', function() {
 		var el = $(this).closest('.actionOnMessage').find('.expressionAttr[data-l1key=cmd]');
-		jeedom.getSelectActionModal({}, function (result) {
+		jeedom.getSelectActionModal({}, function(result) {
 			el.value(result.human);
-			jeedom.cmd.displayActionOption(el.value(), '', function (html) {
+			jeedom.cmd.displayActionOption(el.value(), '', function(html) {
 				el.closest('.actionOnMessage').find('.actionOptions').html(html);
 				taAutosize();
 			});
 		});
 	});
 
-	$("body").delegate('.bt_removeAction', 'click', function () {
+	$("body").delegate('.bt_removeAction', 'click', function() {
 		$(this).closest('.actionOnMessage').remove();
 	});
 
-	$('#bt_addActionOnMessage').on('click',function(){
+	$('#bt_addActionOnMessage').on('click', function() {
 		addActionOnMessage();
 	});
 
-	$('.bt_jeeasySave').off('click').on('click',function(){
+	$('.bt_jeeasySave').off('click').on('click', function() {
 		var config = $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0];
 		jeedom.config.save({
 			configuration: config,
-			error: function (error) {
-				$('#div_AlertJeeasyJeedomConfigure').showAlert({message: error.message, level: 'danger'});
+			error: function(error) {
+				$('#div_AlertJeeasyJeedomConfigure').showAlert({
+					message: error.message,
+					level: 'danger'
+				});
 			},
-			success: function () {
+			success: function() {
 				jeedom.config.load({
 					configuration: $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0],
-					error: function (error) {
-						$('#div_AlertJeeasyJeedomConfigure').showAlert({message: error.message, level: 'danger'});
+					error: function(error) {
+						$('#div_AlertJeeasyJeedomConfigure').showAlert({
+							message: error.message,
+							level: 'danger'
+						});
 					},
-					success: function (data) {
+					success: function(data) {
 						$('#div_jeeasyConfigureJeedom').setValues(data, '.configKey');
 						loadAactionOnMessage()
 						modifyWithoutSave = false;
-						$('#div_AlertJeeasyJeedomConfigure').showAlert({message: '{{Sauvegarde réussie}}', level: 'success'});
+						$('#div_AlertJeeasyJeedomConfigure').showAlert({
+							message: '{{Sauvegarde réussie}}',
+							level: 'success'
+						});
 					}
 				});
 			}
@@ -528,39 +562,54 @@ foreach ($JEEDOM_INTERNAL_CONFIG['alerts'] as $level => $value) {
 
 	jeedom.config.load({
 		configuration: $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0],
-		error: function (error) {
-			$('#div_AlertJeeasyJeedomConfigure').showAlert({message: error.message, level: 'danger'});
+		error: function(error) {
+			$('#div_AlertJeeasyJeedomConfigure').showAlert({
+				message: error.message,
+				level: 'danger'
+			});
 		},
-		success: function (data) {
+		success: function(data) {
 			$('#div_jeeasyConfigureJeedom').setValues(data, '.configKey');
 			loadAactionOnMessage();
 			modifyWithoutSave = false;
 		}
 	});
 
-	$('.testRepoConnection').on('click',function(){
+	$('.testRepoConnection').on('click', function() {
 		var repo = $(this).attr('data-repo');
 		jeedom.config.save({
 			configuration: $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0],
-			error: function (error) {
-				$('#div_AlertJeeasyJeedomConfigure').showAlert({message: error.message, level: 'danger'});
+			error: function(error) {
+				$('#div_AlertJeeasyJeedomConfigure').showAlert({
+					message: error.message,
+					level: 'danger'
+				});
 			},
-			success: function () {
+			success: function() {
 				jeedom.config.load({
 					configuration: $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0],
-					error: function (error) {
-						$('#div_AlertJeeasyJeedomConfigure').showAlert({message: error.message, level: 'danger'});
+					error: function(error) {
+						$('#div_AlertJeeasyJeedomConfigure').showAlert({
+							message: error.message,
+							level: 'danger'
+						});
 					},
-					success: function (data) {
+					success: function(data) {
 						$('#div_jeeasyConfigureJeedom').setValues(data, '.configKey');
 						modifyWithoutSave = false;
 						jeedom.repo.test({
 							repo: repo,
-							error: function (error) {
-								$('#div_AlertJeeasyJeedomConfigure').showAlert({message: error.message, level: 'danger'});
+							error: function(error) {
+								$('#div_AlertJeeasyJeedomConfigure').showAlert({
+									message: error.message,
+									level: 'danger'
+								});
 							},
-							success: function (data) {
-								$('#div_AlertJeeasyJeedomConfigure').showAlert({message: '{{Test réussi}}', level: 'success'});
+							success: function(data) {
+								$('#div_AlertJeeasyJeedomConfigure').showAlert({
+									message: '{{Test réussi}}',
+									level: 'success'
+								});
 							}
 						});
 					}
@@ -569,15 +618,18 @@ foreach ($JEEDOM_INTERNAL_CONFIG['alerts'] as $level => $value) {
 		});
 	});
 
-	function loadAactionOnMessage(){
+	function loadAactionOnMessage() {
 		$('#div_actionOnMessage').empty();
 		jeedom.config.load({
 			configuration: 'actionOnMessage',
-			error: function (error) {
-				$('#div_alert').showAlert({message: error.message, level: 'danger'});
+			error: function(error) {
+				$('#div_alert').showAlert({
+					message: error.message,
+					level: 'danger'
+				});
 			},
-			success: function (data) {
-				if(data == ''){
+			success: function(data) {
+				if (data == '') {
 					return;
 				}
 				actionOptions = [];
@@ -585,14 +637,17 @@ foreach ($JEEDOM_INTERNAL_CONFIG['alerts'] as $level => $value) {
 					addActionOnMessage(data[i]);
 				}
 				jeedom.cmd.displayActionsOption({
-					params : actionOptions,
-					async : false,
-					error: function (error) {
-						$('#div_alert').showAlert({message: error.message, level: 'danger'});
+					params: actionOptions,
+					async: false,
+					error: function(error) {
+						$('#div_alert').showAlert({
+							message: error.message,
+							level: 'danger'
+						});
 					},
-					success : function(data){
-						for(var i in data){
-							$('#'+data[i].id).append(data[i].html.html);
+					success: function(data) {
+						for (var i in data) {
+							$('#' + data[i].id).append(data[i].html.html);
 						}
 						taAutosize();
 					}
@@ -625,17 +680,17 @@ foreach ($JEEDOM_INTERNAL_CONFIG['alerts'] as $level => $value) {
 		div += '</div>';
 		div += '</div>';
 		var actionOption_id = uniqId();
-		div += '<div class="col-xs-5 actionOptions" id="'+actionOption_id+'">';
+		div += '<div class="col-xs-5 actionOptions" id="' + actionOption_id + '">';
 		div += '</div>';
 		div += '</div>';
 		$('#div_actionOnMessage').append(div);
 		$('#div_actionOnMessage .actionOnMessage:last').setValues(_action, '.expressionAttr');
 		actionOptions.push({
-			expression : init(_action.cmd, ''),
-			options : _action.options,
-			id : actionOption_id
+			expression: init(_action.cmd, ''),
+			options: _action.options,
+			id: actionOption_id
 		});
 	}
 </script>
 
-<?php include_file('3rdparty', 'deepmerge', 'js', 'jeeasy');?>
+<?php include_file('3rdparty', 'deepmerge', 'js', 'jeeasy'); ?>

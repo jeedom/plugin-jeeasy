@@ -26,65 +26,73 @@ jeeasy::checkPlugin('philipsHue');
 	<div class="col-lg-2">
 		<div class="bs-sidebar">
 			<ul class="nav nav-list bs-sidenav">
-				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fa fa-plus"></i> {{Accueil}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="include"><a><i class="fa fa-wifi"></i> {{Ajout}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fa fa-check"></i> {{Fin}}</a></li>
+				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fas fa-plus"></i> {{Accueil}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="include"><a><i class="fas fa-wifi"></i> {{Ajout}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fas fa-check"></i> {{Fin}}</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="col-lg-10" id="div_jeeasyIncludeDisplay">
-		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a>
-		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a>
-		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fa fa-angle-double-left"></i> {{Précédent}}</a>
-		<br/><br/>
+		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a>
+		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a>
+		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fas fa-angle-double-left"></i> {{Précédent}}</a>
+		<br /><br />
 		<div class="jeeasyDisplay home">
-			<center><i class="fa fa-plus" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Très bien ajoutons un module à votre domotique.}}</div></center>
+			<center><i class="fas fa-plus" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Très bien ajoutons un module à votre domotique.}}</div>
+			</center>
 			<center>{{Cliquez sur suivant pour commencer}}</center>
-			<br/>
-			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a></center>
+			<br />
+			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>
 		</div>
 
 		<div class="jeeasyDisplay include" style="display:none;">
-			<center><i class="fa fa-wifi" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{C'est partie, lançons nous. Pour commencer ajoutez votre nouveau module à l'application Philips Hue.}}</div></center>
-			<center><div class="alert alert-info">{{Puis une fois le module ajouté cliquez simplement sur le bouton synchroniser ci-dessous}}</div></center>
-			<br/>
-			<center><a class="btn btn-default" id="bt_jeeasySyncPhilipsHue"><i class="fa fa-refresh"></i> {{Synchroniser}}</a></center>
+			<center><i class="fas fa-wifi" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{C'est partie, lançons nous. Pour commencer ajoutez votre nouveau module à l'application Philips Hue.}}</div>
+			</center>
+			<center>
+				<div class="alert alert-info">{{Puis une fois le module ajouté cliquez simplement sur le bouton synchroniser ci-dessous}}</div>
+			</center>
+			<br />
+			<center><a class="btn btn-default" id="bt_jeeasySyncPhilipsHue"><i class="fas fa-sync"></i> {{Synchroniser}}</a></center>
 		</div>
 
 		<div class="jeeasyDisplay end" style="display:none;">
-			<center><i class="fa fa-check" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini d'ajouter votre module}}</div></center>
+			<center><i class="fas fa-check" style="font-size: 10em;"></i></center>
+			<br />
+			<center>
+				<div class="alert alert-success">{{Bravo !!! Vous avez fini d'ajouter votre module}}</div>
+			</center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
-			<br/>
-			<center><a class="btn btn-success bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a></center>
+			<br />
+			<center><a class="btn btn-success bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a></center>
 		</div>
 
 	</div>
 </div>
 <script type="text/javascript">
 	eqLogic_id = null;
-	$('.bt_jeeasyNext').off('click').on('click',function(){
+	$('.bt_jeeasyNext').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').next().click();
 	});
-	$('.bt_jeeasyPrevious').off('click').on('click',function(){
+	$('.bt_jeeasyPrevious').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').prev().click();
 	});
-	$('.li_jeeEasySummary').off('click').on('click',function(){
+	$('.li_jeeEasySummary').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').removeClass('active');
 		$(this).addClass('active');
 		$('.jeeasyDisplay').hide();
-		$('.jeeasyDisplay.'+$(this).attr('data-href')).show();
-		$(this).attr('data-display',1);
+		$('.jeeasyDisplay.' + $(this).attr('data-href')).show();
+		$(this).attr('data-display', 1);
 	});
 
 
-	$('#bt_jeeasySyncPhilipsHue').off('click').on('click',function(){
+	$('#bt_jeeasySyncPhilipsHue').off('click').on('click', function() {
 		$.ajax({
 			type: "POST",
 			url: "plugins/philipsHue/core/ajax/philipsHue.ajax.php",
@@ -92,20 +100,24 @@ jeeasy::checkPlugin('philipsHue');
 				action: "syncPhilipsHue",
 			},
 			dataType: 'json',
-			error: function (request, status, error) {
-				handleAjaxError(request, status, error,$('#div_AlertJeeasyInclude'));
+			error: function(request, status, error) {
+				handleAjaxError(request, status, error, $('#div_AlertJeeasyInclude'));
 			},
-			success: function (data) {
+			success: function(data) {
 				if (data.state != 'ok') {
-					$('#div_AlertJeeasyInclude').showAlert({message: data.result, level: 'danger'});
+					$('#div_AlertJeeasyInclude').showAlert({
+						message: data.result,
+						level: 'danger'
+					});
 					return;
 				}
-				$('#div_AlertJeeasyInclude').showAlert({message: '{{Synchronisation réussie}}', level: 'success'});
+				$('#div_AlertJeeasyInclude').showAlert({
+					message: '{{Synchronisation réussie}}',
+					level: 'success'
+				});
 			}
 		});
 	});
-
-
 </script>
 
-<?php include_file('3rdparty', 'deepmerge', 'js', 'jeeasy');?>
+<?php include_file('3rdparty', 'deepmerge', 'js', 'jeeasy'); ?>
