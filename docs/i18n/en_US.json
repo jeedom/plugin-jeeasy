@@ -12,6 +12,8 @@
     },
     "index.md": {
         "Plugin Jeeasy": "Jeeasy plugin",
-        "Jeeasy est pour le moment uniquement dédié au Wizard de premier lancement de Jeedom, bientot il y aurra l'acompagnement a la creation d'objets (pieces), installation de plugin et encore bien plus": "Jeeasy is currently only dedicated to the Wizard of first launch of Jeedom, soon there will be support for the creation of objects (pieces), installation of plugin and much more"
+        "Développement en cours": "Ongoing development",
+        "Jeeasy est pour le moment uniquement dédié au Wizard de premier lancement de Jeedom": "Jeeasy is currently only dedicated to the Jeedom First Launch Wizard",
+        "Bientôt il y aura l'accompagnement à la création d'objets (pièces), installation de plugins et bien plus encore": "Soon there will be support for the creation of objects (parts), installation of plugins and much more"
     }
 }

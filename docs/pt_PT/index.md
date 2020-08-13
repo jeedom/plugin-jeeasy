@@ -1,3 +1,5 @@
 # Jeeasy plugin
 
-Atualmente, o Jeeasy é dedicado apenas ao assistente do primeiro lançamento do Jeedom, em breve haverá suporte para a criação de objetos (peças), instalação do plugin e muito mais !
+### Desenvolvimento contínuo
+
+Jeeasy está atualmente apenas dedicado ao Jeedom First Launch Wizard. Em breve haverá suporte para criação de objetos (partes), instalação de plugins e muito mais !

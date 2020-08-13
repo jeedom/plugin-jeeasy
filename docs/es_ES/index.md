@@ -1,3 +1,5 @@
 # Complemento Jeeasy
 
-Jeeasy por el momento solo se dedica al Asistente del primer lanzamiento de Jeedom, pronto habrá soporte para la creación de objetos (habitaciones), instalación de plugins y mucho más !
+### Desarrollo en curso
+
+Jeeasy actualmente solo se dedica al Asistente de primer lanzamiento de Jeedom. Pronto habrá soporte para la creación de objetos (partes), instalación de complementos y mucho más !
