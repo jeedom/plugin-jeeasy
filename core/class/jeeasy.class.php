@@ -22,9 +22,9 @@ include_file('core', 'discover', 'config','jeeasy');
 
 class jeeasy extends eqLogic {
 	/*     * *************************Attributs****************************** */
-	
+
 	/*     * ***********************Methode static*************************** */
-	
+
 	public static function discoverNetwork(){
 		global $JEEDOM_JEEASY_DISCOVER;
 		$gw = shell_exec("ip route show default | awk '/default/ {print $3}'");
@@ -63,26 +63,26 @@ class jeeasy extends eqLogic {
 		}
 		return $return;
 	}
-	
+
 	public static function generateScenario($_name, $_replace = array()) {
 		if (!file_exists(__DIR__ . '/../config/' . $_name . '.json')) {
 			throw new Exception(__('Impossible de trouver le scénario : ', __FILE__) . $_name);
 		}
 		return json_decode(str_replace(array_keys($_replace), $_replace, json_encode(json_decode(file_get_contents(__DIR__ . '/../config/' . $_name . '.json'), true))), true);
 	}
-	
+
 	public static function saveJson($_json) {
 		$jsonFile = __DIR__ . '/../../../../data/custom/wizard.json';
 		if (!$fh = fopen($jsonFile, 'w')) {
-			throw new Exception(__('Impossible d ouvrir : ', __FILE__) . $jsonFile);
+			throw new Exception(__('Impossible d\'ouvrir : ', __FILE__) . $jsonFile);
 		}
 		fwrite($fh, $_json);
 		fclose($fh);
 		return true;
 	}
-	
+
 	public static function sendObjects($_objects) {
-		
+
 		$roomsDatas = array(
 			'cuisine' => array(
 				'level'  => 1,
@@ -141,7 +141,7 @@ class jeeasy extends eqLogic {
 				'parent' => ''
 			)
 		);
-		
+
 		$houseData = array(
 			'house' => array(
 				'name'   => 'Maison',
@@ -159,13 +159,13 @@ class jeeasy extends eqLogic {
 				'icon'   => '<i class="icon maison-man337"></i>'
 			),
 		);
-		
+
 		$_objects = json_decode($_objects, true);
-		
+
 		preg_match('/\[([^]]+)\]/', $_objects[0], $key);
 		$main = $key[1];
 		$house = jeeObject::byName($houseData[$main]['name']);
-		
+
 		if (!is_object($house)) {
 			//log::add('core', 'info', 'création box');
 			$house = new jeeObject();
@@ -188,23 +188,23 @@ class jeeasy extends eqLogic {
 			file_put_contents($filepath,file_get_contents($image));
 			$house->save();
 		}
-		
+
 		$houseId = $house->getId();
-		
+
 		unset($_objects[0]);
 		$structure = array();
 		$structure[$main]['image'] = 'core/img/object_background//';
 		$structure[$main]['icon'] = '';
-		
+
 		foreach ($_objects as $obj) {
-			
+
 			preg_match('/\[([^]]+)\]/', $obj, $regexRoom);
 			$currentRoom = $regexRoom[1];
-			
+
 			$structure[$main]['rooms'][] = $roomsDatas[$currentRoom];
-			
+
 			$room = jeeObject::byName($roomsDatas[$currentRoom]['name']);
-			
+
 			if (!is_object($room)) {
 				$room = new jeeObject();
 				$room->setName($roomsDatas[$currentRoom]['name']);
@@ -231,7 +231,7 @@ class jeeasy extends eqLogic {
 		//self::saveJson($json);
 		return true;
 	}
-	
+
 	public static function generateObject() {
 		// $house = object::byName('box-' . $houseCode);
 		//       if (!is_object($house)) {
@@ -259,7 +259,7 @@ class jeeasy extends eqLogic {
 		//         $room->save();
 		//         $roomId = $room->getId();
 	}
-	
+
 	public static function checkPlugin($_plugin) {
 		$plugin = plugin::byId($_plugin);
 		if (!is_object($plugin)) {
@@ -269,7 +269,7 @@ class jeeasy extends eqLogic {
 		self::checkDependancyPlugin($plugin);
 		self::checkDeamonPlugin($plugin);
 	}
-	
+
 	public static function checkInstallPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
 		if (is_object($plugin) && $plugin->isActive()) {
@@ -278,7 +278,7 @@ class jeeasy extends eqLogic {
 		echo '<div class="alert alert-info">' . __('Nous avons détecté que vous n\'avez pas le plugin pour gérer le protocole EnOcean, nous allons essayer de l\'installer', __FILE__);
 		$market_info = repo_market::byLogicalId($_plugin);
 		if ($market_info->getPurchase() !== 1) {
-			throw new Exception(__('Vous n\'avez pas acheté le plugin en question, merci d\'aller sur le market d\'acheter le plugin et de refaire l\'opération, plugin : ', __FILE__) . $market_info->getName());
+			throw new Exception(__('Vous n\'avez pas acheté le plugin en question, merci d\'aller sur le market pour acquérir le plugin et de refaire l\'opération, plugin : ', __FILE__) . $market_info->getName());
 		}
 		$update = update::byLogicalId($_plugin);
 		if (!is_object($update)) {
@@ -301,7 +301,7 @@ class jeeasy extends eqLogic {
 		}
 		echo '<div class="alert alert-info">' . __('Installation réussie !!!', __FILE__);
 	}
-	
+
 	public static function checkDependancyPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
 		if ($plugin->getHasDependency() != 1) {
@@ -311,15 +311,15 @@ class jeeasy extends eqLogic {
 		if ($dependancy['state'] == 'ok') {
 			return;
 		}
-		echo '<div class="alert alert-info">' . __('Nous avons détecté que votre démon ne tourne pas, nous allons essayer de le lancer. Merci de patienter', __FILE__);
+		echo '<div class="alert alert-info">' . __('Nous avons détecté que les dépendances ne sont pas installées, nous allons essayer de les installer. Merci de patienter', __FILE__);
 		$plugin->dependancy_install();
 		$dependancy = $plugin->dependancy_info();
 		if ($deamon['state'] != 'ok') {
-			throw new Exception(__('Malheureusement nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de regarder les logs et/ou de contacter le support. Plugin : ', __FILE__) . $_plugin);
+			throw new Exception(__('Malheureusement nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support. Plugin : ', __FILE__) . $_plugin);
 		}
 		echo '<div class="alert alert-info">' . __('Installation des dépendances réussies', __FILE__);
 	}
-	
+
 	public static function checkDeamonPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
 		if ($plugin->getHasOwnDeamon() != 1) {
@@ -329,29 +329,29 @@ class jeeasy extends eqLogic {
 		if ($deamon['state'] == 'ok') {
 			return;
 		}
-		echo '<div class="alert alert-info">' . __('Nous avons détecté que votre démon ne tourne pas, nous allons essayer de le lancer. Merci de patienter', __FILE__);
+		echo '<div class="alert alert-info">' . __('Nous avons détecté que le daemon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter', __FILE__);
 		$plugin->deamon_start();
 		sleep(5);
 		$deamon = $plugin->deamon_info();
 		if ($deamon['state'] != 'ok') {
-			throw new Exception(__('Malheureusement nous n\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de regarder les logs et/ou de contacter le support. Plugin : ', __FILE__) . $_plugin);
+			throw new Exception(__('Malheureusement nous n\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support. Plugin : ', __FILE__) . $_plugin);
 		}
 		echo '<div class="alert alert-info">' . __('Lancement du démon réussi', __FILE__);
 	}
-	
+
 	/*     * **********************Getteur Setteur*************************** */
 }
 
 class jeeasyCmd extends cmd {
 	/*     * *************************Attributs****************************** */
-	
+
 	/*     * ***********************Methode static*************************** */
-	
+
 	/*     * *********************Methode d'instance************************* */
-	
+
 	public function execute($_options = array()) {
-		
+
 	}
-	
+
 	/*     * **********************Getteur Setteur*************************** */
 }

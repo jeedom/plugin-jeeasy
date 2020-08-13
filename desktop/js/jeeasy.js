@@ -38,7 +38,7 @@
  $('#bt_jeeasyEqLogicConfiguration').on('click',function(){
  	jeedom.eqLogic.getSelectModal({}, function (eqLogic) {
  		bootbox.prompt({
- 			title: "{{Très bien configurons ce module. Quel est sont type ?}}",
+ 			title: "{{Très bien configurons ce module. Quel est son type ?}}",
  			inputType: 'select',
  			inputOptions: JEEASY_TYPE_LIST,
  			callback: function (type) {
@@ -53,7 +53,7 @@
 
  $('#bt_jeeasyIncludeConfiguration').on('click',function(){
  	bootbox.prompt({
- 		title: "{{Très bien ajoutons un module à votre domotique. Quel est sa technologie ?}}",
+ 		title: "{{Très bien ajoutons un module à votre domotique. Quelle est sa technologie ?}}",
  		inputType: 'select',
  		inputOptions: [
  		{text: '{{EnOcean}}',value: 'enoncean'},
@@ -93,8 +93,8 @@
  });
 
  $('#bt_jeeasyMainConfiguration').on('click',function(){
- 	$('#md_modal').dialog({title: "{{Configuration frgigo}}"});
- 	$("#md_modal").load('index.php?v=d&modal=jeedom.configure&plugin=jeeasy').dialog('open');
+ 	$('#md_modal').dialog({title: "{{Configuration frigo}}"});
+ 	$("#md_modal").load('index.php?v=d&modal=jeedom.configuration.wizard&plugin=jeeasy').dialog('open');
  });
 
  $('#bt_jeeasyDiscovery').on('click',function(){
@@ -103,21 +103,21 @@
  });
 
  $('#bt_jeeasyWizard').on('click',function(){
-   $('#md_modal').dialog({title: "{{Bienvenu}}"});
+   $('#md_modal').dialog({title: "{{Bienvenue}}"});
    $("#md_modal").load('index.php?v=d&modal=wizard&plugin=jeeasy').dialog('open');
  });
 
 
  $('#bt_jeeasyObjectConfiguration').on('click',function(){
  	bootbox.confirm({
- 		message: "{{Très bien configurons votre maison que souhaitez vous faire ?}}",
+ 		message: "{{Très bien configurons votre maison. Que souhaitez vous faire ?}}",
  		buttons: {
  			confirm: {
- 				label: '<i class="fa fa-plus"></i> {{Créer une nouvelle piece}}',
+ 				label: '<i class="fas fa-plus"></i> {{Créer une nouvelle pièce}}',
  				className: 'btn-success'
  			},
  			cancel: {
- 				label: '<i class="fa fa-pencil"></i> {{Modifier une pièce existante}}',
+ 				label: '<i class="fas fa-pencil-alt"></i> {{Modifier une pièce existante}}',
  				className: 'btn-default'
  			}
  		},
@@ -126,7 +126,7 @@
  				return;
  			}
  			if(result){
- 				bootbox.prompt("{{Quel est donc le nom de cette nouvelle piece ?}}", function(result){
+ 				bootbox.prompt("{{Quel est le nom de cette nouvelle pièce ?}}", function(result){
  					if(result == null){
  						return;
  					}

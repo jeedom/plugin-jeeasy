@@ -1,12 +1,82 @@
 {
-"trame": {
-  "welcome" :
-    {
-      "title": "Bienvenue",
-      "wizard": "welcome",
+  "trame": {
+    "accueil": {
+      "title": "Accueil",
+      "wizard": "jeedom_configuration_accueil",
       "order": 0,
       "custom": "",
       "visible": 1
     },
+    "general": {
+      "title": "Général",
+      "wizard": "jeedom_configuration_general",
+      "order": 1,
+      "custom": "",
+      "visible": 1
+    },
+    "market": {
+      "title": "Market",
+      "wizard": "jeedom_configuration_market",
+      "order": 2,
+      "custom": "",
+      "visible": 1
+    },
+    "reseaux": {
+      "title": "Réseaux locaux",
+      "wizard": "jeedom_configuration_reseaux",
+      "order": 3,
+      "custom": "",
+      "visible": 1
+    },
+    "dns": {
+      "title": "DNS",
+      "wizard": "jeedom_configuration_dns",
+      "order": 4,
+      "custom": "",
+      "visible": 1
+    },
+    "batterie": {
+      "title": "Batterie",
+      "wizard": "jeedom_configuration_batterie",
+      "order": 5,
+      "custom": "",
+      "visible": 1
+    },
+    "sauvegarde": {
+      "title": "Sauvegarde Cloud",
+      "wizard": "jeedom_configuration_sauvegarde",
+      "order": 6,
+      "custom": "",
+      "visible": 1
+    },
+    "discovery": {
+      "title": "Discovery",
+      "wizard": "jeedom_configuration_discovery",
+      "order": 7,
+      "custom": "",
+      "visible": 1
+    },
+    "app": {
+      "title": "App Mobile",
+      "wizard": "jeedom_configuration_app",
+      "order": 8,
+      "custom": "",
+      "visible": 1
+    },
+    "alertes": {
+      "title": "Alertes",
+      "wizard": "jeedom_configuration_alertes",
+      "order": 9,
+      "custom": "",
+      "visible": 1
+    },
+    "fin": {
+      "title": "Fin",
+      "wizard": "jeedom_configuration_fin",
+      "order": 10,
+      "custom": "",
+      "visible": 1
+    }
+  },
   "update": 0
 }

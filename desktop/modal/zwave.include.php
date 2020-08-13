@@ -37,7 +37,7 @@ try {
 }
 switch ($networkState) {
 	case 0:
-		throw new Exception(__('Le réseau Z-Wave est arreté sur le serveur', __FILE__));
+		throw new Exception(__('Le réseau Z-Wave est arrêté sur le serveur', __FILE__));
 		break;
 	case 1:
 		throw new Exception(__('Le réseau Z-Wave est en erreur sur le serveur', __FILE__));
@@ -58,61 +58,61 @@ if ($controllerMode === null) {
 	<div class="col-lg-2">
 		<div class="bs-sidebar">
 			<ul class="nav nav-list bs-sidenav">
-				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fa fa-plus"></i> {{Accueil}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="include"><a><i class="fa fa-wifi"></i> {{Inclusion}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="configure"><a><i class="fa fa-wrench"></i> {{Configuration}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fa fa-check"></i> {{Fin}}</a></li>
+				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fas fa-plus"></i> {{Accueil}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="include"><a><i class="fas fa-wifi"></i> {{Inclusion}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="configure"><a><i class="fas fa-wrench"></i> {{Configuration}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fas fa-check"></i> {{Fin}}</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="col-lg-10" id="div_jeeasyIncludeDisplay">
-		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a>
-		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a>
-		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fa fa-angle-double-left"></i> {{Précédent}}</a>
+		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a>
+		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a>
+		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fas fa-angle-double-left"></i> {{Précédent}}</a>
 		<br/><br/>
 		<div class="jeeasyDisplay home">
-			<center><i class="fa fa-plus" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-plus" style="font-size: 10em;"></i></center>
 			<br/>
 			<center><div class="alert alert-info">{{Très bien ajoutons un module à votre domotique.}}</div></center>
 			<center>{{Cliquez sur suivant pour commencer}}</center>
 			<br/>
-			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a></center>
+			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>
 		</div>
 
 		<div class="jeeasyDisplay include" style="display:none;">
-			<center><i class="fa fa-wifi" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-wifi" style="font-size: 10em;"></i></center>
 			<br/>
-			<center><div class="alert alert-info">{{C'est partie, lançons nous. Cliquez sur le bouton "inclusion" pour lancer l'ajout}}</div></center>
+			<center><div class="alert alert-info">{{C'est parti, lançons nous. Cliquez sur le bouton "inclusion" pour démarrer l'ajout}}</div></center>
 			<br/>
 			<?php
 if ($controllerMode == 1) {
-	echo '<div class="alert jqAlert alert-warning" id="div_inclusionAlert" style="margin : 0px 5px 15px 15px; padding : 7px 35px 7px 15px;">{{Vous etes en mode inclusion. Recliquez sur le bouton d\'inclusion pour sortir de ce mode}}</div>';
+	echo '<div class="alert jqAlert alert-warning" id="div_inclusionAlert" style="margin : 0px 5px 15px 15px; padding : 7px 35px 7px 15px;">{{Vous êtes en mode inclusion. Recliquez sur le bouton d\'inclusion pour sortir de ce mode}}</div>';
 } else {
 	echo '<div id="div_inclusionAlert"></div>';
 }
 if ($controllerMode == 1) {
-	echo '<center><a class="btn btn-sm btn-success changeIncludeState include" data-mode="1" data-state="0"><i class="fa fa-sign-in fa-rotate-90"></i> {{Arreter inclusion}}</a></center>';
+	echo '<center><a class="btn btn-sm btn-success changeIncludeState include" data-mode="1" data-state="0"><i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Arrêter inclusion}}</a></center>';
 } else {
-	echo '<center><a class="btn btn-sm btn-success changeIncludeState include" data-mode="1" data-state="1"><i class="fa fa-sign-in fa-rotate-90"></i> {{Mode inclusion}}</a></center>';
+	echo '<center><a class="btn btn-sm btn-success changeIncludeState include" data-mode="1" data-state="1"><i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Mode inclusion}}</a></center>';
 }
 ?>
 		</div>
 
 		<div class="jeeasyDisplay configure" style="display:none;">
-			<center><i class="fa fa-wrench" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-wrench" style="font-size: 10em;"></i></center>
 			<br/>
-			<center><div class="alert alert-info">{{Nous aimerions avoir quelques informations pour mieux connaitre votre nouveaux module}}</div></center>
+			<center><div class="alert alert-info">{{Nous aimerions avoir quelques informations pour mieux connaitre votre nouveau module}}</div></center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
-						<label class="col-xs-4 control-label">{{Comment voulez vous appeller votre nouveau module ?}}</label>
+						<label class="col-xs-4 control-label">{{Comment voulez vous appeler votre nouveau module ?}}</label>
 						<div class="col-xs-4">
 							<input type="text" class="eqLogicAttr form-control" data-l1key="name" >
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-xs-4 control-label">{{Dans quelle piece se trouve votre module ?}}</label>
+						<label class="col-xs-4 control-label">{{Dans quelle pièce se trouve votre module ?}}</label>
 						<div class="col-xs-4">
 							<select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
 								<option value="">{{Aucun}}</option>
@@ -129,14 +129,14 @@ foreach (object::all() as $object) {
 		</div>
 
 		<div class="jeeasyDisplay end" style="display:none;">
-			<center><i class="fa fa-check" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-check" style="font-size: 10em;"></i></center>
 			<br/>
 			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini d'ajouter votre module}}</div></center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
 			<br/>
-			<center><a class="btn btn-success bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a></center>
+			<center><a class="btn btn-success bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a></center>
 			<br/>
-			<center><a class="btn btn-default bt_jeeasyEqLogicConfigurationAfterInclude" style="display:none;"><i class="fa fa-cogs"></i> {{Configurer}}</a></center>
+			<center><a class="btn btn-default bt_jeeasyEqLogicConfigurationAfterInclude" style="display:none;"><i class="fas fa-cogs"></i> {{Configurer}}</a></center>
 		</div>
 
 	</div>
@@ -193,21 +193,21 @@ foreach (object::all() as $object) {
 		if (_options['state'] == 1) {
 			if($('.exclude').attr('data-state') != 0){
 				$('.exclude').attr('data-state', 0);
-				$('.changeIncludeState').html('<i class="fa fa-sign-in fa-rotate-90"></i> {{Arreter inclusion}}');
-				$('#div_inclusionAlert').showAlert({message: '{{Vous etes en mode exclusion. Recliquez sur le bouton d\'exclusion pour sortir de ce mode}}', level: 'warning'});
+				$('.changeIncludeState').html('<i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Arreter inclusion}}');
+				$('#div_inclusionAlert').showAlert({message: '{{Vous êtes en mode exclusion. Recliquez sur le bouton d\'exclusion pour sortir de ce mode}}', level: 'warning'});
 			}
 		} else {
 			if($('.exclude').attr('data-state') != 1){
 				$.hideAlert();
 				$('.exclude').attr('data-state', 1);
-				$('.changeIncludeState').html('<i class="fa fa-sign-in fa-rotate-90"></i> {{Mode inclusion}}');
+				$('.changeIncludeState').html('<i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Mode inclusion}}');
 				$('.exclude.card').css('background-color','#ffffff');
 			}
 		}
 	});
 
 	$('body').off('zwave::includeDevice').on('zwave::includeDevice', function (_event,_options) {
-		$('#div_inclusionAlert').showAlert({message: '{{Félicitation !!! Votre module à bien été inclus. Vous pouvez passer à la suite}}', level: 'success'});
+		$('#div_inclusionAlert').showAlert({message: '{{Félicitation !!! Votre module a bien été inclus. Vous pouvez passer à la suite}}', level: 'success'});
 		eqLogic_id = _options;
 		jeedom.eqLogic.byId({
 			id: eqLogic_id,

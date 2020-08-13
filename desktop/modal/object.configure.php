@@ -33,32 +33,32 @@ sendVarToJs('object_id', $object->getId());
 	<div class="col-lg-2">
 		<div class="bs-sidebar">
 			<ul class="nav nav-list bs-sidenav">
-				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fa fa-home"></i> {{Accueil}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="main"><a><i class="fa fa-wrench"></i> {{Général}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="display"><a><i class="fa fa-television"></i> {{Affichage}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fa fa-check"></i> {{Fin}}</a></li>
+				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fas fa-home"></i> {{Accueil}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="main"><a><i class="fas fa-wrench"></i> {{Général}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="display"><a><i class="fas fa-tv"></i> {{Affichage}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fas fa-check"></i> {{Fin}}</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="col-lg-10" id="div_jeeasyConfigureObject">
-		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a>
-		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a>
-		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fa fa-angle-double-left"></i> {{Précédent}}</a>
+		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a>
+		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a>
+		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fas fa-angle-double-left"></i> {{Précédent}}</a>
 		<br/><br/>
 		<div class="jeeasyDisplay home">
-			<center><i class="fa fa-home" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-home" style="font-size: 10em;"></i></center>
 			<br/>
-			<center><div class="alert alert-info">{{Bienvenu sur l'assistant de configuration de votre maison, nous allons configurer ensemble votre pièce :}} <strong><?php echo $object->getName(); ?></strong></div></center>
+			<center><div class="alert alert-info">{{Bienvenue sur l'assistant de configuration de votre maison, nous allons configurer ensemble votre pièce :}} <strong><?php echo $object->getName(); ?></strong></div></center>
 			<center>{{Cliquez sur suivant pour commencer}}</center>
 			<br/>
-			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a></center>
+			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>
 		</div>
 
 		<div class="jeeasyDisplay main" style="display:none;">
-			<center><i class="fa fa-wrench" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-wrench" style="font-size: 10em;"></i></center>
 			<br/>
-			<center><div class="alert alert-info">{{Nous allons ici configurer votre pièce à travers quelques petite questions}}</div></center>
+			<center><div class="alert alert-info">{{Nous allons ici configurer votre pièce à travers quelques petites questions}}</div></center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
@@ -88,7 +88,7 @@ foreach (jeeObject::all() as $object_all) {
 		</div>
 
 		<div class="jeeasyDisplay display" style="display:none;">
-			<center><i class="fa fa-television" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-tv" style="font-size: 10em;"></i></center>
 			<br/>
 			<center><div class="alert alert-info">{{Nous allons ici configurer l'affichage de votre pièce}}</div></center>
 			<form class="form-horizontal">
@@ -114,12 +114,12 @@ foreach (jeeObject::all() as $object_all) {
 
 
 		<div class="jeeasyDisplay end" style="display:none;">
-			<center><i class="fa fa-check" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-check" style="font-size: 10em;"></i></center>
 			<br/>
 			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre}} <?php echo config::byKey('product_name'); ?></div></center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
 			<br/>
-			<center><a class="btn btn-success bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a></center>
+			<center><a class="btn btn-success bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a></center>
 		</div>
 
 	</div>

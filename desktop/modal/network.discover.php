@@ -10,7 +10,7 @@ $discovers = jeeasy::discoverNetwork();
       <th>{{Ip}}</th>
       <th>{{Nom}}</th>
       <th>{{MAC}}</th>
-      <th>{{Plugins suggeré}}</th>
+      <th>{{Plugins suggérés}}</th>
     </tr>
   </thead>
   <tbody>

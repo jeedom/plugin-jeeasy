@@ -45,7 +45,7 @@ if (!isConnect()) {
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_1.jpg" />
 				<input type="checkbox" name="selectObject[chambre1]" value="1" />
-				<i class="fa fa-check hidden"></i>
+				<i class="fas fa-check hidden"></i>
 				{{Chambre 1}}
 			</label>
     	</div>
@@ -53,7 +53,7 @@ if (!isConnect()) {
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_3.jpg" />
 				<input type="checkbox" name="selectObject[chambre2]" value="1" />
-				<i class="fa fa-check hidden"></i>
+				<i class="fas fa-check hidden"></i>
 				{{Chambre 2}}
 			</label>
 		</div>
@@ -61,7 +61,7 @@ if (!isConnect()) {
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_4.jpg" />
 				<input type="checkbox" name="selectObject[chambre3]" value="1" />
-				<i class="fa fa-check hidden"></i>
+				<i class="fas fa-check hidden"></i>
 				{{Chambre 3}}
 			</label>
     	</div>
@@ -69,7 +69,7 @@ if (!isConnect()) {
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_2.jpg" />
 				<input type="checkbox" name="selectObject[cuisine]" value="1" />
-				<i class="fa fa-check hidden"></i>
+				<i class="fas fa-check hidden"></i>
 				{{Cuisine}}
 			</label>
 		</div>
@@ -77,7 +77,7 @@ if (!isConnect()) {
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salle_a_manger/salle_a_manger_1.jpg" />
 				<input type="checkbox" name="selectObject[sam]" value="1" />
-				<i class="fa fa-check hidden"></i>
+				<i class="fas fa-check hidden"></i>
 				{{Salle à manger}}
 			</label>
 		</div>
@@ -85,7 +85,7 @@ if (!isConnect()) {
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salon/salon_2.jpg" />
 				<input type="checkbox" name="selectObject[salon]" value="1" />
-				<i class="fa fa-check hidden"></i>
+				<i class="fas fa-check hidden"></i>
 				{{Salon}}
 			</label>
 		</div>
@@ -93,7 +93,7 @@ if (!isConnect()) {
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salle_de_bain/salle_de_bain_1.jpg" />
 				<input type="checkbox" name="selectObject[sdb]" value="1" />
-				<i class="fa fa-check hidden"></i>
+				<i class="fas fa-check hidden"></i>
 				{{Salle de bain}}
 			</label>
 		</div>
@@ -133,7 +133,7 @@ if (!isConnect()) {
 .image-checkbox-checked {
 	border-color: #4783B0;
 }
-.image-checkbox .fa {
+.image-checkbox .fas {
   position: absolute;
   color: #4A79A3;
   background-color: #fff;
@@ -141,7 +141,7 @@ if (!isConnect()) {
   top: 0;
   right: 0;
 }
-.image-checkbox-checked .fa {
+.image-checkbox-checked .fas {
   display: block !important;
 }
 </style>

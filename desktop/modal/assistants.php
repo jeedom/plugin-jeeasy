@@ -9,11 +9,11 @@ if (!isConnect()) {
         <div class="caption">
             <h4>Assistants vocaux</h4>
             <p></p>
-            <center><a href="https://jeedom.github.io/documentation/howto/fr_FR/assistant_vocaux_cloud" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fa fa-book"></i> Documentation</a></center>
+            <center><a href="https://jeedom.github.io/documentation/howto/fr_FR/assistant_vocaux_cloud" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> Documentation</a></center>
             <p></p>
             <p>Nous vous proposons une connexion facile pour profiter des assistants vocaux "Amazon Alexa" et "Google Assistant"</p>
             <p></p>
-            <center><a href="https://jeedom.github.io/plugin-gsh/fr_FR/" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fa fa-book"></i> Google Assistant</a> <a href="https://jeedom.github.io/plugin-ash/fr_FR/" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fa fa-book"></i> Amazon Alexa</a></center>
+            <center><a href="https://jeedom.github.io/plugin-gsh/fr_FR/" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> Google Assistant</a> <a href="https://jeedom.github.io/plugin-ash/fr_FR/" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> Amazon Alexa</a></center>
         </div>
     </div>
 </div>

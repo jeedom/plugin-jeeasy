@@ -36,35 +36,35 @@ if (is_object($cmd_temperature)) {
 	<div class="col-lg-2">
 		<div class="bs-sidebar">
 			<ul class="nav nav-list bs-sidenav">
-				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fa fa-thermometer-half"></i> {{Accueil}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="display"><a><i class="fa fa-television"></i> {{Affichage}}</a></li>
+				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fas fa-thermometer-half"></i> {{Accueil}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="display"><a><i class="fas fa-tv"></i> {{Affichage}}</a></li>
 				<?php if (is_object($cmd_temperature)) {?>
-					<li class="cursor li_jeeEasySummary" data-href="alerts"><a><i class="fa fa-exclamation-triangle"></i> {{Alerte}}</a></li>
-					<li class="cursor li_jeeEasySummary" data-href="history"><a><i class="fa fa-line-chart"></i> {{Historique}}</a></li>
+					<li class="cursor li_jeeEasySummary" data-href="alerts"><a><i class="fas fa-exclamation-triangle"></i> {{Alerte}}</a></li>
+					<li class="cursor li_jeeEasySummary" data-href="history"><a><i class="fas fa-line-chart"></i> {{Historique}}</a></li>
 				<?php }?>
-				<li class="cursor li_jeeEasySummary" data-href="battery"><a><i class="fa fa-battery-half"></i> {{Batterie}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="communication"><a><i class="fa fa-wifi"></i> {{Communication}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fa fa-check"></i> {{Fin}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="battery"><a><i class="fas fa-battery-half"></i> {{Batterie}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="communication"><a><i class="fas fa-wifi"></i> {{Communication}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fas fa-check"></i> {{Fin}}</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="col-lg-10" id="div_jeeasyDisplay">
-		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a>
-		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a>
-		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fa fa-angle-double-left"></i> {{Précédent}}</a>
+		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a>
+		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a>
+		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fas fa-angle-double-left"></i> {{Précédent}}</a>
 		<br/><br/>
 		<div class="jeeasyDisplay home">
-			<center><i class="fa fa-thermometer-half" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-thermometer-half" style="font-size: 10em;"></i></center>
 			<br/>
-			<center><div class="alert alert-info">{{Très bien configurons ensemble votre Frigo : }}<strong><?php echo $eqLogic->getHumanName() ?></strong></div></center>
+			<center><div class="alert alert-info">{{Très bien configurons ensemble votre frigo : }}<strong><?php echo $eqLogic->getHumanName() ?></strong></div></center>
 			<center>{{Cliquez sur suivant pour commencer}}</center>
 			<br/>
-			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a></center>
+			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>
 		</div>
 
 		<div class="jeeasyDisplay display" style="display:none;">
-			<center><i class="fa fa-television" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-tv" style="font-size: 10em;"></i></center>
 			<center><div class="alert alert-info">{{Nous allons ici configurer l'affichage de votre frigo à travers quelque(s) question(s) très simple}}</div></center>
 			<form class="form-horizontal">
 				<fieldset>
@@ -79,18 +79,18 @@ if (is_object($cmd_temperature)) {
 		</div>
 
 		<div class="jeeasyDisplay alerts" style="display:none;">
-			<center><i class="fa fa-exclamation-triangle" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-exclamation-triangle" style="font-size: 10em;"></i></center>
 			<center><div class="alert alert-info">{{Nous allons ici configurer des alertes sur votre frigo en cas de soucis à travers quelque(s) question(s) très simple}}</div></center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
-						<label class="col-xs-8 control-label">{{Voulez vous être alerté si la température de celui-ci est trop basse ? Si oui en dessous de combien de °C ?}}</label>
+						<label class="col-xs-8 control-label">{{Voulez-vous être alerté si la température de celui-ci est trop basse ? Si oui en-dessous de combien de °C ?}}</label>
 						<div class="col-xs-1">
 							<input type="number" class="cmd_temperatureAttr form-control" data-l1key="configuration" data-l2key="jeeasy_min_value" >
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-xs-8 control-label">{{Voulez vous être alerté si la température de celui-ci est trop haute ? Si oui au dessus de combien de °C ?}}</label>
+						<label class="col-xs-8 control-label">{{Voulez-vous être alerté si la température de celui-ci est trop haute ? Si oui au-dessus de combien de °C ?}}</label>
 						<div class="col-xs-1">
 							<input type="number" class="cmd_temperatureAttr form-control" data-l1key="configuration" data-l2key="jeeasy_max_value" >
 						</div>
@@ -100,7 +100,7 @@ if (is_object($cmd_temperature)) {
 		</div>
 
 		<div class="jeeasyDisplay history" style="display:none;">
-			<center><i class="fa fa-line-chart" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-line-chart" style="font-size: 10em;"></i></center>
 			<center><div class="alert alert-info">{{Nous allons ici configurer la gestion de l'historique de la température de votre frigo}}</div></center>
 			<form class="form-horizontal">
 				<fieldset>
@@ -115,12 +115,12 @@ if (is_object($cmd_temperature)) {
 		</div>
 
 		<div class="jeeasyDisplay battery" style="display:none;">
-			<center><i class="fa fa-battery-half" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-battery-half" style="font-size: 10em;"></i></center>
 			<center><div class="alert alert-info">{{Nous allons ici configurer la gestion de la batterie (si le module est sur batterie sinon vous pouvez passer à l'étape suivante)}}</div></center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
-						<label class="col-xs-8 control-label">{{A combien de % de batterie restant souhaitez vous etre prévenu (en %) ?}}</label>
+						<label class="col-xs-8 control-label">{{A combien de % de batterie restant souhaitez vous être prévenu (en %) ?}}</label>
 						<div class="col-xs-1">
 							<input type="number" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="battery_danger_threshold" >
 						</div>
@@ -130,12 +130,12 @@ if (is_object($cmd_temperature)) {
 		</div>
 
 		<div class="jeeasyDisplay communication" style="display:none;">
-			<center><i class="fa fa-wifi" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-wifi" style="font-size: 10em;"></i></center>
 			<center><div class="alert alert-info">{{Nous allons ici configurer la surveillance de la communication entre votre équipement et}} <?php echo config::byKey('product_name'); ?></div></center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
-						<label class="col-xs-8 control-label">{{Au bout de combien de temps en minute souhaitez vous recevoir une alerte de non communication du module ?}}</label>
+						<label class="col-xs-8 control-label">{{Au bout de combien de temps en minutes souhaitez vous recevoir une alerte de non-communication du module ?}}</label>
 						<div class="col-xs-1">
 							<input type="number" class="eqLogicAttr form-control" data-l1key="timeout" >
 						</div>
@@ -145,12 +145,12 @@ if (is_object($cmd_temperature)) {
 		</div>
 
 		<div class="jeeasyDisplay end" style="display:none;">
-			<center><i class="fa fa-check" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-check" style="font-size: 10em;"></i></center>
 			<br/>
 			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre frigo :  }}<strong><?php echo $eqLogic->getHumanName() ?></strong></div></center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
 			<br/>
-			<center><a class="btn btn-success bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a></center>
+			<center><a class="btn btn-success bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a></center>
 		</div>
 
 	</div>

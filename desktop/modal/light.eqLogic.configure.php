@@ -42,32 +42,32 @@ if (is_object($cmd_lightoff)) {
 	<div class="col-lg-2">
 		<div class="bs-sidebar">
 			<ul class="nav nav-list bs-sidenav">
-				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fa fa-lightbulb-o"></i> {{Accueil}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="display"><a><i class="fa fa-television"></i> {{Affichage}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="automate"><a><i class="fa fa-magic"></i> {{Automatisation}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="communication"><a><i class="fa fa-wifi"></i> {{Communication}}</a></li>
-				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fa fa-check"></i> {{Fin}}</a></li>
+				<li class="cursor li_jeeEasySummary active" data-href="home"><a><i class="fas fa-lightbulb"></i> {{Accueil}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="display"><a><i class="fas fa-tv"></i> {{Affichage}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="automate"><a><i class="fas fa-magic"></i> {{Automatisation}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="communication"><a><i class="fas fa-wifi"></i> {{Communication}}</a></li>
+				<li class="cursor li_jeeEasySummary" data-href="end"><a><i class="fas fa-check"></i> {{Fin}}</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div class="col-lg-10" id="div_jeeasyDisplay">
-		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a>
-		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a>
-		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fa fa-angle-double-left"></i> {{Précédent}}</a>
+		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a>
+		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a>
+		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fas fa-angle-double-left"></i> {{Précédent}}</a>
 		<br/><br/>
 		<div class="jeeasyDisplay home">
-			<center><i class="fa fa-lightbulb-o" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-lightbulb" style="font-size: 10em;"></i></center>
 			<br/>
 			<center><div class="alert alert-info">{{Très bien configurons ensemble votre lumière : }}<strong><?php echo $eqLogic->getHumanName() ?></strong></div></center>
 			<center>{{Cliquez sur suivant pour commencer}}</center>
 			<br/>
-			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fa fa-angle-double-right"></i></a></center>
+			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>
 		</div>
 
 		<div class="jeeasyDisplay display" style="display:none;">
-			<center><i class="fa fa-television" style="font-size: 10em;"></i></center>
-			<center><div class="alert alert-info">{{Nous allons ici configurer l'affichage de votre frigo à travers quelque(s) question(s) très simple}}</div></center>
+			<center><i class="fas fa-tv" style="font-size: 10em;"></i></center>
+			<center><div class="alert alert-info">{{Nous allons ici configurer l'affichage de votre lumière à travers quelque(s) question(s) très simple}}</div></center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
@@ -81,14 +81,14 @@ if (is_object($cmd_lightoff)) {
 		</div>
 
 		<div class="jeeasyDisplay automate" style="display:none;">
-			<center><i class="fa fa-automate" style="font-size: 10em;"></i></center>
-			<center><div class="alert alert-info">{{Nous allons ici configurer l'allumage automatique de votre lumiere en fonction d'une présence ou non}}</div></center>
+			<center><i class="fas fa-robot" style="font-size: 10em;"></i></center>
+			<center><div class="alert alert-info">{{Nous allons ici configurer l'allumage automatique de votre lumière en fonction d'une présence ou non}}</div></center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
 						<label class="col-xs-4 control-label">{{Créer le scénario}}</label>
 						<div class="col-xs-3">
-							<a class="btn btn-default" id="bt_jeeasyCreateScenario"><i class="fa fa-plus"></i> {{Créer le scénario}}</a>
+							<a class="btn btn-default" id="bt_jeeasyCreateScenario"><i class="fas fa-plus"></i> {{Créer le scénario}}</a>
 						</div>
 					</div>
 					<div class="form-group">
@@ -97,7 +97,7 @@ if (is_object($cmd_lightoff)) {
 							<div class="input-group">
 								<input type="text" class="cmd_onAttr form-control" data-l1key="configuration" data-l2key="jeeasyCmd_presence" />
 								<span class="input-group-btn">
-									<a class="btn btn-default" id="bt_jeeasySearchPresenceCmd"><i class="fa fa-list-alt"></i></a>
+									<a class="btn btn-default" id="bt_jeeasySearchPresenceCmd"><i class="fas fa-list-alt"></i></a>
 								</span>
 							</div>
 						</div>
@@ -108,13 +108,13 @@ if (is_object($cmd_lightoff)) {
 							<div class="input-group">
 								<input type="text" class="cmd_onAttr form-control" data-l1key="configuration" data-l2key="jeeasyCmd_luminosity" />
 								<span class="input-group-btn">
-									<a class="btn btn-default" id="bt_jeeasySearchLuminosityCmd"><i class="fa fa-list-alt"></i></a>
+									<a class="btn btn-default" id="bt_jeeasySearchLuminosityCmd"><i class="fas fa-list-alt"></i></a>
 								</span>
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-xs-4 control-label">{{Limite de luminositée ?}}</label>
+						<label class="col-xs-4 control-label">{{Limite de luminosité ?}}</label>
 						<div class="col-xs-4">
 							<div class="input-group">
 								<input type="number" class="cmd_onAttr form-control" data-l1key="configuration" data-l2key="jeeasyCmd_luminosity_threshold" />
@@ -126,12 +126,12 @@ if (is_object($cmd_lightoff)) {
 		</div>
 
 		<div class="jeeasyDisplay communication" style="display:none;">
-			<center><i class="fa fa-wifi" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-wifi" style="font-size: 10em;"></i></center>
 			<center><div class="alert alert-info">{{Nous allons ici configurer la surveillance de la communication entre votre équipement et}} <?php echo config::byKey('product_name'); ?></div></center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
-						<label class="col-xs-8 control-label">{{Au bout de combien de temps en minute souhaitez vous recevoir une alerte de non communication du module ?}}</label>
+						<label class="col-xs-8 control-label">{{Au bout de combien de temps en minutes souhaitez vous recevoir une alerte de non-communication du module ?}}</label>
 						<div class="col-xs-1">
 							<input type="number" class="eqLogicAttr form-control" data-l1key="timeout" >
 						</div>
@@ -141,12 +141,12 @@ if (is_object($cmd_lightoff)) {
 		</div>
 
 		<div class="jeeasyDisplay end" style="display:none;">
-			<center><i class="fa fa-check" style="font-size: 10em;"></i></center>
+			<center><i class="fas fa-check" style="font-size: 10em;"></i></center>
 			<br/>
 			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre lumière :  }}<strong><?php echo $eqLogic->getHumanName() ?></strong></div></center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
 			<br/>
-			<center><a class="btn btn-success bt_jeeasySave"><i class="fa fa-floppy-o"></i> {{Sauvegarder}}</a></center>
+			<center><a class="btn btn-success bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a></center>
 		</div>
 
 	</div>

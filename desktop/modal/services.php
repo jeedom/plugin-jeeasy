@@ -10,7 +10,7 @@ if (!isConnect()) {
             <div class="caption">
                 <h4>Les Sauvegardes Cloud</h4>
                 <p></p>
-                <p class="text-center"><a href="https://jeedom.github.io/core/fr_FR/backup" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fa fa-book"></i> Documentation</a></p>
+                <p class="text-center"><a href="https://jeedom.github.io/core/fr_FR/backup" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> Documentation</a></p>
                 <p></p>
                 <p>Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.</p>
             </div>
@@ -21,7 +21,7 @@ if (!isConnect()) {
             <div class="caption">
                 <h4>SMS et Appels</h4>
                 <p></p>
-                <p class="text-center"><a href="https://jeedom.github.io/documentation/howto/fr_FR/sms_cloud" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fa fa-book"></i> Documentation</a> </p>
+                <p class="text-center"><a href="https://jeedom.github.io/documentation/howto/fr_FR/sms_cloud" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> Documentation</a> </p>
                 <p></p>
                 <p>Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)</p>
             </div>
@@ -32,7 +32,7 @@ if (!isConnect()) {
             <div class="caption">
                 <h4>Monitoring</h4>
                 <p></p>
-                <p class="text-center"><a href="https://jeedom.github.io/documentation/howto/fr_FR/monitoring_cloud" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fa fa-book"></i> Documentation</a></p>
+                <p class="text-center"><a href="https://jeedom.github.io/documentation/howto/fr_FR/monitoring_cloud" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> Documentation</a></p>
                 <p></p>
                 <p>Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !</p>
             </div>
