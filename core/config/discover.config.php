@@ -32,6 +32,12 @@ $JEEDOM_JEEASY_DISCOVER = array(
    ),
   ),
   array(
+   'search' => array('WES'),
+   'plugins' => array(
+     array('id' => '1336','name' => 'Wes','certification' => 'official')
+   ),
+  ),
+  array(
    'search' => array('Weinzierl'),
    'plugins' => array(
      array('id' => '203','name' => 'EIB - KNX','certification' => 'partenaire')
