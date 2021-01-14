@@ -38,6 +38,12 @@ $JEEDOM_JEEASY_DISCOVER = array(
    ),
   ),  
   array(
+   'search' => array('EnvisaLink'),
+   'plugins' => array(
+     array('id' => '1839','name' => 'Alarme DSC','certification' => 'other')
+   ),
+  ),
+  array(
     'search' => array('Sonos'),
     'plugins' => array(
       array('id' => '1502','name' => 'Sonos','certification' => 'official')
