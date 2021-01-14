@@ -32,6 +32,18 @@ $JEEDOM_JEEASY_DISCOVER = array(
    ),
   ),
   array(
+   'search' => array('Axis'),
+   'plugins' => array(
+     array('id' => '70','name' => 'Camera','certification' => 'official')
+   ),
+  ),
+  array(
+   'search' => array('Zhejiang Dahua'),
+   'plugins' => array(
+     array('id' => '70','name' => 'Camera','certification' => 'official')
+   ),
+  ),
+  array(
    'search' => array('WES'),
    'plugins' => array(
      array('id' => '1336','name' => 'Wes','certification' => 'official')
