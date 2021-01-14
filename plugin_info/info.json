@@ -6,7 +6,12 @@
         "en_US": "Plugin to easily configure Jeedom",
         "es_ES": "Complemento para configurar fácilmente Jeedom",
         "de_DE": "Plugin zur einfachen Konfiguration von Jeedom",
-        "pt_PT": "Plugin para configurar facilmente o Jeedom"
+        "pt_PT": "Plugin para configurar facilmente o Jeedom",
+        "ru_RU": "Plugin permettant de configurer facilement Jeedom",
+        "id_ID": "Plugin permettant de configurer facilement Jeedom",
+        "it_IT": "Plugin permettant de configurer facilement Jeedom",
+        "ja_JP": "Plugin permettant de configurer facilement Jeedom",
+        "tr": "Plugin permettant de configurer facilement Jeedom"
     },
     "licence": "AGPL",
     "author": "Jeedom SAS",
@@ -22,7 +27,12 @@
         "en_US",
         "es_ES",
         "de_DE",
-        "pt_PT"
+        "ru_RU",
+        "id_ID",
+        "it_IT",
+        "ja_JP",
+        "pt_PT",
+        "tr"
     ],
     "compatibility": [
         "miniplus",
