@@ -26,6 +26,12 @@ $JEEDOM_JEEASY_DISCOVER = array(
     ),
   ),
   array(
+   'search' => array('Roku'),
+   'plugins' => array(
+     array('id' => '2301','name' => 'Roku','certification' => 'official')
+   ),
+  ),
+  array(
     'search' => array('Sonos'),
     'plugins' => array(
       array('id' => '1502','name' => 'Sonos','certification' => 'official')
