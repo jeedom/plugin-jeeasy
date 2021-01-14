@@ -32,6 +32,12 @@ $JEEDOM_JEEASY_DISCOVER = array(
    ),
   ),
   array(
+   'search' => array('Weinzierl'),
+   'plugins' => array(
+     array('id' => '203','name' => 'EIB - KNX','certification' => 'partenaire')
+   ),
+  ),  
+  array(
     'search' => array('Sonos'),
     'plugins' => array(
       array('id' => '1502','name' => 'Sonos','certification' => 'official')
