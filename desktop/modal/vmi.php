@@ -1,6 +1,9 @@
 <?php
 if (!isConnect()) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+        throw new Exception('{{401 - Accès non autorisé}}');
 }
 ?>
-<iframe src="index.php?v=d&plugin=ventilairsec&modal=integrator" />
+<div style="margin: 50px;">
+<?php include_once 'plugins/ventilairsec/desktop/modal/integrator.php';
+?>
+</div>
