@@ -302,6 +302,9 @@
         "Configuration sauvegardée": "Gespeicherte Konfiguration",
         "Scénario crée avec succès": "Szenario erfolgreich erstellt"
     },
+    "plugins\/jeeasy\/desktop\/modal\/vmi.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff"
+    },
     "plugins\/jeeasy\/desktop\/modal\/assistants.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
         "Les assistants vocaux": "Sprachassistenten"
