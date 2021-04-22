@@ -303,7 +303,8 @@
         "Scénario crée avec succès": "Cenário criado com sucesso"
     },
     "plugins\/jeeasy\/desktop\/modal\/vmi.php": {
-        "401 - Accès non autorisé": "401 - Acesso não autorizado"
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Intégrateur VMI": "Integrador VMI"
     },
     "plugins\/jeeasy\/desktop\/modal\/assistants.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
