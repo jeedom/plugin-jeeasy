@@ -146,6 +146,11 @@
         "Initialisation de votre": "Initialisation de votre",
         "Sauvegarde réussie": "Backup completato correttamente"
     },
+    "plugins\/jeeasy\/desktop\/modal\/atlas.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Installation du Plugin Atlas en cours.": "Installation du Plugin Atlas en cours",
+        "Merci d'avoir choisi Jeedom Atlas": "Merci d'avoir choisi Jeedom Atlas"
+    },
     "plugins\/jeeasy\/desktop\/modal\/fridge.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Désolé je n\\'arrive pas à trouver votre équipement  :",
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
@@ -562,20 +567,11 @@
         "Très bien quel objet voulez vous modifier ?": "Très bien quel objet voulez vous modifier ?"
     },
     "plugins\/jeeasy\/core\/ajax\/jeeasy.ajax.php": {
-        "Impossible de trouver l\\'objet associé : ": "Impossibile trovare l'oggetto associato:",
         "Aucune méthode correspondante à : ": "Nessun metodo corrispondente a:"
     },
     "plugins\/jeeasy\/core\/class\/jeeasy.class.php": {
         "Impossible de trouver le scénario : ": "Impossible de trouver le scénario :",
         "Impossible d\\'ouvrir : ": "Impossible d\\'ouvrir :",
-        "Nous avons détecté que vous n\\'avez pas le plugin pour gérer le protocole EnOcean, nous allons essayer de l\\'installer": "Nous avons détecté que vous n\\'avez pas le plugin pour gérer le protocole EnOcean, nous allons essayer de l\\'installer",
-        "Vous n\\'avez pas acheté le plugin en question, merci d\\'aller sur le market pour acquérir le plugin et de refaire l\\'opération, plugin : ": "Vous n\\'avez pas acheté le plugin en question, merci d\\'aller sur le market pour acquérir le plugin et de refaire l\\'opération, plugin :",
-        "Impossible d\\'installer le plugin : ": "Impossible d\\'installer le plugin :",
-        "Impossible d\\'activer le plugin : ": "Impossible d\\'activer le plugin :",
-        "Installation réussie !!!": "Installation réussie !!!",
-        "Nous avons détecté que les dépendances ne sont pas installées, nous allons essayer de les installer. Merci de patienter": "Nous avons détecté que les dépendances ne sont pas installées, nous allons essayer de les installer. Merci de patienter",
-        "Malheureusement nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin : ": "Malheureusement nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin :",
-        "Installation des dépendances réussies": "Installation des dépendances réussies",
         "Nous avons détecté que le daemon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter": "Nous avons détecté que le daemon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter",
         "Malheureusement nous n\\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin : ": "Malheureusement nous n\\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin :",
         "Lancement du démon réussi": "Lancement du démon réussi"
