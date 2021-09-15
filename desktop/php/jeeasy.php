@@ -7,7 +7,7 @@ if (!isConnect('admin')) {
 <div class="textInfoJeeasy">{{Bienvenue sur la page de configuration facile de}} <?php echo config::byKey('product_name'); ?></div>
 <div class="row">
 
-	<div class="col-sm-4" style="margin-bottom: 10px;">
+	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyMainConfiguration">
 			<i class="fas fa-cogs iconTableJeeasy"></i>
 			<br />
@@ -15,7 +15,7 @@ if (!isConnect('admin')) {
 		</div>
 	</div>
 
-	<div class="col-sm-4" style="margin-bottom: 10px;">
+	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyDiscovery">
 			<i class="fas fa-wifi iconTableJeeasy"></i>
 			<br />
@@ -23,7 +23,7 @@ if (!isConnect('admin')) {
 		</div>
 	</div>
 
-	<div class="col-sm-4" style="margin-bottom: 10px;">
+	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyObjectConfiguration">
 			<i class="fas fa-home iconTableJeeasy"></i>
 			<br />
@@ -31,7 +31,7 @@ if (!isConnect('admin')) {
 		</div>
 	</div>
 
-	<div class="col-sm-4" style="margin-bottom: 10px;">
+	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyIncludeConfiguration">
 			<i class="fas fa-plus iconTableJeeasy"></i>
 			<br />
@@ -39,7 +39,7 @@ if (!isConnect('admin')) {
 		</div>
 	</div>
 
-	<div class="col-sm-4" style="margin-bottom: 10px;">
+	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyEqLogicConfiguration">
 			<i class="fas fa-wrench iconTableJeeasy"></i>
 			<br />

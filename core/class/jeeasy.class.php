@@ -271,15 +271,21 @@ class jeeasy extends eqLogic {
 	}
 
 	public static function checkInstallPlugin($_plugin) {
-		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
+		$plugin = !is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
 		if (is_object($plugin) && $plugin->isActive()) {
-			return;
+			return 'OK';
 		}
-		echo '<div class="alert alert-info">' . __('Nous avons détecté que vous n\'avez pas le plugin pour gérer le protocole EnOcean, nous allons essayer de l\'installer', __FILE__);
 		$market_info = repo_market::byLogicalId($_plugin);
-		if ($market_info->getPurchase() !== 1) {
-			throw new Exception(__('Vous n\'avez pas acheté le plugin en question, merci d\'aller sur le market pour acquérir le plugin et de refaire l\'opération, plugin : ', __FILE__) . $market_info->getName());
+		if(!is_object($market_info)){
+			return 'Le plugin n\'est pas présent sur le market';
 		}
+		 if($market_info->getCost() > 0){
+			 if ($market_info->getPurchase() !== 1) {
+				 return 'Vous n\'avez pas acheté le plugin en question, merci d\'aller sur le market pour acquérir le plugin et de refaire l\'opération, plugin : '. $market_info->getName();
+
+			 }
+		 }
+
 		$update = update::byLogicalId($_plugin);
 		if (!is_object($update)) {
 			$update = new update();
@@ -291,33 +297,33 @@ class jeeasy extends eqLogic {
 		$update->doUpdate();
 		$plugin = plugin::byId($_plugin);
 		if (!is_object($plugin)) {
-			throw new Exception(__('Impossible d\'installer le plugin : ', __FILE__) . $_plugin);
+			return 'Impossible d\'installer le plugin : '. $market_info->getName();
 		}
 		if (!$plugin->isActive()) {
 			$plugin->setIsEnable(1);
 		}
 		if (!$plugin->isActive()) {
-			throw new Exception(__('Impossible d\'activer le plugin : ', __FILE__) . $_plugin);
+			return 'Impossible d\'activer le plugin  : '. $market_info->getName();
 		}
-		echo '<div class="alert alert-info">' . __('Installation réussie !!!', __FILE__);
+		return 'OK';
 	}
 
 	public static function checkDependancyPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
 		if ($plugin->getHasDependency() != 1) {
-			return;
+			return 'OK';
 		}
 		$dependancy = $plugin->dependancy_info();
 		if ($dependancy['state'] == 'ok') {
-			return;
+			return 'OK';
 		}
-		echo '<div class="alert alert-info">' . __('Nous avons détecté que les dépendances ne sont pas installées, nous allons essayer de les installer. Merci de patienter', __FILE__);
+
 		$plugin->dependancy_install();
 		$dependancy = $plugin->dependancy_info();
 		if ($deamon['state'] != 'ok') {
-			throw new Exception(__('Malheureusement nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support. Plugin : ', __FILE__) . $_plugin);
+			return 'Malheureusement nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support.';
 		}
-		echo '<div class="alert alert-info">' . __('Installation des dépendances réussies', __FILE__);
+		return 'OK';
 	}
 
 	public static function checkDeamonPlugin($_plugin) {

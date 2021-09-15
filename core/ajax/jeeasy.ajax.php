@@ -33,32 +33,23 @@ try {
 	if (init('action') == 'sendObjects') {
 		ajax::success(jeeasy::sendObjects(init('objects')));
 	}
-	
+
 	if (init('action') == 'installPlugin') {
-		$repo = repo_market::byLogicalIdAndType(init(id), 'plugin');
-		if (!is_object($repo)) {
-			throw new Exception(__('Impossible de trouver l\'objet associé : ', __FILE__) . init(id));
+		$checkInstall = jeeasy::checkInstallPlugin(init('id'));
+		if($checkInstall == 'OK'){
+				ajax::success();
+		}else{
+				ajax::error($checkInstall);
 		}
-		$update = update::byTypeAndLogicalId($repo->getType(), $repo->getLogicalId());
-		if (!is_object($update)) {
-			$update = new update();
+	}
+
+	if (init('action') == 'installDepPlugin') {
+		$checkInstall = jeeasy::checkDependancyPlugin(init('id'));
+		if($checkInstall == 'OK'){
+				ajax::success();
+		}else{
+				ajax::error($checkInstall);
 		}
-		$update->setSource('market');
-		$update->setLogicalId($repo->getLogicalId());
-		$update->setType($repo->getType());
-		$update->setLocalVersion($repo->getDatetime(init('version', 'stable')));
-		$update->setConfiguration('version', init('version', 'stable'));
-		$update->save();
-		$update->doUpdate();
-		
-		$pluginInstall = plugin::byId('Freebox_OS');
-		if(is_object($pluginInstall)){
-			$pluginInstall->setIsEnable(1);
-			$pluginInstall->dependancy_install();
-			$pluginInstall->deamon_start();
-			ajax::success();
-		}
-		ajax::error();
 	}
 
 	throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
