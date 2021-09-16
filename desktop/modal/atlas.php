@@ -22,11 +22,9 @@ if (!isConnect()) {
 					handleAjaxError(request, status, error);
 			},
 			success: function(data) {
-				progress(50);
-        testDep();
+				progress(100);
 			}
     	});
-
 
       function testDep(){
         $.ajax({
