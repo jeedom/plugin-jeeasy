@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Jeeasy": "Changelog jeeasy",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
+        "16\/09\/2021": "09\/16\/2021",
+        "integration de l'installation automatique du plugin Atlas": "integration of the automatic installation of the Atlas plugin",
         " IMPORTANT.": " Important.",
         " IMPORTANT?": " Important?",
         "IMPORTANT ": "Important ",
