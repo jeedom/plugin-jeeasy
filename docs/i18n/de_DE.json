@@ -2,8 +2,10 @@
     "changelog.md": {
         "Changelog Jeeasy": "Changelog jeeasy",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
+        "30\/09\/2021": "30.09.2021",
+        "Ajout Recovery Atlas": "Wiederherstellungsatlas hinzufügen",
         "16\/09\/2021": "16.09.2021",
-        "integration de l'installation automatique du plugin Atlas": "Integration der automatischen Installation des Atlas-Plugins",
+        "Integration de l'installation automatique du plugin Atlas": "Integration der automatischen Installation des Atlas-Plugins",
         " IMPORTANT.": " Wichtig.",
         " IMPORTANT?": " Wichtig?",
         "IMPORTANT ": "Wichtig ",

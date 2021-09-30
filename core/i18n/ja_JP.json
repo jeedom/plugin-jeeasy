@@ -1,4 +1,10 @@
 {
+    "plugins\/jeeasy\/desktop\/modal\/recoveryAtlas.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Lancement Recovery": "Lancement Recovery",
+        "Recovery Atlas": "Recovery Atlas",
+        "LANCER LE RECOVERY": "LANCER LE RECOVERY"
+    },
     "plugins\/jeeasy\/desktop\/modal\/objects.php": {
         "401 - Accès non autorisé": "401-不正アクセス",
         "Que souhaitez-vous configurer ?": "Que souhaitez-vous configurer ?",
