@@ -22,7 +22,8 @@ if (!isConnect()) {
 					handleAjaxError(request, status, error);
 			},
 			success: function(data) {
-				progress(100);
+				testDep();
+				progress(50);
 			}
     	});
 
