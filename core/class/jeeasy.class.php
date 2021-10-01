@@ -270,7 +270,7 @@ class jeeasy extends eqLogic {
 		self::checkDeamonPlugin($plugin);
 	}
 
-	public static function checkInstallPlugin($_plugin) {
+	public static function checkInstallPlugin($_plugin, $branch = 'stable') {
 		$plugin = !is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
 		if (is_object($plugin) && $plugin->isActive()) {
 			return 'OK';
@@ -292,7 +292,7 @@ class jeeasy extends eqLogic {
 		}
 		$update->setLogicalId($_plugin);
 		$update->setSource('market');
-		$update->setConfiguration('version', 'stable');
+		$update->setConfiguration('version', $branch);
 		$update->save();
 		$update->doUpdate();
 		$plugin = plugin::byId($_plugin);

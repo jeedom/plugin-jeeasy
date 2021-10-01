@@ -35,7 +35,11 @@ try {
 	}
 
 	if (init('action') == 'installPlugin') {
-		$checkInstall = jeeasy::checkInstallPlugin(init('id'));
+		if(init('branch')){
+			$checkInstall = jeeasy::checkInstallPlugin(init('id'),init('branch'));
+		}else{
+			$checkInstall = jeeasy::checkInstallPlugin(init('id'));
+		}
 		if($checkInstall == 'OK'){
 				ajax::success();
 		}else{

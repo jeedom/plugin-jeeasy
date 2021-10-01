@@ -3,6 +3,18 @@ if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 
+if( file_exists( config::byKey('path_wizard') ) )
+  $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
+else
+  $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.json'), true );
+
+$custom = null;
+
+if($path_wizard['trame']['atlas']['custom']){
+	if($path_wizard['trame']['atlas']['custom'] != ''){
+		$custom = $path_wizard['trame']['atlas']['custom'];
+	}
+}
 ?>
 
 		<script>
@@ -16,6 +28,7 @@ if (!isConnect()) {
 			data: {
 			    action: "installPlugin",
 			    id: 'atlas'
+					<?php if($custum['branch']){echo ", branch: '".$custum['branch']."'";}; ?>
 			},
 			dataType: 'json',
 			error: function(request, status, error) {
