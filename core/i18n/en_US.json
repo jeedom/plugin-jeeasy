@@ -6,7 +6,7 @@
         "LANCER LE RECOVERY": "LAUNCH THE RECOVERY"
     },
     "plugins\/jeeasy\/desktop\/modal\/objects.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Que souhaitez-vous configurer ?": "What do you want to configure?",
         "Une maison": "A house",
         "Un appartement": "A flat",
@@ -21,11 +21,11 @@
         "Salle de bain": "Bathroom"
     },
     "plugins\/jeeasy\/desktop\/modal\/services.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Les services complémentaires": "Complementary services"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Découvrez nos Services Packs": "Discover our Service Packs",
         "Inclus avec": "Included with",
         "Tous": "All",
@@ -71,7 +71,7 @@
         "Le réseau Z-Wave est remis à zéro sur le serveur": "The Z-Wave network is reset on the server",
         "Le réseau Z-Wave est en cours de démarrage sur le serveur": "The Z-Wave network is starting up on the server",
         "Impossible de contacter le serveur Z-wave": "Unable to contact Z-wave server",
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Inclusion": "Inclusion",
         "Configuration": "Setup",
@@ -101,7 +101,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/object.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre pièce  : ": "Sorry I can't find your part:",
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Général": "Main",
         "Affichage": "Viewing",
@@ -124,7 +124,7 @@
         "Configuration sauvegardée": "Saved configuration"
     },
     "plugins\/jeeasy\/desktop\/modal\/philipshue.include.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Ajout": "Addition",
         "Fin": "End",
@@ -141,14 +141,14 @@
         "Synchronisation réussie": "Synchronization successful"
     },
     "plugins\/jeeasy\/desktop\/modal\/update.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Initialisation de ": "Initialization of",
         "Veuillez patienter quelques instants, cela peut prendre au maximum 10 minutes": "Please wait a few moments, this may take a maximum of 10 minutes",
         "Configuration de votre": "Configuration of your",
         "Mode dégradé": "Degraded mode"
     },
     "plugins\/jeeasy\/desktop\/modal\/wizard.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Initialisation de votre": "Initializing your",
         "Sauvegarde réussie": "Successful backup"
     },
@@ -159,7 +159,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/fridge.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Sorry I can't find your equipment:",
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Affichage": "Viewing",
         "Alerte": "Alert",
@@ -189,13 +189,13 @@
         "Configuration sauvegardée": "Saved configuration"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Guide de démarrage <?php echo config::byKey('product_name'); ?>": "Getting started guide <?php echo config::byKey('product_name'); ?>",
         "Ce guide va vous aider à configurer votre <?php echo config::byKey('product_name'); ?> en quelques étapes.": "This guide will help you configure your <?php echo config::byKey('product_name'); ?> in a few steps",
         "Cliquez sur la flêche pour commencer la configuration.": "Click on the arrow to start the configuration"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Général": "Main",
         "Réseaux": "Networks",
@@ -258,7 +258,7 @@
         "Sélectionner un mot-clé": "Select a keyword"
     },
     "plugins\/jeeasy\/desktop\/modal\/sonos3.include.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Ajout": "Addition",
         "Fin": "End",
@@ -275,7 +275,7 @@
         "Synchronisation réussie": "Synchronization successful"
     },
     "plugins\/jeeasy\/desktop\/modal\/freebox_os.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Installation du Plugin Freebox en cours.": "Installation of the Freebox Plugin in progress",
         "Demande d\\'autorisation sur votre Freebox Delta": "Authorization request on your Delta Freebox",
         "Merci d\\'appuyer sur le bouton V de votre Freebox, afin de confirmer l\\'autorisation d\\'accès à votre Delta.": "Please press the V button on your Freebox to confirm the authorization to access your Delta",
@@ -287,7 +287,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Sorry I can't find your equipment:",
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Affichage": "Viewing",
         "Automatisation": "Automating",
@@ -318,18 +318,18 @@
         "Intégrateur VMI": "VMI integrator"
     },
     "plugins\/jeeasy\/desktop\/modal\/assistants.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Les assistants vocaux": "Voice assistants"
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Ip": "IP",
         "Nom": "Name",
         "MAC": "Mac",
         "Plugins suggérés": "Suggested plugins"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Vous êtes prêt à commencer": "You are ready to start",
         "Vous pourrez trouver la documentation complète de Jeedom à cette adresse :": "You can find the complete Jeedom documentation at this address:",
         "Documentation": "Documentation",
@@ -337,7 +337,7 @@
         "Communauté Jeedom": "Jeedom Community"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Initialisation de votre": "Initializing your",
         "Sauvegarde réussie": "Successful backup",
         "Test réussi": "Successful test",
@@ -345,7 +345,7 @@
         "Sélectionner un mot-clé": "Select a keyword"
     },
     "plugins\/jeeasy\/desktop\/modal\/enocean.include.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Inclusion": "Inclusion",
         "Configuration": "Setup",
@@ -372,7 +372,7 @@
         "Félicitation !!! Votre module a bien été inclus. Vous pouvez passer à la suite": "Congratulations !!! Your module has been included. You can move on"
     },
     "plugins\/jeeasy\/desktop\/modal\/rfxcom.include.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accueil": "Home",
         "Inclusion": "Inclusion",
         "Configuration": "Setup",
@@ -401,7 +401,7 @@
         "Félicitation !!! Votre module a bien été inclus. Vous pouvez passer à la suite": "Congratulations !!! Your module has been included. You can move on"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_reseaux.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Nous allons ici configurer le réseau de votre": "Here we will configure the network of your",
         " La plupart du temps la configuration par défaut est correcte et vous n'avez pas à la modifier": "Most of the time the default configuration is correct and you don't have to change it",
         "Attention : cette configuration n'est là que pour informer Jeedom de sa configuration réseau et n'a aucun impact sur les ports ou l'IP réellement utilisés pour joindre Jeedom": "Warning: this configuration is only there to inform Jeedom of its network configuration and has no impact on the ports or the IP actually used to reach Jeedom",
@@ -422,13 +422,13 @@
         "Arrêter": "Stop"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_fin.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Bravo !!! Vous avez fini de configurer votre": "Well done !!! You have finished configuring your",
         "Cliquez sur ": "Click on",
         " pour valider votre configuration": "to validate your configuration"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_dns.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Accès à distance": "Remote access",
         "Accès à distance simplifié": "Easy remote access",
         "Activez-le maintenant ": "Activate it now",
@@ -449,7 +449,7 @@
         "Arrêter": "Stop"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_sauvegarde.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Les Sauvegardes Cloud": "Cloud backups",
         "Documentation": "Documentation",
         "Nom de votre Backup": "Name of your Backup",
@@ -461,7 +461,7 @@
         "  Vérifier": "Check"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_logs.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Nous allons ici configurer les logs de votre": "Here we will configure the logs of your",
         "Niveau de log par défaut": "Default log level",
         "Debug": "Debug",
@@ -475,10 +475,10 @@
         " pour commencer": "to begin"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_app.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access"
+        "401 - Accès non autorisé": "401 - Unauthorized access"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_market.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Nous allons ici configurer la connexion de votre ": "Here we will configure the connection of your",
         "au market": "at the market",
         "Activer": "Activate",
@@ -490,7 +490,7 @@
         "  Tester": "Test"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_general.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Nous allons ici configurer les principaux paramètres de votre": "Here we will configure the main parameters of your",
         "Nom de votre <?php echo config::byKey('product_name'); ?> (utilisé notamment par le market)": "Your name <?php echo config::byKey('product_name'); ?> (used in particular by the market)",
         "Nom de votre": "Name of your",
@@ -500,30 +500,30 @@
         "Date et heure": "Date and time"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/accueil.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Bienvenue sur l'assistant de configuration de votre": "Welcome to the configuration wizard for your",
         "Cliquez sur ": "Click on",
         " pour commencer": "to begin"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_batterie.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Nous allons ici configurer le seuil batterie de votre": "Here we will configure the battery threshold of your",
         "Seuil des piles": "Batteries threshold",
         "Danger": "Danger",
         "Warning": "Warning"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_discovery.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Nous allons choisir d'activer les propositions de plugins": "We will choose to activate the plugin proposals",
         "Nous pouvons vous proposer des plugins complémentaires à votre matériel et aux plugins déjà actifs.": "We can offer you plugins that complement your hardware and plugins that are already active",
         "Activer les propositions de plugins": "Activate plugin proposals",
         "  Activer": "Activate"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration-index.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access"
+        "401 - Accès non autorisé": "401 - Unauthorized access"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_alertes.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Nous allons voir ici comment votre": "We will see here how your",
         "peut vous contacter": "can contact you",
         "Si ces seuils sont atteints vous recevrez des alertes": "If these thresholds are reached you will receive alerts",
@@ -537,7 +537,7 @@
         "Rechercher une commande": "Search a command"
     },
     "plugins\/jeeasy\/desktop\/php\/jeeasy.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "401 - Accès non autorisé": "401 - Unauthorized access",
         "Bienvenue sur la page de configuration facile de": "Welcome to the easy setup page of",
         "Configurer mon": "Configure my",
         "Détecter mes équipements": "Detect my equipment",
