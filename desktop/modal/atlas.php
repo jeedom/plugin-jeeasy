@@ -28,7 +28,7 @@ if($path_wizard['trame']['atlas']['custom']){
 			data: {
 			    action: "installPlugin",
 			    id: 'atlas'
-					<?php if($custum['branch']){echo ", branch: '".$custum['branch']."'";}; ?>
+					<?php if($custom['branch']){echo ", branch: '".$custom['branch']."'";} ?>
 			},
 			dataType: 'json',
 			error: function(request, status, error) {
@@ -73,6 +73,7 @@ if($path_wizard['trame']['atlas']['custom']){
             $('#div_progressbar').width(ProgressPourcent+'%');
             $('#div_progressbar').attr('aria-valuenow',ProgressPourcent);
             $('#div_progressbar').html('FIN');
+						$('.textAtlas').hide();
             Good();
             return;
         }
