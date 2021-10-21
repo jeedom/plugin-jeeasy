@@ -15,7 +15,7 @@ if (!isConnect('admin')) {
 		</div>
 	</div>
 
-	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
+	<div class="col-sm-4" style="margin-bottom: 10px;">
 		<div class="cursor divTableJeeasy" id="bt_jeeasyDiscovery">
 			<i class="fas fa-wifi iconTableJeeasy"></i>
 			<br />

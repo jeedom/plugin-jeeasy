@@ -55,6 +55,11 @@ try {
 				ajax::error($checkInstall);
 		}
 	}
+  
+  	if (init('action') == 'installPluginPack') {
+        $check = jeeasy::checkPluginsByServicePack(init('servicePack'),init('pluginsList'),init('pluginsPurchase'));
+		ajax::success($check);
+	}
 
 	throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
 	/*     * *********Catch exeption*************** */

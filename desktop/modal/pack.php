@@ -2,7 +2,214 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
+
+  
+  
+if( file_exists( config::byKey('path_wizard') ) )
+  $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
+else
+  $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.json'), true );
+
+$custom = null;
+
+
+
+$jsonrpc = repo_market::getJsonRpc();
+$marketURL = config::byKey('market::address');
+
+
+
+if ($jsonrpc->sendRequest('servicepack::info')) {     
+    $result = $jsonrpc->getResult();
+    $servicePack = $result['licenceName'];
+    $nbService = $result['licenceNumber'];
+    $pluginsPack = $result['licencePlugins'];
+    $mainPlugins = $result['mainPlugins'];
+    $arrPlugins = array();
+
+    if(is_array($mainPlugins) && !empty($mainPlugins) && $servicePack != 'Community'){      
+        foreach($mainPlugins as $plugin){
+                $arrPlugin = array( 'id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
+                $arrId = array();
+                $arrId['id'] = $plugin;
+			    if ( $jsonrpc->sendRequest('market::byId', $arrId)) {
+                      $resultMain = $jsonrpc->getResult();                      
+                      $logicalPlugin = $resultMain['logicalId'];
+                      $namePlugin = $resultMain['name'];
+                      $imgPlugin = $resultMain['img'];
+                      array_push($arrPlugin['id'], $plugin);
+                      array_push($arrPlugin['name'], $namePlugin);
+                      array_push($arrPlugin['logicalId'], $logicalPlugin);
+                      array_push($arrPlugin['img'], $imgPlugin['icon']);
+                  }    
+          array_push($arrPlugins, $arrPlugin);
+        }       
+    }
+   
+    if($pluginsPack != 'official'){
+          if(is_array($pluginsPack) && !empty($pluginsPack) && $servicePack != 'Community'){      
+                foreach($pluginsPack as $plugin){
+                        $arrPlugin = array( 'id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
+                        $arrId = array();
+                        $arrId['id'] = $plugin;
+                        if ( $jsonrpc->sendRequest('market::byId', $arrId)) {
+                              $resultMain = $jsonrpc->getResult();
+                            
+                              $logicalPlugin = $resultMain['logicalId'];
+                              $namePlugin = $resultMain['name'];
+                              $imgPlugin = $resultMain['img'];
+                              array_push($arrPlugin['id'], $plugin);
+                     		  array_push($arrPlugin['name'], $namePlugin);
+                              array_push($arrPlugin['logicalId'], $logicalPlugin);
+                     		  array_push($arrPlugin['img'], $imgPlugin['icon']);
+                          }
+                  array_push($arrPlugins, $arrPlugin);
+                }       
+            }  
+   }
+
+}
+ if($servicePack != 'Community'){
 ?>
+	<script>
+
+		$('#bt_next').hide();
+		$('#bt_prev').hide();
+		$('.textAtlas').text('{{Choix des plugins à installer : }}');
+	    $('#btn-choicePlugin').on('click', function () {
+				$('#tabPlugins').hide();
+                $('#btn-choicePlugin').hide();
+                $('.textAtlas').text('{{Installation des plugins en cours : }}');         
+                   progress(20);   
+                   var pluginsCheck = [];
+                 $('input:checked[id=checkPluginToInstall]').each(function(){                     
+                       var idplugin= $(this).attr("name");                      
+                       pluginsCheck.push(idplugin); 
+                  }); 
+  					installPluginCheck(pluginsCheck);
+                
+        });
+
+
+
+
+function installPluginCheck(pluginsCheck){
+  for (const pluginId of pluginsCheck) {
+          $.ajax({
+			type: "POST",
+			url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
+			data: {
+			    action: "installPlugin",
+			    id: pluginId
+					
+			},
+			dataType: 'json',
+			error: function(request, status, error) {
+					handleAjaxError(request, status, error);
+			},
+			success: function(data) {
+				testDep(pluginId);
+				progress(50);
+			}
+    	   });
+
+  }
+    
+
+}
+
+
+      function testDep(idPlugin){
+        $.ajax({
+          type: "POST",
+          url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
+          data: {
+              action: "installDepPlugin",
+              id: idPlugin
+          },
+          dataType: 'json',
+          error: function(request, status, error) {
+              handleAjaxError(request, status, error);
+          },
+          success: function(data) {
+            progress(100);
+            $('#servicePackh3').text('{{Installation de dépendances éventuelles en cours, vérifiez vos logs : }}');  
+          }
+          });
+       }
+
+
+      function progress(ProgressPourcent){
+        if(ProgressPourcent == -1){
+            $('#div_progressbar').removeClass('progress-bar-success progress-bar-info progress-bar-warning');
+            $('#div_progressbar').addClass('active progress-bar-danger');
+            $('#div_progressbar').width('100%');
+            $('#div_progressbar').attr('aria-valuenow',100);
+            $('#div_progressbar').html('N/A');
+            return;
+        }
+        if(ProgressPourcent == 100){
+            $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+            $('#div_progressbar').addClass('progress-bar-success');
+            $('#div_progressbar').width(ProgressPourcent+'%');
+            $('#div_progressbar').attr('aria-valuenow',ProgressPourcent);
+            $('#div_progressbar').html('FIN');
+						$('.textAtlas').hide();
+            Good();
+            return;
+        }
+        $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+        $('#div_progressbar').addClass('progress-bar-success');
+        $('#div_progressbar').width(ProgressPourcent+'%');
+        $('#div_progressbar').attr('aria-valuenow',ProgressPourcent);
+        $('#div_progressbar').html(ProgressPourcent+'%');
+      }
+      function Good(){
+        $('#bt_next').show();
+        $('#bt_prev').show();
+        $('.img-atlas').attr('src', '<?php echo config::byKey('product_connection_image'); ?>');
+      }
+      </script>
+
+      <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
+      <div class="col-md-12 text-center">
+      <p class="text-center"><h3 class="servicePack" id="servicePackh3">Vous êtes en <?= $servicePack ?></h3></p>
+      <p class="text-center"><h4 class="textAtlas"></h4></p>
+      
+      <table class="table table-hover" id="tabPlugins"  style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <thead>
+            </thead>
+              <tbody>
+                   <?php             
+                            foreach($arrPlugins as $plugin){
+                                 echo '<tr>';
+                                 echo '<td style="display:flex;justify-content:space-between;align-items:center;" ><img class="test" src="'.$marketURL.'/'.$plugin["img"][0].'" style="height:40px; width:40px; margin-right:20px">';                                                   
+                                 echo $plugin['name'][0];  
+                                 echo '<input type="checkbox" class="checkPluginToInstall" id="checkPluginToInstall" name="'.$plugin['logicalId'][0].'" style="margin-left:20px;">';
+                                 echo '</td>';
+                                 echo '<tr>';
+                              }          
+                    ?>
+             </tbody>
+                      
+                      
+      </table>
+       <div class="testbtn">
+           <a class='btn btn-success btn-md pull-right' id="btn-choicePlugin" style="margin-right:50px" >Valider</a>           
+       </div>               
+
+      <div id="contenuTextSpan" class="progress">
+      	<div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+      	</div>
+      </div>
+      </div>
+      </div>  
+  
+<?php        
+}elseif($servicePack == 'Community'){
+
+?>
+
 <h2 class="center">{{Découvrez nos Services Packs}}</h2>
         <table class="table table-hover">
           <thead>
@@ -135,3 +342,6 @@ if (!isConnect()) {
 	<sup>(2)</sup> : {{Tickets sur plugin officiel}}<br/>
 	<sup>(3)</sup> : {{Uniquement sur les plugins payants}}<br/>
         </p>
+  
+  
+<?php } ?>

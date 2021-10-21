@@ -280,7 +280,7 @@ class jeeasy extends eqLogic {
 			return 'Le plugin n\'est pas présent sur le market';
 		}
 		 if($market_info->getCost() > 0){
-			 if ($market_info->getPurchase() !== 1) {
+			 if ($market_info->getPurchase() != 1) {
 				 return 'Vous n\'avez pas acheté le plugin en question, merci d\'aller sur le market pour acquérir le plugin et de refaire l\'opération, plugin : '. $market_info->getName();
 
 			 }
@@ -325,6 +325,35 @@ class jeeasy extends eqLogic {
 		}
 		return 'OK';
 	}
+  
+  
+  public static function checkPluginsByServicePack($servicePack,$pluginsList,$pluginsPurchase){
+   /* switch($servicepack){        
+        case 'Service Pack Power V1':break;
+        case 'Service Pack Power EnOcean V1':break;
+        case 'Service Pack Power RfPlayer':break;
+        case 'Service Pack Power RfPlayer EnOcean':break;
+        case 'Service Pack Power Conbee':break;
+        case 'Service Pack Power':break;
+        case 'Service Pack Power Enocean':break;
+        case 'Service Pack Power Zigbee':break;
+        case 'Service Pack Power Ultimate':
+        break;
+        case 'Service Pack Pro':break;
+        case 'Service Pack Client MAdomotique':break;
+        case 'Service Pack Power Enocean Cauderay':break;
+        case 'Service Pack Pro Cauderay':break;
+        case 'Service Pack Ventilairsec':break;
+        case 'Service Pack HC-DOMOTIQUE':break;  
+        default: break;
+ 
+    }*/
+    
+    
+    return $test;
+    
+    
+  }
 
 	public static function checkDeamonPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
