@@ -3,59 +3,45 @@ if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 ?>
-<br/>
-<div class="textInfoJeeasy">{{Bienvenue sur la page de configuration facile de}} <?php echo config::byKey('product_name'); ?></div>
-<div class="row">
 
-	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
-		<div class="cursor divTableJeeasy" id="bt_jeeasyMainConfiguration">
-			<i class="fas fa-cogs iconTableJeeasy"></i>
-			<br />
-			{{Configurer mon}} <?php echo config::byKey('product_name'); ?>
-		</div>
-	</div>
+<div class="row row-overflow" >
 
-	<div class="col-sm-4" style="margin-bottom: 10px;">
-		<div class="cursor divTableJeeasy" id="bt_jeeasyDiscovery">
-			<i class="fas fa-wifi iconTableJeeasy"></i>
-			<br />
-			{{Détecter mes équipements}}
-		</div>
-	</div>
+	<div class="col-xs-12 eqLogicThumbnailDisplay" >
 
-	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
-		<div class="cursor divTableJeeasy" id="bt_jeeasyObjectConfiguration">
-			<i class="fas fa-home iconTableJeeasy"></i>
-			<br />
-			{{Configurer ma maison}}
-		</div>
-	</div>
+		<div class="eqLogicThumbnailContainer">
+			<legend style="margin-bottom:50px;"><i class="fas fa-cog"></i>  {{Bienvenue sur la configuration facile avec Jeeasy}}</legend>
 
-	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
-		<div class="cursor divTableJeeasy" id="bt_jeeasyIncludeConfiguration">
-			<i class="fas fa-plus iconTableJeeasy"></i>
-			<br />
-			{{Ajouter un équipement}}
-		</div>
-	</div>
-
-	<div class="col-sm-4" style="margin-bottom: 10px;display:none;">
-		<div class="cursor divTableJeeasy" id="bt_jeeasyEqLogicConfiguration">
-			<i class="fas fa-wrench iconTableJeeasy"></i>
-			<br />
-			{{Configurer un équipement}}
-		</div>
-	</div>
-
-	<div class="col-sm-4" style="margin-bottom: 10px;">
-		<div class="cursor divTableJeeasy" id="bt_jeeasyWizard">
-			<i class="fas fa-hat-wizard iconTableJeeasy"></i>
-			<br />
-			{{Relancer le Wizard}}
+			<div class="cursor eqLogicAction logoPrimary" id="bt_jeeasyWizard">
+					<i class="fas fa-hat-wizard iconTableJeeasy"></i>
+				<br>
+				<span>{{Relancer le wizard}}</span>
+			</div>
+			<div class="cursor eqLogicAction logoSecondary" id="bt_jeeasyDiscovery">
+				<i class="fas fa-wifi iconTableJeeasy"></i>
+				<br>
+				<span>{{Détecter mes équipements}}</span>
+			</div>
+			<div class="cursor eqLogicAction logoSecondary" id="bt_jeeasyObjectConfiguration">
+				<i class="fas fa-home iconTableJeeasy"></i>
+				<br>
+				<span>{{Configurer ma maison}}</span>
+			</div>
+			<div class="cursor eqLogicAction logoSecondary" id="bt_jeeasyIncludeConfiguration">
+				<i class="fas fa-plus iconTableJeeasy"></i>
+				<br>
+				<span>{{Ajouter un équipement}}</span>
+			</div>
+			<div class="cursor eqLogicAction logoSecondary" id="bt_jeeasyEqLogicConfiguration">
+				<i class="fas fa-wrench iconTableJeeasy"></i>
+				<br>
+				<span>{{Configurer un équipement}}</span>
+			</div>
 		</div>
 	</div>
 
 </div>
 
+<!-- Inclusion du fichier javascript du plugin (dossier, nom_du_fichier, extension_du_fichier, id_du_plugin) -->
 <?php include_file('desktop', 'jeeasy', 'js', 'jeeasy');?>
-<?php include_file('desktop', 'jeeasy', 'css', 'jeeasy');?>
+<!-- Inclusion du fichier javascript du core - NE PAS MODIFIER NI SUPPRIMER -->
+<?php include_file('core', 'plugin.template', 'js');?>
