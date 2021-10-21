@@ -26,6 +26,9 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
+        "Choix des plugins à installer : ": "Auswahl der zu installierenden Plugins:",
+        "Installation des plugins en cours : ": "Installation der Plugins im Gange:",
+        "Installation de dépendances éventuelles en cours, vérifiez vos logs : ": "Installation aller Abhängigkeiten im Gange, überprüfen Sie Ihre Protokolle:",
         "Découvrez nos Services Packs": "Entdecken Sie unsere Service Packs",
         "Inclus avec": "Im Lieferumfang enthalten",
         "Tous": "Alle",
@@ -538,13 +541,12 @@
     },
     "plugins\/jeeasy\/desktop\/php\/jeeasy.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Bienvenue sur la page de configuration facile de": "Willkommen auf der einfachen Einrichtungsseite von",
-        "Configurer mon": "Konfigurieren Sie meine",
+        "Bienvenue sur la configuration facile avec Jeeasy": "Willkommen bei der einfachen Einrichtung mit Jeeasy",
+        "Relancer le wizard": "Starten Sie den Assistenten neu",
         "Détecter mes équipements": "Erkenne meine Ausrüstung",
         "Configurer ma maison": "Konfiguriere mein Haus",
         "Ajouter un équipement": "Ausrüstung hinzufügen",
-        "Configurer un équipement": "Geräte konfigurieren",
-        "Relancer le Wizard": "Starten Sie den Assistenten neu"
+        "Configurer un équipement": "Geräte konfigurieren"
     },
     "plugins\/jeeasy\/desktop\/js\/jeeasy.js": {
         "Frigo": "Kühlschrank",

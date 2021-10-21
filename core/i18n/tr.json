@@ -26,6 +26,9 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
+        "Choix des plugins à installer : ": "Choix des plugins à installer :",
+        "Installation des plugins en cours : ": "Installation des plugins en cours :",
+        "Installation de dépendances éventuelles en cours, vérifiez vos logs : ": "Installation de dépendances éventuelles en cours, vérifiez vos logs :",
         "Découvrez nos Services Packs": "Découvrez nos Services Packs",
         "Inclus avec": "Inclus avec",
         "Tous": "Hepsi",
@@ -538,13 +541,12 @@
     },
     "plugins\/jeeasy\/desktop\/php\/jeeasy.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
-        "Bienvenue sur la page de configuration facile de": "Bienvenue sur la page de configuration facile de",
-        "Configurer mon": "Configurer mon",
+        "Bienvenue sur la configuration facile avec Jeeasy": "Bienvenue sur la configuration facile avec Jeeasy",
+        "Relancer le wizard": "Relancer le Wizard",
         "Détecter mes équipements": "Detecter mes equipements",
         "Configurer ma maison": "Configurer ma maison",
         "Ajouter un équipement": "Ajouter un équipement",
-        "Configurer un équipement": "Configurer un équipement",
-        "Relancer le Wizard": "Relancer le Wizard"
+        "Configurer un équipement": "Configurer un équipement"
     },
     "plugins\/jeeasy\/desktop\/js\/jeeasy.js": {
         "Frigo": "Frigo",
