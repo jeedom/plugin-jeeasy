@@ -62,7 +62,7 @@ try {
 	}
 
 	if (init('action') == 'configInternalPlugin') {
-		$check = jeeasy::configInternalPlugin(init('typeConfig'), init('key'), init('pluginname'));
+		$check = jeeasy::configInternalPlugin(init('typeConfig'), init('typeBox'), init('pluginName'));
 	  ajax::success($check);
 }
 

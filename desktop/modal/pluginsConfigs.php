@@ -23,8 +23,8 @@ if($listPlugins){
                 foreach( $step as $key => $value ){
                     if($key == $productName){
                       ?> <script>
-                           $('#pluginsConfigSelect').append($('<option>', {NamePlugin:'<?= $nameplug; ?>', typeBox:'<?= $productName; ?>',config:'gpio', text:'<?= $nameplug; ?> : Configuration Controlleur Interne (GPIO)'}));
-                           $('#pluginsConfigSelect').append($('<option>', {NamePlugin:'<?= $nameplug; ?>', typeBox:'<?= $productName; ?>', config:'usb', text:'<?= $nameplug; ?> : Configuration Controlleur USB'}));
+                           $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?= $nameplug; ?>', typebox:'<?= $productName; ?>',config:'gpio', text:'<?= $nameplug; ?> : Configuration Controlleur Interne (GPIO)'}));
+                           $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?= $nameplug; ?>', typebox:'<?= $productName; ?>', config:'usb', text:'<?= $nameplug; ?> : Configuration Controlleur USB'}));
                          </script>
                      <?php
                      }
@@ -49,8 +49,8 @@ if($listPlugins){
 
 $('#btn-choiceConfig').on('click', function () {
 var choiceConfig = $('#pluginsConfigSelect option:selected').attr('config');
-var typeBox = $('#pluginsConfigSelect option:selected').attr('typeBox');
-var pluginName = $('#pluginsConfigSelect option:selected').attr('NamePlugin');
+var typeBox = $('#pluginsConfigSelect option:selected').attr('typebox');
+var pluginName = $('#pluginsConfigSelect option:selected').attr('nameplugin');
 
 $.ajax({
    type: "POST",
@@ -63,20 +63,31 @@ $.ajax({
    },
    dataType: 'json',
    error: function (request, status, error) {
+     console.log(status);
      handleAjaxError(request, status, error);
    },
    success: function (data) {
-         console.log(data);
+     console.log(data);
          if(data.result == 'usb'){
               $('.textConfigAutoPlug').text('Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin : ');
               $('#choiceMode').hide();
-              $('#btn-choiceConfig').hide();
-         }else if(data.result == 'gpio')
+         }else if(data.result == 'gpio'){
               $('#choiceMode').hide();
               $('.textConfigAutoPlug').text('Votre plugin à été configuré automatiquement ');
-              $('#btn-choiceConfig').hide();
+
          }
+       }
    });
+});
+
+
+$('#pluginsConfigSelect').on('change', function () {
+    $('#choiceMode').show();
+    $('.textConfigAutoPlug').text('');
+
+
+
+
 });
 
 </script>

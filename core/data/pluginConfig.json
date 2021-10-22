@@ -4,10 +4,10 @@
             {
               "versions": {
                    "Atlas": {
-                      "port":"Jeedom Atlas"
+                      "port" : "Jeedom Atlas"
                    },
                    "smart": {
-                      "port":"Odroid C2"
+                      "port" : "Odroid C2"
                    }
                 }
             } ,
@@ -15,9 +15,9 @@
           {
             "versions": {
                  "Atlas": {
-                   "controller_1":"ezsp",
-                   "sub_controller_1":"elelabs",
-                   "port_1":"/dev/ttyS2"
+                   "controller_1" : "ezsp",
+                   "sub_controller_1" : "elelabs",
+                   "port_1" : "/dev/ttyS2"
                  }
               }
           } ,
@@ -25,10 +25,10 @@
           {
             "versions": {
                  "Atlas": {
-                   "port":"Jeedom Atlas"
+                   "port" : "Jeedom Atlas"
                  },
                  "smart": {
-                    "port":"Odroid C2"
+                    "port" : "Odroid C2"
                  }
               }
           } ,
