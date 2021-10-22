@@ -328,15 +328,10 @@ class jeeasy extends eqLogic {
 
 
 	public static function configInternalPlugin($typeConfig, $key, $plugin){
-		  log::add('gestAccess', 'debug', 'PLUGIN :' .$plugin);
-			log::add('gestAccess', 'debug', 'KEY :' .$key);
-			log::add('gestAccess', 'debug', 'TYPEONFIG :' .$typeConfig);
        if($typeConfig == 'gpio'){
 						 $pluginsConf = json_decode( file_get_contents('../data/pluginConfig.json'), true );
 						 $step = $pluginsConf['pluginsInfos'][$plugin]['versions'][$key];
 				     foreach( $step as $k => $v ){
-							 log::add('gestAccess', 'debug', 'K :' .$k);
-							 log::add('gestAccess', 'debug', 'V :' .$v);
 									 	config::save($k, $v, $plugin);
 							}
 							return 'gpio';
