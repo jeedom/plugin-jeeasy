@@ -15,22 +15,34 @@ else{
 $productName = jeedom::getHardwareName();
 $listPlugins = plugin::listPlugin();
 
+if($listPlugins){
+  foreach ($listPlugins as $plugin){
+        $nameplug = $plugin->getId();
+        if($path_pluginsConf['pluginsInfos'][$nameplug]){
+                $step = $path_pluginsConf['pluginsInfos'][$nameplug]['versions'];
+                foreach( $step as $key => $value ){
+                    if($key == $productName){
+                      ?> <script>
+                           $('#pluginsConfigSelect').append($('<option>', {NamePlugin:'<?= $nameplug; ?>', typeBox:'<?= $productName; ?>',config:'gpio', text:'<?= $nameplug; ?> : Configuration Controlleur Interne (GPIO)'}));
+                           $('#pluginsConfigSelect').append($('<option>', {NamePlugin:'<?= $nameplug; ?>', typeBox:'<?= $productName; ?>', config:'usb', text:'<?= $nameplug; ?> : Configuration Controlleur USB'}));
+                         </script>
+                     <?php
+                     }
+                }
+         }
+  }
+}else{
+  ?> <script>
+  $('#choiceMode').hide();
+  $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétré');
+  $('#btn-choiceConfig').hide();
+  $('#pluginsConfigSelect').hide();
 
-foreach ($listPlugins as $plugin){
-      $nameplug = $plugin->getId();
-      if($path_pluginsConf['pluginsInfos'][$nameplug]){
-              $step = $path_pluginsConf['pluginsInfos'][$nameplug]['versions'];
-              foreach( $step as $key => $value ){
-                  if($key == $productName){
-                    ?> <script>
-                         $('#pluginsConfigSelect').append($('<option>', {NamePlugin:'<?= $nameplug; ?>', typeBox:'<?= $productName; ?>',config:'gpio', text:'<?= $nameplug; ?> : Config GPIO Interne'}));
-                         $('#pluginsConfigSelect').append($('<option>', {NamePlugin:'<?= $nameplug; ?>', typeBox:'<?= $productName; ?>', config:'usb', text:'<?= $nameplug; ?> : Config USB'}));
-                       </script>
-                   <?php
-                  }
-              }
-      }
+
+   </script>
+  <?php
 }
+
 
 ?>
 <script>
