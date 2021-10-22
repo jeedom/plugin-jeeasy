@@ -1,10 +1,10 @@
 {
 "trame": {
 
-  "pluginsConfigs" :
+  "welcome" :
     {
-      "title": "Configuration des plugins",
-      "wizard": "pluginsConfigs",
+      "title": "Bienvenue",
+      "wizard": "welcome",
       "order": 0,
       "custom": "",
       "visible": 1
@@ -28,11 +28,20 @@
       "visible": 1
     }
   ,
+  "pluginsConfigs" :
+    {
+      "title": "Configuration des plugins",
+      "wizard": "pluginsConfigs",
+      "order": 3,
+      "custom": "",
+      "visible": 1
+    }
+  ,
   "services" :
     {
       "title": "Services",
       "wizard": "services",
-      "order": 3,
+      "order": 4,
       "custom": "",
       "visible": 1
     }
@@ -41,7 +50,7 @@
     {
       "title": "Assistants Vocaux",
       "wizard": "assistants",
-      "order": 4,
+      "order": 5,
       "custom": "",
       "visible": 1
     }
@@ -50,7 +59,7 @@
     {
       "title": "Ready to start",
       "wizard": "ready",
-      "order": 5,
+      "order": 6,
       "custom": "",
       "visible": 1
     }
