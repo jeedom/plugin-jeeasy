@@ -1,9 +1,10 @@
 {
 "trame": {
-  "welcome" :
+
+  "pluginsConfigs" :
     {
-      "title": "Bienvenue",
-      "wizard": "welcome",
+      "title": "Configuration des plugins",
+      "wizard": "pluginsConfigs",
       "order": 0,
       "custom": "",
       "visible": 1

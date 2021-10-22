@@ -55,11 +55,17 @@ try {
 				ajax::error($checkInstall);
 		}
 	}
-  
+
   	if (init('action') == 'installPluginPack') {
         $check = jeeasy::checkPluginsByServicePack(init('servicePack'),init('pluginsList'),init('pluginsPurchase'));
 		ajax::success($check);
 	}
+
+	if (init('action') == 'configInternalPlugin') {
+		$check = jeeasy::configInternalPlugin(init('typeConfig'), init('key'), init('pluginname'));
+	  ajax::success($check);
+}
+
 
 	throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
 	/*     * *********Catch exeption*************** */

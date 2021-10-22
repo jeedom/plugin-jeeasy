@@ -325,10 +325,27 @@ class jeeasy extends eqLogic {
 		}
 		return 'OK';
 	}
-  
-  
+
+
+	public static function configInternalPlugin($typeConfig, $key, $plugin){
+       if($typeConfig == 'gpio'){
+						 $pluginsConf = json_decode( file_get_contents('../data/pluginConfig.json'), true );
+						 $step = $pluginsConf['pluginsInfos'][$plugin]['versions'][$key];
+				     foreach( $step as $k => $v ){
+									 	config::save($k, $v, $plugin);
+							}
+							return 'gpio';
+
+				}elseif($typeConfig == 'usb'){
+					  return 'usb';
+
+				}
+}
+
+
+
   public static function checkPluginsByServicePack($servicePack,$pluginsList,$pluginsPurchase){
-   /* switch($servicepack){        
+   /* switch($servicepack){
         case 'Service Pack Power V1':break;
         case 'Service Pack Power EnOcean V1':break;
         case 'Service Pack Power RfPlayer':break;
@@ -344,15 +361,15 @@ class jeeasy extends eqLogic {
         case 'Service Pack Power Enocean Cauderay':break;
         case 'Service Pack Pro Cauderay':break;
         case 'Service Pack Ventilairsec':break;
-        case 'Service Pack HC-DOMOTIQUE':break;  
+        case 'Service Pack HC-DOMOTIQUE':break;
         default: break;
- 
+
     }*/
-    
-    
+
+
     return $test;
-    
-    
+
+
   }
 
 	public static function checkDeamonPlugin($_plugin) {

@@ -1,0 +1,43 @@
+{
+    "pluginsInfos": {
+          "openzwave" :
+            {
+              "versions": {
+                   "Atlas": {
+                      "port":"Jeedom Atlas"
+                   },
+                   "smart": {
+                      "port":"Odroid C2"
+                   }
+                }
+            } ,
+          "zigbee":
+          {
+            "versions": {
+                 "Atlas": {
+                   "controller_1":"ezsp",
+                   "sub_controller_1":"elelabs",
+                   "port_1":"/dev/ttyS2"
+                 }
+              }
+          } ,
+          "enocean":
+          {
+            "versions": {
+                 "Atlas": {
+                   "port":"Jeedom Atlas"
+                 },
+                 "smart": {
+                    "port":"Odroid C2"
+                 }
+              }
+          } ,
+          "knx":
+          {
+            "versions": {
+                 "Atlas": {
+                 }
+              }
+          }
+    }
+}
