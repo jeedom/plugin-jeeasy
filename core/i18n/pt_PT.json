@@ -26,9 +26,6 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Choix des plugins à installer : ": "Escolha de plug-ins para instalar:",
-        "Installation des plugins en cours : ": "Instalação de plug-ins em andamento:",
-        "Installation de dépendances éventuelles en cours, vérifiez vos logs : ": "Instalação de quaisquer dependências em andamento, verifique seus registros:",
         "Découvrez nos Services Packs": "Descubra nossos Service Packs",
         "Inclus avec": "Incluído com",
         "Tous": "Tudo",
@@ -541,12 +538,13 @@
     },
     "plugins\/jeeasy\/desktop\/php\/jeeasy.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Bienvenue sur la configuration facile avec Jeeasy": "Bem-vindo à configuração fácil com Jeeasy",
-        "Relancer le wizard": "Relançar o Assistente",
+        "Bienvenue sur la page de configuration facile de": "Bem-vindo à página de configuração fácil de",
+        "Configurer mon": "Configure my",
         "Détecter mes équipements": "Detectar meu equipamento",
         "Configurer ma maison": "Configurar minha casa",
         "Ajouter un équipement": "Adicionar equipamento",
-        "Configurer un équipement": "Configurar equipamento"
+        "Configurer un équipement": "Configurar equipamento",
+        "Relancer le Wizard": "Relançar o Assistente"
     },
     "plugins\/jeeasy\/desktop\/js\/jeeasy.js": {
         "Frigo": "Geladeira",

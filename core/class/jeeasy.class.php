@@ -34,8 +34,11 @@ class jeeasy extends eqLogic {
 		$ip = explode('.',$gw);
 		$results = explode("\n",shell_exec('sudo nmap -sn '.$ip[0].'.'.$ip[1].'.'.$ip[2].'.* | grep -E "MAC Address|Nmap scan report"'));
 		$return = array();
+		$arrayFinal = array();
 		$previous = null;
+    $i=1;
 		foreach ($results as $line) {
+      $arrayTemp = array();
 			if(strpos($line,'Nmap scan report') !== false){
 				preg_match('/Nmap scan report for (.*?)$/',$line,$matches);
 				$previous = $matches[1];
@@ -44,24 +47,53 @@ class jeeasy extends eqLogic {
 				continue;
 			}
 			if(strpos($line,'MAC Address') !== false){
-				preg_match('/MAC Address: (.*?) \((.*?)\)/',$line,$matches);
-				$return[$matches[1]] = array('name' => $matches[2],'ip' => $previous);
+
+						preg_match('/MAC Address: (.*?) \((.*?)\)/',$line,$matches);
+						$return[$matches[1]] = array('name' => $matches[2],'ip' => $previous);
+						$name = $matches[2];
+						$mac = $matches[1];
+						$ip = $previous;
+
+	 				  	$arrayTemp = array('mac' => $mac, 'ip' => $ip);
+						/*	log::add('gestAccess', 'debug', 'KIKK '.json_encode($arrayTemp));*/
+
+
+						if(array_key_exists($name, $arrayFinal)){
+
+                            array_push($arrayFinal[$name], $arrayTemp);
+														/*log::add('gestAccess', 'debug', 'INARRAY '.json_encode($arrayFinal));*/
+														$i++;
+						  }else{
+								$arrayFinal[$name] = $arrayTemp;
+							}
 			}
 		}
-		foreach ($return as &$device) {
-			if($device['name'] == 'Unknown'){
+
+		/*foreach ($return as &$device) {*/
+		foreach($arrayFinal as &$device){
+		/*	if($return[$matches[2]] == 'Unknown'){
+				$return[$matches[2]] = '';
+			}*/
+
+		/*	if($device['name'] == 'Unknown'){
 				$device['name'] = '';
-			}
-			foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
-				foreach ($discover['search'] as $search) {
-					if(strpos(strtolower($device['name']),strtolower($search)) !== false || strpos(strtolower($device['ip']),strtolower($search)) !== false){
-						$device['plugin'] = $discover['plugins'];
-						continue(3);
+			}*/
+				foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
+				/*log::add('gestAccess','debug',json_encode($discover));*/
+					foreach ($discover['search'] as $search) {
+						if(strpos(strtolower($device['name']),strtolower($search)) !== false || strpos(strtolower($device['ip']),strtolower($search)) !== false){
+							$device['plugin'] = $discover['plugins'];
+							continue(3);
+						}
 					}
 				}
-			}
 		}
-		return $return;
+
+
+		/*log::add('gestAccess', 'debug', 'ARRAYFINAL : '.json_encode($arrayFinal));*/
+
+	  return $arrayFinal;
+		/*return $return;*/
 	}
 
 	public static function generateScenario($_name, $_replace = array()) {

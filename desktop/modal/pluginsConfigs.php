@@ -15,6 +15,7 @@ else{
 $productName = jeedom::getHardwareName();
 $listPlugins = plugin::listPlugin();
 
+
 if($listPlugins){
   foreach ($listPlugins as $plugin){
         $nameplug = $plugin->getId();

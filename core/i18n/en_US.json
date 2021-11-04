@@ -26,9 +26,6 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Choix des plugins à installer : ": "Choice of plugins to install:",
-        "Installation des plugins en cours : ": "Installation of plugins in progress:",
-        "Installation de dépendances éventuelles en cours, vérifiez vos logs : ": "Installation of any dependencies in progress, check your logs:",
         "Découvrez nos Services Packs": "Discover our Service Packs",
         "Inclus avec": "Included with",
         "Tous": "All",
@@ -541,12 +538,13 @@
     },
     "plugins\/jeeasy\/desktop\/php\/jeeasy.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Bienvenue sur la configuration facile avec Jeeasy": "Welcome to easy setup with Jeeasy",
-        "Relancer le wizard": "Relaunch the Wizard",
+        "Bienvenue sur la page de configuration facile de": "Welcome to the easy setup page of",
+        "Configurer mon": "Configure my",
         "Détecter mes équipements": "Detect my equipment",
         "Configurer ma maison": "Configure my house",
         "Ajouter un équipement": "Add equipment",
-        "Configurer un équipement": "Configure equipment"
+        "Configurer un équipement": "Configure equipment",
+        "Relancer le Wizard": "Relaunch the Wizard"
     },
     "plugins\/jeeasy\/desktop\/js\/jeeasy.js": {
         "Frigo": "Fridge",
