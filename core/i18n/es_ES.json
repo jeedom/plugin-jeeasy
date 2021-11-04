@@ -188,6 +188,9 @@
         "Cliquez sur sauvegarder pour valider votre configuration": "Haga clic en guardar para validar su configuración",
         "Configuration sauvegardée": "Configuración guardada"
     },
+    "plugins\/jeeasy\/desktop\/modal\/pluginsConfigs.php": {
+        "401 - Accès non autorisé": "401 - Acceso no autorizado"
+    },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Guide de démarrage <?php echo config::byKey('product_name'); ?>": "Guía de inicio <?php echo config::byKey('product_name'); ?>",
