@@ -26,6 +26,9 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Choix des plugins à installer : ": "Elección de complementos para instalar:",
+        "Installation des plugins en cours : ": "Instalación de complementos en curso:",
+        "Installation de dépendances éventuelles en cours, vérifiez vos logs : ": "Instalación de cualquier dependencia en progreso, verifique sus registros:",
         "Découvrez nos Services Packs": "Descubra nuestros Service Packs",
         "Inclus avec": "Incluido con",
         "Tous": "Todos",
@@ -326,10 +329,9 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Ip": "IP",
         "Nom": "Nombre",
-        "MAC": "Mac",
-        "Plugins suggérés": "Complementos sugeridos"
+        "IP": "IP",
+        "MAC": "Mac"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
@@ -541,13 +543,12 @@
     },
     "plugins\/jeeasy\/desktop\/php\/jeeasy.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Bienvenue sur la page de configuration facile de": "Bienvenido a la página de configuración fácil de",
-        "Configurer mon": "Configurar mi",
+        "Bienvenue sur la configuration facile avec Jeeasy": "Bienvenido a la configuración fácil con Jeeasy",
+        "Relancer le wizard": "Relanzar el mago",
         "Détecter mes équipements": "Detecta mi equipo",
         "Configurer ma maison": "Configurar mi casa",
         "Ajouter un équipement": "Agregar equipo",
-        "Configurer un équipement": "Configurar equipo",
-        "Relancer le Wizard": "Relanzar el mago"
+        "Configurer un équipement": "Configurar equipo"
     },
     "plugins\/jeeasy\/desktop\/js\/jeeasy.js": {
         "Frigo": "Nevera",
