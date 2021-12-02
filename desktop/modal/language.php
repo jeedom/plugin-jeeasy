@@ -48,13 +48,11 @@ $marketURL = config::byKey('market::address');
 
 <script>
     $('#bt_next').hide();
-    $('#languageJeeasy').on('change', function () {
-       var languageChoice = $('#languageJeeasy').val();
-     });
 
        $('#btn-language').on('click', function () {
              	$('#bt_next').show();
-            	$('.textAtlas').text('{{Nouvelle langue système choisi }}');
+            	$('.textAtlas').text('{{Nouvelle langue système choisie : }}');
+              $('.textAtlas').append($('#languageJeeasy option:selected').text());
               $('#titlelanguage').hide();
               $.ajax({
                  type: "POST",
