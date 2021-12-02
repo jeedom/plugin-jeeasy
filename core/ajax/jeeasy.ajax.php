@@ -34,6 +34,19 @@ try {
 		ajax::success(jeeasy::sendObjects(init('objects')));
 	}
 
+
+
+if (init('action') == 'choiceLanguageJeeasy') {
+	ajax::success(jeeasy::changeLanguage(init('choice')));
+}
+
+
+
+
+
+
+
+
 	if (init('action') == 'installPlugin') {
 		if(init('branch')){
 			$checkInstall = jeeasy::checkInstallPlugin(init('id'),init('branch'));

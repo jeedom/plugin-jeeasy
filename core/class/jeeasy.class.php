@@ -103,6 +103,13 @@ class jeeasy extends eqLogic {
 		return json_decode(str_replace(array_keys($_replace), $_replace, json_encode(json_decode(file_get_contents(__DIR__ . '/../config/' . $_name . '.json'), true))), true);
 	}
 
+	public static function changeLanguage($choice){
+    if($choice != ''){
+      	config::save('language', $choice);
+		}
+
+	}
+
 	public static function saveJson($_json) {
 		$jsonFile = __DIR__ . '/../../../../data/custom/wizard.json';
 		if (!$fh = fopen($jsonFile, 'w')) {

@@ -10,11 +10,20 @@
       "visible": 1
     }
   ,
+  "language" :
+    {
+      "title": "Choix de la langue",
+      "wizard": "language",
+      "order": 1,
+      "custom": "",
+      "visible": 1
+    }
+    ,
   "objects" : {
 
       "title": "Pièces",
       "wizard": "objects",
-      "order": 1,
+      "order": 2,
       "custom": "",
       "visible": 1
 
@@ -23,7 +32,7 @@
     {
       "title": "Service pack",
       "wizard": "pack",
-      "order": 2,
+      "order": 3,
       "custom": "",
       "visible": 1
     }
@@ -32,7 +41,7 @@
     {
       "title": "Configuration des plugins",
       "wizard": "pluginsConfigs",
-      "order": 3,
+      "order": 4,
       "custom": "",
       "visible": 1
     }
@@ -41,7 +50,7 @@
     {
       "title": "Services",
       "wizard": "services",
-      "order": 4,
+      "order": 5,
       "custom": "",
       "visible": 1
     }
@@ -50,7 +59,7 @@
     {
       "title": "Assistants Vocaux",
       "wizard": "assistants",
-      "order": 5,
+      "order": 6,
       "custom": "",
       "visible": 1
     }
@@ -59,7 +68,7 @@
     {
       "title": "Ready to start",
       "wizard": "ready",
-      "order": 6,
+      "order": 7,
       "custom": "",
       "visible": 1
     }
