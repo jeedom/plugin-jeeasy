@@ -11,7 +11,7 @@ $marketURL = config::byKey('market::address');
 $listPlugins = plugin::listPlugin();
 $imgPlugin = '';
 
-/*table table-condensed*/
+
 ?>
 
 <table class="tablesorter">
@@ -26,7 +26,7 @@ $imgPlugin = '';
     <tr></tr>
     <?php
     $arrayHtml = array();
-    /*foreach ($discovers as $mac => $value)*/
+  
     foreach ($discovers as $name => $value){
       $occurence = count($value);
       if($occurence > 2){
@@ -48,7 +48,7 @@ $imgPlugin = '';
             echo '</td>';
             echo '<tr>';
             echo '<td colspan="3">';
-          /*  echo '<div class="coucou" style="display:flex;">';*/
+       
           }elseif(in_array($value['ip'], $arrayHtml) == false && in_array($value['mac'], $arrayHtml) == false){
             echo '<tr>';
             echo '<td>';
@@ -61,7 +61,7 @@ $imgPlugin = '';
             echo '</td>';
             echo '<tr>';
             echo '<td colspan="3">';
-            /*echo '<div class="coucou" style="display:flex;">';*/
+           
           }
           array_push($arrayHtml, $value['ip'] );
           array_push($arrayHtml, $value['mac'] );
@@ -84,7 +84,7 @@ $imgPlugin = '';
         echo '</td>';
         echo '<tr>';
         echo '<td colspan="3">';
-      /*  echo '<div class="coucou" style="display:flex;flex-grow:1;">';*/
+    
       }
         ?>
          <?php
@@ -108,19 +108,16 @@ $imgPlugin = '';
             }
 
             echo '<img class="test" src="'.$marketURL.'/'.$imgPlugin["icon"].'" style="height:105px;width:90px;margin-right:20px">';
-          /*  echo '<span style="margin-right:20px;">'.$plugin['name'].'</span>';
-            echo '<span style="margin-right:20px;">'.$finalCost.'</span>';*/
+     
 
             $arrayDescription = explode('.', $result['description']);
 
             if(in_array($plugin['id'], $listPlugins)){
                  $essai = 'PLUGIN INSTALLE';
-                /* echo '<span class="btn '.$class.' btn-xs" style="width:300px;"</span> ';*/
-                 /*echo '<span style="margin-left:20px;font-weight:bold;color:#93ca02;">Plugin installé</span>';*/
+    
             }else{
                 $essai = 'PLUGIN NON INSTALLE';
 
-                  /*echo '<span style="margin-left:20px;font-weight:bold;color:#93ca02;">Plugin non installé</span>';*/
 
             }
             echo '<a class="btn '.$class.' btn-xs" style="width:300px;" href="https://www.jeedom.com/market/index.php?v=d&p=market&type=plugin&plugin_id='.$plugin['id'].'" target="_blank" >'.$plugin['name'].'  '.$finalCost.'  -  '.$essai.'  '.'</a> ';
@@ -128,7 +125,7 @@ $imgPlugin = '';
             echo '<br>';
 
             }
-        /*  echo '</div>';*/
+  
            echo '</td>';
 
            echo '</tr>';
