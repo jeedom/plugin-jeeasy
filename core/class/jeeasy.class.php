@@ -36,9 +36,9 @@ class jeeasy extends eqLogic {
 		$return = array();
 		$arrayFinal = array();
 		$previous = null;
-    $i=1;
+                $i=1;
 		foreach ($results as $line) {
-      $arrayTemp = array();
+                        $arrayTemp = array();
 			if(strpos($line,'Nmap scan report') !== false){
 				preg_match('/Nmap scan report for (.*?)$/',$line,$matches);
 				$previous = $matches[1];
@@ -55,31 +55,24 @@ class jeeasy extends eqLogic {
 						$ip = $previous;
 
 	 				  	$arrayTemp = array('mac' => $mac, 'ip' => $ip);
-						/*	log::add('gestAccess', 'debug', 'KIKK '.json_encode($arrayTemp));*/
+						
 
 
 						if(array_key_exists($name, $arrayFinal)){
-
-                            array_push($arrayFinal[$name], $arrayTemp);
-														/*log::add('gestAccess', 'debug', 'INARRAY '.json_encode($arrayFinal));*/
-														$i++;
-						  }else{
-								$arrayFinal[$name] = $arrayTemp;
-							}
+                                                array_push($arrayFinal[$name], $arrayTemp);
+														
+						$i++;
+						}else{
+						arrayFinal[$name] = $arrayTemp;
+						}
 			}
 		}
 
-		/*foreach ($return as &$device) {*/
+		
 		foreach($arrayFinal as &$device){
-		/*	if($return[$matches[2]] == 'Unknown'){
-				$return[$matches[2]] = '';
-			}*/
-
-		/*	if($device['name'] == 'Unknown'){
-				$device['name'] = '';
-			}*/
+	
 				foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
-				/*log::add('gestAccess','debug',json_encode($discover));*/
+				
 					foreach ($discover['search'] as $search) {
 						if(strpos(strtolower($device['name']),strtolower($search)) !== false || strpos(strtolower($device['ip']),strtolower($search)) !== false){
 							$device['plugin'] = $discover['plugins'];
@@ -88,12 +81,8 @@ class jeeasy extends eqLogic {
 					}
 				}
 		}
-
-
-		/*log::add('gestAccess', 'debug', 'ARRAYFINAL : '.json_encode($arrayFinal));*/
-
 	  return $arrayFinal;
-		/*return $return;*/
+		
 	}
 
 	public static function generateScenario($_name, $_replace = array()) {
