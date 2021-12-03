@@ -13,12 +13,6 @@ else
 $custom = null;
 
 
-
-
-$jsonrpc = repo_market::getJsonRpc();
-$marketURL = config::byKey('market::address');
-
-
 ?>
 
 <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
