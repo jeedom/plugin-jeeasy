@@ -291,6 +291,20 @@
         "Autorisation Freebox": "Autorización de Freebox",
         "Merci d'appuyer sur le bouton V de votre Freebox, afin de confirmer l'autorisation d'accès à votre Delta": "Presione el botón V en su Freebox para confirmar la autorización para acceder a su Delta"
     },
+    "plugins\/jeeasy\/desktop\/modal\/language.php": {
+        "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Français": "Francés",
+        "Anglais": "Inglés",
+        "Allemand": "Alemán",
+        "Espagnol": "Español",
+        "Italien (pas de support)": "Italiano (sin soporte)",
+        "Portugais (pas de support)": "Portugués (sin soporte)",
+        "Russe (pas de support)": "Ruso (sin soporte)",
+        "Japonais (pas de support)": "Japonés (sin soporte)",
+        "Indonesien (pas de support)": "Indonesio (sin soporte)",
+        "Turque (pas de support)": "Turco (sin soporte)",
+        "Nouvelle langue système choisie : ": "Nuevo idioma del sistema elegido:"
+    },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Lo siento, no puedo encontrar tu equipo:",
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
