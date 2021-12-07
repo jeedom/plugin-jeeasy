@@ -63,7 +63,7 @@ class jeeasy extends eqLogic {
 														
 						$i++;
 						}else{
-						arrayFinal[$name] = $arrayTemp;
+						$arrayFinal[$name] = $arrayTemp;
 						}
 			}
 		}
