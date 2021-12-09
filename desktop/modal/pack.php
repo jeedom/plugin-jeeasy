@@ -3,8 +3,8 @@ if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-  
-  
+
+
 if( file_exists( config::byKey('path_wizard') ) )
   $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
 else
@@ -19,7 +19,7 @@ $marketURL = config::byKey('market::address');
 
 
 
-if ($jsonrpc->sendRequest('servicepack::info')) {     
+if ($jsonrpc->sendRequest('servicepack::info')) {
     $result = $jsonrpc->getResult();
     $servicePack = $result['licenceName'];
     $nbService = $result['licenceNumber'];
@@ -27,13 +27,13 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
     $mainPlugins = $result['mainPlugins'];
     $arrPlugins = array();
 
-    if(is_array($mainPlugins) && !empty($mainPlugins) && $servicePack != 'Community'){      
+    if(is_array($mainPlugins) && !empty($mainPlugins) && $servicePack != 'Community'){
         foreach($mainPlugins as $plugin){
                 $arrPlugin = array( 'id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
                 $arrId = array();
                 $arrId['id'] = $plugin;
 			    if ( $jsonrpc->sendRequest('market::byId', $arrId)) {
-                      $resultMain = $jsonrpc->getResult();                      
+                      $resultMain = $jsonrpc->getResult();
                       $logicalPlugin = $resultMain['logicalId'];
                       $namePlugin = $resultMain['name'];
                       $imgPlugin = $resultMain['img'];
@@ -41,20 +41,20 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
                       array_push($arrPlugin['name'], $namePlugin);
                       array_push($arrPlugin['logicalId'], $logicalPlugin);
                       array_push($arrPlugin['img'], $imgPlugin['icon']);
-                  }    
+                  }
           array_push($arrPlugins, $arrPlugin);
-        }       
+        }
     }
-   
+
     if($pluginsPack != 'official'){
-          if(is_array($pluginsPack) && !empty($pluginsPack) && $servicePack != 'Community'){      
+          if(is_array($pluginsPack) && !empty($pluginsPack) && $servicePack != 'Community'){
                 foreach($pluginsPack as $plugin){
                         $arrPlugin = array( 'id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
                         $arrId = array();
                         $arrId['id'] = $plugin;
                         if ( $jsonrpc->sendRequest('market::byId', $arrId)) {
                               $resultMain = $jsonrpc->getResult();
-                            
+
                               $logicalPlugin = $resultMain['logicalId'];
                               $namePlugin = $resultMain['name'];
                               $imgPlugin = $resultMain['img'];
@@ -64,8 +64,8 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
                      		  array_push($arrPlugin['img'], $imgPlugin['icon']);
                           }
                   array_push($arrPlugins, $arrPlugin);
-                }       
-            }  
+                }
+            }
    }
 
 }
@@ -77,17 +77,25 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 		$('#bt_prev').hide();
 		$('.textAtlas').text('{{Choix des plugins à installer : }}');
 	    $('#btn-choicePlugin').on('click', function () {
+				console.log('clickk');
 				$('#tabPlugins').hide();
-                $('#btn-choicePlugin').hide();
-                $('.textAtlas').text('{{Installation des plugins en cours : }}');         
-                   progress(20);   
-                   var pluginsCheck = [];
-                 $('input:checked[id=checkPluginToInstall]').each(function(){                     
-                       var idplugin= $(this).attr("name");                      
-                       pluginsCheck.push(idplugin); 
-                  }); 
-  					installPluginCheck(pluginsCheck);
-                
+				var i = 0;
+				var pluginsCheck = [];
+				$('input:checked[id=checkPluginToInstall]').each(function(){
+							i++;
+							var idplugin= $(this).attr("name");
+							pluginsCheck.push(idplugin);
+				 });
+				 if(i != 0){
+					$('.textAtlas').text('{{Installation des plugins en cours : }}');
+					progress(20);
+	 				installPluginCheck(pluginsCheck);
+	 			}	else{
+	 				$('.textAtlas').text('{{Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : }}');
+					$('#btn-choicePlugin').hide();
+	 				$('#bt_next').show();
+	 			}
+
         });
 
 
@@ -101,7 +109,7 @@ function installPluginCheck(pluginsCheck){
 			data: {
 			    action: "installPlugin",
 			    id: pluginId
-					
+
 			},
 			dataType: 'json',
 			error: function(request, status, error) {
@@ -114,7 +122,7 @@ function installPluginCheck(pluginsCheck){
     	   });
 
   }
-    
+
 
 }
 
@@ -133,7 +141,7 @@ function installPluginCheck(pluginsCheck){
           },
           success: function(data) {
             progress(100);
-            $('#servicePackh3').text('{{Installation de dépendances éventuelles en cours, vérifiez vos logs : }}');  
+            $('#servicePackh3').text('{{Installation de dépendances éventuelles en cours, vérifiez vos logs : }}');
           }
           });
        }
@@ -175,37 +183,37 @@ function installPluginCheck(pluginsCheck){
       <div class="col-md-12 text-center">
       <p class="text-center"><h3 class="servicePack" id="servicePackh3">Vous êtes en <?= $servicePack ?></h3></p>
       <p class="text-center"><h4 class="textAtlas"></h4></p>
-      
+
       <table class="table table-hover" id="tabPlugins"  style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
             <thead>
             </thead>
               <tbody>
-                   <?php             
+                   <?php
                             foreach($arrPlugins as $plugin){
                                  echo '<tr>';
-                                 echo '<td style="display:flex;justify-content:space-between;align-items:center;" ><img class="test" src="'.$marketURL.'/'.$plugin["img"][0].'" style="height:40px; width:40px; margin-right:20px">';                                                   
-                                 echo $plugin['name'][0];  
+                                 echo '<td style="display:flex;justify-content:space-between;align-items:center;" ><img class="test" src="'.$marketURL.'/'.$plugin["img"][0].'" style="height:40px; width:40px; margin-right:20px">';
+                                 echo $plugin['name'][0];
                                  echo '<input type="checkbox" class="checkPluginToInstall" id="checkPluginToInstall" name="'.$plugin['logicalId'][0].'" style="margin-left:20px;">';
                                  echo '</td>';
                                  echo '<tr>';
-                              }          
+                              }
                     ?>
              </tbody>
-                      
-                      
+
+
       </table>
        <div class="testbtn">
-           <a class='btn btn-success btn-md pull-right' id="btn-choicePlugin" style="margin-right:50px" >Valider</a>           
-       </div>               
+           <a class='btn btn-success btn-md pull-right' id="btn-choicePlugin" style="margin-right:50px" >Valider</a>
+       </div>
 
       <div id="contenuTextSpan" class="progress">
       	<div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
       	</div>
       </div>
       </div>
-      </div>  
-  
-<?php        
+      </div>
+
+<?php
 }elseif($servicePack == 'Community'){
 
 ?>
@@ -342,6 +350,6 @@ function installPluginCheck(pluginsCheck){
 	<sup>(2)</sup> : {{Tickets sur plugin officiel}}<br/>
 	<sup>(3)</sup> : {{Uniquement sur les plugins payants}}<br/>
         </p>
-  
-  
+
+
 <?php } ?>
