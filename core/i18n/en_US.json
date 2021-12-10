@@ -28,6 +28,7 @@
         "401 - Accès non autorisé": "401 - Unauthorized access",
         "Choix des plugins à installer : ": "Choice of plugins to install:",
         "Installation des plugins en cours : ": "Installation of plugins in progress:",
+        "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : ": "You have not selected any plugin to install, click on next:",
         "Installation de dépendances éventuelles en cours, vérifiez vos logs : ": "Installation of any dependencies in progress, check your logs:",
         "Découvrez nos Services Packs": "Discover our Service Packs",
         "Inclus avec": "Included with",
