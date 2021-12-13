@@ -2,13 +2,42 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-
-config::save('updateWizard', 'okay', 'jeeasy');
+/*
+config::save('updateWizard', 'okay', 'jeeasy');*/
 ?>
 
+<div id="marketbeforeupdate" tabindex="502" class="form-group" style="margin:0 auto;">
+					<div id="imgbeforeupdate">
+						<img src="<?php echo config::byKey('product_connection_image'); ?>" />
+					</div>
+					<h3>Je n'ai pas de compte Market</h3>
+					<button class="dark btn-lg marketupdatebtn" id="bt_createaccountmarket"><i class="fas fa-sign-in-alt" ></i> {{En créer un !}}</button>
+
+					<h3>Je possède deja un compte market</h3>
+					<div class="infosbeforeupdate">
+								<div class="mailbeforeupdate">
+									<label>{{Nom d'utilisateur}}</label>
+									<input type="text" id="login_username_market">
+
+								</div>
+								<div class="passwdbeforeupdate">
+									<label>{{Mot de passe}}</label>
+									<input type="password" autocomplete="new-password" id="login_password_market" style="margin-right:10px;">
+
+								</div>
+					</div>
+					<br/>
+					<div class="submitbeforeupdate">
+						<button class="btn-lg marketupdatebtn"  id="bt_login_market"><i class="fas fa-sign-in-alt"></i> {{Connecter Jeedom au Market}}</button>
+					</div>
+					<div class="resetPasswordbeforeupdate">
+						<a href="https://www.jeedom.com/market/index.php?v=d&p=connection" target="_blank">{{J'ai perdu mon mot de passe}}</a>
+					</div>
+					<br/>
+</div>
 
 
-<div class="bodyModal animated slideInRight">
+<div class="bodyModal animated slideInRight" id="bodymodalupdate" style="display:none;">
   <div class="multisteps-form">
     <div class="row" id="contentModal">
 	    <div class="col-md-12 text-center"><h2>{{Initialisation de }} <?php echo config::byKey('product_name'); ?></h2></div>
@@ -38,6 +67,46 @@ config::save('updateWizard', 'okay', 'jeeasy');
   font-size: 50px;
   color: rgba(147,204,1,1);
 }
+
+h3{
+color:#93CA02;
+
+}
+#marketbeforeupdate {
+	background-color: #FFFAF0;
+  display:flex;
+	flex-direction:column;
+	align-items: center;
+	justify-content: center;
+	width:75%;
+	height:100%;
+}
+
+#imgbeforeupdate{
+	margin:0 auto;
+	width:65%;
+	height:50%;
+	border-bottom: 0.30em solid #93CA02;
+}
+
+#login_username_market{
+	margin-right:10px;
+	margin-bottom:0.25em;
+}
+
+.marketupdatebtn{
+	background-color:#93CA02;
+	border:none;
+	color:white;
+}
+
+.infosbeforeupdate{
+	display:flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+
 
 .saveDiv {
   width: 100px;
@@ -81,11 +150,92 @@ config::save('updateWizard', 'okay', 'jeeasy');
 </style>
 
 <script>
-$('#dada').click(function() {
-	$('#md_modal').dialog({title: "{{Configuration de votre}} <?php echo config::byKey('product_name'); ?>"});
-	$('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=wizard').dialog('open');
+
+
+$('#bt_createaccountmarket').click(function() {
+	console.log('coucou');
+	window.open(
+		'https://www.jeedom.com/market/index.php?v=d&p=register',
+		'_blank'
+	)
 });
+
+
+$('#bt_login_market').click(function() {
+	var username = $('#login_username_market').val()
+	  var password = $('#login_password_market').val()
+	  var adress = 'https://jeedom.com/market'
+	  jeedom.config.save({
+	    configuration: {
+	      'market::username': username
+	    },
+	    error: function(error) {
+	      $.fn.showAlert({
+	        message: error.message,
+	        level: 'danger'
+	      })
+	    },
+	    success: function(data) {
+	      jeedom.config.save({
+	        configuration: {
+	          'market::password': password
+	        },
+	        error: function(error) {
+	          $.fn.showAlert({
+	            message: error.message,
+	            level: 'danger'
+	          })
+	          $('.veen').animateCss('shake')
+	        },
+	        success: function(data) {
+	          jeedom.repo.test({
+	            repo: 'market',
+	            error: function(error) {
+	              $.fn.showAlert({
+	                message: error.message,
+	                level: 'danger'
+	              })
+	              $('.veen').animateCss('shake')
+	            },
+	            success: function(data) {
+								jeedom.config.save({
+									configuration: {
+										'updateWizard': 'okay'
+									},
+									plugin:'jeeasy',
+									error: function(error) {
+							      $.fn.showAlert({
+							        message: error.message,
+							        level: 'danger'
+							      })
+							    },
+							    success: function(data) {
+									}
+									})
+								$('#marketbeforeupdate').hide();
+								$('#bodymodalupdate').show();
+								jeedom.update.doAll({
+										options: '',
+										error: function (error) {
+											$('#md_modal').dialog({title: "{{Configuration de votre}} <?php echo config::byKey('product_name'); ?> / {{Mode dégradé}}"});
+									   	$('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=wizard').dialog('open');
+										},
+										success: function () {
+											getJeedomLog(1, 'update');
+										}
+									});
+	            }
+	          })
+	        }
+	      })
+	    }
+	  })
+
+});
+
 </script>
+
+
 
 <script>
 var progress = -2;
@@ -161,7 +311,7 @@ function getJeedomLog(_autoUpdate, _log) {
             progress = 100;
             updateProgressBar();
             $('#md_modal').dialog({title: "{{Configuration de votre}} <?php echo config::byKey('product_name'); ?>"});
-			$('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=wizard').dialog('open');
+			      $('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=wizard').dialog('open');
             _autoUpdate = 0;
           }
           if(data.result[i].indexOf('[END ' + _log.toUpperCase() + ' ERROR]') != -1){
@@ -253,14 +403,5 @@ function getJeedomLog(_autoUpdate, _log) {
   });
 }
 
-jeedom.update.doAll({
-    options: '',
-    error: function (error) {
-      $('#md_modal').dialog({title: "{{Configuration de votre}} <?php echo config::byKey('product_name'); ?> / {{Mode dégradé}}"});
-	  $('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=wizard').dialog('open');
-    },
-    success: function () {
-      getJeedomLog(1, 'update');
-    }
-  });
+
 </script>

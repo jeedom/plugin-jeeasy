@@ -52,18 +52,20 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
                         $arrPlugin = array( 'id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
                         $arrId = array();
                         $arrId['id'] = $plugin;
-                        if ( $jsonrpc->sendRequest('market::byId', $arrId)) {
-                              $resultMain = $jsonrpc->getResult();
+												if(is_int($arrId['id'])){
+													if ( $jsonrpc->sendRequest('market::byId', $arrId)) {
+																$resultMain = $jsonrpc->getResult();
+																$logicalPlugin = $resultMain['logicalId'];
+																$namePlugin = $resultMain['name'];
+																$imgPlugin = $resultMain['img'];
+																array_push($arrPlugin['id'], $plugin);
+																array_push($arrPlugin['name'], $namePlugin);
+																array_push($arrPlugin['logicalId'], $logicalPlugin);
+																array_push($arrPlugin['img'], $imgPlugin['icon']);
+														}
+										    array_push($arrPlugins, $arrPlugin);									
+												}
 
-                              $logicalPlugin = $resultMain['logicalId'];
-                              $namePlugin = $resultMain['name'];
-                              $imgPlugin = $resultMain['img'];
-                              array_push($arrPlugin['id'], $plugin);
-                     		  array_push($arrPlugin['name'], $namePlugin);
-                              array_push($arrPlugin['logicalId'], $logicalPlugin);
-                     		  array_push($arrPlugin['img'], $imgPlugin['icon']);
-                          }
-                  array_push($arrPlugins, $arrPlugin);
                 }
             }
    }
