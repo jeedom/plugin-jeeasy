@@ -2,11 +2,42 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-/*
-config::save('updateWizard', 'okay', 'jeeasy');*/
+
+$caught = false;
+
+try{
+repo_market::getJsonRpc();
+}catch (Exception $e) {
+	$caught = true;
+	?>  <script>
+	      	$('#marketbeforeupdate').show();
+		 </script>
+ <?php
+}
+
+if(!$caught){
+config::save('updateWizard', 'okay', 'jeeasy');
+?>  <script>
+	$('#bodymodalupdate').show();
+	jeedom.update.doAll({
+			options: '',
+			error: function (error) {
+				$('#md_modal').dialog({title: "{{Configuration de votre}} <?php echo config::byKey('product_name'); ?> / {{Mode dégradé}}"});
+				$('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=wizard').dialog('open');
+			},
+			success: function () {
+				getJeedomLog(1, 'update');
+			}
+		});
+	</script>
+<?php
+}
+
 ?>
 
-<div id="marketbeforeupdate" tabindex="502" class="form-group" style="margin:0 auto;">
+
+
+<div id="marketbeforeupdate" tabindex="502" class="form-group" style="margin:0 auto;display:none" >
 					<div id="imgbeforeupdate">
 						<img src="<?php echo config::byKey('product_connection_image'); ?>" />
 					</div>
@@ -153,7 +184,6 @@ color:#93CA02;
 
 
 $('#bt_createaccountmarket').click(function() {
-	console.log('coucou');
 	window.open(
 		'https://www.jeedom.com/market/index.php?v=d&p=register',
 		'_blank'
@@ -402,6 +432,5 @@ function getJeedomLog(_autoUpdate, _log) {
     }
   });
 }
-
 
 </script>
