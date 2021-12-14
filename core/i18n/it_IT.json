@@ -28,6 +28,7 @@
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
         "Choix des plugins à installer : ": "Choix des plugins à installer :",
         "Installation des plugins en cours : ": "Installation des plugins en cours :",
+        "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : ": "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant :",
         "Installation de dépendances éventuelles en cours, vérifiez vos logs : ": "Installation de dépendances éventuelles en cours, vérifiez vos logs :",
         "Découvrez nos Services Packs": "Découvrez nos Services Packs",
         "Inclus avec": "Inclus avec",
@@ -145,10 +146,15 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/update.php": {
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
-        "Initialisation de ": "Initialisation de",
-        "Veuillez patienter quelques instants, cela peut prendre au maximum 10 minutes": "Veuillez patienter quelques instants, cela peut prendre au maximum 10 minutes",
         "Configuration de votre": "Configuration de votre",
-        "Mode dégradé": "Mode dégradé"
+        "Mode dégradé": "Mode dégradé",
+        "En créer un !": "En créer un !",
+        "Nom d'utilisateur": "Nom d'utilisateur",
+        "Mot de passe": "Mot de passe",
+        "Connecter Jeedom au Market": "Connecter Jeedom au Market",
+        "J'ai perdu mon mot de passe": "J'ai perdu mon mot de passe",
+        "Initialisation de ": "Initialisation de",
+        "Veuillez patienter quelques instants, cela peut prendre au maximum 10 minutes": "Veuillez patienter quelques instants, cela peut prendre au maximum 10 minutes"
     },
     "plugins\/jeeasy\/desktop\/modal\/wizard.php": {
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
@@ -279,6 +285,9 @@
         "Bravo !!! Vous avez fini d'ajouter votre module": "Bravo !!! Vous avez fini d'ajouter votre module",
         "Cliquez sur sauvegarder pour valider votre configuration": "Cliquez sur sauvegarder pour valider votre configuration",
         "Synchronisation réussie": "Sincronizzazione avvenuta con successo"
+    },
+    "plugins\/jeeasy\/desktop\/modal\/connectionmarket.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé"
     },
     "plugins\/jeeasy\/desktop\/modal\/freebox_os.php": {
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
