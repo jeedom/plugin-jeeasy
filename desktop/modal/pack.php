@@ -63,7 +63,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 																array_push($arrPlugin['logicalId'], $logicalPlugin);
 																array_push($arrPlugin['img'], $imgPlugin['icon']);
 														}
-										    array_push($arrPlugins, $arrPlugin);									
+										    array_push($arrPlugins, $arrPlugin);
 												}
 
                 }
@@ -143,7 +143,8 @@ function installPluginCheck(pluginsCheck){
           },
           success: function(data) {
             progress(100);
-            $('#servicePackh3').text('{{Installation de dépendances éventuelles en cours, vérifiez vos logs : }}');
+            $('#servicePackh3').text('{{ Vos plugins sont prêts }}');
+						$('#btn-choicePlugin').hide();
           }
           });
        }

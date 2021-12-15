@@ -95,6 +95,7 @@
  $('#bt_jeeasyMainConfiguration').on('click',function(){
  	$('#md_modal').dialog({title: "{{Configuration frigo}}"});
  	$("#md_modal").load('index.php?v=d&modal=jeedom.configuration.wizard&plugin=jeeasy').dialog('open');
+
  });
 
  $('#bt_jeeasyDiscovery').on('click',function(){

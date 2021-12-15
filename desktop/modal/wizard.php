@@ -15,6 +15,8 @@ if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
         <script>
         $('#md_modal').dialog({title: "{{Initialisation de votre}} <?php echo config::byKey('product_name'); ?>"});
         $('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=update').dialog('open');
+
+
         </script>
       <?php
     }

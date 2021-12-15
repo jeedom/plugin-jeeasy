@@ -10,7 +10,6 @@ if( file_exists( config::byKey('path_wizard') ) )
 else
   $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.json'), true );
 
-$custom = null;
 
 
 ?>
@@ -30,18 +29,15 @@ $custom = null;
               <option value="ru_RU">{{Russe (pas de support)}}</option>
               <option value="ja_JP">{{Japonais (pas de support)}}</option>
               <option value="id_ID">{{Indonesien (pas de support)}}</option>
-              <option value="tr">{{Turque (pas de support)}}</option>
+              <option value="tr">{{Turc (pas de support)}}</option>
 </select>
 <br>
+<a class='btn btn-success btn-md pull-center' id="btn-language" >Choisir la langue</a>
 
-<div class="btnlanguage">
-    <a class='btn btn-success btn-md pull-right' id="btn-language" style="margin-right:50px" >Valider</a>
-</div>
-
+<sup>	<i class="fas fa-question-circle tooltipstered" tooltip="{{Choose your langage}}"></i></sup>
 
 
 <script>
-    $('#bt_next').hide();
 
        $('#btn-language').on('click', function () {
              	$('#bt_next').show();
@@ -62,10 +58,12 @@ $custom = null;
                  },
                  success: function (data) {
                    console.log(data);
+									 location.reload();
                  }
              });
            });
+
 </script>
 
 
-<?php
+<?php /*include_file("desktop", "profils", "js"); ?>*/
