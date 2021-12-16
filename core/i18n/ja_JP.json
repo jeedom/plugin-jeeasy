@@ -29,7 +29,7 @@
         "Choix des plugins à installer : ": "Choix des plugins à installer :",
         "Installation des plugins en cours : ": "Installation des plugins en cours :",
         "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : ": "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant :",
-        "Installation de dépendances éventuelles en cours, vérifiez vos logs : ": "Installation de dépendances éventuelles en cours, vérifiez vos logs :",
+        " Vos plugins sont prêts ": "Vos plugins sont prêts",
         "Découvrez nos Services Packs": "Découvrez nos Services Packs",
         "Inclus avec": "Inclus avec",
         "Tous": "全て",
@@ -286,9 +286,6 @@
         "Cliquez sur sauvegarder pour valider votre configuration": "Cliquez sur sauvegarder pour valider votre configuration",
         "Synchronisation réussie": "正常な同期"
     },
-    "plugins\/jeeasy\/desktop\/modal\/connectionmarket.php": {
-        "401 - Accès non autorisé": "401 - Accès non autorisé"
-    },
     "plugins\/jeeasy\/desktop\/modal\/freebox_os.php": {
         "401 - Accès non autorisé": "401-不正アクセス",
         "Installation du Plugin Freebox en cours.": "Installation du Plugin Freebox en cours",
@@ -311,7 +308,8 @@
         "Russe (pas de support)": "Russe (pas de support)",
         "Japonais (pas de support)": "Japonais (pas de support)",
         "Indonesien (pas de support)": "Indonesien (pas de support)",
-        "Turque (pas de support)": "Turque (pas de support)",
+        "Turc (pas de support)": "Turc (pas de support)",
+        "Choose your langage": "Choose your langage",
         "Nouvelle langue système choisie : ": "Nouvelle langue système choisie :"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
