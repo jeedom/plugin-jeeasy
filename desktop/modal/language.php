@@ -34,9 +34,6 @@ else
 <br>
 <a class='btn btn-success btn-md pull-center' id="btn-language" >Choisir la langue</a>
 
-<sup>	<i class="fas fa-question-circle tooltipstered" tooltip="{{Choose your langage}}"></i></sup>
-
-
 <script>
 
        $('#btn-language').on('click', function () {
