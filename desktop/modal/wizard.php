@@ -24,7 +24,7 @@ if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
 }
 ?>
 
-<div class="bodyModal animated slideInRight">
+<div class="bodyModal animated slideInRight" id="wizardModal">
 
   <div class="multisteps-form">
     <!--progress bar-->
@@ -106,6 +106,10 @@ if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
   position: absolute;
 }
 
+#wizardModal{
+	background: #FFFFFF !important;
+}
+	
 .bodyModal{
   background-color : white;
   width: 75%;
