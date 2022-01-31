@@ -5,15 +5,13 @@ if (!isConnect()) {
 
 $caught = false;
 
-try{
-repo_market::getJsonRpc();
-}catch (Exception $e) {
-	$caught = true;
-	?>  <script>
-	      	$('#marketbeforeupdate').show();
-		 </script>
- <?php
-}
+	$username = config::byKey("market::username", null);
+	if($username == null || $username == ''){
+		$caught = true;
+	?>  
+		<script>$('#marketbeforeupdate').show();</script>
+	<?php
+	}
 
 if(!$caught){
 config::save('updateWizard', 'okay', 'jeeasy');
