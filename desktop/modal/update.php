@@ -35,7 +35,7 @@ config::save('updateWizard', 'okay', 'jeeasy');
 
 
 
-<div id="marketbeforeupdate" tabindex="502" class="form-group" style="margin:0 auto;display:none" >
+<div id="marketbeforeupdate" id="wizardModal" tabindex="502" class="form-group" style="margin:0 auto;display:none" >
 					<div id="imgbeforeupdate">
 						<img src="<?php echo config::byKey('product_connection_image'); ?>" />
 					</div>
@@ -66,7 +66,7 @@ config::save('updateWizard', 'okay', 'jeeasy');
 </div>
 
 
-<div class="bodyModal animated slideInRight" id="bodymodalupdate" style="display:none;">
+<div class="bodyModal animated slideInRight" id="bodymodalupdate" id="wizardModal" style="display:none;">
   <div class="multisteps-form">
     <div class="row" id="contentModal">
 	    <div class="col-md-12 text-center"><h2>{{Initialisation de }} <?php echo config::byKey('product_name'); ?></h2></div>
@@ -164,6 +164,10 @@ color:#93CA02;
   position: absolute;
 }
 
+#wizardModal{
+	background-color : #FFFFFF !important;
+}
+	
 .bodyModal{
   background-color : white;
   width: 75%;
