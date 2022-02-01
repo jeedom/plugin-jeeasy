@@ -5,7 +5,7 @@ if (!isConnect()) {
 
 $caught = false;
 
-	$username = config::byKey("market::username", null);
+	$username = config::byKey("market::username",'core', null);
 	if($username == null || $username == ''){
 		$caught = true;
 	?>  
