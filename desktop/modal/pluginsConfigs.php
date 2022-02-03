@@ -21,7 +21,7 @@ $arrayPluginsIn = array();
 if($listPlugins){
           foreach ($listPlugins as $plugin){                 
             $nameplug = $plugin->getId();                 
-            if($nameplug == 'zigbee' || $nameplug == 'openzwave' || $nameplug == 'knx' ){
+            if($nameplug == 'zigbee' || $nameplug == 'openzwave' || $nameplug == 'knx' || $nameplug == 'openenocean'){
               array_push($arrayPluginsIn, $plugin);  
               continue;
             }else{
