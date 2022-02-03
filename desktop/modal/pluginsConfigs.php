@@ -16,34 +16,55 @@ $productName = jeedom::getHardwareName();
 $listPlugins = plugin::listPlugin();
 
 
+$arrayPluginsIn = array();
+
 if($listPlugins){
-  foreach ($listPlugins as $plugin){
-        $nameplug = $plugin->getId();
-        if($path_pluginsConf['pluginsInfos'][$nameplug]){
-                $step = $path_pluginsConf['pluginsInfos'][$nameplug]['versions'];
-                foreach( $step as $key => $value ){
-                    if($key == $productName){
-                      ?> <script>
-                           $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?= $nameplug; ?>', typebox:'<?= $productName; ?>',config:'gpio', text:'<?= $nameplug; ?> : Configuration Controlleur Interne (GPIO)'}));
-                           $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?= $nameplug; ?>', typebox:'<?= $productName; ?>', config:'usb', text:'<?= $nameplug; ?> : Configuration Controlleur USB'}));
-                         </script>
-                     <?php
-                     }
+          foreach ($listPlugins as $plugin){                 
+            $nameplug = $plugin->getId();                 
+            if($nameplug == 'zigbee' || $nameplug == 'openzwave' || $nameplug == 'knx' ){
+              array_push($arrayPluginsIn, $plugin);  
+              continue;
+            }else{
+              continue;                  
+            }
+          }
+  if(sizeof($arrayPluginsIn) == 0){
+            ?> <script>
+            $('#choiceMode').hide();
+            $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétré');
+            $('#btn-choiceConfig').hide();
+            $('#pluginsConfigSelect').hide();
+            </script>
+              <?php 
+  }else{
+              foreach($arrayPluginsIn as $plug){ 
+            $nameplugIn = $plug->getId();
+            $step = $path_pluginsConf['pluginsInfos'][$nameplugIn]['versions'];
+            foreach( $step as $key => $value ){
+              if($key == $productName){
+                ?> <script>
+                  $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?= $nameplugIn; ?>', typebox:'<?= $productName; ?>',config:'gpio', text:'<?= $nameplugIn; ?> : Configuration Controlleur Interne (GPIO)'}));
+                $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?= $nameplugIn; ?>', typebox:'<?= $productName; ?>', config:'usb', text:'<?= $nameplugIn; ?> : Configuration Controlleur USB'}));
+                </script>
+                  <?php
                 }
-         }
+            }
+          }
+
+    
+    
   }
-}else{
-  ?> <script>
+
+  }else{    
+    ?> <script>
   $('#choiceMode').hide();
   $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétré');
   $('#btn-choiceConfig').hide();
   $('#pluginsConfigSelect').hide();
+  </script>
+    <?php 
 
-
-   </script>
-  <?php
-}
-
+  }
 
 ?>
 <script>
