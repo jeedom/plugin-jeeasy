@@ -23,7 +23,7 @@ if (!isConnect()) {
 				{{Un appartement}}
 			</label>
 		</div>
-		<div id="selectWork" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
+		<div id="selectWork" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType" hidden>
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/bureau/bureau_1.jpg" />
 				<input type="checkbox" name="selectHouse[work]" value="1" />
