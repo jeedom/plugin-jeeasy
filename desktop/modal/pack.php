@@ -41,8 +41,8 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
                       array_push($arrPlugin['name'], $namePlugin);
                       array_push($arrPlugin['logicalId'], $logicalPlugin);
                       array_push($arrPlugin['img'], $imgPlugin['icon']);
-                  }
-          array_push($arrPlugins, $arrPlugin);
+                }
+                array_push($arrPlugins, $arrPlugin);
         }
     }
 
@@ -52,20 +52,19 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
                         $arrPlugin = array( 'id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
                         $arrId = array();
                         $arrId['id'] = $plugin;
-												if(is_int($arrId['id'])){
-													if ( $jsonrpc->sendRequest('market::byId', $arrId)) {
-																$resultMain = $jsonrpc->getResult();
-																$logicalPlugin = $resultMain['logicalId'];
-																$namePlugin = $resultMain['name'];
-																$imgPlugin = $resultMain['img'];
-																array_push($arrPlugin['id'], $plugin);
-																array_push($arrPlugin['name'], $namePlugin);
-																array_push($arrPlugin['logicalId'], $logicalPlugin);
-																array_push($arrPlugin['img'], $imgPlugin['icon']);
-														}
-										    array_push($arrPlugins, $arrPlugin);
-												}
-
+                        if(is_int($arrId['id'])){
+                          if ( $jsonrpc->sendRequest('market::byId', $arrId)) {
+                            $resultMain = $jsonrpc->getResult();
+                            $logicalPlugin = $resultMain['logicalId'];
+                            $namePlugin = $resultMain['name'];
+                            $imgPlugin = $resultMain['img'];
+                            array_push($arrPlugin['id'], $plugin);
+                            array_push($arrPlugin['name'], $namePlugin);
+                            array_push($arrPlugin['logicalId'], $logicalPlugin);
+                            array_push($arrPlugin['img'], $imgPlugin['icon']);
+                          }
+                          array_push($arrPlugins, $arrPlugin);
+                        }
                 }
             }
    }
@@ -79,7 +78,6 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 		$('#bt_prev').hide();
 		$('.textAtlas').text('{{Choix des plugins à installer : }}');
 	    $('#btn-choicePlugin').on('click', function () {
-				console.log('clickk');
 				$('#tabPlugins').hide();
 				var i = 0;
 				var pluginsCheck = [];
@@ -111,7 +109,6 @@ function installPluginCheck(pluginsCheck){
 			data: {
 			    action: "installPlugin",
 			    id: pluginId
-
 			},
 			dataType: 'json',
 			error: function(request, status, error) {
@@ -122,32 +119,29 @@ function installPluginCheck(pluginsCheck){
 				progress(50);
 			}
     	   });
-
   }
-
-
 }
 
 
-      function testDep(idPlugin){
-        $.ajax({
-          type: "POST",
-          url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
-          data: {
-              action: "installDepPlugin",
-              id: idPlugin
-          },
-          dataType: 'json',
-          error: function(request, status, error) {
-              handleAjaxError(request, status, error);
-          },
-          success: function(data) {
-            progress(100);
-            $('#servicePackh3').text('{{ Vos plugins sont prêts }}');
-						$('#btn-choicePlugin').hide();
-          }
-          });
-       }
+function testDep(idPlugin){
+  $.ajax({
+    type: "POST",
+    url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
+    data: {
+      action: "installDepPlugin",
+      id: idPlugin
+      },
+    dataType: 'json',
+    error: function(request, status, error) {
+      handleAjaxError(request, status, error);
+    },
+    success: function(data) {
+      progress(100);
+      $('#servicePackh3').text('{{ Vos plugins sont prêts }}');
+      $('#btn-choicePlugin').hide();
+    }
+  });
+}
 
 
       function progress(ProgressPourcent){
@@ -350,8 +344,8 @@ function installPluginCheck(pluginsCheck){
         </table>
         <p style="font-size:10px; line-height:14px;">
         <sup>(1)</sup> : {{Selon conditions contractuelles}}<br/>
-	<sup>(2)</sup> : {{Tickets sur plugin officiel}}<br/>
-	<sup>(3)</sup> : {{Uniquement sur les plugins payants}}<br/>
+	    <sup>(2)</sup> : {{Tickets sur plugin officiel}}<br/>
+	    <sup>(3)</sup> : {{Uniquement sur les plugins payants}}<br/>
         </p>
 
 
