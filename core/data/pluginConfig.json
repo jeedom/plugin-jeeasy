@@ -1,43 +1,47 @@
 {
-    "pluginsInfos": {
-          "openzwave" :
-            {
-              "versions": {
-                   "Atlas": {
-                      "port" : "Jeedom Atlas"
-                   },
-                   "smart": {
-                      "port" : "Odroid C2"
-                   }
-                }
-            } ,
-          "zigbee":
+  "pluginsInfos": {
+        "openzwave" :
           {
             "versions": {
                  "Atlas": {
-                   "controller_1" : "ezsp",
-                   "sub_controller_1" : "elelabs",
-                   "port_1" : "/dev/ttyS2"
-                 }
-              }
-          } ,
-          "enocean":
-          {
-            "versions": {
-                 "Atlas": {
-                   "port" : "Jeedom Atlas"
+                    "port" : "Jeedom Atlas"
                  },
                  "smart": {
                     "port" : "Odroid C2"
                  }
               }
           } ,
-          "knx":
-          {
-            "versions": {
-                 "Atlas": {
-                 }
-              }
-          }
-    }
+        "zigbee":
+        {
+          "versions": {
+               "Atlas": {
+                 "controller_1" : "ezsp",
+                 "sub_controller_1" : "elelabs",
+                 "port_1" : "/dev/ttyS2"
+               }
+            }
+        } ,
+        "enocean":
+        {
+          "versions": {
+               "Atlas": {
+                 "port" : "Jeedom Atlas"
+               },
+               "smart": {
+                  "port" : "Odroid C2"
+               }
+            }
+        } ,
+        "knx":
+        {
+          "versions": {
+               "Atlas": {
+                    "KnxSoft" : "knxd",
+               "level" : "3",
+              "TypeKNXgateway" : "ft12cemi",
+              "KNXgateway" : "/dev/ttyS2"
+               }
+            }
+        }
+  }
 }
