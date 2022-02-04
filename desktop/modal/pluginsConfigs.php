@@ -44,7 +44,7 @@ if ($listPlugins)
     {
 ?>      <script>
             $('#choiceMode').hide();
-            $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétré');
+            $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétrer');
             $('#btn-choiceConfig').hide();
             $('#pluginsConfigSelect').hide();
         </script>
@@ -57,7 +57,7 @@ else
 {
 ?> <script>
         $('#choiceMode').hide();
-        $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétré');
+        $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétrer');
         $('#btn-choiceConfig').hide();
         $('#pluginsConfigSelect').hide();
   </script>
@@ -94,7 +94,7 @@ $('#btn-choiceConfig').on('click', function () {
                       $('#choiceMode').hide();
                 }else if(data.result == 'gpio'){
                       $('#choiceMode').hide();
-                      $('.textConfigAutoPlug').text('Votre plugin à été configuré automatiquement ');
+                      $('.textConfigAutoPlug').text('Votre plugin à été configuré automatiquement');
 
                 }
               }
