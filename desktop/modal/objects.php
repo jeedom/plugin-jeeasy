@@ -75,7 +75,7 @@ if (!isConnect()) {
 		</div>
 		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
 			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/salle_a_manger/salle_a_manger_1.jpg" />
+				<img class="img-responsive" src="/core/img/object_background/salle_a_manger/salle_à_manger_1.jpg" />
 				<input type="checkbox" name="selectObject[sam]" value="1" />
 				<i class="fas fa-check hidden"></i>
 				{{Salle à manger}}
