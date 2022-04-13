@@ -123,9 +123,12 @@ $('#pluginsConfigSelect').on('change', function () {
                 </select>
              </tbody>
       </table>
-      <div class="testbtn">
-          <a class='btn btn-success btn-md pull-right' id="btn-choiceConfig" style="margin-right:50px" >Valider</a>
+      <div class="testbtn" style="display:flex; justify-content:center; align-items:center;">
+          <a class='btn btn-success btn-md' id="btn-choiceConfig"  style="width: 200px;height: 45.75px; text-align:center; background-color:rgb(148, 202, 3);">Valider</a>
+          <p style="margin-left: 20px; margin-right: 20px;">OU</p>       
+          <p class="ignorebtn">Cliquez sur la fleche pour Ignorer</p>
       </div>
+   
       <div id="contenuTextSpan" class="progress">
       	<div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
       	</div>
