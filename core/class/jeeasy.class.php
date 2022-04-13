@@ -129,7 +129,7 @@ class jeeasy extends eqLogic {
 			'sam' => array(
 				'level'  => 1,
 				'name'   => 'Salle à manger',
-				'image'  => 'core/img/object_background/salle_a_manger/salle_a_manger_1.jpg',
+				'image'  => 'core/img/object_background/salle_à_manger/salle_à_manger_1.jpg',
 				'icon'   => '<i class="icon maison-dining3"></i>',
 				'parent' => ''
 			),
