@@ -32,7 +32,12 @@ else
               <option value="tr">{{Turc (pas de support)}}</option>
 </select>
 <br>
-<a class='btn btn-success btn-md pull-center' id="btn-language" >Choisir la langue</a>
+  <div class="testbtn" style="display:flex; justify-content:center; align-items:center;">
+           <a class='btn btn-success btn-md ' id="btn-language"  style="width: 200px;height: 45.75px; text-align:center; background-color:rgb(148, 202, 3);">Choisir la langue</a>
+          <p style="margin-left: 20px; margin-right: 20px;">OU</p>       
+          <p class="ignorebtn">Cliquez sur la fleche pour Ignorer</p>
+    </div>
+  
 
 <script>
 
