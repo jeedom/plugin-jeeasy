@@ -23,6 +23,12 @@
     "plugins\/jeeasy\/desktop\/modal\/services.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Les services complémentaires": "Servicios complementarios"
+        "Les Sauvegardes Cloud" : "Cloud Saves",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements." : "Le proponemos hacer una copia de seguridad de su controlador Jeedom cada noche de manera segura con sus propias contraseñas. Asi disfruta de una  tranquilidad sobre cualquier problema de su controlador Jeedom.
+Además ahorramos su ancho de banda guardando solamente los cambios.",
+      "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)":"Envíe fácilmente un mensaje escrito o de voz desde su controlador Jeedom sin tener una llave 3G y sin suscripción. (requiere una conexión a internet)",
+    "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !":"Nuestro servidor verifica ciertos criterios vitales para su solución de domótica y le alerta en caso de que haya un problema. ¡Incluso si ya no responde!"
+
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
@@ -203,7 +209,8 @@
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Guide de démarrage <?php echo config::byKey('product_name'); ?>": "Guía de inicio <?php echo config::byKey('product_name'); ?>",
-        "Ce guide va vous aider à configurer votre <?php echo config::byKey('product_name'); ?> en quelques étapes.": "Esta guía lo ayudará a configurar su <?php echo config::byKey('product_name'); ?> en unos pocos pasos",
+        "Ce guide va vous aider à configurer votre": "Esta guía lo ayudará a configurar su",
+        "en quelques étapes.":  "en unos pocos pasos",
         "Cliquez sur la flêche pour commencer la configuration.": "Haga clic en la flecha para iniciar la configuración"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
@@ -345,7 +352,10 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/assistants.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Les assistants vocaux": "Asistentes de voz"
+        "Les assistants vocaux": "Asistentes de voz",
+        "Assistants vocaux": "Asistentes de voz",
+        "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant" : "Te ofrecemos una fácil conexión para aprovechar los asistentes de voz: Amazon Alexa y Google Assistant",
+        "Documentation": "Documentación"
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",

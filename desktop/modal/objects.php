@@ -31,7 +31,7 @@ if (!isConnect()) {
 			</label>
 		</div>
 	</div>
-	<div class="col-md-3 selectEtage hidden">
+	<div class="selectEtage hidden">
     <ul class="nav nav-pills nav-stacked">
       <li role="etage" class="active"><a href="#">Rez de chaussée</a></li>
       <li role="etage"><a href="#">Etage 1</a></li>
@@ -39,9 +39,9 @@ if (!isConnect()) {
 			<li role="etage"><a href="#">Ajouter</a></li>
     </ul>
   </div>
-  <div class="col-md-9 selectObject hidden">
-		<div class="col-md-12 text-center"><h2>{{Sélectionnez les pièces}}</h2></div>
-		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+  <div class="selectObject hidden">
+		<div class="text-center"><h2>{{Sélectionnez les pièces}}</h2></div>
+		<div class="nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_1.jpg" />
 				<input type="checkbox" name="selectObject[chambre1]" value="1" />
@@ -49,7 +49,7 @@ if (!isConnect()) {
 				{{Chambre 1}}
 			</label>
     	</div>
-		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+		<div class="nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_3.jpg" />
 				<input type="checkbox" name="selectObject[chambre2]" value="1" />
@@ -57,7 +57,7 @@ if (!isConnect()) {
 				{{Chambre 2}}
 			</label>
 		</div>
-		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+		<div class="nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_4.jpg" />
 				<input type="checkbox" name="selectObject[chambre3]" value="1" />
@@ -65,7 +65,7 @@ if (!isConnect()) {
 				{{Chambre 3}}
 			</label>
     	</div>
-		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+		<div class="nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_2.jpg" />
 				<input type="checkbox" name="selectObject[cuisine]" value="1" />
@@ -73,7 +73,7 @@ if (!isConnect()) {
 				{{Cuisine}}
 			</label>
 		</div>
-		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+		<div class="nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salle_à_manger/salle_à_manger_1.jpg" />
 				<input type="checkbox" name="selectObject[sam]" value="1" />
@@ -81,7 +81,7 @@ if (!isConnect()) {
 				{{Salle à manger}}
 			</label>
 		</div>
-		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+		<div class="nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salon/salon_2.jpg" />
 				<input type="checkbox" name="selectObject[salon]" value="1" />
@@ -89,7 +89,7 @@ if (!isConnect()) {
 				{{Salon}}
 			</label>
 		</div>
-		<div class="col-xs-5 col-sm-4 col-md-3 nopad text-center">
+		<div class="nopad text-center">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salle_de_bain/salle_de_bain_1.jpg" />
 				<input type="checkbox" name="selectObject[sdb]" value="1" />

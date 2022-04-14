@@ -91,9 +91,10 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 					progress(20);
 	 				installPluginCheck(pluginsCheck);
 	 			}	else{
-	 				$('.textAtlas').text('{{Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : }}');
+	 				$('.textAtlas').text('{{Aucun plugin à installer, cliquez sur suivant : }}');
 					$('#btn-choicePlugin').hide();
 	 				$('#bt_next').show();
+                   $('#bt_prev').show();
 	 			}
 
         });
@@ -178,7 +179,7 @@ function testDep(idPlugin){
 
       <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
       <div class="col-md-12 text-center">
-      <p class="text-center"><h3 class="servicePack" id="servicePackh3">Vous êtes en <?= $servicePack ?></h3></p>
+      <p class="text-center"><h3 class="servicePack" id="servicePackh3">{{Vous êtes en}} <?= $servicePack ?></h3></p>
       <p class="text-center"><h4 class="textAtlas"></h4></p>
 
       <table class="table table-hover" id="tabPlugins"  style="display:flex;flex-direction:column;align-items:center;justify-content:center;">

@@ -17,15 +17,21 @@ $productName = jeedom::getHardwareName();
 $listPlugins = plugin::listPlugin();
 
 
+
+
 $i = 0;
+
 if ($listPlugins)
 {
     foreach ($listPlugins as $plugin)
     {
         $nameplug = $plugin->getId();
+
         if (array_key_exists($nameplug, $path_pluginsConf['pluginsInfos']) == true)
         {
             $i++;
+
+
             $step = $path_pluginsConf['pluginsInfos'][$nameplug]['versions'];
             foreach ($step as $key => $value)
             {
@@ -111,9 +117,9 @@ $('#pluginsConfigSelect').on('change', function () {
 
       <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
       <div class="col-md-12 text-center">
-      <p class="text-center"><h3 class="configplugins" style="color:#93ca02;">Configuration Auto des Plugins :</h3></p>
-      <p class="text-center"><h4 class="configplugins" style="font-weight: bold;">Votre box est une <?=$productName; ?></h4></p>
-      <p class="text-center"><h4 class="configplugins" id="choiceMode">Choississez le mode de configuration du plugin : </h4></p>
+      <p class="text-center"><h3 class="configplugins" style="color:#93ca02;">{{Configuration Auto des Plugins :}}</h3></p>
+      <p class="text-center"><h4 class="configplugins" style="font-weight: bold;">{{Votre box est une}} <?=$productName; ?></h4></p>
+      <p class="text-center"><h4 class="configplugins" id="choiceMode">{{Choississez le mode de configuration du plugin :}}</h4></p>
       <p class="text-center"><h4 class="textConfigAutoPlug" style="color:#93ca02;"></h4></p>
       <table class="table table-hover" id="pluginsConfigTab"  style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
             <thead>
@@ -123,12 +129,14 @@ $('#pluginsConfigSelect').on('change', function () {
                 </select>
              </tbody>
       </table>
-      <div class="testbtn" style="display:flex; justify-content:center; align-items:center;">
+
+      <div class="testbtn" style="display:flex; flex-direction:column;justify-content:center; align-items:center;">
           <a class='btn btn-success btn-md' id="btn-choiceConfig"  style="width: 200px;height: 45.75px; text-align:center; background-color:rgb(148, 202, 3);">Valider</a>
-          <p style="margin-left: 20px; margin-right: 20px;">OU</p>       
-          <p class="ignorebtn">Cliquez sur la fleche pour Ignorer</p>
+          <p style="margin-left: 20px; margin-right: 20px;">{{OU}}</p>
+          <p class="ignorebtn">{{Cliquez sur la fleche pour Ignorer}}</p>
       </div>
-   
+
+
       <div id="contenuTextSpan" class="progress">
       	<div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
       	</div>

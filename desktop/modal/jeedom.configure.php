@@ -53,7 +53,7 @@ $configs = config::byKeys($keys);
 <!--		<div class="jeeasyDisplay home">-->
 <!--			<center><i class="fas fa-home" style="font-size: 10em;"></i></center>-->
 <!--			<br/>-->
-<!--			<center><div class="alert alert-info">{{Bienvenu sur l'assistant de configuration de votre}} --><?php //echo config::byKey('product_name'); ?><!--</div></center>-->
+<!--			<center><div class="alert alert-info">{{Bienvenue sur l'assistant de configuration de votre}} --><?php //echo config::byKey('product_name'); ?><!--</div></center>-->
 <!--			<center>{{Cliquez sur suivant pour commencer}}</center>-->
 <!--			<br/>-->
 <!--			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>-->
