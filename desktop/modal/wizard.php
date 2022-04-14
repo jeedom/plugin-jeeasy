@@ -259,7 +259,9 @@ $( document ).ready(function() {
 				ArrSelected.push(this.name);
 
 			});
-			sendObjects(ArrSelected);
+			   if(ArrSelected.length != 0){
+			    	sendObjects(ArrSelected);
+			  }
 		}
     $( '.current' ).removeClass('current');
     var next = $(".multisteps-form__progress").find("[data-stepwizard='" + (current + 1) + "']").attr('id');
