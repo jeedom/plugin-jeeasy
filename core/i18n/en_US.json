@@ -210,7 +210,12 @@
         "Choississez le mode de configuration du plugin :":"Choose the configuration mode of the plugin:",
         "Votre box est une": "Your controller is a" ,
         "Cliquez sur la fleche pour Ignorer" : "Click on the arrow to Ignore",
-        "OU" : "OR"
+        "OU" : "OR",
+        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin" :"You have chosen a USB controller, please configure it in the Management of your plugin",
+        "Votre plugin à été configuré automatiquement" : "Your plugin has been configured automatically",
+        "Aucun Plugin installé à paramétrer" : "No Plugin installed to set up",
+        "Configuration Controlleur Interne (GPIO)" : "Internal Controller (GPIO) configuration",
+        "Configuration Controlleur USB" : "USB Controller Configuration"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",

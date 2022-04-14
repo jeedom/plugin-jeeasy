@@ -38,8 +38,8 @@ if ($listPlugins)
                 if ($key == $productName)
                 {
 ?>                  <script>
-                        $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?=$nameplug; ?>', typebox:'<?=$productName; ?>',config:'gpio', text:'<?=$nameplug; ?> : Configuration Controlleur Interne (GPIO)'}));
-                        $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?=$nameplug; ?>', typebox:'<?=$productName; ?>', config:'usb', text:'<?=$nameplug; ?> : Configuration Controlleur USB'}));
+                        $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?=$nameplug; ?>', typebox:'<?=$productName; ?>',config:'gpio', text:'<?=$nameplug; ?> : {{Configuration Controlleur Interne (GPIO)}}'}));
+                        $('#pluginsConfigSelect').append($('<option>', {nameplugin:'<?=$nameplug; ?>', typebox:'<?=$productName; ?>', config:'usb', text:'<?=$nameplug; ?> : {{Configuration Controlleur USB}}'}));
                     </script>
 <?php
                 }
@@ -50,7 +50,7 @@ if ($listPlugins)
     {
 ?>      <script>
             $('#choiceMode').hide();
-            $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétrer');
+            $('.textConfigAutoPlug').text('{{Aucun Plugin installé à paramétrer}}');
             $('#btn-choiceConfig').hide();
             $('#pluginsConfigSelect').hide();
         </script>
@@ -63,7 +63,7 @@ else
 {
 ?> <script>
         $('#choiceMode').hide();
-        $('.textConfigAutoPlug').text('Aucun Plugin installé à paramétrer');
+        $('.textConfigAutoPlug').text('{{Aucun Plugin installé à paramétrer}}');
         $('#btn-choiceConfig').hide();
         $('#pluginsConfigSelect').hide();
   </script>
@@ -96,11 +96,11 @@ $('#btn-choiceConfig').on('click', function () {
           success: function (data) {
             console.log(data);
                 if(data.result == 'usb'){
-                      $('.textConfigAutoPlug').text('Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin : ');
+                      $('.textConfigAutoPlug').text('{{Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin}}');
                       $('#choiceMode').hide();
                 }else if(data.result == 'gpio'){
                       $('#choiceMode').hide();
-                      $('.textConfigAutoPlug').text('Votre plugin à été configuré automatiquement');
+                      $('.textConfigAutoPlug').text('{{Votre plugin à été configuré automatiquement}}');
 
                 }
               }
