@@ -22,14 +22,19 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/services.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Les services complémentaires": "Serviços complementares"
+        "Les services complémentaires": "Serviços complementares",
+        "Les Sauvegardes Cloud": "Backups em nuvem",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Sugerimos que você faça backup de seu Jeedom todas as noites com segurança com suas próprias senhas. Tenha certeza da menor preocupação em seu Jeedom. Além disso, economizamos sua largura de banda salvando apenas as alterações",
+        "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)": "Envie facilmente uma mensagem escrita ou de voz do seu Jeedom sem ter uma chave 3G e sem assinatura. (requer conexão com a internet)",
+        "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !": "Nosso servidor verifica alguns critérios vitais para sua solução de automação residencial e alerta você em caso de problema. Mesmo que não responda mais!"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
         "Choix des plugins à installer : ": "Escolha de plug-ins para instalar:",
         "Installation des plugins en cours : ": "Instalação de plug-ins em andamento:",
-        "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : ": "Você não selecionou nenhum plugin para instalar, clique em próximo:",
+        "Aucun plugin à installer, cliquez sur suivant : ": "Nenhum plugin para instalar, clique em próximo:",
         " Vos plugins sont prêts ": "Seus plugins estão prontos",
+        "Vous êtes en": "Estás dentro",
         "Découvrez nos Services Packs": "Descubra nossos Service Packs",
         "Inclus avec": "Incluído com",
         "Tous": "Tudo",
@@ -198,12 +203,23 @@
         "Configuration sauvegardée": "Configuração salva"
     },
     "plugins\/jeeasy\/desktop\/modal\/pluginsConfigs.php": {
-        "401 - Accès non autorisé": "401 - Acesso não autorizado"
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Configuration Controlleur Interne (GPIO)": "Configuração do controlador interno (GPIO)",
+        "Configuration Controlleur USB": "Configuração do controlador USB",
+        "Aucun Plugin installé à paramétrer": "Nenhum plugin instalado para configurar",
+        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin": "Você escolheu um controlador USB, configure-o no Gerenciamento do seu plugin",
+        "Votre plugin à été configuré automatiquement": "Seu plugin foi configurado automaticamente",
+        "Configuration Auto des Plugins :": "Configuração automática de plugins:",
+        "Votre box est une": "Sua caixa é um",
+        "Choississez le mode de configuration du plugin :": "Escolha o modo de configuração do plugin:",
+        "OU": "ONDE",
+        "Cliquez sur la fleche pour Ignorer": "Clique na seta para Pular"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Guide de démarrage <?php echo config::byKey('product_name'); ?>": "Guia de primeiros passos <?php echo config::byKey('product_name'); ?>",
-        "Ce guide va vous aider à configurer votre <?php echo config::byKey('product_name'); ?> en quelques étapes.": "Este guia o ajudará a configurar seu <?php echo config::byKey('product_name'); ?> em alguns passos",
+        "Guide de démarrage": "Guia de Introdução",
+        "Ce guide va vous aider à configurer votre": "Este guia irá ajudá-lo a configurar o seu",
+        "en quelques étapes.": "em poucos passos",
         "Cliquez sur la flêche pour commencer la configuration.": "Clique na seta para iniciar a configuração"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
@@ -219,7 +235,7 @@
         "Sauvegarder": "Salvar",
         "Suivant": "Seguinte",
         "Précédent": "Anterior",
-        "Bienvenu sur l'assistant de configuration de votre": "Bem-vindo ao assistente de configuração do seu",
+        "Bienvenue sur l'assistant de configuration de votre": "Bem-vindo ao Assistente de Configuração para o seu",
         "Cliquez sur suivant pour commencer": "Clique ao lado para começar",
         "Nous allons ici configurer les principaux paramètre de votre": "Aqui vamos configurar os principais parâmetros do seu",
         "Nom de votre --><?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)": "Seu nome -> <?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)",
@@ -299,6 +315,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Langage Systeme": "Idioma do sistema",
         "Français": "Francês",
         "Anglais": "Inglês",
         "Allemand": "Alemão",
@@ -309,7 +326,9 @@
         "Japonais (pas de support)": "Japonês (sem suporte)",
         "Indonesien (pas de support)": "Indonésio (sem suporte)",
         "Turc (pas de support)": "Turco (sem suporte)",
-        "Nouvelle langue système choisie : ": "Novo idioma do sistema escolhido:"
+        "OU": "ONDE",
+        "Cliquez sur la fleche pour Ignorer": "Clique na seta para Pular",
+        "Nouvelle langue systeme choisie : ": "Novo idioma do sistema escolhido:"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Desculpe por não encontrar seu equipamento:",
@@ -345,7 +364,10 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/assistants.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Les assistants vocaux": "Assistentes de voz"
+        "Les assistants vocaux": "Assistentes de voz",
+        "Assistants vocaux": "Assistentes de voz",
+        "Documentation": "Documentação",
+        "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant": "Oferecemos uma conexão fácil para aproveitar os assistentes de voz: Amazon Alexa e Google Assistant"
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
@@ -475,7 +497,7 @@
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_sauvegarde.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Les Sauvegardes Cloud": "Backups na nuvem",
+        "Les Sauvegardes Cloud": "Backups em nuvem",
         "Documentation": "Documentação",
         "Nom de votre Backup": "Nome do seu backup",
         "A conserver précieusement c'est ici que vous le choisissez": "Mantenha-o seguro, é aqui que você escolhe",
@@ -495,7 +517,7 @@
         "Erreur": "Erro"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/view\/jeedom_configuration_accueil.php": {
-        "Bienvenue sur l'assistant de configuration de votre": "Bem-vindo ao assistente de configuração para o seu",
+        "Bienvenue sur l'assistant de configuration de votre": "Bem-vindo ao Assistente de Configuração para o seu",
         "Cliquez sur ": "Clique em",
         " pour commencer": "começar"
     },
@@ -526,7 +548,7 @@
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/accueil.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Bienvenue sur l'assistant de configuration de votre": "Bem-vindo ao assistente de configuração para o seu",
+        "Bienvenue sur l'assistant de configuration de votre": "Bem-vindo ao Assistente de Configuração para o seu",
         "Cliquez sur ": "Clique em",
         " pour commencer": "começar"
     },

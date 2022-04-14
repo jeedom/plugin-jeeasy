@@ -22,20 +22,19 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/services.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Les services complémentaires": "Servicios complementarios"
-        "Les Sauvegardes Cloud" : "Cloud Saves",
-        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements." : "Le proponemos hacer una copia de seguridad de su controlador Jeedom cada noche de manera segura con sus propias contraseñas. Asi disfruta de una  tranquilidad sobre cualquier problema de su controlador Jeedom.
-Además ahorramos su ancho de banda guardando solamente los cambios.",
-      "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)":"Envíe fácilmente un mensaje escrito o de voz desde su controlador Jeedom sin tener una llave 3G y sin suscripción. (requiere una conexión a internet)",
-    "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !":"Nuestro servidor verifica ciertos criterios vitales para su solución de domótica y le alerta en caso de que haya un problema. ¡Incluso si ya no responde!"
-
+        "Les services complémentaires": "Servicios complementarios",
+        "Les Sauvegardes Cloud": "Copias de seguridad en la nube",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Le sugerimos que haga una copia de seguridad de su Jeedom cada noche de forma segura con sus propias contraseñas. Tenga la seguridad de la menor preocupación sobre su Jeedom. Además ahorramos su ancho de banda guardando solo los cambios",
+        "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)": "Envíe fácilmente un mensaje escrito o de voz desde su Jeedom sin tener una clave 3G y sin suscripción. (requiere conexión a internet)",
+        "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !": "Nuestro servidor verifica ciertos criterios vitales para su solución de automatización del hogar y lo alerta en caso de que haya un problema. ¡Incluso si ya no responde!"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Choix des plugins à installer : ": "Elección de complementos para instalar:",
         "Installation des plugins en cours : ": "Instalación de complementos en curso:",
-        "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : ": "No ha seleccionado ningún complemento para instalar, haga clic en siguiente:",
+        "Aucun plugin à installer, cliquez sur suivant : ": "No hay complemento para instalar, haga clic en siguiente:",
         " Vos plugins sont prêts ": "Tus complementos están listos",
+        "Vous êtes en": "Estás dentro",
         "Découvrez nos Services Packs": "Descubra nuestros Service Packs",
         "Inclus avec": "Incluido con",
         "Tous": "Todos",
@@ -204,13 +203,23 @@ Además ahorramos su ancho de banda guardando solamente los cambios.",
         "Configuration sauvegardée": "Configuración guardada"
     },
     "plugins\/jeeasy\/desktop\/modal\/pluginsConfigs.php": {
-        "401 - Accès non autorisé": "401 - Acceso no autorizado"
+        "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Configuration Controlleur Interne (GPIO)": "Configuración del controlador interno (GPIO)",
+        "Configuration Controlleur USB": "Configuración del controlador USB",
+        "Aucun Plugin installé à paramétrer": "No hay complemento instalado para configurar",
+        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin": "Ha elegido un controlador USB, configúrelo en la Gestión de su complemento",
+        "Votre plugin à été configuré automatiquement": "Su complemento se ha configurado automáticamente",
+        "Configuration Auto des Plugins :": "Autoconfiguración de complementos:",
+        "Votre box est une": "Tu caja es una",
+        "Choississez le mode de configuration du plugin :": "Elija el modo de configuración del complemento:",
+        "OU": "DONDE",
+        "Cliquez sur la fleche pour Ignorer": "Haga clic en la flecha para saltar"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Guide de démarrage <?php echo config::byKey('product_name'); ?>": "Guía de inicio <?php echo config::byKey('product_name'); ?>",
-        "Ce guide va vous aider à configurer votre": "Esta guía lo ayudará a configurar su",
-        "en quelques étapes.":  "en unos pocos pasos",
+        "Guide de démarrage": "Guía de inicio",
+        "Ce guide va vous aider à configurer votre": "Esta guía le ayudará a configurar su",
+        "en quelques étapes.": "en unos pocos pasos",
         "Cliquez sur la flêche pour commencer la configuration.": "Haga clic en la flecha para iniciar la configuración"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
@@ -226,7 +235,7 @@ Además ahorramos su ancho de banda guardando solamente los cambios.",
         "Sauvegarder": "Guardar",
         "Suivant": "Próximo",
         "Précédent": "Anterior",
-        "Bienvenu sur l'assistant de configuration de votre": "Bienvenido al asistente de configuración de tu",
+        "Bienvenue sur l'assistant de configuration de votre": "Bienvenido al asistente de configuración para su",
         "Cliquez sur suivant pour commencer": "Haga clic en siguiente para comenzar",
         "Nous allons ici configurer les principaux paramètre de votre": "Aquí configuraremos los principales parámetros de su",
         "Nom de votre --><?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)": "Tu nombre -> <?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)",
@@ -306,6 +315,7 @@ Además ahorramos su ancho de banda guardando solamente los cambios.",
     },
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Langage Systeme": "Lenguaje del sistema",
         "Français": "Francés",
         "Anglais": "Inglés",
         "Allemand": "Alemán",
@@ -316,7 +326,9 @@ Además ahorramos su ancho de banda guardando solamente los cambios.",
         "Japonais (pas de support)": "Japonés (sin soporte)",
         "Indonesien (pas de support)": "Indonesio (sin soporte)",
         "Turc (pas de support)": "Turco (sin soporte)",
-        "Nouvelle langue système choisie : ": "Nuevo idioma del sistema elegido:"
+        "OU": "DONDE",
+        "Cliquez sur la fleche pour Ignorer": "Haga clic en la flecha para saltar",
+        "Nouvelle langue systeme choisie : ": "Nuevo idioma del sistema elegido:"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Lo siento, no puedo encontrar tu equipo:",
@@ -354,8 +366,8 @@ Además ahorramos su ancho de banda guardando solamente los cambios.",
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Les assistants vocaux": "Asistentes de voz",
         "Assistants vocaux": "Asistentes de voz",
-        "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant" : "Te ofrecemos una fácil conexión para aprovechar los asistentes de voz: Amazon Alexa y Google Assistant",
-        "Documentation": "Documentación"
+        "Documentation": "Documentación",
+        "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant": "Te ofrecemos una fácil conexión para aprovechar los asistentes de voz: Amazon Alexa y Google Assistant"
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
@@ -485,7 +497,7 @@ Además ahorramos su ancho de banda guardando solamente los cambios.",
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_sauvegarde.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Les Sauvegardes Cloud": "Las copias de seguridad en la nube",
+        "Les Sauvegardes Cloud": "Copias de seguridad en la nube",
         "Documentation": "Documentación",
         "Nom de votre Backup": "Nombre de su copia de seguridad",
         "A conserver précieusement c'est ici que vous le choisissez": "Mantenlo seguro, es aquí donde tu eliges",

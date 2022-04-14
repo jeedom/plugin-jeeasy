@@ -23,19 +23,18 @@
     "plugins\/jeeasy\/desktop\/modal\/services.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
         "Les services complémentaires": "Complementary services",
-        "Les Sauvegardes Cloud" : "Cloud Saves",
-        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements." : "We offer you to backup your Jeedom every night in a secure way with your own passwords. Be reassured of the slightest problem on your Jeedom. Moreover, we save your bandwidth by saving only the changes.",
-      "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)":"Send from your Jeedom easily a written or vocal message without having a 3G key and without subscription. (requires an internet connection)",
-    "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !":"Our server checks some vital criteria of your home automation solution and alerts you in case of a problem. Even if it doesn't respond anymore!"
-
+        "Les Sauvegardes Cloud": "Cloud Saves",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "We offer you to backup your Jeedom every night in a secure way with your own passwords. Be reassured of the slightest problem on your Jeedom. Moreover, we save your bandwidth by saving only the changes",
+        "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)": "Send from your Jeedom easily a written or vocal message without having a 3G key and without subscription. (requires an internet connection)",
+        "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !": "Our server checks some vital criteria of your home automation solution and alerts you in case of a problem. Even if it doesn't respond anymore!"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
         "Choix des plugins à installer : ": "Choice of plugins to install:",
-        "Vous êtes en": "You are in",
         "Installation des plugins en cours : ": "Installation of plugins in progress:",
         "Aucun plugin à installer, cliquez sur suivant : ": "You have not selected any plugin to install, click on next:",
         " Vos plugins sont prêts ": "Your plugins are ready",
+        "Vous êtes en": "You are in",
         "Découvrez nos Services Packs": "Discover our Service Packs",
         "Inclus avec": "Included with",
         "Tous": "All",
@@ -205,17 +204,16 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pluginsConfigs.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "Configuration Controlleur Interne (GPIO)": "Internal Controller (GPIO) configuration",
+        "Configuration Controlleur USB": "USB Controller Configuration",
         "Aucun Plugin installé à paramétrer": "No Plugin installed to set up",
-        "Configuration Auto des Plugins :" : "Auto Configuration of Plugins :",
-        "Choississez le mode de configuration du plugin :":"Choose the configuration mode of the plugin:",
-        "Votre box est une": "Your controller is a" ,
-        "Cliquez sur la fleche pour Ignorer" : "Click on the arrow to Ignore",
-        "OU" : "OR",
-        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin" :"You have chosen a USB controller, please configure it in the Management of your plugin",
-        "Votre plugin à été configuré automatiquement" : "Your plugin has been configured automatically",
-        "Aucun Plugin installé à paramétrer" : "No Plugin installed to set up",
-        "Configuration Controlleur Interne (GPIO)" : "Internal Controller (GPIO) configuration",
-        "Configuration Controlleur USB" : "USB Controller Configuration"
+        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin": "You have chosen a USB controller, please configure it in the Management of your plugin",
+        "Votre plugin à été configuré automatiquement": "Your plugin has been configured automatically",
+        "Configuration Auto des Plugins :": "Auto Configuration of Plugins :",
+        "Votre box est une": "Your controller is a",
+        "Choississez le mode de configuration du plugin :": "Choose the configuration mode of the plugin:",
+        "OU": "WHERE",
+        "Cliquez sur la fleche pour Ignorer": "Click the arrow to Skip"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
@@ -223,11 +221,6 @@
         "Ce guide va vous aider à configurer votre": "This guide will help you configure your",
         "en quelques étapes.": "in a few steps",
         "Cliquez sur la flêche pour commencer la configuration.": "Click on the arrow to start the configuration"
-    },
-    "plugins\/jeeasy\/desktop\/modal\/language.php": {
-        "Langage Systeme": "System Language",
-        "Cliquez sur la fleche pour Ignorer" : "Click on the arrow to Ignore",
-        "OU" : "OR"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
@@ -242,7 +235,7 @@
         "Sauvegarder": "Save",
         "Suivant": "Next",
         "Précédent": "Previous",
-        "Bienvenu sur l'assistant de configuration de votre": "Welcome to the configuration wizard of your",
+        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the Setup Wizard for your",
         "Cliquez sur suivant pour commencer": "Click next to start",
         "Nous allons ici configurer les principaux paramètre de votre": "Here we will configure the main parameters of your",
         "Nom de votre --><?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)": "Your name -> <?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)",
@@ -322,6 +315,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
+        "Langage Systeme": "System Language",
         "Français": "French",
         "Anglais": "English",
         "Allemand": "German",
@@ -332,7 +326,9 @@
         "Japonais (pas de support)": "Japanese (no support)",
         "Indonesien (pas de support)": "Indonesian (no support)",
         "Turc (pas de support)": "Turkish (no support)",
-        "Nouvelle langue système choisie : ": "New system language chosen:"
+        "OU": "WHERE",
+        "Cliquez sur la fleche pour Ignorer": "Click the arrow to Skip",
+        "Nouvelle langue systeme choisie : ": "New system language chosen:"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Sorry I can't find your equipment:",
@@ -370,9 +366,8 @@
         "401 - Accès non autorisé": "401 - Unauthorized access",
         "Les assistants vocaux": "Voice assistants",
         "Assistants vocaux": "Voice assistants",
-        "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant" : "We offer you an easy connection to enjoy the voice assistants : Amazon Alexa and Google Assistant"
-
-
+        "Documentation": "Documentation",
+        "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant": "We offer you an easy connection to enjoy the voice assistants : Amazon Alexa and Google Assistant"
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
@@ -522,7 +517,7 @@
         "Erreur": "Error"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/view\/jeedom_configuration_accueil.php": {
-        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the configuration wizard for your",
+        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the Setup Wizard for your",
         "Cliquez sur ": "Click on",
         " pour commencer": "to begin"
     },
@@ -553,7 +548,7 @@
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/accueil.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the configuration wizard for your",
+        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the Setup Wizard for your",
         "Cliquez sur ": "Click on",
         " pour commencer": "to begin"
     },

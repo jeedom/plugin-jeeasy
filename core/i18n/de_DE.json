@@ -22,14 +22,19 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/services.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Les services complémentaires": "Ergänzende Dienstleistungen"
+        "Les services complémentaires": "Ergänzende Dienstleistungen",
+        "Les Sauvegardes Cloud": "Cloud-Backups",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Wir empfehlen Ihnen, Ihr Jeedom jede Nacht sicher mit Ihren eigenen Passwörtern zu sichern. Seien Sie beruhigt von der geringsten Sorge um Ihr Jeedom. Außerdem schonen wir Ihre Bandbreite, indem wir nur die Änderungen speichern",
+        "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)": "Senden Sie einfach eine schriftliche oder Sprachnachricht von Ihrem Jeedom, ohne einen 3G-Schlüssel und ohne Abonnement zu haben. (erfordert Internetverbindung)",
+        "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !": "Unser Server überprüft bestimmte wichtige Kriterien für Ihre Hausautomationslösung und alarmiert Sie im Falle eines Problems. Auch wenn es nicht mehr reagiert!"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
         "Choix des plugins à installer : ": "Auswahl der zu installierenden Plugins:",
         "Installation des plugins en cours : ": "Installation der Plugins im Gange:",
-        "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : ": "Sie haben kein Plugin zum Installieren ausgewählt, klicken Sie auf Weiter:",
+        "Aucun plugin à installer, cliquez sur suivant : ": "Kein Plugin zum Installieren, klicken Sie auf Weiter:",
         " Vos plugins sont prêts ": "Deine Plugins sind fertig",
+        "Vous êtes en": "Sie befinden sich in",
         "Découvrez nos Services Packs": "Entdecken Sie unsere Service Packs",
         "Inclus avec": "Im Lieferumfang enthalten",
         "Tous": "Alle",
@@ -198,12 +203,23 @@
         "Configuration sauvegardée": "Gespeicherte Konfiguration"
     },
     "plugins\/jeeasy\/desktop\/modal\/pluginsConfigs.php": {
-        "401 - Accès non autorisé": "401 - Unbefugter Zugriff"
+        "401 - Accès non autorisé": "401 - Unbefugter Zugriff",
+        "Configuration Controlleur Interne (GPIO)": "Interne Controller-Konfiguration (GPIO)",
+        "Configuration Controlleur USB": "USB-Controller-Setup",
+        "Aucun Plugin installé à paramétrer": "Kein Plugin zum Konfigurieren installiert",
+        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin": "Sie haben sich für einen USB-Controller entschieden, konfigurieren Sie diesen bitte in der Verwaltung Ihres Plugins",
+        "Votre plugin à été configuré automatiquement": "Ihr Plugin wurde automatisch konfiguriert",
+        "Configuration Auto des Plugins :": "Automatische Konfiguration von Plugins:",
+        "Votre box est une": "Ihre Kiste ist a",
+        "Choississez le mode de configuration du plugin :": "Wählen Sie den Konfigurationsmodus des Plugins:",
+        "OU": "WO",
+        "Cliquez sur la fleche pour Ignorer": "Klicken Sie auf den Pfeil zum Überspringen"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Guide de démarrage <?php echo config::byKey('product_name'); ?>": "Erste Schritte Anleitung <?php echo config::byKey('product_name'); ?>",
-        "Ce guide va vous aider à configurer votre <?php echo config::byKey('product_name'); ?> en quelques étapes.": "Diese Anleitung hilft Ihnen bei der Konfiguration Ihrer <?php echo config::byKey('product_name'); ?> in wenigen Schritten",
+        "Guide de démarrage": "Handbuch „Erste Schritte“",
+        "Ce guide va vous aider à configurer votre": "Diese Anleitung hilft Ihnen bei der Einrichtung",
+        "en quelques étapes.": "in wenigen Schritten",
         "Cliquez sur la flêche pour commencer la configuration.": "Klicken Sie auf den Pfeil, um die Konfiguration zu starten"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
@@ -219,7 +235,7 @@
         "Sauvegarder": "Speichern",
         "Suivant": "Folgende",
         "Précédent": "Früher",
-        "Bienvenu sur l'assistant de configuration de votre": "Willkommen beim Konfigurationsassistenten von",
+        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Einrichtungsassistenten für Ihr",
         "Cliquez sur suivant pour commencer": "Klicken Sie zum Starten auf Weiter",
         "Nous allons ici configurer les principaux paramètre de votre": "Hier konfigurieren wir die Hauptparameter Ihres",
         "Nom de votre --><?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)": "Dein Name -> <?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)",
@@ -299,6 +315,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Unbefugter Zugriff",
+        "Langage Systeme": "Systemsprache",
         "Français": "Französisch",
         "Anglais": "Englisch",
         "Allemand": "Deutsch",
@@ -309,7 +326,9 @@
         "Japonais (pas de support)": "Japanisch (keine Unterstützung)",
         "Indonesien (pas de support)": "Indonesisch (keine Unterstützung)",
         "Turc (pas de support)": "Türkisch (keine Unterstützung)",
-        "Nouvelle langue système choisie : ": "Neue Systemsprache gewählt:"
+        "OU": "WO",
+        "Cliquez sur la fleche pour Ignorer": "Klicken Sie auf den Pfeil zum Überspringen",
+        "Nouvelle langue systeme choisie : ": "Neue Systemsprache gewählt:"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Entschuldigung, ich kann Ihre Ausrüstung nicht finden:",
@@ -345,7 +364,10 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/assistants.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Les assistants vocaux": "Sprachassistenten"
+        "Les assistants vocaux": "Sprachassistenten",
+        "Assistants vocaux": "Sprachassistenten",
+        "Documentation": "Dokumentation",
+        "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant": "Wir bieten Ihnen eine einfache Verbindung, um die Sprachassistenten zu nutzen: Amazon Alexa und Google Assistant"
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
@@ -495,7 +517,7 @@
         "Erreur": "Fehler"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/view\/jeedom_configuration_accueil.php": {
-        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Konfigurationsassistenten für Ihre",
+        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Einrichtungsassistenten für Ihr",
         "Cliquez sur ": "Klicken Sie auf",
         " pour commencer": "beginnen"
     },
@@ -526,7 +548,7 @@
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/accueil.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Konfigurationsassistenten für Ihre",
+        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Einrichtungsassistenten für Ihr",
         "Cliquez sur ": "Klicken Sie auf",
         " pour commencer": "beginnen"
     },

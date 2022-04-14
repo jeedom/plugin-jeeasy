@@ -22,14 +22,19 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/services.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
-        "Les services complémentaires": "Les services complémentaires"
+        "Les services complémentaires": "Les services complémentaires",
+        "Les Sauvegardes Cloud": "Les Sauvegardes Cloud",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements",
+        "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)": "Envoyez depuis votre Jeedom facilement un message écrit ou vocal sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)",
+        "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !": "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus !"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
         "Choix des plugins à installer : ": "Choix des plugins à installer :",
         "Installation des plugins en cours : ": "Installation des plugins en cours :",
-        "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant : ": "Vous n avez selectionne aucun plugin à installer, cliquez sur suivant :",
+        "Aucun plugin à installer, cliquez sur suivant : ": "Aucun plugin à installer, cliquez sur suivant :",
         " Vos plugins sont prêts ": "Vos plugins sont prêts",
+        "Vous êtes en": "Vous êtes en",
         "Découvrez nos Services Packs": "Découvrez nos Services Packs",
         "Inclus avec": "Inclus avec",
         "Tous": "Hepsi",
@@ -198,12 +203,23 @@
         "Configuration sauvegardée": "Configuration sauvegardée"
     },
     "plugins\/jeeasy\/desktop\/modal\/pluginsConfigs.php": {
-        "401 - Accès non autorisé": "401 - Accès non autorisé"
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Configuration Controlleur Interne (GPIO)": "Configuration Controlleur Interne (GPIO)",
+        "Configuration Controlleur USB": "Configuration Controlleur USB",
+        "Aucun Plugin installé à paramétrer": "Aucun Plugin installé à paramétrer",
+        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin": "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin",
+        "Votre plugin à été configuré automatiquement": "Votre plugin à été configuré automatiquement",
+        "Configuration Auto des Plugins :": "Configuration Auto des Plugins :",
+        "Votre box est une": "Votre box est une",
+        "Choississez le mode de configuration du plugin :": "Choississez le mode de configuration du plugin :",
+        "OU": "OU",
+        "Cliquez sur la fleche pour Ignorer": "Cliquez sur la fleche pour Ignorer"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
-        "Guide de démarrage <?php echo config::byKey('product_name'); ?>": "Guide de démarrage <?php echo config::byKey('product_name'); ?>",
-        "Ce guide va vous aider à configurer votre <?php echo config::byKey('product_name'); ?> en quelques étapes.": "Ce guide va vous aider à configurer votre <?php echo config::byKey('product_name'); ?> en quelques étapes",
+        "Guide de démarrage": "Guide de démarrage",
+        "Ce guide va vous aider à configurer votre": "Ce guide va vous aider à configurer votre",
+        "en quelques étapes.": "en quelques étapes",
         "Cliquez sur la flêche pour commencer la configuration.": "Cliquez sur la flêche pour commencer la configuration"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
@@ -219,7 +235,7 @@
         "Sauvegarder": "Kaydet",
         "Suivant": "Suivant",
         "Précédent": "Önceki",
-        "Bienvenu sur l'assistant de configuration de votre": "Bienvenu sur l'assistant de configuration de votre",
+        "Bienvenue sur l'assistant de configuration de votre": "Bienvenue sur l'assistant de configuration de votre",
         "Cliquez sur suivant pour commencer": "Cliquez sur suivant pour commencer",
         "Nous allons ici configurer les principaux paramètre de votre": "Nous allons ici configurer les principaux paramètre de votre",
         "Nom de votre --><?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)": "Nom de votre --><?php \/\/echo config::byKey('product_name'); ?><!-- (utilisé notamment par le market)",
@@ -299,6 +315,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Langage Systeme": "Langage Systeme",
         "Français": "Français",
         "Anglais": "Anglais",
         "Allemand": "Allemand",
@@ -309,8 +326,9 @@
         "Japonais (pas de support)": "Japonais (pas de support)",
         "Indonesien (pas de support)": "Indonesien (pas de support)",
         "Turc (pas de support)": "Turc (pas de support)",
-        "Nouvelle langue système choisie : ": "Nouvelle langue système choisie :",
-        
+        "OU": "OU",
+        "Cliquez sur la fleche pour Ignorer": "Cliquez sur la fleche pour Ignorer",
+        "Nouvelle langue systeme choisie : ": "Nouvelle langue système choisie :"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Désolé je n\\'arrive pas à trouver votre équipement  :",
@@ -346,7 +364,10 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/assistants.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
-        "Les assistants vocaux": "Les assistants vocaux"
+        "Les assistants vocaux": "Les assistants vocaux",
+        "Assistants vocaux": "Assistants vocaux",
+        "Documentation": "Documentation",
+        "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant": "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant"
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
