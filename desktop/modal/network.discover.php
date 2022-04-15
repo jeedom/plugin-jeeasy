@@ -14,7 +14,9 @@ $arraySecond = array();
 
 ?>
 
-<table class="tablesorter">
+<table data-pagination="true"
+  data-search="true"
+  data-filter="true">
   <thead>
     <tr>
       <th style="font-weight:bold;width:500px;">{{Nom}}</th>
@@ -29,6 +31,7 @@ $arrayHtml = array();
 
 foreach ($discovers as $name => $value)
 {
+
     $occurence = count($value);
     if (array_key_exists('plugin', $value) == true)
     {
@@ -53,7 +56,7 @@ foreach ($arrayFirst as $name => $value)
         {
             if (is_numeric($nbOccurence))
             {
-                echo '<tr>';
+                echo '<tr style="border:solid;border-color: red;">';
                 echo '<td>';
                 echo '</td>';
                 echo '<td style="font-weight:bold;">';
@@ -67,7 +70,7 @@ foreach ($arrayFirst as $name => $value)
             }
             elseif (in_array($value['ip'], $arrayHtml) == false && in_array($value['mac'], $arrayHtml) == false)
             {
-                echo '<tr>';
+                echo '<tr style="border:solid;border-color: red;">';
                 echo '<td>';
                 echo '</td>';
                 echo '<td style="font-weight:bold;">';
@@ -227,3 +230,5 @@ foreach ($arraySecond as $name => $value)
 ?>
   </tbody>
 </table>
+
+<?php include_file('desktop', 'boot_table', 'js', 'jeeasy');?>

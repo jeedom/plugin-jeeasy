@@ -19,17 +19,17 @@ else
 <p class="text-center"><h3 class="titlelanguage" id="titlelanguage">{{Langage Systeme}}</h3></p>
 <p class="text-center"><h4 class="textAtlas" style="color:#93ca02;"></h4></p>
 
-<select class="form-control" id="languageJeeasy">
+<select class="form-control selectpicker" id="languageJeeasy">
               <option value="fr_FR">{{Français}}</option>
-              <option value="en_US">{{Anglais}}</option>
-              <option value="de_DE">{{Allemand}}</option>
-              <option value="es_ES">{{Espagnol}}</option>
-              <option value="it_IT">{{Italien (pas de support)}}</option>
-              <option value="pt_PT">{{Portugais (pas de support)}}</option>
-              <option value="ru_RU">{{Russe (pas de support)}}</option>
-              <option value="ja_JP">{{Japonais (pas de support)}}</option>
-              <option value="id_ID">{{Indonesien (pas de support)}}</option>
-              <option value="tr">{{Turc (pas de support)}}</option>
+              <option value="en_US">{{English}}</option>
+              <option value="de_DE">{{Deutsch}}</option>
+              <option value="es_ES">{{Español}}</option>
+              <option value="it_IT">{{Italiano (nessun supporto)}}</option>
+              <option value="pt_PT">{{Português (sem apoio)}}</option>
+              <option value="ru_RU">{{Русский язык (без поддержки)}}</option>
+              <option value="ja_JP">{{日本語（非対応)}}</option>
+              <option value="id_ID">{{Bahasa Indonesia (tidak mendukung)}}</option>
+              <option value="tr">{{Türkçe (destek yok)}}</option>
 </select>
 <br>
 
@@ -48,7 +48,6 @@ else
 
        $('#btn-language').on('click', function () {
              	$('#bt_next').show();
-            	$('.textAtlas').text('{{Nouvelle langue systeme choisie : }}');
               $('.textAtlas').append($('#languageJeeasy option:selected').text());
               $('#titlelanguage').hide();
               $.ajax({
@@ -64,8 +63,8 @@ else
                    handleAjaxError(request, status, error);
                  },
                  success: function (data) {
-                   console.log(data);
-					         location.reload();
+									 	$('#md_modal').dialog({title: "{{Bienvenue}}"});
+									 	$("#md_modal").load('index.php?v=d&modal=wizard&plugin=jeeasy').dialog('open');
                  }
              });
            });

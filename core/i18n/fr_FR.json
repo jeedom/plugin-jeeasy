@@ -316,16 +316,6 @@
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Langage Systeme": "Langage Systeme",
-        "Français": "Français",
-        "Anglais": "Anglais",
-        "Allemand": "Allemand",
-        "Espagnol": "Espagnol",
-        "Italien (pas de support)": "Italien (pas de support)",
-        "Portugais (pas de support)": "Portugais (pas de support)",
-        "Russe (pas de support)": "Russe (pas de support)",
-        "Japonais (pas de support)": "Japonais (pas de support)",
-        "Indonesien (pas de support)": "Indonesien (pas de support)",
-        "Turc (pas de support)": "Turc (pas de support)",
         "OU": "OU",
         "Cliquez sur la fleche pour Ignorer": "Cliquez sur la fleche pour Ignorer",
         "Nouvelle langue systeme choisie : ": "Nouvelle langue systeme choisie : "
