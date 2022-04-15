@@ -30,18 +30,18 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Choix des plugins à installer : ": "Elección de complementos para instalar:",
-        "Installation des plugins en cours : ": "Instalación de complementos en curso:",
-        "Aucun plugin à installer, cliquez sur suivant : ": "No hay complemento para instalar, haga clic en siguiente:",
-        " Vos plugins sont prêts ": "Tus complementos están listos",
+        "Choix des plugins à installer : ": "Elección de Plugins para instalar:",
+        "Installation des plugins en cours : ": "Instalación de plugins en curso:",
+        "Aucun plugin à installer, cliquez sur suivant : ": "No hay Plugin para instalar, haga clic en siguiente:",
+        " Vos plugins sont prêts ": "Tus plugins están listos",
         "Vous êtes en": "Estás dentro",
         "Découvrez nos Services Packs": "Descubra nuestros Service Packs",
         "Inclus avec": "Incluido con",
         "Tous": "Todos",
-        "Box Smart": "Caja inteligente",
+        "Box Smart": "Controlador inteligente",
         "En option (45€)": "Opcional (45 €)",
-        "Box Pro": "Caja Pro",
-        "Plugins offerts": "Complementos gratis",
+        "Box Pro": "Controlador Pro",
+        "Plugins offerts": "Plugins gratis",
         "Alarme et RFXcom": "Alarma y RFXcom",
         "Tous les Officiels": "Todos los funcionarios",
         "Passerelle SMS crédit (web)": "Gateway de crédito SMS (web)",
@@ -71,8 +71,9 @@
         "Acheter": "Comprar",
         "En savoir plus": "Más información",
         "Selon conditions contractuelles": "Según condiciones contractuales",
-        "Tickets sur plugin officiel": "Entradas en el complemento oficial",
-        "Uniquement sur les plugins payants": "Solo en complementos pagados"
+        "Tickets sur plugin officiel": "Entradas en el plugin oficial",
+        "Uniquement sur les plugins payants": "Solo en plugins pagados",
+        "Valider" : "Validar"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "La red Z-Wave se detiene en el servidor",
@@ -206,13 +207,14 @@
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Configuration Controlleur Interne (GPIO)": "Configuración del controlador interno (GPIO)",
         "Configuration Controlleur USB": "Configuración del controlador USB",
-        "Aucun Plugin installé à paramétrer": "No hay complemento instalado para configurar",
-        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin": "Ha elegido un controlador USB, configúrelo en la Gestión de su complemento",
-        "Votre plugin à été configuré automatiquement": "Su complemento se ha configurado automáticamente",
-        "Configuration Auto des Plugins :": "Autoconfiguración de complementos:",
-        "Votre box est une": "Tu caja es una",
-        "Choississez le mode de configuration du plugin :": "Elija el modo de configuración del complemento:",
-        "OU": "DONDE",
+        "Aucun Plugin installé à paramétrer": "No hay plugin instalado para configurar",
+        "Vous avez choisi un controlleur USB, veuillez le configurer dans la Gestion de votre plugin": "Ha elegido un controlador USB, configúrelo en la Gestión de su plugin",
+        "Votre plugin à été configuré automatiquement": "Su plugin se ha configurado automáticamente",
+        "Configuration Auto des Plugins :": "Autoconfiguración de plugins:",
+        "Votre box est une": "Tu controlador es una",
+        "Choississez le mode de configuration du plugin :": "Elija el modo de configuración del plugin:",
+        "OU": "O",
+        "Valider" : "Validar",
         "Cliquez sur la fleche pour Ignorer": "Haga clic en la flecha para saltar"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
@@ -304,12 +306,12 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/freebox_os.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Installation du Plugin Freebox en cours.": "Instalación del complemento Freebox en progreso",
+        "Installation du Plugin Freebox en cours.": "Instalación del Plugin Freebox en progreso",
         "Demande d\\'autorisation sur votre Freebox Delta": "Solicitud de autorización en su Delta Freebox",
         "Merci d\\'appuyer sur le bouton V de votre Freebox, afin de confirmer l\\'autorisation d\\'accès à votre Delta.": "Presione el botón V en su Freebox para confirmar la autorización para acceder a su Delta",
-        "Vous n\\'avez pas validé à temps, il faut vous rendre sur le plugin freebox pour relancer l\\'association. Merci": "No ha validado a tiempo, debe ir al complemento de Freebox para relanzar la asociación. Gracias",
+        "Vous n\\'avez pas validé à temps, il faut vous rendre sur le plugin freebox pour relancer l\\'association. Merci": "No ha validado a tiempo, debe ir al plugin de Freebox para relanzar la asociación. Gracias",
         "Félicitation votre Freebox est maintenant reliée à Jeedom.": "Felicitaciones, su Freebox ahora está conectado a Jeedom",
-        "Vous avez refusé, il faut vous rendre sur le plugin freebox pour relancer l\\'association. Merci": "Usted se negó, debe ir al complemento de Freebox para relanzar la asociación. Gracias",
+        "Vous avez refusé, il faut vous rendre sur le plugin freebox pour relancer l\\'association. Merci": "Usted se negó, debe ir al plugin de Freebox para relanzar la asociación. Gracias",
         "Autorisation Freebox": "Autorización de Freebox",
         "Merci d'appuyer sur le bouton V de votre Freebox, afin de confirmer l'autorisation d'accès à votre Delta": "Presione el botón V en su Freebox para confirmar la autorización para acceder a su Delta"
     },
@@ -326,8 +328,10 @@
         "Japonais (pas de support)": "Japonés (sin soporte)",
         "Indonesien (pas de support)": "Indonesio (sin soporte)",
         "Turc (pas de support)": "Turco (sin soporte)",
-        "OU": "DONDE",
+        "OU": "O",
+        "Choisir la langue" : "Elegir el idioma",
         "Cliquez sur la fleche pour Ignorer": "Haga clic en la flecha para saltar",
+        "Valider" : "Validar",
         "Nouvelle langue systeme choisie : ": "Nuevo idioma del sistema elegido:"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
@@ -561,9 +565,9 @@
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_discovery.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Nous allons choisir d'activer les propositions de plugins": "Elegiremos activar las propuestas de complementos",
-        "Nous pouvons vous proposer des plugins complémentaires à votre matériel et aux plugins déjà actifs.": "Podemos ofrecerle complementos que complementan su hardware y complementos que ya están activos",
-        "Activer les propositions de plugins": "Activar propuestas de complementos",
+        "Nous allons choisir d'activer les propositions de plugins": "Elegiremos activar las propuestas de plugins",
+        "Nous pouvons vous proposer des plugins complémentaires à votre matériel et aux plugins déjà actifs.": "Podemos ofrecerle plugins que complementan su hardware y plugins que ya están activos",
+        "Activer les propositions de plugins": "Activar propuestas de plugins",
         "  Activer": "Activar"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration-index.php": {
@@ -625,10 +629,10 @@
         "Impossible de trouver le scénario : ": "Incapaz de encontrar el escenario:",
         "Impossible d\\'ouvrir : ": "No se puede abrir:",
         "Nous avons détecté que le daemon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter": "Hemos detectado que el daemon no se está ejecutando, intentaremos iniciarlo. por favor espera",
-        "Malheureusement nous n\\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin : ": "Desafortunadamente, no podemos ejecutar el complemento deamon. Le recomendamos que consulte los registros y \/ o contacte con el soporte. Enchufar:",
+        "Malheureusement nous n\\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin : ": "Desafortunadamente, no podemos ejecutar el plugin deamon. Le recomendamos que consulte los registros y \/ o contacte con el soporte. Enchufar:",
         "Lancement du démon réussi": "Lanzamiento exitoso del demonio"
     },
     "info.json": {
-        "Plugin permettant de configurer facilement Jeedom": "Complemento para configurar fácilmente Jeedom"
+        "Plugin permettant de configurer facilement Jeedom": "Plugin para configurar fácilmente Jeedom"
     }
 }

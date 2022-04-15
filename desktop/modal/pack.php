@@ -75,7 +75,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 	<script>
 
 		$('#bt_next').hide();
-		$('#bt_prev').hide();
+		$('#bt_prev').show();
 		$('.textAtlas').text('{{Choix des plugins à installer : }}');
 	    $('#btn-choicePlugin').on('click', function () {
 				$('#tabPlugins').hide();
@@ -201,7 +201,7 @@ function testDep(idPlugin){
 
       </table>
        <div class="testbtn">
-           <a class='btn btn-success btn-md pull-right' id="btn-choicePlugin" style="margin-right:50px" >Valider</a>
+           <a class='btn btn-success btn-md pull-right' id="btn-choicePlugin" style="margin-right:50px" >{{Valider}}</a>
        </div>
 
       <div id="contenuTextSpan" class="progress">

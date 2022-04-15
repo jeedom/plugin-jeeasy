@@ -35,7 +35,7 @@ else
 
 
     <div class="testbtnb" style="display:flex; flex-direction:column;justify-content:center; align-items:center;">
-           <a class='btn btn-success btn-md ' id="btn-language"  style="width: 200px;height: 45.75px; margin-bottom: 10px;text-align:center;">Choisir la langue</a>
+					 <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-language" style="margin-bottom:10px;">{{Choisir la langue}}</button>
           <p style="font-weight: bold">{{OU}}</p>
           <p class="ignorebtn">{{Cliquez sur la fleche pour Ignorer}}</p>
     </div>
@@ -65,7 +65,7 @@ else
                  },
                  success: function (data) {
                    console.log(data);
-					 location.reload();
+					         location.reload();
                  }
              });
            });

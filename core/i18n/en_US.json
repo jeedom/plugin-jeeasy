@@ -72,7 +72,8 @@
         "En savoir plus": "Find out more",
         "Selon conditions contractuelles": "According to contractual conditions",
         "Tickets sur plugin officiel": "Tickets on official plugin",
-        "Uniquement sur les plugins payants": "Only on paid plugins"
+        "Uniquement sur les plugins payants": "Only on paid plugins",
+        "Valider": "Validate"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "The Z-Wave network is stopped on the server",
@@ -212,7 +213,7 @@
         "Configuration Auto des Plugins :": "Auto Configuration of Plugins :",
         "Votre box est une": "Your controller is a",
         "Choississez le mode de configuration du plugin :": "Choose the configuration mode of the plugin:",
-        "OU": "WHERE",
+        "OU": "OR",
         "Cliquez sur la fleche pour Ignorer": "Click the arrow to Skip"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
@@ -326,7 +327,8 @@
         "Japonais (pas de support)": "Japanese (no support)",
         "Indonesien (pas de support)": "Indonesian (no support)",
         "Turc (pas de support)": "Turkish (no support)",
-        "OU": "WHERE",
+        "OU": "OR",
+        "Choisir la langue" : "Choose Language",
         "Cliquez sur la fleche pour Ignorer": "Click the arrow to Skip",
         "Nouvelle langue systeme choisie : ": "New system language chosen:"
     },
