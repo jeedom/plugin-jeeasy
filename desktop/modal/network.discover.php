@@ -14,14 +14,13 @@ $arraySecond = array();
 
 ?>
 
-<table data-pagination="true"
-  data-search="true"
-  data-filter="true">
+<table id="tableDiscover">
+
   <thead>
     <tr>
-      <th style="font-weight:bold;width:500px;">{{Nom}}</th>
-      <th style="font-weight:bold;">{{IP}}</th>
-      <th style="font-weight:bold;">{{MAC}}</th>
+      <th style="font-weight:bold;width:500px;">{{NOM FABRICANT}}</th>
+      <th style="font-weight:bold;">{{ADRESSE IP}}</th>
+      <th style="font-weight:bold;">{{ADRESSE MAC}}</th>
     </tr>
   </thead>
   <tbody>
@@ -48,7 +47,7 @@ foreach ($arrayFirst as $name => $value)
     if ($occurence > 2)
     {
         echo '<tr>';
-        echo '<td colspan="3" style="font-weight:bold;color:#93ca02;">';
+        echo '<td id="tdName" colspan="3">';
         echo $name;
         echo '</td>';
         echo '</tr>';
@@ -56,7 +55,7 @@ foreach ($arrayFirst as $name => $value)
         {
             if (is_numeric($nbOccurence))
             {
-                echo '<tr style="border:solid;border-color: red;">';
+                echo '<tr>';
                 echo '<td>';
                 echo '</td>';
                 echo '<td style="font-weight:bold;">';
@@ -70,7 +69,7 @@ foreach ($arrayFirst as $name => $value)
             }
             elseif (in_array($value['ip'], $arrayHtml) == false && in_array($value['mac'], $arrayHtml) == false)
             {
-                echo '<tr style="border:solid;border-color: red;">';
+                echo '<tr>';
                 echo '<td>';
                 echo '</td>';
                 echo '<td style="font-weight:bold;">';
@@ -89,7 +88,7 @@ foreach ($arrayFirst as $name => $value)
     else
     {
         echo '<tr>';
-        echo '<td colspan="3" style="font-weight:bold;color:#93ca02;">';
+        echo '<td id="tdName" colspan="3">';
         echo $name;
         echo '</td>';
         echo '</tr>';
@@ -163,7 +162,7 @@ foreach ($arraySecond as $name => $value)
     if ($occurence > 2)
     {
         echo '<tr>';
-        echo '<td colspan="3" style="font-weight:bold;color:#93ca02;">';
+        echo '<td id="tdName" colspan="3">';
         echo $name;
         echo '</td>';
         echo '</tr>';
@@ -207,7 +206,7 @@ foreach ($arraySecond as $name => $value)
     else
     {
         echo '<tr>';
-        echo '<td colspan="3" style="font-weight:bold;color:#93ca02;">';
+        echo '<td id="tdName" colspan="3">';
         echo $name;
         echo '</td>';
         echo '</tr>';
@@ -231,4 +230,4 @@ foreach ($arraySecond as $name => $value)
   </tbody>
 </table>
 
-<?php include_file('desktop', 'boot_table', 'js', 'jeeasy');?>
+<?php include_file('desktop', 'jeeasy', 'css', 'jeeasy');?>

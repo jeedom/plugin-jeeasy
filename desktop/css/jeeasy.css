@@ -33,6 +33,22 @@ text-shadow: 1px 1px 1px rgba(0,0,0,1);
 }
 
 
+#tableDiscover {
+ width: 100%;
+
+}
+
+
+#tdName{
+border-top: 1px solid rgb(147, 202, 2);
+font-weight: bold;
+font-size: 20;
+color:#93ca02;
+text-decoration: underline #93ca02;
+text-underline-offset: 3px;
+}
+
+
 #div_mainContainer{
 background-color: rgba(135, 207, 9, 0.2);
 }
