@@ -35,6 +35,7 @@
         "Aucun plugin à installer, cliquez sur suivant : ": "You have not selected any plugin to install, click on next:",
         " Vos plugins sont prêts ": "Your plugins are ready",
         "Vous êtes en": "You are in",
+        "Valider": "To validate",
         "Découvrez nos Services Packs": "Discover our Service Packs",
         "Inclus avec": "Included with",
         "Tous": "All",
@@ -72,8 +73,7 @@
         "En savoir plus": "Find out more",
         "Selon conditions contractuelles": "According to contractual conditions",
         "Tickets sur plugin officiel": "Tickets on official plugin",
-        "Uniquement sur les plugins payants": "Only on paid plugins",
-        "Valider": "Validate"
+        "Uniquement sur les plugins payants": "Only on paid plugins"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "The Z-Wave network is stopped on the server",
@@ -213,7 +213,8 @@
         "Configuration Auto des Plugins :": "Auto Configuration of Plugins :",
         "Votre box est une": "Your controller is a",
         "Choississez le mode de configuration du plugin :": "Choose the configuration mode of the plugin:",
-        "OU": "OR",
+        "Valider": "To validate",
+        "OU": "WHERE",
         "Cliquez sur la fleche pour Ignorer": "Click the arrow to Skip"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
@@ -317,10 +318,20 @@
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
         "Langage Systeme": "System Language",
-        "OU": "OR",
-        "Choisir la langue" : "Choose Language",
+        "Français": "French",
+        "English": "Français",
+        "Deutsch": "German",
+        "Español": "Spanish",
+        "Italiano (nessun supporto)": "Italiano (nessun supporto)",
+        "Português (sem apoio)": "Portuguese (sem apoio)",
+        "Русский язык (без поддержки)": "Русский язык (без поддержки)",
+        "日本語（非対応)": "日本語（非対応)",
+        "Bahasa Indonesia (tidak mendukung)": "Bahasa Indonesia (tidak mendukung)",
+        "Türkçe (destek yok)": "Türkçe (destek yok)",
+        "Choisir la langue": "Choose Language",
+        "OU": "WHERE",
         "Cliquez sur la fleche pour Ignorer": "Click the arrow to Skip",
-        "Nouvelle langue systeme choisie : ": "New system language chosen:"
+        "Bienvenue": "Welcome"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Sorry I can't find your equipment:",
@@ -363,9 +374,9 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Nom": "Name",
-        "IP": "IP",
-        "MAC": "Mac"
+        "NOM FABRICANT": "MANUFACTURER NAME",
+        "ADRESSE IP": "IP ADRESS",
+        "ADRESSE MAC": "MAC ADDRESS"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
@@ -509,7 +520,7 @@
         "Erreur": "Error"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/view\/jeedom_configuration_accueil.php": {
-        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the Setup Wizard for your",
+        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the configuration wizard for your",
         "Cliquez sur ": "Click on",
         " pour commencer": "to begin"
     },
@@ -540,7 +551,7 @@
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/accueil.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the Setup Wizard for your",
+        "Bienvenue sur l'assistant de configuration de votre": "Welcome to the configuration wizard for your",
         "Cliquez sur ": "Click on",
         " pour commencer": "to begin"
     },

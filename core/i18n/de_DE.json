@@ -34,8 +34,8 @@
         "Installation des plugins en cours : ": "Installation der Plugins im Gange:",
         "Aucun plugin à installer, cliquez sur suivant : ": "Kein Plugin zum Installieren, klicken Sie auf Weiter:",
         " Vos plugins sont prêts ": "Deine Plugins sind fertig",
-        "Valider": "Bestätigen",
         "Vous êtes en": "Sie befinden sich in",
+        "Valider": "Bestätigen",
         "Découvrez nos Services Packs": "Entdecken Sie unsere Service Packs",
         "Inclus avec": "Im Lieferumfang enthalten",
         "Tous": "Alle",
@@ -213,14 +213,14 @@
         "Configuration Auto des Plugins :": "Automatische Konfiguration von Plugins:",
         "Votre box est une": "Ihre Kiste ist a",
         "Choississez le mode de configuration du plugin :": "Wählen Sie den Konfigurationsmodus des Plugins:",
-        "OU": "ODER",
         "Valider": "Bestätigen",
+        "OU": "WO",
         "Cliquez sur la fleche pour Ignorer": "Klicken Sie auf den Pfeil zum Überspringen"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Guide de démarrage": "Leitfaden für den Start",
-        "Ce guide va vous aider à configurer votre": "Dieser Leitfaden hilft Ihnen bei der Einrichtung Ihres",
+        "Guide de démarrage": "Handbuch „Erste Schritte“",
+        "Ce guide va vous aider à configurer votre": "Diese Anleitung hilft Ihnen bei der Einrichtung",
         "en quelques étapes.": "in wenigen Schritten",
         "Cliquez sur la flêche pour commencer la configuration.": "Klicken Sie auf den Pfeil, um die Konfiguration zu starten"
     },
@@ -318,10 +318,20 @@
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Unbefugter Zugriff",
         "Langage Systeme": "Systemsprache",
-        "OU": "ODER",
+        "Français": "Französisch",
+        "English": "Französisch",
+        "Deutsch": "Deutsch",
+        "Español": "Spanisch",
+        "Italiano (nessun supporto)": "Italienisch (nessun supporto)",
+        "Português (sem apoio)": "Portugiesisch (sem apoio)",
+        "Русский язык (без поддержки)": "Русский язык (без поддержки)",
+        "日本語（非対応)": "日本語（非対応)",
+        "Bahasa Indonesia (tidak mendukung)": "Bahasa Indonesia (tidak mendukung)",
+        "Türkçe (destek yok)": "Türkçe (destek yok)",
         "Choisir la langue": "Sprache wählen",
+        "OU": "WO",
         "Cliquez sur la fleche pour Ignorer": "Klicken Sie auf den Pfeil zum Überspringen",
-        "Nouvelle langue systeme choisie : ": "Neue Systemsprache gewählt:"
+        "Bienvenue": "Herzlich willkommen"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Entschuldigung, ich kann Ihre Ausrüstung nicht finden:",
@@ -364,9 +374,9 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Nom": "Name",
-        "IP": "IP",
-        "MAC": "MAC"
+        "NOM FABRICANT": "HERSTELLERNAME",
+        "ADRESSE IP": "IP ADRESSE",
+        "ADRESSE MAC": "MAC-ADRESSE"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
@@ -510,7 +520,7 @@
         "Erreur": "Fehler"
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/view\/jeedom_configuration_accueil.php": {
-        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Einrichtungsassistenten für Ihr",
+        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Konfigurationsassistenten für Ihre",
         "Cliquez sur ": "Klicken Sie auf",
         " pour commencer": "beginnen"
     },
@@ -541,7 +551,7 @@
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/accueil.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Einrichtungsassistenten für Ihr",
+        "Bienvenue sur l'assistant de configuration de votre": "Willkommen beim Konfigurationsassistenten für Ihre",
         "Cliquez sur ": "Klicken Sie auf",
         " pour commencer": "beginnen"
     },

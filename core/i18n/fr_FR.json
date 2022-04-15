@@ -35,6 +35,7 @@
         "Aucun plugin à installer, cliquez sur suivant : ": "Aucun plugin à installer, cliquez sur suivant : ",
         " Vos plugins sont prêts ": " Vos plugins sont prêts ",
         "Vous êtes en": "Vous êtes en",
+        "Valider": "Valider",
         "Découvrez nos Services Packs": "Découvrez nos Services Packs",
         "Inclus avec": "Inclus avec",
         "Tous": "Tous",
@@ -212,6 +213,7 @@
         "Configuration Auto des Plugins :": "Configuration Auto des Plugins :",
         "Votre box est une": "Votre box est une",
         "Choississez le mode de configuration du plugin :": "Choississez le mode de configuration du plugin :",
+        "Valider": "Valider",
         "OU": "OU",
         "Cliquez sur la fleche pour Ignorer": "Cliquez sur la fleche pour Ignorer"
     },
@@ -316,9 +318,20 @@
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Langage Systeme": "Langage Systeme",
+        "Français": "Français",
+        "English": "English",
+        "Deutsch": "Deutsch",
+        "Español": "Español",
+        "Italiano (nessun supporto)": "Italiano (nessun supporto)",
+        "Português (sem apoio)": "Português (sem apoio)",
+        "Русский язык (без поддержки)": "Русский язык (без поддержки)",
+        "日本語（非対応)": "日本語（非対応)",
+        "Bahasa Indonesia (tidak mendukung)": "Bahasa Indonesia (tidak mendukung)",
+        "Türkçe (destek yok)": "Türkçe (destek yok)",
+        "Choisir la langue": "Choisir la langue",
         "OU": "OU",
         "Cliquez sur la fleche pour Ignorer": "Cliquez sur la fleche pour Ignorer",
-        "Nouvelle langue systeme choisie : ": "Nouvelle langue systeme choisie : "
+        "Bienvenue": "Bienvenue"
     },
     "plugins\/jeeasy\/desktop\/modal\/light.eqLogic.configure.php": {
         "Désolé je n\\'arrive pas à trouver votre équipement  : ": "Désolé je n\\'arrive pas à trouver votre équipement  : ",
@@ -361,9 +374,9 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
-        "Nom": "Nom",
-        "IP": "IP",
-        "MAC": "MAC"
+        "NOM FABRICANT": "NOM FABRICANT",
+        "ADRESSE IP": "ADRESSE IP",
+        "ADRESSE MAC": "ADRESSE MAC"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
