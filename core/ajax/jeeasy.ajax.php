@@ -41,12 +41,6 @@ if (init('action') == 'choiceLanguageJeeasy') {
 }
 
 
-
-
-
-
-
-
 	if (init('action') == 'installPlugin') {
 		if(init('branch')){
 			$checkInstall = jeeasy::checkInstallPlugin(init('id'),init('branch'));
@@ -69,10 +63,6 @@ if (init('action') == 'choiceLanguageJeeasy') {
 		}
 	}
 
-  	if (init('action') == 'installPluginPack') {
-        $check = jeeasy::checkPluginsByServicePack(init('servicePack'),init('pluginsList'),init('pluginsPurchase'));
-		ajax::success($check);
-	}
 
 	if (init('action') == 'configInternalPlugin') {
 		$check = jeeasy::configInternalPlugin(init('typeConfig'), init('typeBox'), init('pluginName'));

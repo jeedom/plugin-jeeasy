@@ -55,12 +55,12 @@ class jeeasy extends eqLogic {
 						$ip = $previous;
 
 	 				  	$arrayTemp = array('mac' => $mac, 'ip' => $ip);
-						
+
 
 
 						if(array_key_exists($name, $arrayFinal)){
                                                 array_push($arrayFinal[$name], $arrayTemp);
-														
+
 						$i++;
 						}else{
 						$arrayFinal[$name] = $arrayTemp;
@@ -68,11 +68,11 @@ class jeeasy extends eqLogic {
 			}
 		}
 
-		
+
 		foreach($arrayFinal as &$device){
-	
+
 				foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
-				
+
 					foreach ($discover['search'] as $search) {
 						if(strpos(strtolower($device['name']),strtolower($search)) !== false || strpos(strtolower($device['ip']),strtolower($search)) !== false){
 							$device['plugin'] = $discover['plugins'];
@@ -82,7 +82,7 @@ class jeeasy extends eqLogic {
 				}
 		}
 	  return $arrayFinal;
-		
+
 	}
 
 	public static function generateScenario($_name, $_replace = array()) {
@@ -348,7 +348,7 @@ class jeeasy extends eqLogic {
 
 		$plugin->dependancy_install();
 		$dependancy = $plugin->dependancy_info();
-		if ($deamon['state'] != 'ok') {
+		if ($dependancy['state'] != 'ok') {
 			return 'Malheureusement nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support.';
 		}
 		return 'OK';
@@ -370,35 +370,6 @@ class jeeasy extends eqLogic {
 				}
 }
 
-
-
-  public static function checkPluginsByServicePack($servicePack,$pluginsList,$pluginsPurchase){
-   /* switch($servicepack){
-        case 'Service Pack Power V1':break;
-        case 'Service Pack Power EnOcean V1':break;
-        case 'Service Pack Power RfPlayer':break;
-        case 'Service Pack Power RfPlayer EnOcean':break;
-        case 'Service Pack Power Conbee':break;
-        case 'Service Pack Power':break;
-        case 'Service Pack Power Enocean':break;
-        case 'Service Pack Power Zigbee':break;
-        case 'Service Pack Power Ultimate':
-        break;
-        case 'Service Pack Pro':break;
-        case 'Service Pack Client MAdomotique':break;
-        case 'Service Pack Power Enocean Cauderay':break;
-        case 'Service Pack Pro Cauderay':break;
-        case 'Service Pack Ventilairsec':break;
-        case 'Service Pack HC-DOMOTIQUE':break;
-        default: break;
-
-    }*/
-
-
-    return $test;
-
-
-  }
 
 	public static function checkDeamonPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
