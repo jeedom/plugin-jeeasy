@@ -27,8 +27,8 @@ $configs = config::byKeys($keys);
 ?>
 <div class="jeeasyDisplay discovery">
     <center><i class="fas fa-th" style="font-size: 10em; padding-top: 20px;"></i></center>
-    <br/>
-    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);" >
+    <br />
+    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">
         {{Nous allons choisir d'activer les propositions de plugins}}
     </div>
     <div style="text-align: center; font-size: 15px;">
@@ -36,9 +36,8 @@ $configs = config::byKeys($keys);
     </div>
     <div class="form-group" style="margin-top: 1%;">
         <label class=" control-label" style="margin-left: 37%;">{{Activer les propositions de plugins}}</label>
-        <a  style="background-color: #87cf09 !important; font-size: 1em; color: white !important;" class="btn btn-default testRepoConnection" data-repo="' . $key . '">
-            <i class="fas fa-check"></i>
-            {{  Activer}}
+        <a style="background-color: #87cf09 !important; font-size: 1em; color: white !important;" class="btn btn-default testRepoConnection" data-repo="' . $key . '">
+            <i class="fas fa-check"></i> {{Activer}}
         </a>
     </div>
 </div>

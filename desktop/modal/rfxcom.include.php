@@ -38,57 +38,63 @@ jeeasy::checkPlugin('rfxcom');
 		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a>
 		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a>
 		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fas fa-angle-double-left"></i> {{Précédent}}</a>
-		<br/><br/>
+		<br /><br />
 		<div class="jeeasyDisplay home">
 			<center><i class="fas fa-plus" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Très bien ajoutons un module à votre domotique.}}</div></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Très bien ajoutons un module à votre domotique.}}</div>
+			</center>
 			<center>{{Cliquez sur suivant pour commencer}}</center>
-			<br/>
+			<br />
 			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>
 		</div>
 
 		<div class="jeeasyDisplay include" style="display:none;">
 			<center><i class="fas fa-wifi" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{C'est parti, lançons nous. Cliquez sur le bouton "inclusion" pour démarrer l'ajout}}</div></center>
-			<br/>
+			<br />
+			<center>
+				<div class="alert alert-info">{{C'est parti, lançons nous. Cliquez sur le bouton "inclusion" pour démarrer l'ajout}}</div>
+			</center>
+			<br />
 			<?php
-if (config::byKey('include_mode', 'rfxcom', 0) == 1) {
-	echo '<div class="alert jqAlert alert-warning" id="div_inclusionAlert" style="margin : 0px 5px 15px 15px; padding : 7px 35px 7px 15px;">{{Vous etes en mode inclusion. Recliquez sur le bouton d\'inclusion pour sortir de ce mode}}</div>';
-} else {
-	echo '<div id="div_inclusionAlert"></div>';
-}
-if (config::byKey('include_mode', 'rfxcom', 0) == 1) {
-	echo '<center><a class="btn btn-sm btn-success changeIncludeState include" data-mode="1" data-state="0"><i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Arreter inclusion}}</a></center>';
-} else {
-	echo '<center><a class="btn btn-sm btn-success changeIncludeState include" data-mode="1" data-state="1"><i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Mode inclusion}}</a></center>';
-}
-?>
+			if (config::byKey('include_mode', 'rfxcom', 0) == 1) {
+				echo '<div class="alert jqAlert alert-warning" id="div_inclusionAlert" style="margin : 0px 5px 15px 15px; padding : 7px 35px 7px 15px;">{{Vous etes en mode inclusion. Recliquez sur le bouton d\'inclusion pour sortir de ce mode}}</div>';
+			} else {
+				echo '<div id="div_inclusionAlert"></div>';
+			}
+			if (config::byKey('include_mode', 'rfxcom', 0) == 1) {
+				echo '<center><a class="btn btn-sm btn-success changeIncludeState include" data-mode="1" data-state="0"><i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Arreter inclusion}}</a></center>';
+			} else {
+				echo '<center><a class="btn btn-sm btn-success changeIncludeState include" data-mode="1" data-state="1"><i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Mode inclusion}}</a></center>';
+			}
+			?>
 		</div>
 
 		<div class="jeeasyDisplay configure" style="display:none;">
 			<center><i class="fas fa-wrench" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous aimerions avoir quelques informations pour mieux connaitre votre nouveau module}}</div></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous aimerions avoir quelques informations pour mieux connaitre votre nouveau module}}</div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
-						<label class="col-xs-4 control-label">{{Comment voulez vous appeler votre nouveau module ?}}</label>
+						<label class="col-xs-4 control-label">{{Comment voulez vous appeler votre nouveau module}} ?</label>
 						<div class="col-xs-4">
-							<input type="text" class="eqLogicAttr form-control" data-l1key="name" >
+							<input type="text" class="eqLogicAttr form-control" data-l1key="name">
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-xs-4 control-label">{{Dans quelle pièce se trouve votre module ?}}</label>
+						<label class="col-xs-4 control-label">{{Dans quelle pièce se trouve votre module}} ?</label>
 						<div class="col-xs-4">
 							<select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
 								<option value="">{{Aucun}}</option>
 								<?php
-foreach (object::all() as $object) {
-	echo '<option value="' . $object->getId() . '">' . $object->getName() . '</option>';
-}
-?>
+								foreach (object::all() as $object) {
+									echo '<option value="' . $object->getId() . '">' . $object->getName() . '</option>';
+								}
+								?>
 							</select>
 						</div>
 					</div>
@@ -98,94 +104,116 @@ foreach (object::all() as $object) {
 
 		<div class="jeeasyDisplay end" style="display:none;">
 			<center><i class="fas fa-check" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini d'ajouter votre module}}</div></center>
+			<br />
+			<center>
+				<div class="alert alert-success">{{Bravo !!! Vous avez fini d'ajouter votre module}}</div>
+			</center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
-			<br/>
+			<br />
 			<center><a class="btn btn-success bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a></center>
-			<br/>
+			<br />
 			<center><a class="btn btn-default bt_jeeasyEqLogicConfigurationAfterInclude" style="display:none;"><i class="fas fa-cogs"></i> {{Configurer}}</a></center>
 		</div>
 
 	</div>
 </div>
-<?php include_file('desktop', 'rfxcom', 'js', 'rfxcom');?>
+<?php include_file('desktop', 'rfxcom', 'js', 'rfxcom'); ?>
 <script type="text/javascript">
 	eqLogic_id = null;
-	$('.bt_jeeasyNext').off('click').on('click',function(){
+	$('.bt_jeeasyNext').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').next().click();
 	});
-	$('.bt_jeeasyPrevious').off('click').on('click',function(){
+	$('.bt_jeeasyPrevious').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').prev().click();
 	});
-	$('.li_jeeEasySummary').off('click').on('click',function(){
+	$('.li_jeeEasySummary').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').removeClass('active');
 		$(this).addClass('active');
 		$('.jeeasyDisplay').hide();
-		$('.jeeasyDisplay.'+$(this).attr('data-href')).show();
-		$(this).attr('data-display',1);
+		$('.jeeasyDisplay.' + $(this).attr('data-href')).show();
+		$(this).attr('data-display', 1);
 	});
 
-	$('.bt_jeeasyEqLogicConfigurationAfterInclude').off('click').on('click',function(){
+	$('.bt_jeeasyEqLogicConfigurationAfterInclude').off('click').on('click', function() {
 		bootbox.prompt({
 			title: "{{Très bien configurons ce module. Quel est sont type ?}}",
 			inputType: 'select',
-			inputOptions:JEEASY_TYPE_LIST,
-			callback: function (type) {
-				jeeasyModalConfigurationEqLogic(eqLogic_id,type);
+			inputOptions: JEEASY_TYPE_LIST,
+			callback: function(type) {
+				jeeasyModalConfigurationEqLogic(eqLogic_id, type);
 			}
 		});
 	});
 
-	$('.bt_jeeasySave').off('click').on('click',function(){
-		if(eqLogic_id == null){
-			$('#div_AlertJeeasyInclude').showAlert({message: '{{Malheureusement nous ne trouvons pas votre module. Essayez de l\'inclure avant de sauvegarder sa configuration}}', level: 'danger'});
+	$('.bt_jeeasySave').off('click').on('click', function() {
+		if (eqLogic_id == null) {
+			$('#div_AlertJeeasyInclude').showAlert({
+				message: '{{Nous ne trouvons pas votre module. Essayez de l\'inclure avant de sauvegarder sa configuration}}',
+				level: 'danger'
+			});
 			return;
 		}
-		var eqLogic = {id : eqLogic_id}
-		eqLogic = deepmerge(eqLogic,$('#div_jeeasyIncludeDisplay').getValues('.eqLogicAttr')[0]);
+		var eqLogic = {
+			id: eqLogic_id
+		}
+		eqLogic = deepmerge(eqLogic, $('#div_jeeasyIncludeDisplay').getValues('.eqLogicAttr')[0]);
 		jeedom.eqLogic.simpleSave({
 			eqLogic: eqLogic,
-			error: function (error) {
-				$('#div_AlertJeeasyInclude').showAlert({message: error.message, level: 'danger'});
+			error: function(error) {
+				$('#div_AlertJeeasyInclude').showAlert({
+					message: error.message,
+					level: 'danger'
+				});
 			},
-			success: function () {
-				$('#div_AlertJeeasyInclude').showAlert({message: '{{Configuration sauvegardée}}', level: 'success'});
+			success: function() {
+				$('#div_AlertJeeasyInclude').showAlert({
+					message: '{{Configuration sauvegardée}}',
+					level: 'success'
+				});
 				$('.bt_jeeasyEqLogicConfigurationAfterInclude').show();
 			}
 		});
 	});
 
-	$('body').off('rfxcom::include_mode').on('rfxcom::include_mode', function (_event,_options) {
+	$('body').off('rfxcom::include_mode').on('rfxcom::include_mode', function(_event, _options) {
 		if (_options['state'] == 1) {
-			if($('.exclude').attr('data-state') != 0){
+			if ($('.exclude').attr('data-state') != 0) {
 				$('.exclude').attr('data-state', 0);
 				$('.changeIncludeState').html('<i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Arrêter inclusion}}');
-				$('#div_inclusionAlert').showAlert({message: '{{Vous êtes en mode exclusion. Recliquez sur le bouton d\'exclusion pour sortir de ce mode}}', level: 'warning'});
+				$('#div_inclusionAlert').showAlert({
+					message: '{{Vous êtes en mode exclusion. Cliquez à nouveau sur le bouton d\'exclusion pour sortir de ce mode}}',
+					level: 'warning'
+				});
 			}
 		} else {
-			if($('.exclude').attr('data-state') != 1){
+			if ($('.exclude').attr('data-state') != 1) {
 				$.hideAlert();
 				$('.exclude').attr('data-state', 1);
 				$('.changeIncludeState').html('<i class="fas fa-sign-in-alt fa-rotate-90"></i> {{Mode inclusion}}');
-				$('.exclude.card').css('background-color','#ffffff');
+				$('.exclude.card').css('background-color', '#ffffff');
 			}
 		}
 	});
 
-	$('body').off('rfxcom::includeDevice').on('rfxcom::includeDevice', function (_event,_options) {
-		$('#div_inclusionAlert').showAlert({message: '{{Félicitation !!! Votre module a bien été inclus. Vous pouvez passer à la suite}}', level: 'success'});
+	$('body').off('rfxcom::includeDevice').on('rfxcom::includeDevice', function(_event, _options) {
+		$('#div_inclusionAlert').showAlert({
+			message: '{{Félicitations !!! Votre module a bien été inclus. Vous pouvez passer à la suite}}',
+			level: 'success'
+		});
 		eqLogic_id = _options;
 		jeedom.eqLogic.byId({
 			id: eqLogic_id,
-			error: function (error) {
-				$('#div_AlertJeeasyFridge').showAlert({message: error.message, level: 'danger'});
+			error: function(error) {
+				$('#div_AlertJeeasyFridge').showAlert({
+					message: error.message,
+					level: 'danger'
+				});
 			},
-			success: function (data) {
-				$('#div_jeeasyDisplay').setValues(data,'.eqLogicAttr');
+			success: function(data) {
+				$('#div_jeeasyDisplay').setValues(data, '.eqLogicAttr');
 			}
 		});
 	});
 </script>
 
-<?php include_file('3rdparty', 'deepmerge', 'js', 'jeeasy');?>
+<?php include_file('3rdparty', 'deepmerge', 'js', 'jeeasy'); ?>

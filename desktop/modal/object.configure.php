@@ -45,41 +45,45 @@ sendVarToJs('object_id', $object->getId());
 		<a class="btn btn-sm btn-success pull-left bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a>
 		<a class="btn btn-sm btn-success pull-right bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a>
 		<a class="btn btn-sm btn-default pull-right bt_jeeasyPrevious"><i class="fas fa-angle-double-left"></i> {{Précédent}}</a>
-		<br/><br/>
+		<br /><br />
 		<div class="jeeasyDisplay home">
 			<center><i class="fas fa-home" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Bienvenue sur l'assistant de configuration de votre maison, nous allons configurer ensemble votre pièce :}} <strong><?php echo $object->getName(); ?></strong></div></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Bienvenue sur l'assistant de configuration de votre maison, nous allons configurer ensemble votre pièce}} : <strong><?php echo $object->getName(); ?></strong></div>
+			</center>
 			<center>{{Cliquez sur suivant pour commencer}}</center>
-			<br/>
+			<br />
 			<center><a class="btn btn-sm btn-success bt_jeeasyNext">{{Suivant}} <i class="fas fa-angle-double-right"></i></a></center>
 		</div>
 
 		<div class="jeeasyDisplay main" style="display:none;">
 			<center><i class="fas fa-wrench" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous allons ici configurer votre pièce à travers quelques petites questions}}</div></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous allons configurer votre pièce à travers quelques petites questions}}</div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
 						<label class="col-xs-4 control-label">{{Nom de la pièce}}</label>
 						<div class="col-xs-4">
-							<input class="form-control objectAttr" type="text" data-l1key="name" placeholder="Nom de la pièce"/>
+							<input class="form-control objectAttr" type="text" data-l1key="name" placeholder="Nom de la pièce" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-xs-4 control-label">{{La pièce est-elle dans une autre pièce (exemple salon est dans maison). Si oui laquelle ?}}</label>
+						<label class="col-xs-4 control-label">{{La pièce est-elle dans une autre pièce (exemple salon est dans maison). Si oui, laquelle}} ?</label>
 						<div class="col-xs-4">
 							<select class="form-control objectAttr" data-l1key="father_id">
 								<option value="">{{Aucun}}</option>
 								<?php
-foreach (jeeObject::all() as $object_all) {
-	if ($object_all->getId() == $object->getId()) {
-		continue;
-	}
-	echo '<option value="' . $object_all->getId() . '">' . $object_all->getName() . '</option>';
-}
-?>
+								foreach (jeeObject::all() as $object_all) {
+									if ($object_all->getId() == $object->getId()) {
+										continue;
+									}
+									echo '<option value="' . $object_all->getId() . '">' . $object_all->getName() . '</option>';
+								}
+								?>
 							</select>
 						</div>
 					</div>
@@ -89,14 +93,16 @@ foreach (jeeObject::all() as $object_all) {
 
 		<div class="jeeasyDisplay display" style="display:none;">
 			<center><i class="fas fa-tv" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-info">{{Nous allons ici configurer l'affichage de votre pièce}}</div></center>
+			<br />
+			<center>
+				<div class="alert alert-info">{{Nous allons configurer l'affichage de votre pièce}}</div>
+			</center>
 			<form class="form-horizontal">
 				<fieldset>
 					<div class="form-group">
 						<label class="col-xs-4 control-label">{{Visible}}</label>
 						<div class="col-xs-1">
-							<input class="objectAttr" type="checkbox" data-l1key="isVisible" checked/>
+							<input class="objectAttr" type="checkbox" data-l1key="isVisible" checked />
 						</div>
 					</div>
 					<div class="form-group">
@@ -115,10 +121,12 @@ foreach (jeeObject::all() as $object_all) {
 
 		<div class="jeeasyDisplay end" style="display:none;">
 			<center><i class="fas fa-check" style="font-size: 10em;"></i></center>
-			<br/>
-			<center><div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre}} <?php echo config::byKey('product_name'); ?></div></center>
+			<br />
+			<center>
+				<div class="alert alert-success">{{Bravo !!! Vous avez fini de configurer votre}} <?php echo config::byKey('product_name'); ?></div>
+			</center>
 			<center>{{Cliquez sur sauvegarder pour valider votre configuration}}</center>
-			<br/>
+			<br />
 			<center><a class="btn btn-success bt_jeeasySave"><i class="fas fa-save"></i> {{Sauvegarder}}</a></center>
 		</div>
 
@@ -126,60 +134,70 @@ foreach (jeeObject::all() as $object_all) {
 </div>
 
 <script type="text/javascript">
-	$('.bt_jeeasyNext').off('click').on('click',function(){
+	$('.bt_jeeasyNext').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').next().click();
 	});
-	$('.bt_jeeasyPrevious').off('click').on('click',function(){
+	$('.bt_jeeasyPrevious').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').prev().click();
 	});
-	$('.li_jeeEasySummary').off('click').on('click',function(){
+	$('.li_jeeEasySummary').off('click').on('click', function() {
 		$('.li_jeeEasySummary.active').removeClass('active');
 		$(this).addClass('active');
 		$('.jeeasyDisplay').hide();
-		$('.jeeasyDisplay.'+$(this).attr('data-href')).show();
-		$(this).attr('data-display',1);
+		$('.jeeasyDisplay.' + $(this).attr('data-href')).show();
+		$(this).attr('data-display', 1);
 	});
 
-	$('.objectAttr[data-l1key=display][data-l2key=icon]').on('dblclick',function(){
+	$('.objectAttr[data-l1key=display][data-l2key=icon]').on('dblclick', function() {
 		$('.objectAttr[data-l1key=display][data-l2key=icon]').value('');
 	});
 
-	$('#bt_chooseIcon').on('click', function () {
-		chooseIcon(function (_icon) {
+	$('#bt_chooseIcon').on('click', function() {
+		chooseIcon(function(_icon) {
 			$('.objectAttr[data-l1key=display][data-l2key=icon]').empty().append(_icon);
 		});
 	});
 
-	$('.bt_jeeasySave').off('click').on('click',function(){
-		var object = {id : object_id}
-		if($('.li_jeeEasySummary[data-href=main]').attr('data-display') == 1){
-			object = deepmerge(object,$('.jeeasyDisplay.main').getValues('.objectAttr')[0]);
+	$('.bt_jeeasySave').off('click').on('click', function() {
+		var object = {
+			id: object_id
 		}
-		if($('.li_jeeEasySummary[data-href=display]').attr('data-display') == 1){
-			object = deepmerge(object,$('.jeeasyDisplay.display').getValues('.objectAttr')[0]);
+		if ($('.li_jeeEasySummary[data-href=main]').attr('data-display') == 1) {
+			object = deepmerge(object, $('.jeeasyDisplay.main').getValues('.objectAttr')[0]);
+		}
+		if ($('.li_jeeEasySummary[data-href=display]').attr('data-display') == 1) {
+			object = deepmerge(object, $('.jeeasyDisplay.display').getValues('.objectAttr')[0]);
 		}
 		jeedom.object.save({
 			object: object,
-			error: function (error) {
-				$('#div_AlertJeeasyJeedomObject').showAlert({message: error.message, level: 'danger'});
+			error: function(error) {
+				$('#div_AlertJeeasyJeedomObject').showAlert({
+					message: error.message,
+					level: 'danger'
+				});
 			},
-			success: function () {
-				$('#div_AlertJeeasyJeedomObject').showAlert({message: '{{Configuration sauvegardée}}', level: 'success'});
+			success: function() {
+				$('#div_AlertJeeasyJeedomObject').showAlert({
+					message: '{{Configuration sauvegardée}}',
+					level: 'success'
+				});
 			}
 		});
 	});
 
 	jeedom.object.byId({
 		id: object_id,
-		error: function (error) {
-			$('#div_AlertJeeasyJeedomObject').showAlert({message: error.message, level: 'danger'});
+		error: function(error) {
+			$('#div_AlertJeeasyJeedomObject').showAlert({
+				message: error.message,
+				level: 'danger'
+			});
 		},
-		success: function (data) {
+		success: function(data) {
 			console.log(data)
-			$('#div_jeeasyConfigureObject').setValues(data,'.objectAttr');
+			$('#div_jeeasyConfigureObject').setValues(data, '.objectAttr');
 		}
 	});
-
 </script>
 
-<?php include_file('3rdparty', 'deepmerge', 'js', 'jeeasy');?>
+<?php include_file('3rdparty', 'deepmerge', 'js', 'jeeasy'); ?>
