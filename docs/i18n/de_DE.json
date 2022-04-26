@@ -2,6 +2,9 @@
     "changelog.md": {
         "Changelog Jeeasy": "Changelog jeeasy",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
+        "26\/04\/2022": "26.04.2022",
+        "Correction de bugs": "Fehlerbehebung",
+        "Amélioration des traductions": "Verbesserte Übersetzungen",
         "31\/01\/2022": "31.01.2022",
         "Ajout installation proposé des plugins sur service pack": "Zusätzlich vorgeschlagene Installation von Plugins auf Service Pack",
         "Ajout du Discover qui permet de trouver des equipement compatible sur le reseau local (LAN": "Hinzufügen von Discover, mit dem Sie kompatible Geräte im lokalen Netzwerk (LAN",
