@@ -27,7 +27,7 @@ $configs = config::byKeys($keys);
 ?>
 <div class="jeeasyDisplay home">
     <center><i class="fas fa-home" style="font-size: 10em; padding-top: 20px;"></i></center>
-    <br/>
-    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);" >{{Bienvenue sur l'assistant de configuration de votre}} <?php echo config::byKey('product_name'); ?></div>
-    <div style="color: #87cf09; text-align: center; font-size: 15px;">{{Cliquez sur }}<i style="color: #5a5a5a; " class="fas fa-arrow-circle-right cursor"></i>{{ pour commencer}}</div>
+    <br />
+    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);">{{Bienvenue sur l'assistant de configuration de votre}} <?php echo config::byKey('product_name'); ?></div>
+    <div style="color: #87cf09; text-align: center; font-size: 15px;">{{Cliquez sur}} <i style="color: #5a5a5a; " class="fas fa-arrow-circle-right cursor"></i> {{pour commencer}}</div>
 </div>

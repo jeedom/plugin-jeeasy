@@ -28,13 +28,11 @@ $configs = config::byKeys($keys);
 
 <div class="jeeasyDisplay end">
     <center><i class="fas fa-check" style="font-size: 10em; padding-top: 20px;"></i></center>
-    <br/>
+    <br />
     <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);" class="alert">
         {{Bravo !!! Vous avez fini de configurer votre}} <?php echo config::byKey('product_name'); ?>
     </div>
     <div style="color: #87cf09; text-align: center; font-size: 15px;">
-        {{Cliquez sur }}
-        <i style="color: #5a5a5a; " class="fas fa-check-circle"></i>
-        {{ pour valider votre configuration}}
+        {{Cliquez sur}} <i style="color: #5a5a5a; " class="fas fa-check-circle"></i> {{pour valider votre configuration}}
     </div>
 </div>

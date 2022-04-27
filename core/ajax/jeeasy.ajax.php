@@ -36,51 +36,41 @@ try {
 
 
 
-if (init('action') == 'choiceLanguageJeeasy') {
-	ajax::success(jeeasy::changeLanguage(init('choice')));
-}
-
-
-
-
-
-
+	if (init('action') == 'choiceLanguageJeeasy') {
+		ajax::success(jeeasy::changeLanguage(init('choice')));
+	}
 
 
 	if (init('action') == 'installPlugin') {
-		if(init('branch')){
-			$checkInstall = jeeasy::checkInstallPlugin(init('id'),init('branch'));
-		}else{
+		if (init('branch')) {
+			$checkInstall = jeeasy::checkInstallPlugin(init('id'), init('branch'));
+		} else {
 			$checkInstall = jeeasy::checkInstallPlugin(init('id'));
 		}
-		if($checkInstall == 'OK'){
-				ajax::success();
-		}else{
-				ajax::error($checkInstall);
+		if ($checkInstall == 'OK') {
+			ajax::success();
+		} else {
+			ajax::error($checkInstall);
 		}
 	}
 
 	if (init('action') == 'installDepPlugin') {
 		$checkInstall = jeeasy::checkDependancyPlugin(init('id'));
-		if($checkInstall == 'OK'){
-				ajax::success();
-		}else{
-				ajax::error($checkInstall);
+		if ($checkInstall == 'OK') {
+			ajax::success();
+		} else {
+			ajax::error($checkInstall);
 		}
 	}
 
-  	if (init('action') == 'installPluginPack') {
-        $check = jeeasy::checkPluginsByServicePack(init('servicePack'),init('pluginsList'),init('pluginsPurchase'));
-		ajax::success($check);
-	}
 
 	if (init('action') == 'configInternalPlugin') {
 		$check = jeeasy::configInternalPlugin(init('typeConfig'), init('typeBox'), init('pluginName'));
-	  ajax::success($check);
-}
+		ajax::success($check);
+	}
 
 
-	throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
+	throw new Exception(__('Aucune méthode correspondante à', __FILE__) . ' : ' . init('action'));
 	/*     * *********Catch exeption*************** */
 } catch (Exception $e) {
 	ajax::error(displayExeption($e), $e->getCode());

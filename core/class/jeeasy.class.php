@@ -18,85 +18,80 @@
 
 /* * ***************************Includes********************************* */
 require_once __DIR__ . '/../../../../core/php/core.inc.php';
-include_file('core', 'discover', 'config','jeeasy');
+include_file('core', 'discover', 'config', 'jeeasy');
 
 class jeeasy extends eqLogic {
-	/*     * *************************Attributs****************************** */
 
-	/*     * ***********************Methode static*************************** */
-
-	public static function discoverNetwork(){
+	public static function discoverNetwork() {
 		global $JEEDOM_JEEASY_DISCOVER;
 		$gw = shell_exec("ip route show default | awk '/default/ {print $3}'");
-		if($gw == ''){
+		if ($gw == '') {
 			return array();
 		}
-		$ip = explode('.',$gw);
-		$results = explode("\n",shell_exec('sudo nmap -sn '.$ip[0].'.'.$ip[1].'.'.$ip[2].'.* | grep -E "MAC Address|Nmap scan report"'));
+		$ip = explode('.', $gw);
+		$results = explode("\n", shell_exec('sudo nmap -sn ' . $ip[0] . '.' . $ip[1] . '.' . $ip[2] . '.* | grep -E "MAC Address|Nmap scan report"'));
 		$return = array();
 		$arrayFinal = array();
 		$previous = null;
-                $i=1;
+		$i = 1;
 		foreach ($results as $line) {
-                        $arrayTemp = array();
-			if(strpos($line,'Nmap scan report') !== false){
-				preg_match('/Nmap scan report for (.*?)$/',$line,$matches);
+			$arrayTemp = array();
+			if (strpos($line, 'Nmap scan report') !== false) {
+				preg_match('/Nmap scan report for (.*?)$/', $line, $matches);
 				$previous = $matches[1];
 			}
-			if($previous == null){
+			if ($previous == null) {
 				continue;
 			}
-			if(strpos($line,'MAC Address') !== false){
+			if (strpos($line, 'MAC Address') !== false) {
 
-						preg_match('/MAC Address: (.*?) \((.*?)\)/',$line,$matches);
-						$return[$matches[1]] = array('name' => $matches[2],'ip' => $previous);
-						$name = $matches[2];
-						$mac = $matches[1];
-						$ip = $previous;
+				preg_match('/MAC Address: (.*?) \((.*?)\)/', $line, $matches);
+				$return[$matches[1]] = array('name' => $matches[2], 'ip' => $previous);
+				$name = $matches[2];
+				$mac = $matches[1];
+				$ip = $previous;
 
-	 				  	$arrayTemp = array('mac' => $mac, 'ip' => $ip);
-						
+				$arrayTemp = array('mac' => $mac, 'ip' => $ip);
 
 
-						if(array_key_exists($name, $arrayFinal)){
-                                                array_push($arrayFinal[$name], $arrayTemp);
-														
-						$i++;
-						}else{
-						$arrayFinal[$name] = $arrayTemp;
-						}
+
+				if (array_key_exists($name, $arrayFinal)) {
+					array_push($arrayFinal[$name], $arrayTemp);
+
+					$i++;
+				} else {
+					$arrayFinal[$name] = $arrayTemp;
+				}
 			}
 		}
 
-		
-		foreach($arrayFinal as &$device){
-	
-				foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
-				
-					foreach ($discover['search'] as $search) {
-						if(strpos(strtolower($device['name']),strtolower($search)) !== false || strpos(strtolower($device['ip']),strtolower($search)) !== false){
-							$device['plugin'] = $discover['plugins'];
-							continue(3);
-						}
+
+		foreach ($arrayFinal as &$device) {
+
+			foreach ($JEEDOM_JEEASY_DISCOVER as $discover) {
+
+				foreach ($discover['search'] as $search) {
+					if (strpos(strtolower($device['name']), strtolower($search)) !== false || strpos(strtolower($device['ip']), strtolower($search)) !== false) {
+						$device['plugin'] = $discover['plugins'];
+						continue (3);
 					}
 				}
+			}
 		}
-	  return $arrayFinal;
-		
+		return $arrayFinal;
 	}
 
 	public static function generateScenario($_name, $_replace = array()) {
 		if (!file_exists(__DIR__ . '/../config/' . $_name . '.json')) {
-			throw new Exception(__('Impossible de trouver le scénario : ', __FILE__) . $_name);
+			throw new Exception(__('Impossible de trouver le scénario', __FILE__) . ' : ' . $_name);
 		}
 		return json_decode(str_replace(array_keys($_replace), $_replace, json_encode(json_decode(file_get_contents(__DIR__ . '/../config/' . $_name . '.json'), true))), true);
 	}
 
-	public static function changeLanguage($choice){
-    if($choice != ''){
-      	config::save('language', $choice);
+	public static function changeLanguage($choice) {
+		if ($choice != '') {
+			config::save('language', $choice);
 		}
-
 	}
 
 	public static function saveJson($_json) {
@@ -129,7 +124,7 @@ class jeeasy extends eqLogic {
 			'sam' => array(
 				'level'  => 1,
 				'name'   => 'Salle à manger',
-				'image'  => 'core/img/object_background/salle_a_manger/salle_a_manger_1.jpg',
+				'image'  => 'core/img/object_background/salle_à_manger/salle_à_manger_1.jpg',
 				'icon'   => '<i class="icon maison-dining3"></i>',
 				'parent' => ''
 			),
@@ -201,19 +196,19 @@ class jeeasy extends eqLogic {
 			$house->setIsVisible(1);
 			$house->setFather_id(0);
 			$house->save();
-			$house->setDisplay('icon',$houseData[$main]['icon']);
-			$files = ls( __DIR__ . '/../../../../data/object/','object'.$house->getId().'*');
-			if(count($files)  > 0){
+			$house->setDisplay('icon', $houseData[$main]['icon']);
+			$files = ls(__DIR__ . '/../../../../data/object/', 'object' . $house->getId() . '*');
+			if (count($files)  > 0) {
 				foreach ($files as $file) {
-					unlink( __DIR__ . '/../../../../data/object/'.$file);
+					unlink(__DIR__ . '/../../../../data/object/' . $file);
 				}
 			}
 			$house->setImage('type', 'jpg');
-			$image =  __DIR__ . '/../../../../'.$houseData[$main]['image'];
+			$image =  __DIR__ . '/../../../../' . $houseData[$main]['image'];
 			$house->setImage('sha512', sha512(file_get_contents($image)));
-			$filename = 'object'.$house->getId().'-'.$house->getImage('sha512') . '.' . $house->getImage('type');
+			$filename = 'object' . $house->getId() . '-' . $house->getImage('sha512') . '.' . $house->getImage('type');
 			$filepath = __DIR__ . '/../../../../data/object/' . $filename;
-			file_put_contents($filepath,file_get_contents($image));
+			file_put_contents($filepath, file_get_contents($image));
 			$house->save();
 		}
 
@@ -239,19 +234,19 @@ class jeeasy extends eqLogic {
 				$room->setIsVisible(1);
 				$room->setFather_id($houseId);
 				$room->save();
-				$room->setDisplay('icon',$roomsDatas[$currentRoom]['icon']);
-				$files = ls( __DIR__ . '/../../../../data/object/','object'.$room->getId().'*');
-				if(count($files)  > 0){
+				$room->setDisplay('icon', $roomsDatas[$currentRoom]['icon']);
+				$files = ls(__DIR__ . '/../../../../data/object/', 'object' . $room->getId() . '*');
+				if (count($files)  > 0) {
 					foreach ($files as $file) {
-						unlink( __DIR__ . '/../../../../data/object/'.$file);
+						unlink(__DIR__ . '/../../../../data/object/' . $file);
 					}
 				}
 				$room->setImage('type', 'jpg');
-				$image =  __DIR__ . '/../../../../'.$roomsDatas[$currentRoom]['image'];
+				$image =  __DIR__ . '/../../../../' . $roomsDatas[$currentRoom]['image'];
 				$room->setImage('sha512', sha512(file_get_contents($image)));
-				$filename = 'object'.$room->getId().'-'.$room->getImage('sha512') . '.' . $room->getImage('type');
+				$filename = 'object' . $room->getId() . '-' . $room->getImage('sha512') . '.' . $room->getImage('type');
 				$filepath = __DIR__ . '/../../../../data/object/' . $filename;
-				file_put_contents($filepath,file_get_contents($image));
+				file_put_contents($filepath, file_get_contents($image));
 				$room->save();
 			}
 		}
@@ -304,15 +299,14 @@ class jeeasy extends eqLogic {
 			return 'OK';
 		}
 		$market_info = repo_market::byLogicalId($_plugin);
-		if(!is_object($market_info)){
-			return 'Le plugin n\'est pas présent sur le market';
+		if (!is_object($market_info)) {
+			return __('Le plugin n\'est pas présent sur le market', __FILE__);
 		}
-		 if($market_info->getCost() > 0){
-			 if ($market_info->getPurchase() != 1) {
-				 return 'Vous n\'avez pas acheté le plugin en question, merci d\'aller sur le market pour acquérir le plugin et de refaire l\'opération, plugin : '. $market_info->getName();
-
-			 }
-		 }
+		if ($market_info->getCost() > 0) {
+			if ($market_info->getPurchase() != 1) {
+				return __('Veuillez vous rendre sur le market pour acquérir le plugin puis refaire l\'opération. Plugin', __FILE__) . ' : ' . $market_info->getName();
+			}
+		}
 
 		$update = update::byLogicalId($_plugin);
 		if (!is_object($update)) {
@@ -325,13 +319,13 @@ class jeeasy extends eqLogic {
 		$update->doUpdate();
 		$plugin = plugin::byId($_plugin);
 		if (!is_object($plugin)) {
-			return 'Impossible d\'installer le plugin : '. $market_info->getName();
+			return __('Impossible d\'installer le plugin', __FILE__) . ' : ' . $market_info->getName();
 		}
 		if (!$plugin->isActive()) {
 			$plugin->setIsEnable(1);
 		}
 		if (!$plugin->isActive()) {
-			return 'Impossible d\'activer le plugin  : '. $market_info->getName();
+			return __('Impossible d\'activer le plugin', __FILE__) . ' : ' . $market_info->getName();
 		}
 		return 'OK';
 	}
@@ -348,57 +342,25 @@ class jeeasy extends eqLogic {
 
 		$plugin->dependancy_install();
 		$dependancy = $plugin->dependancy_info();
-		if ($deamon['state'] != 'ok') {
-			return 'Malheureusement nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support.';
+		if ($dependancy['state'] != 'ok') {
+			return __('Nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support.', __FILE__);
 		}
 		return 'OK';
 	}
 
 
-	public static function configInternalPlugin($typeConfig, $key, $plugin){
-       if($typeConfig == 'gpio'){
-						 $pluginsConf = json_decode( file_get_contents('../data/pluginConfig.json'), true );
-						 $step = $pluginsConf['pluginsInfos'][$plugin]['versions'][$key];
-				     foreach( $step as $k => $v ){
-									 	config::save($k, $v, $plugin);
-							}
-							return 'gpio';
-
-				}elseif($typeConfig == 'usb'){
-					  return 'usb';
-
-				}
-}
-
-
-
-  public static function checkPluginsByServicePack($servicePack,$pluginsList,$pluginsPurchase){
-   /* switch($servicepack){
-        case 'Service Pack Power V1':break;
-        case 'Service Pack Power EnOcean V1':break;
-        case 'Service Pack Power RfPlayer':break;
-        case 'Service Pack Power RfPlayer EnOcean':break;
-        case 'Service Pack Power Conbee':break;
-        case 'Service Pack Power':break;
-        case 'Service Pack Power Enocean':break;
-        case 'Service Pack Power Zigbee':break;
-        case 'Service Pack Power Ultimate':
-        break;
-        case 'Service Pack Pro':break;
-        case 'Service Pack Client MAdomotique':break;
-        case 'Service Pack Power Enocean Cauderay':break;
-        case 'Service Pack Pro Cauderay':break;
-        case 'Service Pack Ventilairsec':break;
-        case 'Service Pack HC-DOMOTIQUE':break;
-        default: break;
-
-    }*/
-
-
-    return $test;
-
-
-  }
+	public static function configInternalPlugin($typeConfig, $key, $plugin) {
+		if ($typeConfig == 'gpio') {
+			$pluginsConf = json_decode(file_get_contents('../data/pluginConfig.json'), true);
+			$step = $pluginsConf['pluginsInfos'][$plugin]['versions'][$key];
+			foreach ($step as $k => $v) {
+				config::save($k, $v, $plugin);
+			}
+			return 'gpio';
+		} elseif ($typeConfig == 'usb') {
+			return 'usb';
+		}
+	}
 
 	public static function checkDeamonPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
@@ -409,29 +371,19 @@ class jeeasy extends eqLogic {
 		if ($deamon['state'] == 'ok') {
 			return;
 		}
-		echo '<div class="alert alert-info">' . __('Nous avons détecté que le daemon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter', __FILE__);
+		echo '<div class="alert alert-info">' . __('Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...', __FILE__);
 		$plugin->deamon_start();
 		sleep(5);
 		$deamon = $plugin->deamon_info();
 		if ($deamon['state'] != 'ok') {
-			throw new Exception(__('Malheureusement nous n\'arrivons pas à lancer le deamon du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support. Plugin : ', __FILE__) . $_plugin);
+			throw new Exception(__('Nous n\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support. Plugin', __FILE__) . ' : ' . $_plugin);
 		}
-		echo '<div class="alert alert-info">' . __('Lancement du démon réussi', __FILE__);
+		echo '<div class="alert alert-info">' . __('Démarrage du démon réussi', __FILE__);
 	}
-
-	/*     * **********************Getteur Setteur*************************** */
 }
 
 class jeeasyCmd extends cmd {
-	/*     * *************************Attributs****************************** */
-
-	/*     * ***********************Methode static*************************** */
-
-	/*     * *********************Methode d'instance************************* */
 
 	public function execute($_options = array()) {
-
 	}
-
-	/*     * **********************Getteur Setteur*************************** */
 }

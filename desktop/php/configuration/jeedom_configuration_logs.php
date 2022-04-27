@@ -28,8 +28,8 @@ $configs = config::byKeys($keys);
 
 <div class="jeeasyDisplay log">
     <center><i class="far fa-file" style="font-size: 10em; padding-top: 20px;"></i></center>
-    <br/>
-    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);" class="alert">{{Nous allons ici configurer les logs de votre}} <?php echo config::byKey('product_name'); ?></div>
+    <br />
+    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);" class="alert">{{Nous allons configurer les logs de votre}} <?php echo config::byKey('product_name'); ?></div>
     <form class="form-horizontal">
         <fieldset>
             <div class="form-group">

@@ -28,8 +28,8 @@ $configs = config::byKeys($keys);
 
 <div class="jeeasyDisplay eqLogic">
     <center><i class="icon divers-svg" style="font-size: 10em; padding-top: 20px;"></i></center>
-    <br/>
-    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);" class="alert">{{Nous allons ici configurer le seuil batterie de votre}} <?php echo config::byKey('product_name'); ?></div>
+    <br />
+    <div style="text-align: center; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; font-size: 20px; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);" class="alert">{{Nous allons configurer le seuil batterie de votre}} <?php echo config::byKey('product_name'); ?></div>
     <form style="padding-left: 15em;" class="form-horizontal">
         <fieldset>
             <div class="form-group">
