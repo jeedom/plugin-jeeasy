@@ -3,6 +3,12 @@ if (!isConnect()) {
     throw new Exception('{{401 - Accès non autorisé}}');
 }
 
+$plugin = plugin::byId('jeeasy');
+if($plugin->getIsEnable() == 0){
+$plugin->setIsEnable(1);
+$plugin->save();
+}
+
 if( file_exists( config::byKey('path_wizard') ) )
   $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
 else
