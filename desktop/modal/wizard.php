@@ -3,12 +3,6 @@ if (!isConnect()) {
     throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-$plugin = plugin::byId('jeeasy');
-if($plugin->getIsEnable() == 0){
-$plugin->setIsEnable(1);
-$plugin->save();
-}
-
 if( file_exists( config::byKey('path_wizard') ) )
   $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
 else
@@ -21,8 +15,6 @@ if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
         <script>
         $('#md_modal').dialog({title: "{{Initialisation de votre}} <?php echo config::byKey('product_name'); ?>"});
         $('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=update').dialog('open');
-
-
         </script>
       <?php
     }
