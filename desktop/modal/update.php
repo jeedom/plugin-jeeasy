@@ -176,7 +176,7 @@ if (!$caught) {
 		background-color: #FFFAF0 !important;
 	}
 
-	.bodyModal {
+	#bodymodalupdate {
 		background-color: #FFFAF0 !important;
 		width: 75%;
 		min-height: 85%;
