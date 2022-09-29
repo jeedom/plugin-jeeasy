@@ -110,7 +110,7 @@ if (!$caught) {
 	}
 
 	#marketbeforeupdate {
-		background-color: #FFFAF0;
+		background-color: #FFFAF0 !important;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
