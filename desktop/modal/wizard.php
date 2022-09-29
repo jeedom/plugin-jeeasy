@@ -105,11 +105,11 @@ if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
 }
 
 #wizardModal{
-	background: #FFFFFF !important;
+	background-color: #FFFAF0 !important;
 }
 	
 .bodyModal{
-  background-color : white;
+  background-color: #FFFAF0 !important;
   width: 75%;
   min-height: 85%;
   margin: 0 auto;
