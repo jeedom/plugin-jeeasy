@@ -11,14 +11,14 @@ if (!isConnect()) {
 		<div class="col-md-12 text-center">
 			<h2>{{Que souhaitez-vous configurer}} ?</h2>
 		</div>
-		<div id="selectHouse" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
+		<div id="selectHouse" class="col-xs-6 col-sm-5 col-md-6 nopad text-center cursor selectType">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salon/salon_5.jpg" />
 				<input type="checkbox" name="selectHouse[house]" value="1" />
 				{{Une maison}}
 			</label>
 		</div>
-		<div id="selectApartment" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
+		<div id="selectApartment" class="col-xs-6 col-sm-5 col-md-6 nopad text-center cursor selectType">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_1.jpg" />
 				<input type="checkbox" name="selectHouse[apartment]" value="1" />
