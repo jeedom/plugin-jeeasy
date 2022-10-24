@@ -140,6 +140,11 @@
         "Cliquez sur sauvegarder pour valider votre configuration": "Haga clic en guardar para validar su configuración",
         "Configuration sauvegardée": "Configuración guardada"
     },
+    "plugins\/jeeasy\/desktop\/modal\/luna.php": {
+        "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Installation du Plugin Luna en cours.": "Instalación del complemento Luna en curso",
+        "Merci d'avoir choisi Jeedom Luna": "Gracias por elegir Jeedom Luna"
+    },
     "plugins\/jeeasy\/desktop\/modal\/philipshue.include.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Accueil": "Inicio",

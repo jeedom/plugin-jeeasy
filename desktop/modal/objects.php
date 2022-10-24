@@ -11,14 +11,14 @@ if (!isConnect()) {
 		<div class="col-md-12 text-center">
 			<h2>{{Que souhaitez-vous configurer}} ?</h2>
 		</div>
-		<div id="selectHouse" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
+		<div id="selectHouse" class="col-xs-6 col-sm-5 col-md-6 nopad text-center cursor selectType">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/salon/salon_5.jpg" />
 				<input type="checkbox" name="selectHouse[house]" value="1" />
 				{{Une maison}}
 			</label>
 		</div>
-		<div id="selectApartment" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType">
+		<div id="selectApartment" class="col-xs-6 col-sm-5 col-md-6 nopad text-center cursor selectType">
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_1.jpg" />
 				<input type="checkbox" name="selectHouse[apartment]" value="1" />
@@ -45,9 +45,10 @@ if (!isConnect()) {
 		<div class="text-center">
 			<h2>{{Sélectionnez les pièces}}</h2>
 		</div>
+        <div class="generalDivFlex">
 		<div class="nopad text-center">
 			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_1.jpg" />
+				<img class="img-responsive imgresize" src="/core/img/object_background/chambre/chambre_1.jpg" />
 				<input type="checkbox" name="selectObject[chambre1]" value="1" />
 				<i class="fas fa-check hidden"></i>
 				{{Chambre 1}}
@@ -55,7 +56,7 @@ if (!isConnect()) {
 		</div>
 		<div class="nopad text-center">
 			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_3.jpg" />
+				<img class="img-responsive imgresize" src="/core/img/object_background/chambre/chambre_3.jpg" />
 				<input type="checkbox" name="selectObject[chambre2]" value="1" />
 				<i class="fas fa-check hidden"></i>
 				{{Chambre 2}}
@@ -63,7 +64,7 @@ if (!isConnect()) {
 		</div>
 		<div class="nopad text-center">
 			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/chambre/chambre_4.jpg" />
+				<img class="img-responsive imgresize" src="/core/img/object_background/chambre/chambre_4.jpg" />
 				<input type="checkbox" name="selectObject[chambre3]" value="1" />
 				<i class="fas fa-check hidden"></i>
 				{{Chambre 3}}
@@ -71,7 +72,7 @@ if (!isConnect()) {
 		</div>
 		<div class="nopad text-center">
 			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_2.jpg" />
+				<img class="img-responsive imgresize" src="/core/img/object_background/cuisine/cuisine_2.jpg" />
 				<input type="checkbox" name="selectObject[cuisine]" value="1" />
 				<i class="fas fa-check hidden"></i>
 				{{Cuisine}}
@@ -79,7 +80,7 @@ if (!isConnect()) {
 		</div>
 		<div class="nopad text-center">
 			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/salle_à_manger/salle_à_manger_1.jpg" />
+				<img class="img-responsive imgresize" src="/core/img/object_background/salle_à_manger/salle_à_manger_1.jpg" />
 				<input type="checkbox" name="selectObject[sam]" value="1" />
 				<i class="fas fa-check hidden"></i>
 				{{Salle à manger}}
@@ -87,7 +88,7 @@ if (!isConnect()) {
 		</div>
 		<div class="nopad text-center">
 			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/salon/salon_2.jpg" />
+				<img class="img-responsive imgresize" src="/core/img/object_background/salon/salon_2.jpg" />
 				<input type="checkbox" name="selectObject[salon]" value="1" />
 				<i class="fas fa-check hidden"></i>
 				{{Salon}}
@@ -95,20 +96,35 @@ if (!isConnect()) {
 		</div>
 		<div class="nopad text-center">
 			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/salle_de_bain/salle_de_bain_1.jpg" />
+				<img class="img-responsive imgresize" src="/core/img/object_background/salle_de_bain/salle_de_bain_1.jpg" />
 				<input type="checkbox" name="selectObject[sdb]" value="1" />
 				<i class="fas fa-check hidden"></i>
 				{{Salle de bain}}
 			</label>
 		</div>
+       <div>
 	</div>
 </div>
 
 
 <style>
+              
+    .imgresize{
+       max-height: 400px;
+       max-width: 400px;      
+    }
+
+   .generalDivFlex {
+        display:flex;
+        flex-direction: row; 
+        flex-wrap: wrap ;
+   }
+              
+              
 	.globalObject {
 		width: 90%;
 		margin: 0 auto;
+    
 	}
 
 	.selectEtage {
@@ -118,6 +134,8 @@ if (!isConnect()) {
 
 	.selectObject {
 		min-height: 90%
+      
+       
 	}
 
 	.nopad {

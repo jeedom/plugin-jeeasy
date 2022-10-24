@@ -8,6 +8,9 @@
                  },
                  "smart": {
                     "port" : "Odroid C2"
+                 },
+                "luna": {
+                    "port" : "Odroid C2"
                  }
               }
           } ,
