@@ -9,7 +9,15 @@ if (file_exists(config::byKey('path_pluginConfig'))) {
     $path_pluginsConf = json_decode(file_get_contents('plugins/jeeasy/core/data/pluginConfig.json'), true);
 }
 
-$productName = jeedom::getHardwareName();
+$hostname = shell_exec('cat /etc/hostname');
+
+if (strpos($hostname, 'Luna') !== false) {
+    config::save('hardware_name', "Luna");
+    $productName = 'Luna';
+}else{
+    $productName = jeedom::getHardwareName();
+}
+
 $listPlugins = plugin::listPlugin();
 
 
