@@ -56,6 +56,9 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
           if ($jsonrpc->sendRequest('market::byId', $arrId)) {
             $resultMain = $jsonrpc->getResult();
             $logicalPlugin = $resultMain['logicalId'];
+            if($logicalPlugin == 'wifip'){
+              continue;
+            }
             $namePlugin = $resultMain['name'];
             $imgPlugin = $resultMain['img'];
             array_push($arrPlugin['id'], $plugin);
