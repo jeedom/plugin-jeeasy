@@ -85,7 +85,7 @@ if($path_wizard['trame']['atlas']['custom']){
       }
       function Good(){
         $('#bt_next').show();
-        $('#bt_prev').show();
+        $('#bt_next').css('marginTop', '70px');
         $('.img-atlas').attr('src', '<?php echo config::byKey('product_connection_image'); ?>');
       }
       </script>
