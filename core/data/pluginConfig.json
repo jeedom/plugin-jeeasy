@@ -49,7 +49,7 @@
                }
             }
         } ,
-        "knx":
+        "eibd":
         {
           "versions": {
                "Atlas": {
