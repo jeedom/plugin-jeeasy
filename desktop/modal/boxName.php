@@ -10,10 +10,18 @@ if (file_exists(config::byKey('path_wizard')))
 else
   $path_wizard = json_decode(file_get_contents('plugins/jeeasy/core/data/wizard.json'), true);
 
+$hostname = shell_exec('cat /etc/hostname');
 
+if (strpos($hostname, 'Luna') !== false) {
+    config::save('hardware_name', "Luna");
+    $productName = 'Luna';
+}else{
+    $productName = jeedom::getHardwareName();
+
+}
 
 if(config::byKey('name') == ''){
-  $nameBox = 'Jeedom '.ucfirst(jeedom::getHardwareName());
+  $nameBox = 'Jeedom '.ucfirst($productName);
 }else{
   $nameBox = config::byKey('name');
   
