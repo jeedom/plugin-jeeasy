@@ -361,6 +361,16 @@ class jeeasy extends eqLogic {
 			return 'usb';
 		}
 	}
+  
+  public static function clearBox(){
+    log::removeAll();
+    sleep(1);
+    $listMessage = message::all();
+    foreach ($listMessage as $message){
+      $message->remove();
+    }
+ 
+  }
 
 	public static function checkDeamonPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);

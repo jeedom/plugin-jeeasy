@@ -1,19 +1,5 @@
 {
   "pluginsInfos": {
-    "zwavejs" :
-    {
-      "versions": {
-           "Atlas": {
-              "port" : "Jeedom Atlas"
-           },
-           "smart": {
-              "port" : "Odroid C2"
-           },
-          "luna": {
-              "port" : "Odroid C2"
-           }
-        }
-    } ,
         "openzwave" :
           {
             "versions": {
@@ -21,9 +7,6 @@
                     "port" : "Jeedom Atlas"
                  },
                  "smart": {
-                    "port" : "Odroid C2"
-                 },
-                "luna": {
                     "port" : "Odroid C2"
                  }
               }

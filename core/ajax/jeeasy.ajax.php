@@ -38,6 +38,15 @@ try {
 
 	if (init('action') == 'choiceLanguageJeeasy') {
 		ajax::success(jeeasy::changeLanguage(init('choice')));
+	}   
+  
+      
+    if (init('action') == 'changeBoxName'){
+        if(init('choice') != ''){
+          $sanitizeString = htmlspecialchars(init('choice'), ENT_NOQUOTES, 'UTF-8');
+          config::save('name', $sanitizeString);
+        }
+		ajax::success();
 	}
 
 
