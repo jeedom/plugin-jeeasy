@@ -11,20 +11,22 @@ if (!isConnect()) {
 		<div class="col-md-12 text-center">
 			<h2>{{Que souhaitez-vous configurer}} ?</h2>
 		</div>
-		<div id="selectHouse" class="col-xs-6 col-sm-5 col-md-6 nopad text-center cursor selectType">
-			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/salon/salon_5.jpg" />
-				<input type="checkbox" name="selectHouse[house]" value="1" />
-				{{Une maison}}
-			</label>
-		</div>
-		<div id="selectApartment" class="col-xs-6 col-sm-5 col-md-6 nopad text-center cursor selectType">
-			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_1.jpg" />
-				<input type="checkbox" name="selectHouse[apartment]" value="1" />
-				{{Un appartement}}
-			</label>
-		</div>
+        <div class="testImg">
+              <div id="selectHouse" class="col-md-6 nopad text-center cursor selectType">
+                  <label class="image-checkbox testSize">
+                      <img class="img-responsive" src="/core/img/object_background/salon/salon_5.jpg" />
+                      <input type="checkbox" name="selectHouse[house]" value="1" />
+                      {{Une maison}}
+                  </label>
+              </div>
+              <div id="selectApartment" class="col-md-6 nopad text-center cursor selectType ">
+                  <label class="image-checkbox testSize">
+                      <img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_1.jpg" />
+                      <input type="checkbox" name="selectHouse[apartment]" value="1" />
+                      {{Un appartement}}
+                  </label>
+              </div>
+        </div>
 		<div id="selectWork" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType" hidden>
 			<label class="image-checkbox">
 				<img class="img-responsive" src="/core/img/object_background/bureau/bureau_1.jpg" />
@@ -32,6 +34,7 @@ if (!isConnect()) {
 				{{Un bureau}}
 			</label>
 		</div>
+        
 	</div>
 	<div class="selectEtage hidden">
 		<ul class="nav nav-pills nav-stacked">
@@ -108,6 +111,15 @@ if (!isConnect()) {
 
 
 <style>
+              
+
+
+     .testSize{
+         width: 80%;
+        height: 80%;
+       
+     }
+              
               
     .imgresize{
        max-height: 400px;

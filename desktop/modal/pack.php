@@ -16,7 +16,7 @@ $custom = null;
 
 $jsonrpc = repo_market::getJsonRpc();
 $marketURL = config::byKey('market::address');
-
+$productName = jeedom::getHardwareName();
 
 
 if ($jsonrpc->sendRequest('servicepack::info')) {
@@ -56,6 +56,9 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
           if ($jsonrpc->sendRequest('market::byId', $arrId)) {
             $resultMain = $jsonrpc->getResult();
             $logicalPlugin = $resultMain['logicalId'];
+             if($logicalPlugin == 'wifip'){
+              continue;
+            }
             $namePlugin = $resultMain['name'];
             $imgPlugin = $resultMain['img'];
             array_push($arrPlugin['id'], $plugin);
@@ -75,7 +78,15 @@ if ($servicePack != 'Community') {
     $('#bt_next').hide();
     $('#bt_prev').show();
     $('.textAtlas').text('{{Choix des plugins à installer}} : ');
+  
+    $('#btn-packModalIgnore').click( function() {
+      $('#bt_next').trigger('click');
+      $('#bt_next').show();
+  });
+
     $('#btn-choicePlugin').on('click', function() {
+      
+      $('.testbtn').hide();
       $('#tabPlugins').hide();
       var i = 0;
       var pluginsCheck = [];
@@ -176,13 +187,13 @@ if ($servicePack != 'Community') {
     }
   </script>
 
-  <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
+  <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:50%;height:50%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
   <div class="col-md-12 text-center">
     <p class="text-center">
-    <h3 class="servicePack" id="servicePackh3">{{Vous êtes en}} <?= $servicePack ?></h3>
+        <h4 class="servicePack" id="servicePackh3">{{Vous êtes en}} <?= $servicePack ?></h4>
     </p>
     <p class="text-center">
-    <h4 class="textAtlas"></h4>
+       <h4 class="textAtlas" style="margin-top:35px;"></h4>
     </p>
 
     <table class="table table-hover" id="tabPlugins" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
@@ -200,12 +211,14 @@ if ($servicePack != 'Community') {
         }
         ?>
       </tbody>
-
-
     </table>
-    <div class="testbtn">
-      <a class='btn btn-success btn-md pull-right' id="btn-choicePlugin" style="margin-right:50px">{{Valider}}</a>
-    </div>
+ 
+     <div class="testbtn" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
+      <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-choicePlugin" style="margin-bottom:10px;">{{Valider}}</button>
+      <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-packModalIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}</button>
+      </div>
+          
+
 
     <div id="contenuTextSpan" class="progress">
       <div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>

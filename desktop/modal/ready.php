@@ -6,8 +6,8 @@ if (!isConnect()) {
 <div class="col-md-12 text-center">
 	<h2>{{Vous êtes prêt à commencer}}</h2>
 </div>
-<div class="col-xs-18 col-sm-12 col-md-6 col-md-offset-3">
-	<div class="thumbnail"><img src="plugins/jeeasy/core/img/check.jpg" alt="" class="img-fullsize" style="border-radius:5px 5px 0 0;"></div>
+<div class="col-xs-18 col-sm-12 col-md-6 col-md-offset-3" >
+	<div class="thumbnail" style="background: rgba(0,0,0,0);"><img src="plugins/jeeasy/core/img/greenthumb.png" alt="pouce de validation" class="img-fullsize" style="border-radius:5px 5px 0 0;width:35%;height:35%;background: rgba(0,0,0,0);"></div>
 </div>
 <div class="col-md-12 text-center">
 	<p>{{Vous pourrez trouver la documentation complète de Jeedom à cette adresse}} : <a href="https://www.jeedom.com/doc" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> {{Documentation}}</a></p>
