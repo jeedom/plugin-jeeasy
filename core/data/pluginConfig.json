@@ -10,11 +10,11 @@
                   "port" : "Odroid C2"
                },
               "luna": {
-                  "port" : "Odroid C2"
+                  "port" : "Jeedom Luna Zwave"
                }
             }
         } 
-    ,
+      ,
         "openzwave" :
           {
             "versions": {
@@ -23,9 +23,13 @@
                  },
                  "smart": {
                     "port" : "Odroid C2"
+                 },
+                 "luna": {
+                    "port" : "Jeedom Luna Zwave"
                  }
               }
-          } ,
+          } 
+       ,
         "zigbee":
         {
           "versions": {
@@ -33,6 +37,11 @@
                  "controller_1" : "ezsp",
                  "sub_controller_1" : "elelabs",
                  "port_1" : "/dev/ttyS2"
+               },
+               "luna" : {
+                 "controller_1" : "ezsp",
+                 "sub_controller_1" : "elelabs",
+                 "port_1" : "/dev/ttyUSB1"
                }
             }
         } ,
