@@ -35,6 +35,14 @@
         "Monitoring": "Monitoring",
         "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus": "Notre serveur vérifie certains critères vitaux de votre solution domotique et vous alerte en cas de souci. Même si celle-ci ne répond plus"
     },
+    "plugins\/jeeasy\/desktop\/modal\/boxName.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Nom actuel de votre box : ": "Nom actuel de votre box :",
+        " Nouveau nom de votre box (laissez vide pour laisser le nom par defaut) ": "Nouveau nom de votre box (laissez vide pour laisser le nom par defaut)",
+        "Valider": "Valider",
+        "Ignorer": "Ignorer",
+        "Nouveau nom de votre box : ": "Nouveau nom de votre box :"
+    },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
         "Choix des plugins à installer": "Choix des plugins à installer",
@@ -43,6 +51,7 @@
         "Vos plugins sont prêts": "Vos plugins sont prêts",
         "Vous êtes en": "Vous êtes en",
         "Valider": "Valider",
+        "Ignorer": "Ignorer",
         "Découvrez nos Services Packs": "Découvrez nos Services Packs",
         "Inclus avec": "Inclus avec",
         "Tous": "Tutti",
@@ -221,17 +230,14 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pluginsConfigs.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
-        "Configuration du contrôleur interne (GPIO)": "Configuration du contrôleur interne (GPIO)",
-        "Configuration du contrôleur USB": "Configuration du contrôleur USB",
-        "Aucun Plugin installé à paramétrer": "Aucun Plugin installé à paramétrer",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin",
         "Votre plugin à été configuré automatiquement": "Votre plugin à été configuré automatiquement",
+        "Aucun Plugin installé à paramétrer": "Aucun Plugin installé à paramétrer",
+        "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "Aucun Plugin installé à paramétrer, cliquez sur Suivant",
         "Configuration Auto des Plugins": "Configuration Auto des Plugins",
-        "Votre box est une": "Votre box est une",
-        "Choississez le mode de configuration du plugin": "Choississez le mode de configuration du plugin",
-        "Valider": "Valider",
-        "OU": "OU",
-        "Cliquez sur la flèche pour ignorer": "Cliquez sur la fleche pour Ignorer"
+        "Quel plugin souhaitez vous que Jeedom configure automatiquement le port ?": "Quel plugin souhaitez vous que Jeedom configure automatiquement le port ?",
+        "Valider la configuration": "Valider la configuration",
+        "Ignorer": "Ignorer"
     },
     "plugins\/jeeasy\/desktop\/modal\/welcome.php": {
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
@@ -342,18 +348,6 @@
     "plugins\/jeeasy\/desktop\/modal\/language.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Langage Systeme": "Langage Systeme",
-        "Français": "Français",
-        "English": "English",
-        "Deutsch": "Deutsch",
-        "Español": "Español",
-        "Italiano (nessun supporto)": "Italiano (nessun supporto)",
-        "Português (sem apoio)": "Português (sem apoio)",
-        "Русский язык (без поддержки)": "Русский язык (без поддержки)",
-        "日本語（非対応)": "日本語（非対応)",
-        "Bahasa Indonesia (tidak mendukung)": "Bahasa Indonesia (tidak mendukung)",
-        "Türkçe (destek yok)": "Türkçe (destek yok)",
-        "Choisir la langue": "Choisir la langue",
-        "OU": "OU",
         "Cliquez sur la flèche pour ignorer": "Cliquez sur la fleche pour Ignorer",
         "Bienvenue": "Bienvenue"
     },
