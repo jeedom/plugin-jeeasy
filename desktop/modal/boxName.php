@@ -22,6 +22,7 @@ if (strpos($hostname, 'Luna') !== false) {
 
 if(config::byKey('name') == ''){
   $nameBox = 'Jeedom '.ucfirst($productName);
+  config::save('name', $nameBox);
 }else{
   $nameBox = config::byKey('name');
   

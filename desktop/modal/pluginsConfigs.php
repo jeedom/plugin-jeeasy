@@ -69,12 +69,6 @@ if ($listPlugins) {
   
     if($countProtocols > 1){
       ?> <script>
-             $('#pluginsConfigSelect').append($('<option>', {
-                            nameplugin: '',
-                            typebox: '',
-                            config: '',
-                            text: 'Ignorer la configuration'
-                }));
              <?php foreach($arrayConfigChoice as $plugin){ 
                 $nameplug = $plugin->getId();              
                ?>
@@ -193,7 +187,7 @@ if ($listPlugins) {
         </tbody>
     </table>
   
-    <div class="testbtnb" style="display:flex; flex-direction:column;justify-content:center; align-items:center;">
+    <div class="testbtnb" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
         <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-validateConfig" style="margin-bottom:10px;">{{Valider la configuration}}</button>
         <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-pluginConfigIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}
     </div>
