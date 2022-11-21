@@ -3,7 +3,7 @@ if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-jeeasy::clearBox();
+jeeasy::initStartBox();
 
 ?>
 

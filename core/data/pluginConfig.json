@@ -9,7 +9,7 @@
                "smart": {
                   "port" : "Odroid C2"
                },
-              "luna": {
+              "Luna": {
                   "port" : "Jeedom Luna Zwave"
                }
             }
@@ -24,7 +24,7 @@
                  "smart": {
                     "port" : "Odroid C2"
                  },
-                 "luna": {
+                 "Luna": {
                     "port" : "Jeedom Luna Zwave"
                  }
               }
@@ -38,7 +38,7 @@
                  "sub_controller_1" : "elelabs",
                  "port_1" : "/dev/ttyS2"
                },
-               "luna" : {
+               "Luna" : {
                  "controller_1" : "ezsp",
                  "sub_controller_1" : "elelabs",
                  "port_1" : "/dev/ttyUSB1"
