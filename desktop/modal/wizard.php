@@ -289,10 +289,10 @@ $('.saveDiv').click( function() {
             },
             success: function () {
                 $('#div_alertFirstUse').showAlert({message: '{{Sauvegarde réussie}}', level: 'success'});
+		$('#md_modal').dialog('close');
+		location.reload(true);
             }
         });
-  $('#md_modal').dialog('close');
-	location.reload(true);
 });
 
 
