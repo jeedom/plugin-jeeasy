@@ -147,7 +147,7 @@ if ($servicePack != 'Community') {
         },
         success: function(data) {
           progress(100);
-          $('#servicePackh3').text('{{Vos plugins sont prêts}}');
+          $('#servicePackh3').html('{{Vos plugins sont prêts.<br> Des dépendances peuvent être en cours d\'installation, vérifiez l\'onglet configuration du plugin.}}');  
           $('#btn-choicePlugin').hide();
         }
       });
