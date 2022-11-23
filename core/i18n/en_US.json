@@ -48,7 +48,7 @@
         "Choix des plugins à installer": "Choice of plugins to install",
         "Installation des plugins en cours": "Installing plugins in progress",
         "Aucun plugin à installer, cliquez sur suivant": "No plugin to install, click next",
-        "Vos plugins sont prêts": "Your plugins are ready",
+        "Vos plugins sont prêts.<br> Des dépendances peuvent être en cours d\\'installation, vérifiez l\\'onglet configuration du plugin.": "Your plugins are ready.<br> Dependencies may be being installed, check the plugin configuration tab",
         "Vous êtes en": "You are in",
         "Valider": "To validate",
         "Ignorer": "Ignore",
