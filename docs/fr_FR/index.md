@@ -1,12 +1,19 @@
 # Plugin Jeeasy
 
+
+>**IMPORTANT**
+>
+> Jeeasy se lance AUTOMATIQUEMENT au démarrage de votre box SI vous possedez une box officielle Jeedom (Smart, Atlas, Luna, Boxs Pros).
+
 >**IMPORTANT**
 >
 > Il est important de renseigner son compte Market et de suivre le déroulé de Jeeasy car c'est lui qui procedera a l'installation de plugin nécessaires ainsi que la MAJ de votre box.
 
 
 
-Jeeasy se lance automatiquement au premier démarrage de votre Jeedom; il est important d'aller au bout du processus, qui se fait en 2 phases :
+
+A son premier lancement, il est important d'aller au bout du processus de Jeeasy, qui se fait en 2 phases :
+
 
 - Premiere phase : Il vous demande de renseigner votre compte market. Cela permettra de mettre à jour la box ainsi que le plugin Jeeasy, pour lancer sa deuxieme phase.
 
