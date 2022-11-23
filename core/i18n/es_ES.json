@@ -48,7 +48,7 @@
         "Choix des plugins à installer": "Elección de complementos para instalar",
         "Installation des plugins en cours": "Instalación de complementos en curso",
         "Aucun plugin à installer, cliquez sur suivant": "No hay complemento para instalar, haga clic en siguiente",
-        "Vos plugins sont prêts": "Tus complementos están listos",
+        "Vos plugins sont prêts.<br> Des dépendances peuvent être en cours d\\'installation, vérifiez l\\'onglet configuration du plugin.": "Sus complementos están listos.<br> Es posible que se estén instalando dependencias, consulte la pestaña de configuración del complemento",
         "Vous êtes en": "Estás dentro",
         "Valider": "Validar",
         "Ignorer": "Ignorar",
