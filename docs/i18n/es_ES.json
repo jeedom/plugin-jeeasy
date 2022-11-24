@@ -19,13 +19,13 @@
         "Ajout Recovery Atlas": "Agregar Atlas de recuperación",
         "16\/09\/2021": "16\/09\/2021",
         "Integration de l'installation automatique du plugin Atlas": "Integración de la instalación automática del complemento Atlas",
-        " IMPORTANT.": " IMPORTANTE.",
-        " IMPORTANT?": " IMPORTANTE?",
-        "IMPORTANT ": "IMPORTANTE ",
-        " IMPORTANT]": " IMPORTANTE]",
-        "[IMPORTANT]": "[IMPORTANTE]",
-        "*IMPORTANT*": "*IMPORTANTE*",
-        " IMPORTANT*": " IMPORTANTE*"
+        " IMPORTANT.": " Importante.",
+        " IMPORTANT?": " Importante?",
+        "IMPORTANT ": "Importante ",
+        " IMPORTANT]": " Importante]",
+        "[IMPORTANT]": "[Importante]",
+        "*IMPORTANT*": "*Importante*",
+        " IMPORTANT*": " Importante*"
     },
     "index.md": {
         "Plugin Jeeasy": "Complemento Jeeasy",
