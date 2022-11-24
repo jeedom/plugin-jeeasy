@@ -149,6 +149,20 @@ if ($servicePack != 'Community') {
           progress(100);
           $('#servicePackh3').html('{{Vos plugins sont prêts.<br> Des dépendances peuvent être en cours d\'installation, vérifiez l\'onglet configuration du plugin.}}');  
           $('#btn-choicePlugin').hide();
+          jeedom.cleanFileSystemRight({
+                  error: function(error) {
+                    $.fn.showAlert({
+                      message: error.message,
+                      level: 'danger'
+                    })
+                  },
+                  success: function(data) {
+                    $.fn.showAlert({
+                      message: '{{Rétablissement des droits d\'accès effectué avec succès}}',
+                      level: 'success'
+                    })
+                  }
+            })
         }
       });
     }

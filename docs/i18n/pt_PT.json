@@ -2,6 +2,11 @@
     "changelog.md": {
         "Changelog Jeeasy": "Changelog jeeasy",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto",
+        "20\/11\/2022": "20\/11\/2022",
+        "Ajout Prise en charge Luna": "Adicionado suporte Luna",
+        "Nouvelle Modale Renommer Box": "Nova caixa de renomeação modal",
+        "Activation DNS automatique": "Ativação automática de DNS",
+        "Nouvelle UI": "Nova IU",
         "26\/04\/2022": "26\/04\/2022",
         "Correction de bugs": "Correção de bug",
         "Amélioration des traductions": "Traduções aprimoradas",
@@ -24,8 +29,23 @@
     },
     "index.md": {
         "Plugin Jeeasy": "Jeeasy plugin",
-        "Développement en cours": "Desenvolvimento contínuo",
-        "Jeeasy est pour le moment uniquement dédié au Wizard de premier lancement de Jeedom": "Jeeasy está atualmente apenas dedicado ao Jeedom First Launch Wizard",
-        "Bientôt il y aura l'accompagnement à la création d'objets (pièces), installation de plugins et bien plus encore": "Em breve haverá suporte para criação de objetos (partes), instalação de plugins e muito mais"
+        "Jeeasy se lance AUTOMATIQUEMENT au démarrage de votre box SI vous possedez une box officielle Jeedom (Smart, Atlas, Luna, Boxs Pros": "O Jeeasy inicia AUTOMATICAMENTE quando sua caixa inicia SE você tiver uma caixa Jeedom oficial (Smart, Atlas, Luna, Boxs Pros",
+        "Il est important de renseigner son compte Market et de suivre le déroulé de Jeeasy car c'est lui qui procedera a l'installation de plugin nécessaires ainsi que la MAJ de votre box": "É importante preencher a sua conta Market e acompanhar o andamento do Jeeasy pois é ele quem irá proceder com a instalação dos plugins necessários bem como a atualização do seu box",
+        "A son premier lancement, il est important d'aller au bout du processus de Jeeasy, qui se fait en 2 phases": "Em seu primeiro lançamento, é importante concluir o processo Jeeasy, que é feito em 2 fases",
+        "Premiere phase": "Primeira fase",
+        "Il vous demande de renseigner votre compte market": "Ele pede para você preencher sua conta de mercado",
+        "Cela permettra de mettre à jour la box ainsi que le plugin Jeeasy, pour lancer sa deuxieme phase": "Isso atualizará a caixa, bem como o plugin Jeeasy, para lançar sua segunda fase",
+        "Deuxième phase": "Segunda fase",
+        "La personnalisation et le paramètrage de votre box": "Personalização e configuração da sua caixa",
+        "Jeeasy vous permet de pre-installer des plugins, renommer votre box, changer de langue.. Il installera également le plugin Atlas ou Luna suivant votre hardware": "O Jeeasy permite que você pré-instale plugins, renomeie sua caixa, altere o idioma... Ele também instalará o plugin Atlas ou Luna, dependendo do seu hardware",
+        "Vous pourrez ensuite vous rendre dans le plugin, via Plugins\/Programmation\/Jeeasy, et cliquer sur Détecter mes Equipements": "Você pode então ir ao plugin, via Plugins\/Programming\/Jeeasy, e clicar em Detect my Equipment",
+        "Cette fonctionnalité permettra de scanner votre réseau à la recherche de vos équipements, et ainsi vous proposer des plugins compatibles, qui vous permettront de contrôler et gérer votre équipements": "Esta funcionalidade irá escanear a sua rede em busca do seu equipamento, e assim oferecer-lhe plugins compatíveis, que lhe permitirão controlar e gerir o seu equipamento",
+        " IMPORTANT.": " IMPORTANTE.",
+        " IMPORTANT?": " IMPORTANTE?",
+        "IMPORTANT ": "IMPORTANTE ",
+        " IMPORTANT]": " IMPORTANTE]",
+        "[IMPORTANT]": "[IMPORTANTE]",
+        "*IMPORTANT*": "*IMPORTANTE*",
+        " IMPORTANT*": " IMPORTANTE*"
     }
 }
