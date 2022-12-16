@@ -365,10 +365,13 @@ class jeeasy extends eqLogic {
   public static function initStartBox(){
 
 	log::removeAll();
-	config::save('api', config::genKey());
-    config::save('apimarket', config::genKey());
-    config::save('apipro', config::genKey());
-    config::save('apitts', config::genKey());
+	if(config::byKey('jeedom::firstUse') == 1){
+		config::save('api', config::genKey());
+		config::save('apimarket', config::genKey());
+		config::save('apipro', config::genKey());
+		config::save('apitts', config::genKey());
+	}
+
 	sleep(1);
     $listMessage = message::all();
     foreach ($listMessage as $message){
