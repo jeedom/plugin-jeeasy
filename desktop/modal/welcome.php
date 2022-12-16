@@ -3,10 +3,7 @@ if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-if(jeedom::getHardwareName() == 'Luna'){
-   jeeasy::initStartBox();
-}
-
+jeeasy::initStartBox();
 
 ?>
 
