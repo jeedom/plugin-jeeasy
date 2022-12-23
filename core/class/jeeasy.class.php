@@ -385,7 +385,7 @@ class jeeasy extends eqLogic {
 			$result = $jsonrpc->getResult();
 			$servicePack = $result['licenceName'];
 		}
-		if($servicePack != community){
+		if($servicePack != 'community'){
 			if( strpos(network::getNetworkAccess('external'), 'https') === false){
 				config::save('market::allowDNS',1);
 				network::dns_start();
