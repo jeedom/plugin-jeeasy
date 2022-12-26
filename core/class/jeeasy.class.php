@@ -364,6 +364,7 @@ class jeeasy extends eqLogic {
   
 	public static function initStartBox(){
 		log::removeAll();
+		log::add('jeeasy', 'debug', 'initStartBox');
 		if(config::byKey('jeedom::firstUse') == 1){
 			config::save('api', config::genKey());
 			config::save('apimarket', config::genKey());
@@ -373,10 +374,15 @@ class jeeasy extends eqLogic {
 		message::removeAll();
 		repo_market::test();
 		try{
+          	jeeasy::checkInstallPlugin('openvpn');
+          	config::save('market::allowDNS',1);
 			network::dns_start();
 		}catch (Exception $e) {
+          log::add('jeeasy', 'debug', 'erreur DNS > '.$e);
 		
 		}
+		sleep(2);
+		repo_market::test();
 	}
 
 	public static function checkDeamonPlugin($_plugin) {
