@@ -48,7 +48,7 @@
         "Choix des plugins à installer": "Escolha de plugins para instalar",
         "Installation des plugins en cours": "Instalando plugins em andamento",
         "Aucun plugin à installer, cliquez sur suivant": "Nenhum plugin para instalar, clique em próximo",
-        "Vos plugins sont prêts.<br> Des dépendances peuvent être en cours d\\'installation, vérifiez l\\'onglet configuration du plugin.": "Seus plug-ins estão prontos.<br> Dependências podem estar sendo instaladas, verifique a aba de configuração do plugin",
+        "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Seus plug-ins estão prontos.<br> As dependências ainda estão sendo instaladas, verifique a aba de configuração dos seus plugins",
         "Vous êtes en": "Estás dentro",
         "Valider": "Para validar",
         "Ignorer": "Ignorar",
@@ -183,7 +183,7 @@
         "Connecter Jeedom au Market": "Conecte a Jeedom ao mercado",
         "J'ai perdu mon mot de passe": "Eu perdi minha senha",
         "Initialisation de": "Inicialização de",
-        "Veuillez patienter quelques instants, cela peut prendre 10 minutes au maximum": "Aguarde um momento, pode levar até 10 minutos"
+        "Veuillez patienter quelques instants, cela peut prendre entre 10 et 20 minutes selon votre connexion internet": "Aguarde alguns instantes, pode levar de 10 a 20 minutos dependendo da sua conexão com a internet"
     },
     "plugins\/jeeasy\/desktop\/modal\/wizard.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
