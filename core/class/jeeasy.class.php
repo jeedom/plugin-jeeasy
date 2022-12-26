@@ -362,40 +362,22 @@ class jeeasy extends eqLogic {
 		}
 	}
   
-  public static function initStartBox(){
-
-	log::removeAll();
-	if(config::byKey('jeedom::firstUse') == 1){
-		config::save('api', config::genKey());
-		config::save('apimarket', config::genKey());
-		config::save('apipro', config::genKey());
-		config::save('apitts', config::genKey());
-	}
-
-	sleep(1);
-    $listMessage = message::all();
-    foreach ($listMessage as $message){
-      $message->remove();
-    }
-    
-	if(jeedom::getHardwareName() == 'Luna'){
-		$servicePack = '';
-		$jsonrpc = repo_market::getJsonRpc();
-		if ($jsonrpc->sendRequest('servicepack::info')) {
-			$result = $jsonrpc->getResult();
-			$servicePack = $result['licenceName'];
+	public static function initStartBox(){
+		log::removeAll();
+		if(config::byKey('jeedom::firstUse') == 1){
+			config::save('api', config::genKey());
+			config::save('apimarket', config::genKey());
+			config::save('apipro', config::genKey());
+			config::save('apitts', config::genKey());
 		}
-		if($servicePack != 'community'){
-			if( strpos(network::getNetworkAccess('external'), 'https') === false){
-				config::save('market::allowDNS',1);
-				network::dns_start();
-				sleep(2);
-				repo_market::test();
-			}
-		  }
-	 }
-
-  }
+		message::removeAll();
+		repo_market::test();
+		try{
+			network::dns_start();
+		}catch (Exception $e) {
+		
+		}
+	}
 
 	public static function checkDeamonPlugin($_plugin) {
 		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
