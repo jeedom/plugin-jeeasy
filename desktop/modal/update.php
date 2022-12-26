@@ -78,7 +78,7 @@ if (!$caught) {
 			</div>
 			<div class="col-md-8 col-md-offset-2 text-center"><img class="img-responsive center-block" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
 			<div class="col-md-12 text-center">
-				<p class="text-center"><br />{{Veuillez patienter quelques instants, cela peut prendre 10 minutes au maximum}}</p>
+				<p class="text-center"><br />{{Veuillez patienter quelques instants, cela peut prendre entre 10 et 20 minutes selon votre connexion internet}}</p>
 
 				<div id="contenuTextSpan" class="progress">
 					<div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>

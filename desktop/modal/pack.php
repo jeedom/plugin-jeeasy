@@ -28,6 +28,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
   $arrPlugins = array();
 
   if (is_array($mainPlugins) && !empty($mainPlugins) && $servicePack != 'Community') {
+    jeeasy::dns_Go();
     foreach ($mainPlugins as $plugin) {
       $arrPlugin = array('id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
       $arrId = array();
@@ -48,6 +49,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 
   if ($pluginsPack != 'official') {
     if (is_array($pluginsPack) && !empty($pluginsPack) && $servicePack != 'Community') {
+      jeeasy::dns_Go();
       foreach ($pluginsPack as $plugin) {
         $arrPlugin = array('id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
         $arrId = array();
@@ -147,7 +149,7 @@ if ($servicePack != 'Community') {
         },
         success: function(data) {
           progress(100);
-          $('#servicePackh3').html('{{Vos plugins sont prêts.<br> Des dépendances peuvent être en cours d\'installation, vérifiez l\'onglet configuration du plugin.}}');  
+          $('#servicePackh3').html('{{Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\'installation, vérifiez l\'onglet configuration de vos plugins.}}');  
           $('#btn-choicePlugin').hide();
         }
       });

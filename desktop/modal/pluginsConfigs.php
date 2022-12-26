@@ -19,7 +19,6 @@ $arrayConfigChoice = [];
 $i = 0;
 $countProtocols = 0;   
 
-
 ?>
 <script>
   $('#bt_next').hide();
