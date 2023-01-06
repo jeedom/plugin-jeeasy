@@ -18,6 +18,6 @@ jeeasy::initStartBox();
 	<p class="text-center"><br />{{Cliquez sur la flèche pour commencer la configuration.}}</p>
 </div>
 <div class="col-md-12 text-center">
-	<h4 style="color:red;">IL EST IMPORTANT DE TERMINER CETTE CONFIGURATION : plusieurs plugins essentiels seront installés durant le processus.</h4>
-	<h4>Ne fermez pas cette fenetre jusqu'a son terme.</h4>
+	<h4 style="color:red;">{{IL EST IMPORTANT DE TERMINER CETTE CONFIGURATION : plusieurs plugins essentiels seront installés durant le processus.}}</h4>
+	<h4>{{Ne fermez pas cette fenetre jusqu'a son terme.}}</h4>
 </div>
