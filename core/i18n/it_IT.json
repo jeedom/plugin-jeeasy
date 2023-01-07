@@ -244,7 +244,9 @@
         "Guide de démarrage": "Guide de démarrage",
         "Ce guide va vous aider à configurer votre": "Ce guide va vous aider à configurer votre",
         "en quelques étapes.": "en quelques étapes",
-        "Cliquez sur la flèche pour commencer la configuration.": "Cliquez sur la flêche pour commencer la configuration"
+        "Cliquez sur la flèche pour commencer la configuration.": "Cliquez sur la flêche pour commencer la configuration",
+        "IL EST IMPORTANT DE TERMINER CETTE CONFIGURATION : plusieurs plugins essentiels seront installés durant le processus.": "IL EST IMPORTANT DE TERMINER CETTE CONFIGURATION : plusieurs plugins essentiels seront installés durant le processus",
+        "Ne fermez pas cette fenetre jusqu'a son terme.": "Ne fermez pas cette fenetre jusqu'a son terme"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configure.php": {
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
