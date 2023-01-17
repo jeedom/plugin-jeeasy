@@ -378,7 +378,7 @@ class jeeasy extends eqLogic {
 	public static function dns_Go() {
 		repo_market::test();
 		try{
-          	jeeasy::checkInstallPlugin('openvpn');
+          	jeeasy::checkPlugin('openvpn');
           	config::save('market::allowDNS',1);
 			network::dns_start();
 		}catch (Exception $e) {
