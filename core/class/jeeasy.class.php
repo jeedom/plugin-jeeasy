@@ -288,7 +288,7 @@ class jeeasy extends eqLogic {
 		if (!is_object($plugin)) {
 			$plugin = $_plugin;
 		}
-		self::checkInstallPlugin($_plugin);
+		self::checkInstallPlugin($plugin);
 		self::checkDependancyPlugin($plugin);
 		self::checkDeamonPlugin($plugin);
 	}
