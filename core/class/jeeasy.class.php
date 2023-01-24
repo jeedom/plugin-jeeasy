@@ -284,7 +284,12 @@ class jeeasy extends eqLogic {
 	}
 
 	public static function checkPlugin($_plugin) {
-		$plugin = plugin::byId($_plugin);
+		if($_plugin == 'openvpn'){
+		 $plugin = $_plugin;
+		}else{
+		  $plugin = plugin::byId($_plugin);
+		}
+		
 		if (!is_object($plugin)) {
 			$plugin = $_plugin;
 		}
@@ -379,9 +384,9 @@ class jeeasy extends eqLogic {
 		repo_market::test();
 		try{
           	jeeasy::checkPlugin('openvpn');
-		sleep(10);
+		    sleep(10);
           	config::save('market::allowDNS',1);
-		network::dns_start();
+		    network::dns_start();
 		}catch (Exception $e) {
           log::add('jeeasy', 'debug', 'erreur DNS > '.$e);
 		
