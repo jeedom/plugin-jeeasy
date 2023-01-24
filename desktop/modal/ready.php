@@ -15,7 +15,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 if($servicePack != community && network::getNetworkAccess('external') != '' && network::getNetworkAccess('external') != 'http:' && jeedom::getHardwareName() == 'Luna'){
   ?>
     <script>
-       $('#externalDiv').show();
+       $('#externalDiv').css('display','flex');
     </script>
         
   <?php 
@@ -35,9 +35,12 @@ if($servicePack != community && network::getNetworkAccess('external') != '' && n
                             <label style="color:#93ca02">Adresse locale de votre box : </label>
                              <div id="divInternalIp" style="font-weight:bold;margin-left:1%;"><?= network::getNetworkAccess('internal'); ?> </div>
                        </div>
-                        <div class="externalDiv" id="externalDiv" style="display:flex;flex-direction:row;margin-left:5%;" hidden>
+                        <div class="externalDiv" id="externalDiv" style="display:none;flex-direction:row;margin-left:5%;">
                               <label style="color:#93ca02">Adresse externe de votre box : </label> 
-                              <div id ="divExternalIp" style="font-weight:bold;margin-left:1%;"> <?= network::getNetworkAccess('external'); ?> </div>
+                              <div id ="divExternalIp" style="font-weight:bold;margin-left:1%;"> <?= 
+                                    network::getNetworkAccess('external') == 'http:' ? 'OpenVpn en cours d\installation, merci de redemarrer le service DNS après son installation' : network::getNetworkAccess('external'); 
+                                    ?> 
+                               </div>
                        </div>
                  </div>            
                   <div class="divMobileBox" hidden>
