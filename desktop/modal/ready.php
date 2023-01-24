@@ -12,7 +12,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 }
 
 
-if($servicePack != community && network::getNetworkAccess('external') != '' && network::getNetworkAccess('external') != 'http:' && jeedom::getHardwareName() == 'Luna'){
+if($servicePack != community){
   ?>
     <script>
        $('#externalDiv').css('display','flex');
