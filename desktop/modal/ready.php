@@ -38,7 +38,7 @@ if($servicePack != community){
                         <div class="externalDiv" id="externalDiv" style="display:none;flex-direction:row;margin-left:5%;">
                               <label style="color:#93ca02">Adresse externe de votre box : </label> 
                               <div id ="divExternalIp" style="font-weight:bold;margin-left:1%;"> <?= 
-                                    network::getNetworkAccess('external') == 'http:' ? 'OpenVpn en cours d\installation, merci de redemarrer le service DNS après son installation' : network::getNetworkAccess('external'); 
+                                    network::getNetworkAccess('external') == 'http:' ? 'OpenVpn en cours d installation, merci de redemarrer le service DNS après son installation' : network::getNetworkAccess('external'); 
                                     ?> 
                                </div>
                        </div>
