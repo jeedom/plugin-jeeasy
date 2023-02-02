@@ -4,7 +4,7 @@ if (!isConnect()) {
 }
 
 if( file_exists( config::byKey('path_wizard') ) )
-  $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
+    $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
 else
   $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.json'), true );
 if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
@@ -107,7 +107,7 @@ if(config::byKey('updateWizard','jeeasy','none') !== 'okay'){
 #wizardModal{
 	background-color: #FFFAF0 !important;
 }
-	
+
 ##bodymodalupdate{
   background-color: #FFFAF0 !important;
   width: 75%;
@@ -260,7 +260,7 @@ $( document ).ready(function() {
           if(ArrSelected.length != 0){
             sendObjects(ArrSelected);
           }
-			
+
 		}
     $( '.current' ).removeClass('current');
     var next = $(".multisteps-form__progress").find("[data-stepwizard='" + (current + 1) + "']").attr('id');
