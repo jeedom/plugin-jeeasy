@@ -392,6 +392,12 @@
         "Documentation": "Documentación",
         "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant": "Te ofrecemos una fácil conexión para aprovechar los asistentes de voz: Amazon Alexa y Google Assistant"
     },
+    "plugins\/jeeasy\/desktop\/modal\/discoveryInProcess.php": {
+        "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "NOM FABRICANT": "NOMBRE DEL FABRICANTE",
+        "ADRESSE IP": "DIRECCIÓN IP",
+        "ADRESSE MAC": "DIRECCIÓN MAC"
+    },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "NOM FABRICANT": "NOMBRE DEL FABRICANTE",
