@@ -383,7 +383,7 @@ class jeeasy extends eqLogic {
 	public static function dns_Go() {
 		repo_market::test();
 		try{
-          	jeeasy::checkPlugin('openvpn');
+        jeeasy::checkPlugin('openvpn');
 		    sleep(10);
           	config::save('market::allowDNS',1);
 		    network::dns_start();
