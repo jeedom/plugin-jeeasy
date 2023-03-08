@@ -350,6 +350,12 @@ function sendObjects(objects){
 </script>
 
 <?php
-include_file('3rdparty', 'animate/animate', 'css');
-include_file('3rdparty', 'animate/animate', 'js');
+
+if(jeedom::version() >= '4.4.0'){
+  include_file('3rdparty', 'animate/animate', 'css');
+}else{
+  include_file('3rdparty', 'animate/animate', 'css');
+  include_file('3rdparty', 'animate/animate', 'js');
+}
+
 ?>
