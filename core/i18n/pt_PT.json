@@ -91,6 +91,11 @@
         "Tickets sur plugin officiel": "Bilhetes no plugin oficial",
         "Uniquement sur les plugins payants": "Somente em plugins pagos"
     },
+    "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "O plug-in OpenVpn está sendo instalado... Por favor, aguarde",
+        "Le plugin OpenVpn a bien été installé et configuré. Cliquez sur suivant": "O plugin OpenVpn foi instalado e configurado com sucesso. clique em próximo"
+    },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "A rede Z-Wave está parada no servidor",
         "Le réseau Z-Wave est en erreur sur le serveur": "A rede Z-Wave está com erro no servidor",
