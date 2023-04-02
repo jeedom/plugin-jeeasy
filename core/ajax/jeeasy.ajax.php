@@ -48,11 +48,11 @@ try {
 
 
 
-    if (init('action') == 'changeBoxName'){
-        if(init('choice') != ''){
-          $sanitizeString = htmlspecialchars(init('choice'), ENT_NOQUOTES, 'UTF-8');
-          config::save('name', $sanitizeString);
-        }
+	if (init('action') == 'changeBoxName') {
+		if (init('choice') != '') {
+			$sanitizeString = htmlspecialchars(init('choice'), ENT_NOQUOTES, 'UTF-8');
+			config::save('name', $sanitizeString);
+		}
 		ajax::success();
 	}
 
@@ -89,5 +89,9 @@ try {
 	throw new Exception(__('Aucune méthode correspondante à', __FILE__) . ' : ' . init('action'));
 	/*     * *********Catch exeption*************** */
 } catch (Exception $e) {
-	ajax::error(displayExeption($e), $e->getCode());
+	if (version_compare(jeedom::version(), '4.4', '>=')) {
+		ajax::error(displayException($e), $e->getCode());
+	} else {
+		ajax::error(displayExeption($e), $e->getCode());
+	}
 }
