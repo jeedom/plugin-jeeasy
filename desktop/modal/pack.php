@@ -28,7 +28,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
   $arrPlugins = array();
 
   if (is_array($mainPlugins) && !empty($mainPlugins) && $servicePack != 'Community') {
-    jeeasy::dns_Go();
+    //jeeasy::dns_Go();
     foreach ($mainPlugins as $plugin) {
       $arrPlugin = array('id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
       $arrId = array();
@@ -49,7 +49,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 
   if ($pluginsPack != 'official') {
     if (is_array($pluginsPack) && !empty($pluginsPack) && $servicePack != 'Community') {
-      jeeasy::dns_Go();
+    //  jeeasy::dns_Go();
       foreach ($pluginsPack as $plugin) {
         $arrPlugin = array('id' => array(), 'name' => array(), 'logicalId' => array(), 'img' => array());
         $arrId = array();
@@ -80,14 +80,14 @@ if ($servicePack != 'Community') {
     $('#bt_next').hide();
     $('#bt_prev').show();
     $('.textAtlas').text('{{Choix des plugins à installer}} : ');
-  
+
     $('#btn-packModalIgnore').click( function() {
       $('#bt_next').trigger('click');
       $('#bt_next').show();
   });
 
     $('#btn-choicePlugin').on('click', function() {
-      
+
       $('.testbtn').hide();
       $('#tabPlugins').hide();
       var i = 0;
@@ -149,7 +149,7 @@ if ($servicePack != 'Community') {
         },
         success: function(data) {
           progress(100);
-          $('#servicePackh3').html('{{Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\'installation, vérifiez l\'onglet configuration de vos plugins.}}');  
+          $('#servicePackh3').html('{{Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\'installation, vérifiez l\'onglet configuration de vos plugins.}}');
           $('#btn-choicePlugin').hide();
         }
       });
@@ -214,12 +214,12 @@ if ($servicePack != 'Community') {
         ?>
       </tbody>
     </table>
- 
+
      <div class="testbtn" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
       <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-choicePlugin" style="margin-bottom:10px;">{{Valider}}</button>
       <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-packModalIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}</button>
       </div>
-          
+
 
 
     <div id="contenuTextSpan" class="progress">

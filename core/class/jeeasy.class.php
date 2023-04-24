@@ -30,6 +30,7 @@ class jeeasy extends eqLogic {
 		}
 		$ip = explode('.', $gw);
 		$results = explode("\n", shell_exec('sudo nmap -sn ' . $ip[0] . '.' . $ip[1] . '.' . $ip[2] . '.* | grep -E "MAC Address|Nmap scan report"'));
+
 		$return = array();
 		$arrayFinal = array();
 		$previous = null;
@@ -44,13 +45,12 @@ class jeeasy extends eqLogic {
 				continue;
 			}
 			if (strpos($line, 'MAC Address') !== false) {
-
+				$name = substr($line, ($p = strpos($line, '(')+1), strrpos($line, ')')-$p);
 				preg_match('/MAC Address: (.*?) \((.*?)\)/', $line, $matches);
 				$return[$matches[1]] = array('name' => $matches[2], 'ip' => $previous);
-				$name = $matches[2];
+			//	$name = $matches[2];
 				$mac = $matches[1];
 				$ip = $previous;
-
 				$arrayTemp = array('mac' => $mac, 'ip' => $ip);
 
 
@@ -289,7 +289,7 @@ class jeeasy extends eqLogic {
 		}else{
 		  $plugin = plugin::byId($_plugin);
 		}
-		
+
 		if (!is_object($plugin)) {
 			$plugin = $_plugin;
 		}
@@ -366,7 +366,7 @@ class jeeasy extends eqLogic {
 			return 'usb';
 		}
 	}
-  
+
 	public static function initStartBox(){
 		log::removeAll();
 		log::add('jeeasy', 'debug', 'initStartBox');
@@ -383,13 +383,13 @@ class jeeasy extends eqLogic {
 	public static function dns_Go() {
 		repo_market::test();
 		try{
-          	jeeasy::checkPlugin('openvpn');
+        jeeasy::checkPlugin('openvpn');
 		    sleep(10);
           	config::save('market::allowDNS',1);
 		    network::dns_start();
 		}catch (Exception $e) {
           log::add('jeeasy', 'debug', 'erreur DNS > '.$e);
-		
+
 		}
 		sleep(2);
 		repo_market::test();

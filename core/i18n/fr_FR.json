@@ -91,6 +91,11 @@
         "Tickets sur plugin officiel": "Tickets sur plugin officiel",
         "Uniquement sur les plugins payants": "Uniquement sur les plugins payants"
     },
+    "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez",
+        "Le plugin OpenVpn a bien été installé et configuré. Cliquez sur suivant": "Le plugin OpenVpn a bien été installé et configuré. Cliquez sur suivant"
+    },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "Le réseau Z-Wave est arrêté sur le serveur",
         "Le réseau Z-Wave est en erreur sur le serveur": "Le réseau Z-Wave est en erreur sur le serveur",
@@ -391,6 +396,12 @@
         "Assistants vocaux": "Assistants vocaux",
         "Documentation": "Documentation",
         "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant": "Nous vous proposons une connexion facile pour profiter des assistants vocaux : Amazon Alexa et Google Assistant"
+    },
+    "plugins\/jeeasy\/desktop\/modal\/discoveryInProcess.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "NOM FABRICANT": "NOM FABRICANT",
+        "ADRESSE IP": "ADRESSE IP",
+        "ADRESSE MAC": "ADRESSE MAC"
     },
     "plugins\/jeeasy\/desktop\/modal\/network.discover.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",

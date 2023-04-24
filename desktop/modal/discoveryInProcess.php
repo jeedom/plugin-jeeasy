@@ -17,6 +17,8 @@ $arraySecond = array();
 
 ?>
 
+
+<div style="margin-top:2%;width:100%;height:100%;">
 <table id="tableDiscover">
 
   <thead>
@@ -242,5 +244,6 @@ foreach ($arraySecond as $name => $value)
 ?>
   </tbody>
 </table>
+</div>
 
 <?php include_file('desktop', 'jeeasy', 'css', 'jeeasy');?>
