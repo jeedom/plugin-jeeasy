@@ -12,7 +12,7 @@ if (file_exists(config::byKey('path_pluginConfig'))) {
 $productName = jeedom::getHardwareName();
 $listPlugins = plugin::listPlugin();
 
-$arrayProtocols = ['eibd','zigbee','zwavejs','enocean'];
+$arrayProtocols = ['eibd','zigbee','zwavejs','z2m', 'enocean'];
 $arrayConfigChoice = [];
 
 
