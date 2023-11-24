@@ -12,7 +12,10 @@ if (file_exists(config::byKey('path_pluginConfig'))) {
 $productName = jeedom::getHardwareName();
 $listPlugins = plugin::listPlugin();
 
-$arrayProtocols = ['eibd','zigbee','zwavejs','z2m', 'enocean'];
+$jsonData = file_get_contents('plugins/jeeasy/core/data/pluginConfig.json');
+$jsonData = json_decode($jsonData, true);
+$arrayProtocols = array_keys($jsonData['pluginsInfos']);
+
 $arrayConfigChoice = [];
 
 
