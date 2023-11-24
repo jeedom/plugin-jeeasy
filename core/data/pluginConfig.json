@@ -41,7 +41,20 @@
                "Luna" : {
                  "controller_1" : "ezsp",
                  "sub_controller_1" : "elelabs",
-                 "port_1" : "/dev/ttyUSB1"
+                 "port_1" : "/dev/ttyLuna-Zigbee"
+               }
+            }
+        } ,
+        "z2m":
+        {
+          "versions": {
+               "Atlas": {
+                 "controller" : "ezsp",
+                 "port" : "/dev/ttyS2"
+               },
+               "Luna" : {
+                 "controller" : "ezsp",
+                 "port" : "/dev/ttyLuna-Zigbee"
                }
             }
         } ,
