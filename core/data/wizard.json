@@ -72,11 +72,20 @@
       "visible": 1
     }
   ,
+  "backupCloud" :
+  {
+    "title": "BackupCloud",
+    "wizard": "backupCloud",
+    "order": 8,
+    "custom": "",
+    "visible": 1
+  }
+,
   "assistants" :
     {
       "title": "Assistants Vocaux",
       "wizard": "assistants",
-      "order": 8,
+      "order": 9,
       "custom": "",
       "visible": 1
     }
@@ -85,7 +94,7 @@
    	{
 	  "title": "Options Atlas",
       "wizard": "atlas",
-      "order": 9,
+      "order": 10,
       "custom": "",
       "visible": 1
    	}
@@ -94,7 +103,7 @@
     {
       "title": "Prêt à démarrer",
       "wizard": "ready",
-      "order": 10,
+      "order": 11,
       "custom": "",
       "visible": 1
     }
