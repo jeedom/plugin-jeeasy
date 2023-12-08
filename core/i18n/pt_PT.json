@@ -27,9 +27,9 @@
     "plugins\/jeeasy\/desktop\/modal\/services.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
         "Les services complémentaires": "Serviços complementares",
-        "Les Sauvegardes Cloud": "Backups na nuvem",
+        "Les Sauvegardes Cloud": "Backups em nuvem",
         "Documentation": "Documentação",
-        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Sugerimos que você faça backup do seu Jeedom todas as noites de forma segura com suas próprias senhas. Fique tranquilo quanto ao menor problema com seu Jeedom. Além disso, economizamos sua largura de banda salvando apenas as alterações",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Sugerimos que você faça backup de seu Jeedom todas as noites com segurança com suas próprias senhas. Tenha certeza da menor preocupação em seu Jeedom. Além disso, economizamos sua largura de banda salvando apenas as alterações",
         "SMS et Appels": "SMS e chamadas",
         "Envoyez un message écrit ou vocal facilement depuis votre Jeedom sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)": "Envie uma mensagem escrita ou de voz facilmente do seu Jeedom sem ter uma chave 3G e sem assinatura. (requer conexão com a internet)",
         "Monitoring": "Monitoramento",

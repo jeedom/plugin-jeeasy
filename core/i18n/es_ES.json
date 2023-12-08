@@ -29,7 +29,7 @@
         "Les services complémentaires": "Servicios complementarios",
         "Les Sauvegardes Cloud": "Copias de seguridad en la nube",
         "Documentation": "Documentación",
-        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Le sugerimos que haga una copia de seguridad de su Jeedom todas las noches de forma segura con sus propias contraseñas. Tenga la seguridad del más mínimo problema con su Jeedom. Además, ahorramos su ancho de banda guardando únicamente los cambios",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Le sugerimos que haga una copia de seguridad de su Jeedom cada noche de forma segura con sus propias contraseñas. Tenga la seguridad de la menor preocupación sobre su Jeedom. Además ahorramos su ancho de banda guardando solo los cambios",
         "SMS et Appels": "SMS y Llamadas",
         "Envoyez un message écrit ou vocal facilement depuis votre Jeedom sans posséder de clé 3G et sans abonnement. (nécessite une connexion internet)": "Envíe un mensaje escrito o de voz fácilmente desde su Jeedom sin tener una clave 3G y sin suscripción. (requiere conexión a internet)",
         "Monitoring": "Vigilancia",
@@ -539,7 +539,7 @@
     },
     "plugins\/jeeasy\/desktop\/php\/configuration\/jeedom_configuration_sauvegarde.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Les Sauvegardes Cloud": "Copias de seguridad en la nube",
+        "Les Sauvegardes Cloud": "Las copias de seguridad en la nube",
         "Documentation": "Documentación",
         "Nom de votre Backup": "Nombre de su copia de seguridad",
         "A conserver précieusement c'est ici que vous le choisissez": "Mantenlo seguro, es aquí donde tu eliges",
