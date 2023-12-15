@@ -333,6 +333,12 @@
         "Cliquez sur sauvegarder pour valider votre configuration": "Cliquez sur sauvegarder pour valider votre configuration",
         "Synchronisation réussie": "Успешная синхронизация"
     },
+    "plugins\/jeeasy\/desktop\/modal\/backupCloud.php": {
+        "401 - Accès non autorisé": "401 - Accès non autorisé",
+        "Les Sauvegardes Cloud": "Les Sauvegardes Cloud",
+        "Documentation": "Documentation",
+        "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements.": "Nous vous proposons de sauvegarder votre Jeedom chaque nuit de façon sécurisée avec vos propres mots de passe. Soyez rassurés du moindre souci sur votre Jeedom. De plus nous économisons votre bande passante en sauvegardant uniquement les changements"
+    },
     "plugins\/jeeasy\/desktop\/modal\/freebox_os.php": {
         "401 - Accès non autorisé": "401 - Несанкционированный доступ",
         "Installation du Plugin Freebox en cours.": "Installation du Plugin Freebox en cours",

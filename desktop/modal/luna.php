@@ -91,7 +91,7 @@ if($path_wizard['trame']['luna']['custom']){
       </script>
 
 
-      <div class="col-md-12 text-center"><h2>{{Merci d'avoir choisi Jeedom Luna}}</h2></div>
+      <div class="col-md-12 text-center"><h2>{{Merci d'avoir choisi <?= config::byKey('product_name'); ?>}}</h2></div>';
       <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
       <div class="col-md-12 text-center"><p class="text-center"><h3 class="textAtlas"></h3></p>
       <div class="col-md-12 text-center">
