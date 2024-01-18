@@ -180,7 +180,13 @@ class jeeasy extends eqLogic {
 				'name'   => 'Travail',
 				'image'  => 'core/img/object_background/bureau/bureau_1.jpg',
 				'icon'   => '<i class="icon maison-man337"></i>'
-			),
+			),                
+			'basement' => array(
+				'name'   => 'Batiment',
+				'image'  => 'core/img/object_background/batiment/industrial_building.jpg',
+				'icon'   => '<i class="icon far fa-building"></i>'
+			)
+			
 		);
 
 		$_objects = json_decode($_objects, true);

@@ -2,7 +2,9 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
+
 ?>
+
 
 <!--<p>Nous vous proposons la configuration type suivante, vous pouvez déselectionner les pièces que vous ne souhaitez utiliser :
 </p>-->
@@ -11,19 +13,26 @@ if (!isConnect()) {
 		<div class="col-md-12 text-center">
 			<h2>{{Que souhaitez-vous configurer}} ?</h2>
 		</div>
-        <div class="testImg">
-              <div id="selectHouse" class="col-md-6 nopad text-center cursor selectType">
+        <div class="testImgE" style="display:flex;width:100%;height:100vh;">
+              <div id="selectHouse" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;">
                   <label class="image-checkbox testSize">
-                      <img class="img-responsive" src="/core/img/object_background/salon/salon_5.jpg" />
+                      <img class="img-responsive" style="height:40%;max-height:40%;" src="/core/img/object_background/salon/salon_5.jpg" />
                       <input type="checkbox" name="selectHouse[house]" value="1" />
                       {{Une maison}}
                   </label>
               </div>
-              <div id="selectApartment" class="col-md-6 nopad text-center cursor selectType ">
+              <div id="selectApartment" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;">
                   <label class="image-checkbox testSize">
-                      <img class="img-responsive" src="/core/img/object_background/cuisine/cuisine_1.jpg" />
+                      <img class="img-responsive" style="height:40%;max-height:40%;"  src="/core/img/object_background/cuisine/cuisine_1.jpg" />
                       <input type="checkbox" name="selectHouse[apartment]" value="1" />
                       {{Un appartement}}
+                  </label>
+              </div>
+							<div id="selectBasement" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;">
+                  <label class="image-checkbox testSize">
+                      <img class="img-responsive" style="height:40%;max-height:40%;"  src="/core/img/object_background/batiment/industrial_building.jpg" />
+                      <input type="checkbox" name="selectHouse[basement]" value="1" />
+                      {{Un batiment}}
                   </label>
               </div>
         </div>
@@ -114,23 +123,23 @@ if (!isConnect()) {
               
 
 
-     .testSize{
-         width: 80%;
-        height: 80%;
-       
-     }
-              
-              
-    .imgresize{
-       max-height: 400px;
-       max-width: 400px;      
-    }
+		.testSize{
+			width: 80%;
+			height: 80%;
+			
+		}
+						
+						
+	.imgresize{
+			max-height: 400px;
+			max-width: 400px;      
+	}
 
    .generalDivFlex {
         display:flex;
         flex-direction: row; 
         flex-wrap: wrap ;
-	align-content:center;
+	      align-content:center;
    }
 	
    .flexStyle{
@@ -142,6 +151,7 @@ if (!isConnect()) {
               
 	.globalObject {
 		width: 90%;
+		height: 60vh;
 		margin: 0 auto;
     
 	}
@@ -197,36 +207,94 @@ if (!isConnect()) {
 <script>
 	// image gallery
 	// init the state from the input
-	$(".image-checkbox").each(function() {
-		if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
-			$(this).addClass('image-checkbox-checked');
-		} else {
-			$(this).removeClass('image-checkbox-checked');
-		}
+
+
+
+	var imageCheckboxes = document.querySelectorAll(".image-checkbox");
+
+	imageCheckboxes.forEach(function(imageCheckbox) {
+			var checkbox = imageCheckbox.querySelector('input[type="checkbox"]');
+			
+			if (checkbox.checked) {
+				imageCheckbox.classList.add('image-checkbox-checked');
+			} else {
+				imageCheckbox.classList.remove('image-checkbox-checked');
+			}
 	});
-	$(".selectType").on("click", function(e) {
-		$('#divSelecthouse').addClass('hidden');
-		$('.selectObject').removeClass('hidden');
-		switch ($(this).attr('id')) {
-			case 'selectHouse':
-				//$('.selectEtage').removeClass('hidden');
-				break;
-			case 'selectApartment':
 
-				break;
-			case 'selectWork':
 
-				break;
-			default:
 
-		}
+
+	// $(".image-checkbox").each(function() {
+	// 	if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
+	// 		$(this).addClass('image-checkbox-checked');
+	// 	} else {
+	// 		$(this).removeClass('image-checkbox-checked');
+	// 	}
+	// });
+
+
+	 document.querySelectorAll('.selectType').forEach(function(element) {
+			element.addEventListener('click', function() {
+				let elementId = element.getAttribute('id');
+				if(elementId !== 'selectBasement'){
+					document.querySelectorAll('.selectObject').forEach(function(element) {
+							element.classList.remove('hidden');
+					});
+				}else{
+					let btnNext = document.getElementById('bt_next');
+					btnNext.click();
+				}
+				document.getElementById('divSelecthouse').classList.add('hidden');
+
+			});
 	});
+
+
+	// $(".selectType").on("click", function(e) {
+	// 	$('#divSelecthouse').addClass('hidden');
+	// 	$('.selectObject').removeClass('hidden');
+	// 	switch ($(this).attr('id')) {
+	// 		case 'selectHouse':
+	// 			//$('.selectEtage').removeClass('hidden');
+	// 			break;
+	// 		case 'selectApartment':
+
+	// 			break;
+	// 		case 'selectWork':
+
+	// 			break;
+	// 		default:
+
+	// 	}
+	// });
+
+
+
 	// sync the state to the input
-	$(".image-checkbox").on("click", function(e) {
-		$(this).toggleClass('image-checkbox-checked');
-		var $checkbox = $(this).find('input[type="checkbox"]');
-		$checkbox.prop("checked", !$checkbox.prop("checked"))
 
-		e.preventDefault();
-	});
+
+	var imageCheckboxes = document.querySelectorAll(".image-checkbox");
+
+	imageCheckboxes.forEach(function(imageCheckbox) {
+  		imageCheckbox.addEventListener("click", function(e) {
+    			imageCheckbox.classList.toggle('image-checkbox-checked');
+    
+   				 var checkbox = imageCheckbox.querySelector('input[type="checkbox"]');
+   				 checkbox.checked = !checkbox.checked;
+
+   				 e.preventDefault();
+       });
+  });
+
+
+
+
+	// $(".image-checkbox").on("click", function(e) {
+	// 	$(this).toggleClass('image-checkbox-checked');
+	// 	var $checkbox = $(this).find('input[type="checkbox"]');
+	// 	$checkbox.prop("checked", !$checkbox.prop("checked"))
+
+	// 	e.preventDefault();
+	// });
 </script>

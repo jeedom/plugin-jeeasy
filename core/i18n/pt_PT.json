@@ -157,7 +157,7 @@
     "plugins\/jeeasy\/desktop\/modal\/luna.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
         "Installation du Plugin Luna en cours.": "Instalação do plugin Luna em andamento",
-        "Merci d'avoir choisi Jeedom Luna": "Obrigado por escolher Jeedom Luna"
+        "Merci d'avoir choisi <?= config::byKey('product_name'); ?>": "Obrigado por escolher<?= config::byKey('product_name'); ?>"
     },
     "plugins\/jeeasy\/desktop\/modal\/philipshue.include.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
