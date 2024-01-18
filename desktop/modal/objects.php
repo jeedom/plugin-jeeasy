@@ -223,17 +223,6 @@ if (!isConnect()) {
 	});
 
 
-
-
-	// $(".image-checkbox").each(function() {
-	// 	if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
-	// 		$(this).addClass('image-checkbox-checked');
-	// 	} else {
-	// 		$(this).removeClass('image-checkbox-checked');
-	// 	}
-	// });
-
-
 	 document.querySelectorAll('.selectType').forEach(function(element) {
 			element.addEventListener('click', function() {
 				let elementId = element.getAttribute('id');
@@ -249,26 +238,6 @@ if (!isConnect()) {
 
 			});
 	});
-
-
-	// $(".selectType").on("click", function(e) {
-	// 	$('#divSelecthouse').addClass('hidden');
-	// 	$('.selectObject').removeClass('hidden');
-	// 	switch ($(this).attr('id')) {
-	// 		case 'selectHouse':
-	// 			//$('.selectEtage').removeClass('hidden');
-	// 			break;
-	// 		case 'selectApartment':
-
-	// 			break;
-	// 		case 'selectWork':
-
-	// 			break;
-	// 		default:
-
-	// 	}
-	// });
-
 
 
 	// sync the state to the input
@@ -288,13 +257,4 @@ if (!isConnect()) {
   });
 
 
-
-
-	// $(".image-checkbox").on("click", function(e) {
-	// 	$(this).toggleClass('image-checkbox-checked');
-	// 	var $checkbox = $(this).find('input[type="checkbox"]');
-	// 	$checkbox.prop("checked", !$checkbox.prop("checked"))
-
-	// 	e.preventDefault();
-	// });
 </script>
