@@ -32,11 +32,11 @@ if($servicePack != community){
                  <div class="divnetworkBox">
                       <label style="margin-left:auto; margin-right:auto;margin-bottom:2%;">Informations réseau de votre box : </label>
                       <div class="internalDiv" style="display:flex;flex-direction:row;margin-left:5%;">
-                            <label style="color:#93ca02">Adresse locale de votre box : </label>
+                            <label style="color:#93ca02">{{ Adresse locale de votre box : }}</label>
                              <div id="divInternalIp" style="font-weight:bold;margin-left:1%;"><?= network::getNetworkAccess('internal'); ?> </div>
                        </div>
                         <div class="externalDiv" id="externalDiv" style="display:none;flex-direction:row;margin-left:5%;">
-                              <label style="color:#93ca02">Adresse externe de votre box : </label> 
+                              <label style="color:#93ca02">{{Adresse externe de votre box : }}</label> 
                               <div id ="divExternalIp" style="font-weight:bold;margin-left:1%;"> <?= 
                                     network::getNetworkAccess('external') == 'http:' ? 'OpenVpn en cours d installation, merci de redemarrer le service DNS après son installation' : network::getNetworkAccess('external'); 
                                     ?> 
