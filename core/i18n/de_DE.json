@@ -10,6 +10,7 @@
         "Que souhaitez-vous configurer": "Was willst du konfigurieren",
         "Une maison": "Ein Haus",
         "Un appartement": "Eine Wohnung",
+        "Un batiment": "Ein Gebäude",
         "Un bureau": "Ein Büro",
         "Rez de chaussée": "Erdgeschoss",
         "Etage 1": "Stufe 1",
@@ -157,7 +158,7 @@
     "plugins\/jeeasy\/desktop\/modal\/luna.php": {
         "401 - Accès non autorisé": "401 – Unbefugter Zugriff",
         "Installation du Plugin Luna en cours.": "Installation des Luna-Plugins läuft",
-        "Merci d'avoir choisi <?= config::byKey('product_name'); ?>": "Vielen Dank, dass Sie sich entschieden haben<?= config::byKey('product_name'); ?>"
+        "Merci d'avoir choisi ": "Vielen Dank, dass Sie sich entschieden haben"
     },
     "plugins\/jeeasy\/desktop\/modal\/philipshue.include.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
@@ -418,6 +419,8 @@
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
         "Vous êtes prêt à commencer": "Sie können loslegen",
+        " Adresse locale de votre box : ": "Lokale Adresse Ihrer Box:",
+        "Adresse externe de votre box : ": "Externe Adresse Ihrer Box:",
         "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Die vollständige Dokumentation von Jeedom finden Sie unter dieser Adresse",
         "Documentation": "Dokumentation",
         "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "Sie können auch unserer Community beitreten und alle Ihre Fragen stellen",
