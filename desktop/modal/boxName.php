@@ -56,19 +56,23 @@ if(config::byKey('name') == ''){
 
 
   <script>
-   $('#bt_next').hide();
-  $('#btn-BoxNameIgnore').click( function() {
-      $('#bt_next').trigger('click');
-      $('#bt_next').show();
-  });
+
+    var btNext = document.getElementById('bt_next');
+
+    btNext.style.display = 'none';
+
+    document.getElementById('btn-BoxNameIgnore').addEventListener('click', function() {
+         btNext.click();
+         btNext.style.display = 'block'; 
+    });
+
   
-  
-  
-    $('#btn-BoxName').on('click', function() {
-        let choiceUser = $('input:text').val();
-        let newString = '{{Nouveau nom de votre box : }} ' + choiceUser
-       
-        $.ajax({
+    document.getElementById('btn-BoxName').addEventListener('click', function() {
+      var inputText = document.querySelector('input[type="text"]');
+      var choiceUser = inputText.value;
+      var newString = '{{Nouveau nom de votre box : }} ' + choiceUser;
+
+      $.ajax({
           type: "POST",
           url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
           data: {
@@ -81,15 +85,16 @@ if(config::byKey('name') == ''){
             handleAjaxError(request, status, error);
           },
           success: function(data) {
-            $('#btn-BoxName').hide();  
-            $('#boxName').hide();
-            $('#btn-BoxNameIgnore').hide();
-            $('#bt_next').show();
-            $('#textValidate').removeAttr('hidden');
-            $('#textValidate').html('Choix Validé, cliquez sur Suivant');
-            $('#titlelanguage').html(newString);
-            
+            document.getElementById('btn-BoxName').style.display = 'none';
+            document.getElementById('boxName').style.display = 'none';
+            document.getElementById('btn-BoxNameIgnore').style.display = 'none';
+            btNext.style.display = 'block';
+            document.getElementById('textValidate').removeAttribute('hidden');
+            document.getElementById('textValidate').innerHTML = 'Choix Validé, cliquez sur Suivant';
+            document.getElementById('titlelanguage').innerHTML = newString;        
           }
         });
     });
+  
+
   </script>

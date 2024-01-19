@@ -122,7 +122,9 @@ if (!isConnect()) {
 <style>
               
 
-
+  #divSelecthouse{
+     height:50vh;
+	}
 		.testSize{
 			width: 80%;
 			height: 80%;
