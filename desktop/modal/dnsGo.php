@@ -22,14 +22,20 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 if ($servicePack != 'Community') {
 ?>
   <script>
-    $('#bt_next').hide();
-    $('#bt_prev').show();
+
+     var divProgressbar = document.getElementById('div_progressbar');
+     var btNext = document.getElementById('bt_next');
+     var btPrev = document.getElementById('bt_prev');
+     var textAtlasElements = document.querySelectorAll('.textAtlas');
+
+     btNext.style.display = 'none';
+     btPrev.style.display = 'block';
 
     dnsInstall();
 
     function dnsInstall() {
        progress(20);
-       $('.textAtlas').html('{{Le plugin OpenVpn est en cours d\'installation... Veuillez patientez}}');
+       document.querySelector('.textAtlas').innerHTML = '{{Le plugin OpenVpn est en cours d\'installation... Veuillez patientez}}';
        progress(40);
       $.ajax({
         type: "POST",
@@ -43,43 +49,50 @@ if ($servicePack != 'Community') {
         },
         success: function(data) {
           progress(100);
-          $('.textAtlas').html('');
-          $('.textAtlas').html('{{Le plugin OpenVpn a bien été installé et configuré. Cliquez sur suivant}}');
+          textAtlasElements.forEach(function(element) {
+            textAtlasElements.innerHTML = '';
+            textAtlasElements.innerHTML = '{{Le plugin OpenVpn est en cours d\'installation... Veuillez patienter}}';
+          });
         }
       });
     }
 
 
-    function progress(ProgressPourcent) {
-      if (ProgressPourcent == -1) {
-        $('#div_progressbar').removeClass('progress-bar-success progress-bar-info progress-bar-warning');
-        $('#div_progressbar').addClass('active progress-bar-danger');
-        $('#div_progressbar').width('100%');
-        $('#div_progressbar').attr('aria-valuenow', 100);
-        $('#div_progressbar').html('N/A');
-        return;
+    function progress(ProgressPourcent){
+        if(ProgressPourcent == -1){
+          divProgressbar.removeClass('progress-bar-success progress-bar-info progress-bar-warning');
+          divProgressbar.addClass('active progress-bar-danger');
+          divProgressbar.width('100%');
+          divProgressbar.attr('aria-valuenow',100);
+          divProgressbar.html('N/A');
+            return;
+        }
+        if(ProgressPourcent == 100){
+            divProgressbar.classList.remove('active', 'progress-bar-info', 'progress-bar-danger', 'progress-bar-warning');
+            divProgressbar.classList.add('progress-bar-success');
+            divProgressbar.style.width = ProgressPourcent + '%';
+            divProgressbar.setAttribute('aria-valuenow', ProgressPourcent);
+            divProgressbar.innerHTML = 'FIN';
+            textAtlasElements.forEach(function(element) {
+             element.style.display = 'none';
+            });
+            Good();
+            return;
+        }
+          divProgressbar.classList.remove('active', 'progress-bar-info', 'progress-bar-danger', 'progress-bar-warning');
+          divProgressbar.classList.add('progress-bar-success');
+          divProgressbar.style.width = ProgressPourcent + '%';
+          divProgressbar.setAttribute('aria-valuenow', ProgressPourcent);
+          divProgressbar.innerHTML = ProgressPourcent + '%';
       }
-      if (ProgressPourcent == 100) {
-        $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-        $('#div_progressbar').addClass('progress-bar-success');
-        $('#div_progressbar').width(ProgressPourcent + '%');
-        $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
-        $('#div_progressbar').html('FIN');
-        Good();
-        return;
-      }
-      $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-      $('#div_progressbar').addClass('progress-bar-success');
-      $('#div_progressbar').width(ProgressPourcent + '%');
-      $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
-      $('#div_progressbar').html(ProgressPourcent + '%');
-    }
 
-    function Good() {
-      $('#bt_next').show();
-      $('#bt_prev').show();
-      $('.img-atlas').attr('src', '<?php echo config::byKey('product_connection_image'); ?>');
-    }
+      function Good(){
+        btNext.style.display = 'block';
+        btNext.style.marginTop = '70px';
+        var imgElement = document.querySelector('.img-atlas');
+        imgElement.setAttribute('src', '<?php echo config::byKey("product_connection_image"); ?>');
+
+      }
   </script>
 
   <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:50%;height:50%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
@@ -98,8 +111,10 @@ if ($servicePack != 'Community') {
 }else{
 
 ?>
+
 <script>
-$('#bt_next').show();
+  document.getElementById('bt_next').style.display = 'block';
+
 </script>
 <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:50%;height:50%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
 <div class="col-md-12 text-center">
