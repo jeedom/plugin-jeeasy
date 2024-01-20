@@ -95,7 +95,7 @@
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 – Unbefugter Zugriff",
         "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "Das OpenVpn-Plugin wird installiert... Bitte warten",
-        "Le plugin OpenVpn a bien été installé et configuré. Cliquez sur suivant": "Das OpenVpn-Plugin wurde erfolgreich installiert und konfiguriert. Weiter klicken"
+        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patienter": "Das OpenVpn-Plugin wird installiert... Bitte warten"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "Das Z-Wave-Netzwerk wird auf dem Server gestoppt",
