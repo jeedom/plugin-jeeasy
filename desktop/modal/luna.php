@@ -17,10 +17,14 @@ if($path_wizard['trame']['luna']['custom']){
 }
 ?>
 
-		<script>
-		$('#bt_next').hide();
-		$('#bt_prev').hide();
-		progress(20);
+
+	<script>
+
+		var btNext = document.getElementById('bt_next');
+    var btPrev = document.getElementById('bt_prev');
+	  btNext.style.display = 'none';
+	  btPrev.style.display = 'none';
+		progress(20, 'div_progressbar');
 		$('.textAtlas').text('{{Installation du Plugin Luna en cours.}}');
 		$.ajax({
 			type: "POST",
@@ -36,7 +40,7 @@ if($path_wizard['trame']['luna']['custom']){
 			},
 			success: function(data) {
 				testDep();
-				progress(50);
+				progress(50, 'div_progressbar');
 			}
     	});
 
@@ -53,41 +57,43 @@ if($path_wizard['trame']['luna']['custom']){
               handleAjaxError(request, status, error);
           },
           success: function(data) {
-            progress(100);
+            progress(100, 'div_progressbar');
           }
           });
        }
 
-      function progress(ProgressPourcent){
-        if(ProgressPourcent == -1){
-            $('#div_progressbar').removeClass('progress-bar-success progress-bar-info progress-bar-warning');
-            $('#div_progressbar').addClass('active progress-bar-danger');
-            $('#div_progressbar').width('100%');
-            $('#div_progressbar').attr('aria-valuenow',100);
-            $('#div_progressbar').html('N/A');
-            return;
-        }
-        if(ProgressPourcent == 100){
-            $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-            $('#div_progressbar').addClass('progress-bar-success');
-            $('#div_progressbar').width(ProgressPourcent+'%');
-            $('#div_progressbar').attr('aria-valuenow',ProgressPourcent);
-            $('#div_progressbar').html('FIN');
-						$('.textAtlas').hide();
-            Good();
-            return;
-        }
-        $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-        $('#div_progressbar').addClass('progress-bar-success');
-        $('#div_progressbar').width(ProgressPourcent+'%');
-        $('#div_progressbar').attr('aria-valuenow',ProgressPourcent);
-        $('#div_progressbar').html(ProgressPourcent+'%');
-      }
+      // function progress(ProgressPourcent){
+      //   if(ProgressPourcent == -1){
+      //       $('#div_progressbar').removeClass('progress-bar-success progress-bar-info progress-bar-warning');
+      //       $('#div_progressbar').addClass('active progress-bar-danger');
+      //       $('#div_progressbar').width('100%');
+      //       $('#div_progressbar').attr('aria-valuenow',100);
+      //       $('#div_progressbar').html('N/A');
+      //       return;
+      //   }
+      //   if(ProgressPourcent == 100){
+      //       $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+      //       $('#div_progressbar').addClass('progress-bar-success');
+      //       $('#div_progressbar').width(ProgressPourcent+'%');
+      //       $('#div_progressbar').attr('aria-valuenow',ProgressPourcent);
+      //       $('#div_progressbar').html('FIN');
+			// 			$('.textAtlas').hide();
+      //       Good();
+      //       return;
+      //   }
+      //   $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+      //   $('#div_progressbar').addClass('progress-bar-success');
+      //   $('#div_progressbar').width(ProgressPourcent+'%');
+      //   $('#div_progressbar').attr('aria-valuenow',ProgressPourcent);
+      //   $('#div_progressbar').html(ProgressPourcent+'%');
+      // }
       function Good(){
-        $('#bt_next').show();
-        $('#bt_prev').show();
-        $('.img-atlas').attr('src', '<?php echo config::byKey('product_connection_image'); ?>');
+        btNext.style.display = 'block';
+	      btPrev.style.display = 'block';
+        var imgElement = document.querySelector('.img-atlas');
+        imgElement.setAttribute('src', '<?php echo config::byKey("product_connection_image"); ?>');
       }
+      
       </script>
 
 

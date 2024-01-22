@@ -17,7 +17,7 @@ if (!isConnect()) {
             </div>
         </div>
     </div>
-		<div style="display:flex;flex-direction:column;justify-content:center;">
+		<div style="display:flex;flex-direction:column;justify-content:center;max-width:70%;">
 		     <h3>Assurez la Pérennité de Votre Système avec le Service Backup Cloud de Jeedom</h3>
 
 					<p>Nous mettons en avant notre service Backup Cloud car il représente la solution incontournable pour garantir la pérennité de votre système Jeedom.</p>

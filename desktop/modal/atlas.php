@@ -16,16 +16,14 @@ if($path_wizard['trame']['atlas']['custom']){
 	}
 }
 ?>
-
+    <script src="../js/common.js"></script>
 		<script>
-
-    var divProgressbar = document.getElementById('div_progressbar');
     var btNext = document.getElementById('bt_next');
     var btPrev = document.getElementById('bt_prev');
 
     btNext.style.display = 'none';
     btPrev.style.display = 'none';
-		progress(20);
+		progress(20, 'div_progressbar');
     document.getElementById('textAtlas').innerHTML = '{{Installation du Plugin Atlas en cours.}}';
 
 		$.ajax({
@@ -42,7 +40,7 @@ if($path_wizard['trame']['atlas']['custom']){
 			},
 			success: function(data) {
 				testDep();
-				progress(50);
+				progress(50, 'div_progressbar');
 			}
     	});
 
@@ -59,36 +57,12 @@ if($path_wizard['trame']['atlas']['custom']){
               handleAjaxError(request, status, error);
           },
           success: function(data) {
-            progress(100);
+            progress(100, 'div_progressbar');
           }
           });
        }
 
-      function progress(ProgressPourcent){
-        if(ProgressPourcent == -1){
-          divProgressbar.removeClass('progress-bar-success progress-bar-info progress-bar-warning');
-          divProgressbar.addClass('active progress-bar-danger');
-          divProgressbar.width('100%');
-          divProgressbar.attr('aria-valuenow',100);
-          divProgressbar.html('N/A');
-            return;
-        }
-        if(ProgressPourcent == 100){
-            divProgressbar.classList.remove('active', 'progress-bar-info', 'progress-bar-danger', 'progress-bar-warning');
-            divProgressbar.classList.add('progress-bar-success');
-            divProgressbar.style.width = ProgressPourcent + '%';
-            divProgressbar.setAttribute('aria-valuenow', ProgressPourcent);
-            divProgressbar.innerHTML = 'FIN';
-            document.getElementById('textAtlas').style.display = 'none';
-            Good();
-            return;
-        }
-          divProgressbar.classList.remove('active', 'progress-bar-info', 'progress-bar-danger', 'progress-bar-warning');
-          divProgressbar.classList.add('progress-bar-success');
-          divProgressbar.style.width = ProgressPourcent + '%';
-          divProgressbar.setAttribute('aria-valuenow', ProgressPourcent);
-          divProgressbar.innerHTML = ProgressPourcent + '%';
-      }
+    
       function Good(){
         btNext.style.display = 'block';
         btNext.style.marginTop = '70px';

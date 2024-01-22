@@ -15,7 +15,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 if($servicePack != community){
   ?>
     <script>
-       $('#externalDiv').css('display','flex');
+       document.getElementById('externalDiv').style.display = 'flex';
     </script>
         
   <?php 
