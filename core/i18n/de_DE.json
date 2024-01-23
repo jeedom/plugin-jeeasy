@@ -46,7 +46,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Choix des plugins à installer": "Auswahl der zu installierenden Plugins",
+        "Proposition de plugins à installer": "Empfohlene Plugins zur Installation",
         "Installation des plugins en cours": "Plugins werden installiert",
         "Aucun plugin à installer, cliquez sur suivant": "Kein Plugin zum Installieren, klicken Sie auf Weiter",
         "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Ihre Plugins sind fertig.<br> Abhängigkeiten werden noch installiert, überprüfen Sie die Konfigurationsregisterkarte Ihrer Plugins",
@@ -238,6 +238,7 @@
         "401 - Accès non autorisé": "401 - Unbefugter Zugriff",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Sie haben sich für einen USB-Controller entschieden, bitte konfigurieren Sie diesen in der Verwaltung Ihres Plugins",
         "Votre plugin à été configuré automatiquement": "Ihr Plugin wurde automatisch konfiguriert",
+        "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "Der Plugin-Port wurde automatisch konfiguriert. Sie können auf den Pfeil klicken, um fortzufahren",
         "Aucun Plugin installé à paramétrer": "Kein Plugin zum Konfigurieren installiert",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "Kein Plugin zum Konfigurieren installiert, klicken Sie auf Weiter",
         "Configuration Auto des Plugins": "Automatische Plugin-Konfiguration",

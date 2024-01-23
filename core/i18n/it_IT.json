@@ -46,7 +46,7 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
-        "Choix des plugins à installer": "Choix des plugins à installer",
+        "Proposition de plugins à installer": "Proposition de plugins à installer",
         "Installation des plugins en cours": "Installation des plugins en cours",
         "Aucun plugin à installer, cliquez sur suivant": "Aucun plugin à installer, cliquez sur suivant",
         "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins",
@@ -238,6 +238,7 @@
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin",
         "Votre plugin à été configuré automatiquement": "Votre plugin à été configuré automatiquement",
+        "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer",
         "Aucun Plugin installé à paramétrer": "Aucun Plugin installé à paramétrer",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "Aucun Plugin installé à paramétrer, cliquez sur Suivant",
         "Configuration Auto des Plugins": "Configuration Auto des Plugins",
