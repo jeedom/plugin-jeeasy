@@ -195,7 +195,7 @@ if ($servicePack != 'Community') {
 
     function Good(){
         btNext.style.display = 'block';
-        btNext.style.marginTop = '70px';
+       // btNext.style.marginTop = '70px';
         var imgElement = document.querySelector('.img-atlas');
         imgElement.setAttribute('src', '<?php echo config::byKey("product_connection_image"); ?>');
       }

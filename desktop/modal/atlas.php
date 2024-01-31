@@ -23,7 +23,24 @@ if($path_wizard['trame']['atlas']['custom']){
 
     btNext.style.display = 'none';
     btPrev.style.display = 'none';
-		progress(20, 'div_progressbar');
+
+    var progressInterval;
+    var progressBar = document.getElementById('div_progressbar');
+    progressBar.classList.add('progress-bar-success');
+    var progressValue = 0;
+
+       function updateProgress() {
+          if (progressValue >= 90) {
+              clearInterval(progressInterval);
+          } else {
+              progressValue += 10; 
+              progressBar.innerHTML = progressValue + '%';
+              progressBar.style.width = progressValue + '%';
+          }
+       }
+       // On vient lancer l'intervall pour faire avancer la barre de progression
+    progressInterval = setInterval(updateProgress, 1500);
+		//progress(20, 'div_progressbar');
     document.getElementById('textAtlas').innerHTML = '{{Installation du Plugin Atlas en cours.}}';
 
 		$.ajax({
@@ -36,11 +53,13 @@ if($path_wizard['trame']['atlas']['custom']){
 			},
 			dataType: 'json',
 			error: function(request, status, error) {
+        clearInterval(progressInterval);
 					handleAjaxError(request, status, error);
 			},
 			success: function(data) {
 				testDep();
-				progress(50, 'div_progressbar');
+       
+				//progress(50, 'div_progressbar');
 			}
     	});
 
@@ -57,7 +76,14 @@ if($path_wizard['trame']['atlas']['custom']){
               handleAjaxError(request, status, error);
           },
           success: function(data) {
-            progress(100, 'div_progressbar');
+            clearInterval(progressInterval);
+            var progressBar = document.getElementById('div_progressbar');
+            progressBar.style.width = '100%';
+            progressBar.innerHTML = 100 + '%';
+            //document.querySelector('.textAtlas').innerHTML = '{{Le plugin OpenVpn a été installé avec succès}}';
+            progressBar.innerHTML = 'FIN';
+            Good();
+            //progress(100, 'div_progressbar');
           }
           });
        }
@@ -65,7 +91,7 @@ if($path_wizard['trame']['atlas']['custom']){
     
       function Good(){
         btNext.style.display = 'block';
-        btNext.style.marginTop = '70px';
+       // btNext.style.marginTop = '70px';
         var imgElement = document.querySelector('.img-atlas');
         imgElement.setAttribute('src', '<?php echo config::byKey("product_connection_image"); ?>');
 

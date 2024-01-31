@@ -6,13 +6,18 @@ if (!isConnect()) {
 ?>
 
 <script>
-	$('#bt_next').hide();
-	$('#bt_prev').hide();
-	$('#bt_recovery').off('click').on('click', function() {
-		$('#md_modal').dialog({
-			title: "{{Lancement Recovery}}"
-		}).load('index.php?v=d&plugin=atlas&modal=recovery.atlas&typeDemande=emmc').dialog('open');
-	});
+	   var btNext = document.getElementById('bt_next');
+     var btPrev = document.getElementById('bt_prev');
+
+     btNext.style.display = 'none';
+     btPrev.style.display = 'none';
+
+		document.getElementById('bt_recovery').addEventListener('click', function() {
+			$('#md_modal').dialog({
+				title: "{{Lancement Recovery}}"
+			}).load('index.php?v=d&plugin=atlas&modal=recovery.atlas&typeDemande=emmc').dialog('open');
+		});
+
 </script>
 
 

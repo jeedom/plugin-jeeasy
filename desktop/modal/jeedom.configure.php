@@ -451,19 +451,64 @@ $configs = config::byKeys($keys);
 <!--</div>-->
 
 <script type="text/javascript">
-	$('.bt_jeeasyNext').off('click').on('click',function(){
-		$('.li_jeeEasySummary.active').next().click();
+	// $('.bt_jeeasyNext').off('click').on('click',function(){
+	// 	$('.li_jeeEasySummary.active').next().click();
+	// });
+	// $('.bt_jeeasyPrevious').off('click').on('click',function(){
+	// 	$('.li_jeeEasySummary.active').prev().click();
+	// });
+	// $('.li_jeeEasySummary').off('click').on('click',function(){
+	// 	$('.li_jeeEasySummary.active').removeClass('active');
+	// 	$(this).addClass('active');
+	// 	$('.jeeasyDisplay').hide();
+	// 	$('.jeeasyDisplay.'+$(this).attr('data-href')).show();
+	// 	$(this).attr('data-display',1);
+	// });
+
+
+	document.querySelectorAll('.bt_jeeasyNext').forEach(function(button) {
+			button.addEventListener('click', function() {
+					var activeSummary = document.querySelector('.li_jeeEasySummary.active');
+					var nextSummary = activeSummary.nextElementSibling;
+					if (nextSummary) {
+							nextSummary.click();
+					}
+			});
 	});
-	$('.bt_jeeasyPrevious').off('click').on('click',function(){
-		$('.li_jeeEasySummary.active').prev().click();
+
+
+	document.querySelectorAll('.bt_jeeasyPrevious').forEach(function(button) {
+			button.addEventListener('click', function() {
+					var activeSummary = document.querySelector('.li_jeeEasySummary.active');
+					var prevSummary = activeSummary.previousElementSibling;
+					if (prevSummary) {
+							prevSummary.click();
+					}
+			});
 	});
-	$('.li_jeeEasySummary').off('click').on('click',function(){
-		$('.li_jeeEasySummary.active').removeClass('active');
-		$(this).addClass('active');
-		$('.jeeasyDisplay').hide();
-		$('.jeeasyDisplay.'+$(this).attr('data-href')).show();
-		$(this).attr('data-display',1);
+
+
+	document.querySelectorAll('.li_jeeEasySummary').forEach(function(summary) {
+			summary.addEventListener('click', function() {
+					var activeSummary = document.querySelector('.li_jeeEasySummary.active');
+					activeSummary.classList.remove('active');
+					summary.classList.add('active');
+
+					document.querySelectorAll('.jeeasyDisplay').forEach(function(display) {
+							display.style.display = 'none';
+					});
+
+					var displayElement = document.querySelector('.jeeasyDisplay.' + summary.getAttribute('data-href'));
+					if (displayElement) {
+							displayElement.style.display = 'block';
+					}
+
+					summary.setAttribute('data-display', 1);
+			});
 	});
+
+
+
 
 	$('.bt_selectAlertCmd').off('click').on('click', function () {
 		var type=$(this).attr('data-type');
@@ -498,25 +543,51 @@ $configs = config::byKeys($keys);
 		$(this).closest('.actionOnMessage').remove();
 	});
 
-	$('#bt_addActionOnMessage').on('click',function(){
+	document.getElementById('bt_addActionOnMessage').addEventListener('click', function () {
 		addActionOnMessage();
 	});
 
-	$('.bt_jeeasySave').off('click').on('click',function(){
-		var config = $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0];
+
+	document.querySelector('.bt_jeeasySave').addEventListener('click', function()){
+
+		var configKeyElements = document.getElementById('div_jeeasyConfigureJeedom').querySelectorAll('.configKey');
+		var configValues = [];
+    configKeyElements.forEach(function(element) {
+        configValues.push(element.value);
+    });
+		var config = configValues[0];
+		//var config = $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0];
 		jeedom.config.save({
 			configuration: config,
 			error: function (error) {
 				$('#div_AlertJeeasyJeedomConfigure').showAlert({message: error.message, level: 'danger'});
 			},
 			success: function () {
+				var configKeyElementsReturn = document.getElementById('div_jeeasyConfigureJeedom').querySelectorAll('.configKey');
+				var configValuesReturn = [];
+				configKeyElementsReturn.forEach(function(element) {
+					configValuesReturn.push(element.value);
+				});
+				var configReturn = configValuesReturn[0];
 				jeedom.config.load({
-					configuration: $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0],
+					configuration: configReturn,
 					error: function (error) {
 						$('#div_AlertJeeasyJeedomConfigure').showAlert({message: error.message, level: 'danger'});
 					},
 					success: function (data) {
-						$('#div_jeeasyConfigureJeedom').setValues(data, '.configKey');
+
+						//$('#div_jeeasyConfigureJeedom').setValues(data, '.configKey');
+						if(configKeyElementsReturn.length > 0){
+							for (var key in data) {
+										if (data.hasOwnProperty(key)) {
+												var configElement =  document.getElementById('div_jeeasyConfigureJeedom').querySelector('.configKey[name="' + key + '"]');
+												if (configElement) {
+														configElement.value = data[key];
+												}
+										}
+								}
+						}
+
 						loadAactionOnMessage()
 						modifyWithoutSave = false;
 						$('#div_AlertJeeasyJeedomConfigure').showAlert({message: '{{Sauvegarde réussie}}', level: 'success'});
@@ -525,6 +596,8 @@ $configs = config::byKeys($keys);
 			}
 		});
 	});
+
+	
 
 	jeedom.config.load({
 		configuration: $('#div_jeeasyConfigureJeedom').getValues('.configKey')[0],

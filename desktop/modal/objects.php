@@ -8,12 +8,12 @@ if (!isConnect()) {
 
 <!--<p>Nous vous proposons la configuration type suivante, vous pouvez déselectionner les pièces que vous ne souhaitez utiliser :
 </p>-->
-<div class="row globalObject">
-	<div id="divSelecthouse" class="col-md-12">
+<div class="row globalObject" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+	<div id="divSelecthouse" >
 		<div class="col-md-12 text-center">
 			<h2>{{Que souhaitez-vous configurer}} ?</h2>
 		</div>
-        <div class="testImgE" style="display:flex;width:100%;height:100vh;">
+        <div class="testImgE" style="display:flex;width:100%;height:100vh;justify-content:space-evenly;">
               <div id="selectHouse" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;">
                   <label class="image-checkbox testSize">
                       <img class="img-responsive" style="height:40%;max-height:40%;" src="/core/img/object_background/salon/salon_5.jpg" />

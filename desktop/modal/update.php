@@ -18,7 +18,7 @@ if ($username == null || $username == '') {
 if (!$caught) {
 	config::save('updateWizard', 'okay', 'jeeasy');
 ?> <script>
-		$('#bodymodalupdate').show();
+	 document.getElementById('bodymodalupdate').style.display = 'block';
 		jeedom.update.doAll({
 			options: '',
 			error: function(error) {
@@ -192,17 +192,17 @@ if (!$caught) {
 </style>
 
 <script>
-	$('#bt_createaccountmarket').click(function() {
+	document.getElementById('bt_createaccountmarket').addEventListener('click', function() {
 		window.open(
 			'https://www.jeedom.com/market/index.php?v=d&p=register',
 			'_blank'
 		)
 	});
 
+	document.getElementById('bt_login_market').addEventListener('click', function() {
 
-	$('#bt_login_market').click(function() {
-		var username = $('#login_username_market').val()
-		var password = $('#login_password_market').val()
+	  var username = document.getElementById('login_username_market').value;
+    var password = document.getElementById('login_password_market').value;
 		var adress = 'https://jeedom.com/market'
 		jeedom.config.save({
 			configuration: {
@@ -250,8 +250,8 @@ if (!$caught) {
 									},
 									success: function(data) {}
 								})
-								$('#marketbeforeupdate').hide();
-								$('#bodymodalupdate').show();
+								document.getElementById('marketbeforeupdate').style.display = 'none';
+								document.getElementById('bodymodalupdate').style.display = 'block';
 								jeedom.update.doAll({
 									options: '',
 									error: function(error) {
@@ -279,45 +279,92 @@ if (!$caught) {
 <script>
 	var progress = -2;
 
+	// function updateProgressBar() {
+	// 	if (progress == -4) {
+	// 		$('#div_progressbar').removeClass('active progress-bar-info progress-bar-success progress-bar-danger');
+	// 		$('#div_progressbar').addClass('progress-bar-warning');
+	// 		return;
+	// 	}
+	// 	if (progress == -3) {
+	// 		$('#div_progressbar').removeClass('active progress-bar-info progress-bar-success progress-bar-warning');
+	// 		$('#div_progressbar').addClass('progress-bar-danger');
+	// 		return;
+	// 	}
+	// 	if (progress == -2) {
+	// 		$('#div_progressbar').removeClass('active progress-bar-info progress-bar-success progress-bar-danger progress-bar-warning');
+	// 		$('#div_progressbar').width(0);
+	// 		$('#div_progressbar').attr('aria-valuenow', 0);
+	// 		$('#div_progressbar').html('0%');
+	// 		return;
+	// 	}
+	// 	if (progress == -1) {
+	// 		$('#div_progressbar').removeClass('progress-bar-success progress-bar-danger progress-bar-warning');
+	// 		$('#div_progressbar').addClass('active progress-bar-info');
+	// 		$('#div_progressbar').width('100%');
+	// 		$('#div_progressbar').attr('aria-valuenow', 100);
+	// 		$('#div_progressbar').html('N/A');
+	// 		return;
+	// 	}
+	// 	if (progress == 100) {
+	// 		$('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+	// 		$('#div_progressbar').addClass('progress-bar-success');
+	// 		$('#div_progressbar').width(progress + '%');
+	// 		$('#div_progressbar').attr('aria-valuenow', progress);
+	// 		$('#div_progressbar').html(progress + '%');
+	// 		return;
+	// 	}
+	// 	$('#div_progressbar').removeClass('progress-bar-success progress-bar-danger progress-bar-warning');
+	// 	$('#div_progressbar').addClass('active progress-bar-info');
+	// 	$('#div_progressbar').width(progress + '%');
+	// 	$('#div_progressbar').attr('aria-valuenow', progress);
+	// 	$('#div_progressbar').html(progress + '%');
+	// }
 	function updateProgressBar() {
-		if (progress == -4) {
-			$('#div_progressbar').removeClass('active progress-bar-info progress-bar-success progress-bar-danger');
-			$('#div_progressbar').addClass('progress-bar-warning');
-			return;
-		}
-		if (progress == -3) {
-			$('#div_progressbar').removeClass('active progress-bar-info progress-bar-success progress-bar-warning');
-			$('#div_progressbar').addClass('progress-bar-danger');
-			return;
-		}
-		if (progress == -2) {
-			$('#div_progressbar').removeClass('active progress-bar-info progress-bar-success progress-bar-danger progress-bar-warning');
-			$('#div_progressbar').width(0);
-			$('#div_progressbar').attr('aria-valuenow', 0);
-			$('#div_progressbar').html('0%');
-			return;
-		}
-		if (progress == -1) {
-			$('#div_progressbar').removeClass('progress-bar-success progress-bar-danger progress-bar-warning');
-			$('#div_progressbar').addClass('active progress-bar-info');
-			$('#div_progressbar').width('100%');
-			$('#div_progressbar').attr('aria-valuenow', 100);
-			$('#div_progressbar').html('N/A');
-			return;
-		}
-		if (progress == 100) {
-			$('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-			$('#div_progressbar').addClass('progress-bar-success');
-			$('#div_progressbar').width(progress + '%');
-			$('#div_progressbar').attr('aria-valuenow', progress);
-			$('#div_progressbar').html(progress + '%');
-			return;
-		}
-		$('#div_progressbar').removeClass('progress-bar-success progress-bar-danger progress-bar-warning');
-		$('#div_progressbar').addClass('active progress-bar-info');
-		$('#div_progressbar').width(progress + '%');
-		$('#div_progressbar').attr('aria-valuenow', progress);
-		$('#div_progressbar').html(progress + '%');
+			var divProgressBar = document.getElementById('div_progressbar');
+
+			if (progress == -4) {
+					divProgressBar.classList.remove('active', 'progress-bar-info', 'progress-bar-success', 'progress-bar-danger');
+					divProgressBar.classList.add('progress-bar-warning');
+					return;
+			}
+
+			if (progress == -3) {
+					divProgressBar.classList.remove('active', 'progress-bar-info', 'progress-bar-success', 'progress-bar-warning');
+					divProgressBar.classList.add('progress-bar-danger');
+					return;
+			}
+
+			if (progress == -2) {
+					divProgressBar.classList.remove('active', 'progress-bar-info', 'progress-bar-success', 'progress-bar-danger', 'progress-bar-warning');
+					divProgressBar.style.width = 0;
+					divProgressBar.setAttribute('aria-valuenow', 0);
+					divProgressBar.innerHTML = '0%';
+					return;
+			}
+
+			if (progress == -1) {
+					divProgressBar.classList.remove('progress-bar-success', 'progress-bar-danger', 'progress-bar-warning');
+					divProgressBar.classList.add('active', 'progress-bar-info');
+					divProgressBar.style.width = '100%';
+					divProgressBar.setAttribute('aria-valuenow', 100);
+					divProgressBar.innerHTML = 'N/A';
+					return;
+			}
+
+			if (progress == 100) {
+					divProgressBar.classList.remove('active', 'progress-bar-info', 'progress-bar-danger', 'progress-bar-warning');
+					divProgressBar.classList.add('progress-bar-success');
+					divProgressBar.style.width = progress + '%';
+					divProgressBar.setAttribute('aria-valuenow', progress);
+					divProgressBar.innerHTML = progress + '%';
+					return;
+			}
+
+			divProgressBar.classList.remove('progress-bar-success', 'progress-bar-danger', 'progress-bar-warning');
+			divProgressBar.classList.add('active', 'progress-bar-info');
+			divProgressBar.style.width = progress + '%';
+			divProgressBar.setAttribute('aria-valuenow', progress);
+			divProgressBar.innerHTML = progress + '%';
 	}
 
 	function getJeedomLog(_autoUpdate, _log) {

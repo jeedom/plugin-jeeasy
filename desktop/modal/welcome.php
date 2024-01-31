@@ -8,7 +8,7 @@ jeeasy::initStartBox();
 ?>
 
 
-
+<div class="mainContainer" style="height:100%;">
 <div class="col-md-12 text-center">
 	<h2>{{Guide de démarrage}} <?php echo config::byKey('product_name'); ?></h2>
 </div>
@@ -21,3 +21,9 @@ jeeasy::initStartBox();
 	<h4 style="color:red;">{{IL EST IMPORTANT DE TERMINER CETTE CONFIGURATION : plusieurs plugins essentiels seront installés durant le processus.}}</h4>
 	<h4>{{Ne fermez pas cette fenetre jusqu'a son terme.}}</h4>
 </div>
+</div>
+
+
+<script>
+	document.getElementById('contentModal').style.height = '70vh';
+</script>

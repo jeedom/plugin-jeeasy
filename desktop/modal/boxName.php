@@ -32,27 +32,26 @@ if(config::byKey('name') == ''){
   
  
 
-<div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:50%;height:50%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
+<div class="mainContainer" style="height:100%;display:flex;flex-direction:column;justify-content:center;">
+    <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:80%;height:80%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
 <div class="col-md-12 text-center">
-  <p class="text-center">
-  <h3 class="titlelanguage" id="titlelanguage">{{Nom actuel de votre box : }} <?= $nameBox ?></h3>
-  </p>
-  <p class="text-center">
-  <h4 class="textAtlas" style="color:#93ca02;"></h4>
-  </p>
+      <p class="text-center">
+          <h3 class="titlelanguage" id="titlelanguage">{{Nom actuel de votre box : }} <?= $nameBox ?></h3>
+      </p>
+      <p class="text-center">
+          <h4 class="textAtlas" style="color:#93ca02;"></h4>
+      </p>
 
-  
-
-  <input type="text" id="boxName" name="boxName" style="width:30%;" placeholder="{{ Nouveau nom de votre box (laissez vide pour laisser le nom par defaut) }}">
-  <br>
+      <input type="text" id="boxName" name="boxName" style="width:30%;" placeholder="{{ Nouveau nom de votre box (laissez vide pour laisser le nom par defaut) }}">
+      <br>
 
 
-  <div class="testbtnb" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
-    <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-BoxName" style="margin-bottom:10px;margin-top:10px;">{{Valider}}</button>
-    <h4 id="textValidate" style="color:#93ca02;" hidden></h4>
-    <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-BoxNameIgnore" style="margin-left:35px;margin-bottom:10px;margin-top:10px;">{{Ignorer}}</button>
-  </div>
-
+      <div class="testbtnb" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
+      <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-BoxNameIgnore" style="margin-bottom:10px;margin-top:10px;">{{Ignorer}}</button>
+        <h4 id="textValidate" style="color:#93ca02;" hidden></h4>
+        <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-BoxName" style="margin-left:35px;margin-bottom:10px;margin-top:10px;">{{Valider}}</button>
+      </div>
+</div>
 
 
   <script>

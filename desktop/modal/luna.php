@@ -24,8 +24,27 @@ if($path_wizard['trame']['luna']['custom']){
     var btPrev = document.getElementById('bt_prev');
 	  btNext.style.display = 'none';
 	  btPrev.style.display = 'none';
-		progress(20, 'div_progressbar');
-		$('.textAtlas').text('{{Installation du Plugin Luna en cours.}}');
+
+    var progressInterval;
+    var progressBar = document.getElementById('div_progressbar');
+    progressBar.classList.add('progress-bar-success');
+    var progressValue = 0;
+
+    function updateProgress() {
+          if (progressValue >= 90) {
+              clearInterval(progressInterval);
+          } else {
+              progressValue += 10; 
+              progressBar.innerHTML = progressValue + '%';
+              progressBar.style.width = progressValue + '%';
+          }
+       }
+       // On vient lancer l'intervall pour faire avancer la barre de progression
+    progressInterval = setInterval(updateProgress, 1500);
+
+
+    document.getElementById('textAtlas').innerHTML = '{{Installation du Plugin Luna en cours.}}';
+
 		$.ajax({
 			type: "POST",
 			url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
@@ -36,11 +55,11 @@ if($path_wizard['trame']['luna']['custom']){
 			},
 			dataType: 'json',
 			error: function(request, status, error) {
+          clearInterval(progressInterval);
 					handleAjaxError(request, status, error);
 			},
 			success: function(data) {
 				testDep();
-				progress(50, 'div_progressbar');
 			}
     	});
 
@@ -57,7 +76,15 @@ if($path_wizard['trame']['luna']['custom']){
               handleAjaxError(request, status, error);
           },
           success: function(data) {
-            progress(100, 'div_progressbar');
+            clearInterval(progressInterval);
+            var progressBar = document.getElementById('div_progressbar');
+            progressBar.style.width = '100%';
+            progressBar.innerHTML = 100 + '%';
+            document.getElementById('textAtlas').innerHTML = '{{Le plugin Luna a été installé avec succès}}';
+            //document.querySelector('.textAtlas').innerHTML = '{{Le plugin OpenVpn a été installé avec succès}}';
+            progressBar.innerHTML = 'FIN';
+            Good();
+            //progress(100, 'div_progressbar');
           }
           });
        }
@@ -99,7 +126,7 @@ if($path_wizard['trame']['luna']['custom']){
 
       <div class="col-md-12 text-center"><h2>{{Merci d'avoir choisi }} <?= config::byKey('product_name'); ?></h2></div>
       <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
-      <div class="col-md-12 text-center"><p class="text-center"><h3 class="textAtlas"></h3></p>
+      <div class="col-md-12 text-center"><p class="text-center"><h3 class="textAtlas" id="textAtlas"></h3></p>
       <div class="col-md-12 text-center">
       <div id="contenuTextSpan" class="progress">
       	<div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>

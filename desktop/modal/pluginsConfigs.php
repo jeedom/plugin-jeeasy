@@ -139,9 +139,11 @@ if ($listPlugins) {
             textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer}}';
             if(document.getElementById('btn-choiceConfig')){
                 document.getElementById('btn-choiceConfig').style.display = 'none';
+                document.getElementById('contenuTextSpan').style.display = 'none';
             }
             if(document.getElementById('pluginsConfigSelect')){
                 document.getElementById('pluginsConfigSelect').style.display = 'none';
+                document.getElementById('contenuTextSpan').style.display = 'none';
             }
             btNext.style.display = 'block';
         </script>
@@ -155,9 +157,12 @@ if ($listPlugins) {
         textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer}}';
         if(document.getElementById('btn-choiceConfig')){
                 document.getElementById('btn-choiceConfig').style.display = 'none';
+                document.getElementById('contenuTextSpan').style.display = 'none';
+                //div_progressbar
         }
         if(document.getElementById('pluginsConfigSelect')){
                 document.getElementById('pluginsConfigSelect').style.display = 'none';
+                document.getElementById('contenuTextSpan').style.display = 'none';
         }
         btNext.style.display = 'block';
     </script>
@@ -187,6 +192,7 @@ if ($listPlugins) {
                 choiceModeElement.style.display = 'none';
                 textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer, cliquez sur Suivant}}';
                 btNext.style.display = 'none';
+                
             }else{
             callAjax(choiceConfig, typeBox, pluginName);
             }                  
@@ -194,6 +200,7 @@ if ($listPlugins) {
             choiceModeElement.style.display = 'none';
             textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer, cliquez sur Suivant}}';
             btNext.style.display = 'block';
+
         
         }
     });
@@ -206,36 +213,39 @@ if ($listPlugins) {
 
 </script>
 
-<div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:50%;height:50%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
-<div class="col-md-12 text-center">
-    <p class="text-center">
-    <h3 class="configplugins">{{Configuration Auto des Plugins}} :</h3>
-    </p>
-    <p class="text-center">
-    <h4 class="configplugins" id="choiceMode">{{Quel plugin souhaitez vous que Jeedom configure automatiquement le port ?}} :</h4>
-    </p>
-   
-    <p class="text-center">
-    <h4 class="textConfigAutoPlug" style="color:#93ca02;"></h4>
-    </p>
-    <table class="table table-hover" id="pluginsConfigTab" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-        <thead>
-        </thead>
-        <tbody>
-            <select id="pluginsConfigSelect" style="width:250px">
-            </select>
-        </tbody>
-    </table>
-  
-    <div class="testbtnb" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
-        <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-validateConfig" style="margin-bottom:10px;">{{Valider la configuration}}</button>
-        <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-pluginConfigIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}
-    </div>
+
+<div class="mainContainer" style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+<div ><img class="img-responsive center-block img-atlas" style="width:60%;height:60%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
+        <div class="col-md-12 text-center">
+            <p class="text-center">
+            <h3 class="configplugins">{{Configuration Auto des Plugins}} :</h3>
+            </p>
+            <p class="text-center">
+            <h4 class="configplugins" id="choiceMode">{{Quel plugin souhaitez vous que Jeedom configure automatiquement le port ?}} :</h4>
+            </p>
+        
+            <p class="text-center">
+            <h4 class="textConfigAutoPlug" style="color:#93ca02;"></h4>
+            </p>
+            <table class="table table-hover" id="pluginsConfigTab" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <thead>
+                </thead>
+                <tbody>
+                    <select id="pluginsConfigSelect" style="width:250px">
+                    </select>
+                </tbody>
+            </table>
+        
+            <div class="testbtnb" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
+                <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-validateConfig" style="margin-bottom:10px;">{{Valider la configuration}}</button>
+                <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-pluginConfigIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}
+            </div>
 
 
-    <div id="contenuTextSpan" class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-    </div>
-</div>
+            <div id="contenuTextSpan" class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+        </div>
+        </div>
 </div>
 </div>
