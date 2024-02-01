@@ -40,8 +40,8 @@
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Nom actuel de votre box : ": "Nom actuel de votre box :",
         " Nouveau nom de votre box (laissez vide pour laisser le nom par defaut) ": "Nouveau nom de votre box (laissez vide pour laisser le nom par defaut)",
-        "Valider": "Valider",
         "Ignorer": "Ignorer",
+        "Valider": "Valider",
         "Nouveau nom de votre box : ": "Nouveau nom de votre box :"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
@@ -95,7 +95,7 @@
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez",
-        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patienter": "Le plugin OpenVpn est en cours d\\'installation... Veuillez patienter"
+        "Le plugin OpenVpn a été installé avec succès": "Le plugin OpenVpn a été installé avec succès"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "Le réseau Z-Wave est arreté sur le serveur",
@@ -158,6 +158,8 @@
     "plugins\/jeeasy\/desktop\/modal\/luna.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Installation du Plugin Luna en cours.": "Installation du Plugin Luna en cours",
+        "Le plugin Luna a été installé avec succès": "Le plugin Luna a été installé avec succès",
+        "Le plugin OpenVpn a été installé avec succès": "Le plugin OpenVpn a été installé avec succès",
         "Merci d'avoir choisi ": "Merci d'avoir choisi"
     },
     "plugins\/jeeasy\/desktop\/modal\/philipshue.include.php": {
@@ -199,6 +201,7 @@
     "plugins\/jeeasy\/desktop\/modal\/atlas.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Installation du Plugin Atlas en cours.": "Installation du Plugin Atlas en cours",
+        "Le plugin OpenVpn a été installé avec succès": "Le plugin OpenVpn a été installé avec succès",
         "Merci d'avoir choisi Jeedom Atlas": "Merci d'avoir choisi Jeedom Atlas"
     },
     "plugins\/jeeasy\/desktop\/modal\/fridge.eqLogic.configure.php": {
@@ -420,8 +423,6 @@
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
         "401 - Accès non autorisé": "401 - Akses tidak sah",
         "Vous êtes prêt à commencer": "Vous êtes prêt à commencer",
-        " Adresse locale de votre box : ": "Adresse locale de votre box :",
-        "Adresse externe de votre box : ": "Adresse externe de votre box :",
         "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Vous pourrez trouver la documentation complète de Jeedom à cette adresse",
         "Documentation": "Dokumentasi",
         "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "Vous pouvez également rejoindre notre communauté et poser toutes vos questions",
@@ -457,7 +458,7 @@
         "Bravo !!! Vous avez fini d'ajouter votre module": "Bravo !!! Vous avez fini d'ajouter votre module",
         "Cliquez sur sauvegarder pour valider votre configuration": "Cliquez sur sauvegarder pour valider votre configuration",
         "Configurer": "Mengkonfigurasi",
-        "Très bien configurons ce module. Quel est sont type ?": "Très bien configurons ce module. Quel est sont type ?",
+        "Très bien configurons ce module. Quel est son type ?": "Très bien configurons ce module. Quel est son type ?",
         "Nous ne trouvons pas votre module. Essayez de l\\'inclure avant de sauvegarder sa configuration": "Nous ne trouvons pas votre module. Essayez de l\\'inclure avant de sauvegarder sa configuration",
         "Configuration sauvegardée": "Configuration sauvegardée",
         "Vous êtes en mode inclusion. Cliquez à nouveau sur le bouton d\\'inclusion pour sortir de ce mode": "Vous êtes en mode inclusion. Cliquez à nouveau sur le bouton d\\'inclusion pour sortir de ce mode",

@@ -2,7 +2,7 @@
     "plugins\/jeeasy\/desktop\/modal\/recoveryAtlas.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
         "Lancement Recovery": "Recovery launch",
-        "Recovery Atlas": "Recovery Atlas",
+        "Recovery Atlas": "Atlas Recovery",
         "DEMARRER LE RECOVERY": "START RECOVERY"
     },
     "plugins\/jeeasy\/desktop\/modal\/objects.php": {
@@ -40,8 +40,8 @@
         "401 - Accès non autorisé": "401 - Unauthorized Access",
         "Nom actuel de votre box : ": "Current name of your box:",
         " Nouveau nom de votre box (laissez vide pour laisser le nom par defaut) ": "New name of your box (leave empty to leave the default name)",
-        "Valider": "To validate",
         "Ignorer": "Ignore",
+        "Valider": "To validate",
         "Nouveau nom de votre box : ": "New name of your box:"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
@@ -95,7 +95,7 @@
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
         "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "The OpenVpn plugin is being installed... Please wait",
-        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patienter": "The OpenVpn plugin is being installed... Please wait"
+        "Le plugin OpenVpn a été installé avec succès": "OpenVpn plugin has been successfully installed"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "The Z-Wave network is stopped on the server",
@@ -158,6 +158,8 @@
     "plugins\/jeeasy\/desktop\/modal\/luna.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
         "Installation du Plugin Luna en cours.": "Luna Plugin installation in progress",
+        "Le plugin Luna a été installé avec succès": "Luna plugin has been successfully installed",
+        "Le plugin OpenVpn a été installé avec succès": "OpenVpn plugin has been successfully installed",
         "Merci d'avoir choisi ": "Thanks for choosing"
     },
     "plugins\/jeeasy\/desktop\/modal\/philipshue.include.php": {
@@ -199,6 +201,7 @@
     "plugins\/jeeasy\/desktop\/modal\/atlas.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
         "Installation du Plugin Atlas en cours.": "Installation of the Atlas Plugin in progress",
+        "Le plugin OpenVpn a été installé avec succès": "OpenVpn plugin has been successfully installed",
         "Merci d'avoir choisi Jeedom Atlas": "Thank you for choosing Jeedom Atlas"
     },
     "plugins\/jeeasy\/desktop\/modal\/fridge.eqLogic.configure.php": {
@@ -420,8 +423,6 @@
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
         "Vous êtes prêt à commencer": "You are ready to start",
-        " Adresse locale de votre box : ": "Local address of your box:",
-        "Adresse externe de votre box : ": "External address of your box:",
         "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "You can find the complete documentation of Jeedom at this address",
         "Documentation": "Documentation",
         "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "You can also join our community and ask all your questions",
@@ -457,7 +458,7 @@
         "Bravo !!! Vous avez fini d'ajouter votre module": "Well done !!! You have finished adding your module",
         "Cliquez sur sauvegarder pour valider votre configuration": "Click on save to validate your configuration",
         "Configurer": "Configuring",
-        "Très bien configurons ce module. Quel est sont type ?": "Very well let's configure this module. What is your type?",
+        "Très bien configurons ce module. Quel est son type ?": "Okay, let's configure this module. What is his type?",
         "Nous ne trouvons pas votre module. Essayez de l\\'inclure avant de sauvegarder sa configuration": "We can't find your module. Try to include it before saving its configuration",
         "Configuration sauvegardée": "Saved configuration",
         "Vous êtes en mode inclusion. Cliquez à nouveau sur le bouton d\\'inclusion pour sortir de ce mode": "You are in inclusion mode. Click the include button again to exit this mode",
