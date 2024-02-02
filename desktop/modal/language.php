@@ -21,7 +21,8 @@ else
   
   </script>
 
-<div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:50%;height:50%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
+<div class="mainContainer" style="height:100%;display:flex;flex-direction:column;justify-content:center;">
+<div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:80%;height:80%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
 <div class="col-md-12 text-center">
   <p class="text-center">
   <h3 class="titlelanguage" id="titlelanguage">{{Langage Systeme}}</h3>
@@ -54,7 +55,7 @@ else
     <p class="ignorebtn">{{Cliquez sur la flèche pour ignorer}}</p>
   </div>
 
-
+</div>
 
 
 

@@ -24,8 +24,16 @@ $countProtocols = 0;
 
 ?>
 <script>
-  $('#bt_next').hide();
-    function callAjax(choiceConfig, typeBox, pluginName){
+
+var btNext = document.getElementById('bt_next');
+var choiceModeElement = document.getElementById('choiceMode');
+var textConfigAutoPlugElement = document.querySelector('.textConfigAutoPlug');
+var testbtnb = document.querySelector('.testbtnb');
+
+
+btNext.style.display = 'none';
+
+function callAjax(choiceConfig, typeBox, pluginName){
                     $.ajax({
                       type: "POST",
                       url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
@@ -42,12 +50,12 @@ $countProtocols = 0;
                       },
                       success: function(data) {
                           if (data.result == 'usb') {
-                              $('.textConfigAutoPlug').text('{{Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin}}');
-                              $('#choiceMode').hide();
+                            textConfigAutoPlugElement.innerHTML = '{{Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin}}';
+                            choiceModeElement.style.display = 'none';
                           } else if (data.result == 'gpio') {
-                              $('#choiceMode').hide();
-                              $('.textConfigAutoPlug').text('{{Votre plugin à été configuré automatiquement}}');
-                              $('#bt_next').show();
+                            choiceModeElement.style.display = 'none';
+                            textConfigAutoPlugElement.innerHTML = '{{Votre plugin à été configuré automatiquement}}';
+                            btNext.style.display = 'block';
 
                           }
                       }
@@ -75,12 +83,16 @@ if ($listPlugins) {
                 $nameplug = $plugin->getId();              
                ?>
            
-                $('#pluginsConfigSelect').append($('<option>', {
-                            nameplugin: '<?= $nameplug; ?>',
-                            typebox: '<?= $productName; ?>',
-                            config: 'gpio',
-                            text: '<?= $nameplug; ?>'
-                }));
+                var pluginsConfigSelect = document.getElementById('pluginsConfigSelect');
+
+                var newOption = document.createElement('option');
+
+                newOption.setAttribute('nameplugin', '<?= $nameplug; ?>');
+                newOption.setAttribute('typebox', '<?= $productName; ?>');
+                newOption.setAttribute('config', 'gpio');
+                newOption.textContent = '<?= $nameplug; ?>';
+
+                pluginsConfigSelect.appendChild(newOption);
            <?php  } ?>
 
                     </script>
@@ -94,11 +106,26 @@ if ($listPlugins) {
                 var nameplugin = '<?= $nameplug; ?>';
                 var typebox = '<?= $productName; ?>';
                 var config = 'gpio';
+
                 callAjax(config, typebox, nameplugin);
-              $('.testbtnb').hide();
-              $('#choiceMode').html('Le port du plugin à été automatiquement configuré, vous pouve cliquez sur la fleche pour continuer');
-              $('#pluginsConfigSelect').hide(); 
-              $('#yourBoxIs').hide();        
+
+                testbtnb.style.display = 'none';
+
+                var choiceModeElement = document.getElementById('choiceMode');
+                if (choiceModeElement) {
+                    choiceModeElement.innerHTML = '{{Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer}}';
+                }
+
+                var pluginsConfigSelectElement = document.getElementById('pluginsConfigSelect');
+                if (pluginsConfigSelectElement) {
+                    pluginsConfigSelectElement.style.display = 'none';
+                }
+
+                var yourBoxIsElement = document.getElementById('yourBoxIs');
+                if (yourBoxIsElement) {
+                    yourBoxIsElement.style.display = 'none';
+                }
+
             </script>
     <?php
        
@@ -107,24 +134,37 @@ if ($listPlugins) {
 
     if ($i == 0) {
         ?> <script>
-            $('#choiceMode').hide();  
-            $('.testbtnb').hide();
-            $('.textConfigAutoPlug').text('{{Aucun Plugin installé à paramétrer}}');
-            $('#btn-choiceConfig').hide();
-            $('#pluginsConfigSelect').hide();
-            $('#bt_next').show();
+            choiceModeElement.style.display = 'none';
+            testbtnb.style.display = 'none';
+            textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer}}';
+            if(document.getElementById('btn-choiceConfig')){
+                document.getElementById('btn-choiceConfig').style.display = 'none';
+                document.getElementById('contenuTextSpan').style.display = 'none';
+            }
+            if(document.getElementById('pluginsConfigSelect')){
+                document.getElementById('pluginsConfigSelect').style.display = 'none';
+                document.getElementById('contenuTextSpan').style.display = 'none';
+            }
+            btNext.style.display = 'block';
         </script>
     <?php
 
     }
 } else {
     ?> <script>
-        $('#choiceMode').hide();
-        $('.testbtnb').hide();
-        $('.textConfigAutoPlug').text('{{Aucun Plugin installé à paramétrer}}');
-        $('#btn-choiceConfig').hide();
-        $('#pluginsConfigSelect').hide();
-        $('#bt_next').show();
+        choiceModeElement.style.display = 'none';
+        testbtnb.style.display = 'none';
+        textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer}}';
+        if(document.getElementById('btn-choiceConfig')){
+                document.getElementById('btn-choiceConfig').style.display = 'none';
+                document.getElementById('contenuTextSpan').style.display = 'none';
+                //div_progressbar
+        }
+        if(document.getElementById('pluginsConfigSelect')){
+                document.getElementById('pluginsConfigSelect').style.display = 'none';
+                document.getElementById('contenuTextSpan').style.display = 'none';
+        }
+        btNext.style.display = 'block';
     </script>
 <?php
 
@@ -133,71 +173,79 @@ if ($listPlugins) {
 ?>
 <script>
   
-     $('#btn-pluginConfigIgnore').click( function() {
-      $('#bt_next').trigger('click');
-      $('#bt_next').show();
+  document.getElementById('btn-pluginConfigIgnore').addEventListener('click', function() {
+      btNext.click();
+      btNext.style.display = 'block';
   });
+
+
+
   
+  document.getElementById('btn-validateConfig').addEventListener('click', function() {
+        var countProtocols = '<?= $countProtocols; ?>';
+        if(countProtocols > 1){
+            var selectedOption = document.getElementById('pluginsConfigSelect').options[pluginsConfigSelect.selectedIndex];
+            var choiceConfig = selectedOption.getAttribute('config');
+            var typeBox = selectedOption.getAttribute('typebox');
+            var pluginName = selectedOption.getAttribute('nameplugin');          
+            if(choiceConfig == ''){           
+                choiceModeElement.style.display = 'none';
+                textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer, cliquez sur Suivant}}';
+                btNext.style.display = 'none';
+                
+            }else{
+            callAjax(choiceConfig, typeBox, pluginName);
+            }                  
+        }else{
+            choiceModeElement.style.display = 'none';
+            textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer, cliquez sur Suivant}}';
+            btNext.style.display = 'block';
 
-    $('#btn-validateConfig').on('click', function() { 
-                  var countProtocols = '<?= $countProtocols; ?>';
-                  if(countProtocols > 1){
-                      let choiceConfig, typeBox, pluginName;            
-                      choiceConfig = $('#pluginsConfigSelect option:selected').attr('config');
-                      typeBox = $('#pluginsConfigSelect option:selected').attr('typebox');
-                      pluginName = $('#pluginsConfigSelect option:selected').attr('nameplugin');
-                      if(choiceConfig == ''){
-                         $('#choiceMode').hide();
-                         $('.textConfigAutoPlug').text('{{Aucun Plugin installé à paramétrer, cliquez sur Suivant}}');
-                         $('#bt_next').hide();
-                      }else{
-                        callAjax(choiceConfig, typeBox, pluginName);
-                      }                  
-                  }else{
-                      $('#choiceMode').hide();
-                      $('.textConfigAutoPlug').text('{{Aucun Plugin installé à paramétrer, cliquez sur Suivant}}');
-                      $('#bt_next').show();
-                    
-                  }
+        
+        }
     });
 
 
-    $('#pluginsConfigSelect').on('change', function() {
-        $('#choiceMode').show();
-        $('.textConfigAutoPlug').text('');
+    document.getElementById('pluginsConfigSelect').addEventListener('change', function() {
+        choiceModeElement.style.display = 'block';
+        textConfigAutoPlugElement.innerHTML = '';
     });
+
 </script>
 
-<div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:50%;height:50%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
-<div class="col-md-12 text-center">
-    <p class="text-center">
-    <h3 class="configplugins">{{Configuration Auto des Plugins}} :</h3>
-    </p>
-    <p class="text-center">
-    <h4 class="configplugins" id="choiceMode">{{Quel plugin souhaitez vous que Jeedom configure automatiquement le port ?}} :</h4>
-    </p>
-   
-    <p class="text-center">
-    <h4 class="textConfigAutoPlug" style="color:#93ca02;"></h4>
-    </p>
-    <table class="table table-hover" id="pluginsConfigTab" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-        <thead>
-        </thead>
-        <tbody>
-            <select id="pluginsConfigSelect" style="width:250px">
-            </select>
-        </tbody>
-    </table>
-  
-    <div class="testbtnb" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
-        <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-validateConfig" style="margin-bottom:10px;">{{Valider la configuration}}</button>
-        <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-pluginConfigIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}
-    </div>
+
+<div class="mainContainer" style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+<div ><img class="img-responsive center-block img-atlas" style="width:60%;height:60%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
+        <div class="col-md-12 text-center">
+            <p class="text-center">
+            <h3 class="configplugins">{{Configuration Auto des Plugins}} :</h3>
+            </p>
+            <p class="text-center">
+            <h4 class="configplugins" id="choiceMode">{{Quel plugin souhaitez vous que Jeedom configure automatiquement le port ?}} :</h4>
+            </p>
+        
+            <p class="text-center">
+            <h4 class="textConfigAutoPlug" style="color:#93ca02;"></h4>
+            </p>
+            <table class="table table-hover" id="pluginsConfigTab" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <thead>
+                </thead>
+                <tbody>
+                    <select id="pluginsConfigSelect" style="width:250px">
+                    </select>
+                </tbody>
+            </table>
+        
+            <div class="testbtnb" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
+                <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-validateConfig" style="margin-bottom:10px;">{{Valider la configuration}}</button>
+                <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-pluginConfigIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}
+            </div>
 
 
-    <div id="contenuTextSpan" class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-    </div>
-</div>
+            <div id="contenuTextSpan" class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+        </div>
+        </div>
 </div>
 </div>

@@ -119,61 +119,167 @@ jeeasy::checkPlugin('openenocean');
 </div>
 <?php include_file('desktop', 'openenocean', 'js', 'openenocean'); ?>
 <script type="text/javascript">
+
 	eqLogic_id = null;
-	$('.bt_jeeasyNext').off('click').on('click', function() {
-		$('.li_jeeEasySummary.active').next().click();
-	});
-	$('.bt_jeeasyPrevious').off('click').on('click', function() {
-		$('.li_jeeEasySummary.active').prev().click();
-	});
-	$('.li_jeeEasySummary').off('click').on('click', function() {
-		$('.li_jeeEasySummary.active').removeClass('active');
-		$(this).addClass('active');
-		$('.jeeasyDisplay').hide();
-		$('.jeeasyDisplay.' + $(this).attr('data-href')).show();
-		$(this).attr('data-display', 1);
-	});
 
-	$('.bt_jeeasyEqLogicConfigurationAfterInclude').off('click').on('click', function() {
-		bootbox.prompt({
-			title: "{{Très bien configurons ce module. Quel est sont type ?}}",
-			inputType: 'select',
-			inputOptions: JEEASY_TYPE_LIST,
-			callback: function(type) {
-				jeeasyModalConfigurationEqLogic(eqLogic_id, type);
-			}
-		});
-	});
+	// $('.bt_jeeasyNext').off('click').on('click', function() {
+	// 	$('.li_jeeEasySummary.active').next().click();
+	// });
 
-	$('.bt_jeeasySave').off('click').on('click', function() {
-		if (eqLogic_id == null) {
-			$('#div_AlertJeeasyInclude').showAlert({
-				message: '{{Nous ne trouvons pas votre module. Essayez de l\'inclure avant de sauvegarder sa configuration}}',
-				level: 'danger'
+	// $('.bt_jeeasyPrevious').off('click').on('click', function() {
+	// 	$('.li_jeeEasySummary.active').prev().click();
+	// });
+	// $('.li_jeeEasySummary').off('click').on('click', function() {
+	// 	$('.li_jeeEasySummary.active').removeClass('active');
+	// 	$(this).addClass('active');
+	// 	$('.jeeasyDisplay').hide();
+	// 	$('.jeeasyDisplay.' + $(this).attr('data-href')).show();
+	// 	$(this).attr('data-display', 1);
+	// });
+
+
+	document.querySelectorAll('.bt_jeeasyNext').forEach(function(button) {
+			button.addEventListener('click', function() {
+					var activeSummary = document.querySelector('.li_jeeEasySummary.active');
+					var nextSummary = activeSummary.nextElementSibling;
+					if (nextSummary) {
+							nextSummary.click();
+					}
 			});
-			return;
-		}
-		var eqLogic = {
-			id: eqLogic_id
-		}
-		eqLogic = deepmerge(eqLogic, $('#div_jeeasyIncludeDisplay').getValues('.eqLogicAttr')[0]);
-		jeedom.eqLogic.simpleSave({
-			eqLogic: eqLogic,
-			error: function(error) {
-				$('#div_AlertJeeasyInclude').showAlert({
-					message: error.message,
-					level: 'danger'
-				});
-			},
-			success: function() {
-				$('#div_AlertJeeasyInclude').showAlert({
-					message: '{{Configuration sauvegardée}}',
-					level: 'success'
-				});
-				$('.bt_jeeasyEqLogicConfigurationAfterInclude').show();
-			}
-		});
 	});
+
+
+	document.querySelectorAll('.bt_jeeasyPrevious').forEach(function(button) {
+			button.addEventListener('click', function() {
+					var activeSummary = document.querySelector('.li_jeeEasySummary.active');
+					var prevSummary = activeSummary.previousElementSibling;
+					if (prevSummary) {
+							prevSummary.click();
+					}
+			});
+	});
+
+
+	document.querySelectorAll('.li_jeeEasySummary').forEach(function(summary) {
+			summary.addEventListener('click', function() {
+					var activeSummary = document.querySelector('.li_jeeEasySummary.active');
+					activeSummary.classList.remove('active');
+					summary.classList.add('active');
+
+					document.querySelectorAll('.jeeasyDisplay').forEach(function(display) {
+							display.style.display = 'none';
+					});
+
+					var displayElement = document.querySelector('.jeeasyDisplay.' + summary.getAttribute('data-href'));
+					if (displayElement) {
+							displayElement.style.display = 'block';
+					}
+
+					summary.setAttribute('data-display', 1);
+			});
+	});
+
+	// $('.bt_jeeasyEqLogicConfigurationAfterInclude').off('click').on('click', function() {
+	// 	bootbox.prompt({
+	// 		title: "{{Très bien configurons ce module. Quel est son type ?}}",
+	// 		inputType: 'select',
+	// 		inputOptions: JEEASY_TYPE_LIST,
+	// 		callback: function(type) {
+	// 			jeeasyModalConfigurationEqLogic(eqLogic_id, type);
+	// 		}
+	// 	});
+	// });
+
+	document.querySelectorAll('.bt_jeeasyEqLogicConfigurationAfterInclude').forEach(function(button) {
+    button.addEventListener('click', function() {
+        var typeSelect = document.createElement('select');
+        for (var key in JEEASY_TYPE_LIST) {
+            var option = document.createElement('option');
+            option.value = key;
+            option.text = JEEASY_TYPE_LIST[key];
+            typeSelect.add(option);
+        }
+
+        var result = window.prompt("{{Très bien configurons ce module. Quel est son type ?}}", "");
+
+        if (result !== null) {
+            var type = typeSelect.value;
+            jeeasyModalConfigurationEqLogic(eqLogic_id, type);
+        }
+    });
+});
+
+
+	// $('.bt_jeeasySave').off('click').on('click', function() {
+	// 	if (eqLogic_id == null) {
+	// 		$('#div_AlertJeeasyInclude').showAlert({
+	// 			message: '{{Nous ne trouvons pas votre module. Essayez de l\'inclure avant de sauvegarder sa configuration}}',
+	// 			level: 'danger'
+	// 		});
+	// 		return;
+	// 	}
+	// 	var eqLogic = {
+	// 		id: eqLogic_id
+	// 	}
+	// 	eqLogic = deepmerge(eqLogic, $('#div_jeeasyIncludeDisplay').getValues('.eqLogicAttr')[0]);
+	// 	jeedom.eqLogic.simpleSave({
+	// 		eqLogic: eqLogic,
+	// 		error: function(error) {
+	// 			$('#div_AlertJeeasyInclude').showAlert({
+	// 				message: error.message,
+	// 				level: 'danger'
+	// 			});
+	// 		},
+	// 		success: function() {
+	// 			$('#div_AlertJeeasyInclude').showAlert({
+	// 				message: '{{Configuration sauvegardée}}',
+	// 				level: 'success'
+	// 			});
+	// 			$('.bt_jeeasyEqLogicConfigurationAfterInclude').show();
+	// 		}
+	// 	});
+	// });
+
+
+	document.querySelectorAll('.bt_jeeasySave').forEach(function(button) {
+    button.addEventListener('click', function() {
+        if (eqLogic_id == null) {
+            document.getElementById('div_AlertJeeasyInclude').showAlert({
+                message: '{{Nous ne trouvons pas votre module. Essayez de l\'inclure avant de sauvegarder sa configuration}}',
+                level: 'danger'
+            });
+            return;
+        }
+
+        var eqLogic = {
+            id: eqLogic_id
+        };
+
+        eqLogic = deepmerge(eqLogic, getValues(document.getElementById('div_jeeasyIncludeDisplay'), '.eqLogicAttr')[0]);
+
+        jeedom.eqLogic.simpleSave({
+            eqLogic: eqLogic,
+            error: function(error) {
+							document.getElementById('div_AlertJeeasyInclude').showAlert({
+                    message: error.message,
+                    level: 'danger'
+                });
+            },
+            success: function() {
+							document.getElementById('div_AlertJeeasyInclude').showAlert({
+                    message: '{{Configuration sauvegardée}}',
+                    level: 'success'
+                });
+                document.querySelectorAll('.bt_jeeasyEqLogicConfigurationAfterInclude').forEach(function(elem) {
+                    elem.style.display = 'block';
+                });
+            }
+        });
+    });
+});
+
+
+
 
 	$('body').off('openenocean::includeState').on('openenocean::includeState', function(_event, _options) {
 		if (_options['mode'] == 'learn') {

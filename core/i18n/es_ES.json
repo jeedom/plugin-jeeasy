@@ -40,13 +40,13 @@
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Nom actuel de votre box : ": "Nombre actual de su caja:",
         " Nouveau nom de votre box (laissez vide pour laisser le nom par defaut) ": "Nuevo nombre de su caja (déjelo en blanco para dejar el nombre por defecto)",
-        "Valider": "Validar",
         "Ignorer": "Ignorar",
+        "Valider": "Validar",
         "Nouveau nom de votre box : ": "Nuevo nombre de tu caja:"
     },
     "plugins\/jeeasy\/desktop\/modal\/pack.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Choix des plugins à installer": "Elección de complementos para instalar",
+        "Proposition de plugins à installer": "Complementos sugeridos para instalar",
         "Installation des plugins en cours": "Instalación de complementos en curso",
         "Aucun plugin à installer, cliquez sur suivant": "No hay complemento para instalar, haga clic en siguiente",
         "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Sus complementos están listos.<br> Las dependencias aún se están instalando, consulte la pestaña de configuración de sus complementos",
@@ -95,7 +95,7 @@
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "El complemento OpenVpn se está instalando... Por favor, espere",
-        "Le plugin OpenVpn a bien été installé et configuré. Cliquez sur suivant": "El complemento OpenVpn se ha instalado y configurado correctamente. Haga clic en Siguiente"
+        "Le plugin OpenVpn a été installé avec succès": "El complemento OpenVpn se ha instalado correctamente"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "La red Z-Wave se detiene en el servidor",
@@ -158,6 +158,8 @@
     "plugins\/jeeasy\/desktop\/modal\/luna.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Installation du Plugin Luna en cours.": "Instalación del complemento Luna en curso",
+        "Le plugin Luna a été installé avec succès": "El complemento Luna se ha instalado correctamente",
+        "Le plugin OpenVpn a été installé avec succès": "El complemento OpenVpn se ha instalado correctamente",
         "Merci d'avoir choisi ": "Gracias por elegir"
     },
     "plugins\/jeeasy\/desktop\/modal\/philipshue.include.php": {
@@ -199,6 +201,7 @@
     "plugins\/jeeasy\/desktop\/modal\/atlas.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Installation du Plugin Atlas en cours.": "Instalación del Atlas Plugin en curso",
+        "Le plugin OpenVpn a été installé avec succès": "El complemento OpenVpn se ha instalado correctamente",
         "Merci d'avoir choisi Jeedom Atlas": "Gracias por elegir Jeedom Atlas"
     },
     "plugins\/jeeasy\/desktop\/modal\/fridge.eqLogic.configure.php": {
@@ -238,6 +241,7 @@
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Ha elegido un controlador USB, configúrelo en la gestión de su complemento",
         "Votre plugin à été configuré automatiquement": "Su complemento se ha configurado automáticamente",
+        "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "El puerto del complemento se ha configurado automáticamente, puede hacer clic en la flecha para continuar",
         "Aucun Plugin installé à paramétrer": "No hay complemento instalado para configurar",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "No hay complemento instalado para configurar, haga clic en Siguiente",
         "Configuration Auto des Plugins": "Configuración automática de complementos",
@@ -419,8 +423,6 @@
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Vous êtes prêt à commencer": "Estas listo para comenzar",
-        " Adresse locale de votre box : ": "Dirección local de su casilla:",
-        "Adresse externe de votre box : ": "Dirección externa de su casilla:",
         "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Puede encontrar la documentación completa de Jeedom en esta dirección",
         "Documentation": "Documentación",
         "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "También puedes unirte a nuestra comunidad y hacer todas tus preguntas",
@@ -456,7 +458,7 @@
         "Bravo !!! Vous avez fini d'ajouter votre module": "Bien hecho !!! Has terminado de agregar tu módulo",
         "Cliquez sur sauvegarder pour valider votre configuration": "Haga clic en guardar para validar su configuración",
         "Configurer": "Configurar",
-        "Très bien configurons ce module. Quel est sont type ?": "Muy bien configuremos este módulo. Cual es tu tipo",
+        "Très bien configurons ce module. Quel est son type ?": "Bien, configuremos este módulo. ¿Cuál es su tipo?",
         "Nous ne trouvons pas votre module. Essayez de l\\'inclure avant de sauvegarder sa configuration": "No podemos encontrar su módulo. Intenta incluirlo antes de guardar su configuración",
         "Configuration sauvegardée": "Configuración guardada",
         "Vous êtes en mode inclusion. Cliquez à nouveau sur le bouton d\\'inclusion pour sortir de ce mode": "Estás en modo de inclusión. Haga clic en el botón incluir de nuevo para salir de este modo",

@@ -76,36 +76,47 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 }
 if ($servicePack != 'Community') {
 ?>
+
   <script>
-    $('#bt_next').hide();
-    $('#bt_prev').show();
-    $('.textAtlas').text('{{Choix des plugins à installer}} : ');
+   
+    var btNext = document.getElementById('bt_next');
+    var btPrev = document.getElementById('bt_prev');
+    btNext.style.display = 'none';
+    btPrev.style.display = 'block';
+    var textAtlasElement = document.querySelector('.textAtlas');
 
-    $('#btn-packModalIgnore').click( function() {
-      $('#bt_next').trigger('click');
-      $('#bt_next').show();
-  });
+    textAtlasElement.innerHTML = '{{Proposition de plugins à installer}} : ';
 
-    $('#btn-choicePlugin').on('click', function() {
 
-      $('.testbtn').hide();
-      $('#tabPlugins').hide();
+   document.getElementById('btn-packModalIgnore').addEventListener('click', function() {
+          btNext.click();
+          btNext.style.display = 'block';
+   });
+
+
+    document.getElementById('btn-choicePlugin').addEventListener('click', function() {
+
+      document.querySelector('.testbtn').style.display = 'none';
+      document.getElementById('tabPlugins').style.display = 'none';
       var i = 0;
       var pluginsCheck = [];
-      $('input:checked[id=checkPluginToInstall]').each(function() {
-        i++;
-        var idplugin = $(this).attr("name");
-        pluginsCheck.push(idplugin);
+
+      var checkedPluginInputs = document.querySelectorAll('input:checked[id="checkPluginToInstall"]');
+          checkedPluginInputs.forEach(function(checkedPluginInput) {
+          i++;
+          var idplugin = checkedPluginInput.getAttribute('name');
+          pluginsCheck.push(idplugin);
       });
+
       if (i != 0) {
-        $('.textAtlas').text('{{Installation des plugins en cours}} : ');
-        progress(20);
+        textAtlasElement.innerHTML = '{{Installation des plugins en cours}} : ';
+        progress(20, 'div_progressbar');
         installPluginCheck(pluginsCheck);
       } else {
-        $('.textAtlas').text('{{Aucun plugin à installer, cliquez sur suivant}} : ');
-        $('#btn-choicePlugin').hide();
-        $('#bt_next').show();
-        $('#bt_prev').show();
+        textAtlasElement.innerHTML = '{{Aucun plugin à installer, cliquez sur suivant}} : ';
+        document.getElementById('btn-choicePlugin').style.display = 'none';
+        btNext.style.display = 'block';
+        btPrev.style.display = 'block';
       }
 
     });
@@ -128,7 +139,7 @@ if ($servicePack != 'Community') {
           },
           success: function(data) {
             testDep(pluginId);
-            progress(50);
+            progress(50, 'div_progressbar');
           }
         });
       }
@@ -148,45 +159,47 @@ if ($servicePack != 'Community') {
           handleAjaxError(request, status, error);
         },
         success: function(data) {
-          progress(100);
-          $('#servicePackh3').html('{{Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\'installation, vérifiez l\'onglet configuration de vos plugins.}}');
-          $('#btn-choicePlugin').hide();
+          progress(100, 'div_progressbar');
+          document.getElementById('servicePackh3').innerHTML = '{{Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\'installation, vérifiez l\'onglet configuration de vos plugins.}}'
+          document.getElementById('btn-choicePlugin').style.display = 'none';
         }
       });
     }
 
 
-    function progress(ProgressPourcent) {
-      if (ProgressPourcent == -1) {
-        $('#div_progressbar').removeClass('progress-bar-success progress-bar-info progress-bar-warning');
-        $('#div_progressbar').addClass('active progress-bar-danger');
-        $('#div_progressbar').width('100%');
-        $('#div_progressbar').attr('aria-valuenow', 100);
-        $('#div_progressbar').html('N/A');
-        return;
-      }
-      if (ProgressPourcent == 100) {
-        $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-        $('#div_progressbar').addClass('progress-bar-success');
-        $('#div_progressbar').width(ProgressPourcent + '%');
-        $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
-        $('#div_progressbar').html('FIN');
-        $('.textAtlas').hide();
-        Good();
-        return;
-      }
-      $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-      $('#div_progressbar').addClass('progress-bar-success');
-      $('#div_progressbar').width(ProgressPourcent + '%');
-      $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
-      $('#div_progressbar').html(ProgressPourcent + '%');
-    }
+    // function progress(ProgressPourcent) {
+    //   if (ProgressPourcent == -1) {
+    //     $('#div_progressbar').removeClass('progress-bar-success progress-bar-info progress-bar-warning');
+    //     $('#div_progressbar').addClass('active progress-bar-danger');
+    //     $('#div_progressbar').width('100%');
+    //     $('#div_progressbar').attr('aria-valuenow', 100);
+    //     $('#div_progressbar').html('N/A');
+    //     return;
+    //   }
+    //   if (ProgressPourcent == 100) {
+    //     $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+    //     $('#div_progressbar').addClass('progress-bar-success');
+    //     $('#div_progressbar').width(ProgressPourcent + '%');
+    //     $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
+    //     $('#div_progressbar').html('FIN');
+    //     $('.textAtlas').hide();
+    //     Good();
+    //     return;
+    //   }
+    //   $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+    //   $('#div_progressbar').addClass('progress-bar-success');
+    //   $('#div_progressbar').width(ProgressPourcent + '%');
+    //   $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
+    //   $('#div_progressbar').html(ProgressPourcent + '%');
+    // }
 
-    function Good() {
-      $('#bt_next').show();
-      $('#bt_prev').show();
-      $('.img-atlas').attr('src', '<?php echo config::byKey('product_connection_image'); ?>');
-    }
+    function Good(){
+        btNext.style.display = 'block';
+       // btNext.style.marginTop = '70px';
+        var imgElement = document.querySelector('.img-atlas');
+        imgElement.setAttribute('src', '<?php echo config::byKey("product_connection_image"); ?>');
+      }
+
   </script>
 
   <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:50%;height:50%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
