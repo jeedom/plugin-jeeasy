@@ -40,8 +40,8 @@ if (!$caught) {
 
 
 <div id="marketbeforeupdate" id="wizardModal" tabindex="502" class="form-group" style="margin:0 auto;display:none">
-	<div id="imgbeforeupdate">
-		<img src="<?php echo config::byKey('product_connection_image'); ?>" />
+	<div id="imgbeforeupdate" style="display:flex;justify-content:center; align-items:center;margin-top:10%;">
+		<img style="max-height:100%;max-width:100%;" src="<?php echo config::byKey('product_connection_image'); ?>" />
 	</div>
 	<h3>{{Je n'ai pas de compte Market}}</h3>
 	<button class="dark btn-lg marketupdatebtn" id="bt_createaccountmarket"><i class="fas fa-sign-in-alt"></i> {{En créer un}} !</button>
