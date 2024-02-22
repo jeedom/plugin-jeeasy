@@ -299,7 +299,11 @@ class jeeasy extends eqLogic {
 		if (!is_object($plugin)) {
 			$plugin = $_plugin;
 		}
-		self::checkInstallPlugin($plugin);
+		if(config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha'){
+        		self::checkInstallPlugin($plugin, 'beta');
+        	}else{
+        		self::checkInstallPlugin($plugin);
+        	}
 		self::checkDependancyPlugin($plugin);
 		self::checkDeamonPlugin($plugin);
 	}
