@@ -12,14 +12,6 @@ else
 
 $custom = null;
 
-if(config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha'){
-  $branch = 'beta';
-}else{
-  $branch = 'stable';
-}
-
-
-
 $jsonrpc = repo_market::getJsonRpc();
 $marketURL = config::byKey('market::address');
 $productName = jeedom::getHardwareName();
@@ -137,8 +129,7 @@ if ($servicePack != 'Community') {
           url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
           data: {
             action: "installPlugin",
-            id: pluginId,
-            branch: <?php echo $branch;?>
+            id: pluginId
           },
           dataType: 'json',
           error: function(request, status, error) {
