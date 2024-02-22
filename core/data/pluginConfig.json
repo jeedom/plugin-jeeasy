@@ -41,7 +41,8 @@
                "Luna" : {
                  "controller_1" : "ezsp",
                  "sub_controller_1" : "elelabs",
-                 "port_1" : "/dev/ttyLuna-Zigbee"
+                 "port_1" : "/dev/ttyLuna-Zigbee",
+                 "z2m::mode" : "local"
                }
             }
         } ,
