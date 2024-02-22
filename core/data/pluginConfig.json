@@ -36,7 +36,8 @@
                "Atlas": {
                  "controller_1" : "ezsp",
                  "sub_controller_1" : "elelabs",
-                 "port_1" : "/dev/ttyS2"
+                 "port_1" : "/dev/ttyS2",
+                 "z2m::mode" : "local"
                },
                "Luna" : {
                  "controller_1" : "ezsp",
