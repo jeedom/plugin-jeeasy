@@ -167,31 +167,31 @@ if ($servicePack != 'Community') {
     }
 
 
-    // function progress(ProgressPourcent) {
-    //   if (ProgressPourcent == -1) {
-    //     $('#div_progressbar').removeClass('progress-bar-success progress-bar-info progress-bar-warning');
-    //     $('#div_progressbar').addClass('active progress-bar-danger');
-    //     $('#div_progressbar').width('100%');
-    //     $('#div_progressbar').attr('aria-valuenow', 100);
-    //     $('#div_progressbar').html('N/A');
-    //     return;
-    //   }
-    //   if (ProgressPourcent == 100) {
-    //     $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-    //     $('#div_progressbar').addClass('progress-bar-success');
-    //     $('#div_progressbar').width(ProgressPourcent + '%');
-    //     $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
-    //     $('#div_progressbar').html('FIN');
-    //     $('.textAtlas').hide();
-    //     Good();
-    //     return;
-    //   }
-    //   $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
-    //   $('#div_progressbar').addClass('progress-bar-success');
-    //   $('#div_progressbar').width(ProgressPourcent + '%');
-    //   $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
-    //   $('#div_progressbar').html(ProgressPourcent + '%');
-    // }
+     function progress(ProgressPourcent) {
+       if (ProgressPourcent == -1) {
+         $('#div_progressbar').removeClass('progress-bar-success progress-bar-info progress-bar-warning');
+         $('#div_progressbar').addClass('active progress-bar-danger');
+         $('#div_progressbar').width('100%');
+         $('#div_progressbar').attr('aria-valuenow', 100);
+         $('#div_progressbar').html('N/A');
+         return;
+       }
+       if (ProgressPourcent == 100) {
+         $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+         $('#div_progressbar').addClass('progress-bar-success');
+         $('#div_progressbar').width(ProgressPourcent + '%');
+         $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
+         $('#div_progressbar').html('FIN');
+         $('.textAtlas').hide();
+         Good();
+         return;
+       }
+       $('#div_progressbar').removeClass('active progress-bar-info progress-bar-danger progress-bar-warning');
+       $('#div_progressbar').addClass('progress-bar-success');
+       $('#div_progressbar').width(ProgressPourcent + '%');
+       $('#div_progressbar').attr('aria-valuenow', ProgressPourcent);
+       $('#div_progressbar').html(ProgressPourcent + '%');
+    }
 
     function Good(){
         btNext.style.display = 'block';
