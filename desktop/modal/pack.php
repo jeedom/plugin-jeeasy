@@ -227,8 +227,9 @@ if ($servicePack != 'Community') {
     </table>
 
      <div class="testbtn" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
+       <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-packModalIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}</button>
       <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-choicePlugin" style="margin-bottom:10px;">{{Valider}}</button>
-      <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-packModalIgnore" style="margin-left:35px;margin-bottom:10px;">{{Ignorer}}</button>
+      
       </div>
 
 
