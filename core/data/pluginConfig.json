@@ -36,14 +36,12 @@
                "Atlas": {
                  "controller_1" : "ezsp",
                  "sub_controller_1" : "elelabs",
-                 "port_1" : "/dev/ttyS2",
-                 "z2m::mode" : "local"
+                 "port_1" : "/dev/ttyS2"
                },
                "Luna" : {
                  "controller_1" : "ezsp",
                  "sub_controller_1" : "elelabs",
-                 "port_1" : "/dev/ttyLuna-Zigbee",
-                 "z2m::mode" : "local"
+                 "port_1" : "/dev/ttyLuna-Zigbee"
                }
             }
         } ,
@@ -52,11 +50,13 @@
           "versions": {
                "Atlas": {
                  "controller" : "ezsp",
-                 "port" : "/dev/ttyS2"
+                 "port" : "/dev/ttyS2",
+                 "z2m::mode" : "local"
                },
                "Luna" : {
                  "controller" : "ezsp",
-                 "port" : "/dev/ttyLuna-Zigbee"
+                 "port" : "/dev/ttyLuna-Zigbee",
+                 "z2m::mode" : "local"
                }
             }
         } ,
