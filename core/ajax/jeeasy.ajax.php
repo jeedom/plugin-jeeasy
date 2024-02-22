@@ -61,7 +61,11 @@ try {
 		if (init('branch')) {
 			$checkInstall = jeeasy::checkInstallPlugin(init('id'), init('branch'));
 		} else {
-			$checkInstall = jeeasy::checkInstallPlugin(init('id'));
+			if(config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha'){
+  				$checkInstall = jeeasy::checkInstallPlugin(init('id'), 'beta');
+			}else{
+  				$checkInstall = jeeasy::checkInstallPlugin(init('id'));
+			}
 		}
 		if ($checkInstall == 'OK') {
 			ajax::success();
