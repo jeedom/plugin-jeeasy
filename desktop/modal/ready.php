@@ -52,4 +52,9 @@ if ($mbState == 0) {
 <?php
 }
 ?>
+    <div class="divinformationsBox col-md-12" style="width: 50%; text-align: left;">
+        <div class="alert alert-warning" role="alert" id="alertDependancy">
+            {{Des dépendances sont toujours en cours d'installation, vous pouvez suivre l'avancement dans la page santé}}
+        </div>
+    </div>
 </div>
