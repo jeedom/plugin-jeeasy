@@ -426,7 +426,8 @@
         "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Vous pourrez trouver la documentation complète de Jeedom à cette adresse",
         "Documentation": "Belgeleme",
         "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "Vous pouvez également rejoindre notre communauté et poser toutes vos questions",
-        "Communauté Jeedom": "Communauté Jeedom"
+        "Communauté Jeedom": "Communauté Jeedom",
+        "Des dépendances sont toujours en cours d'installation, vous pouvez suivre l'avancement dans la page santé": "Des dépendances sont toujours en cours d'installation, vous pouvez suivre l'avancement dans la page santé"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",

@@ -426,7 +426,8 @@
         "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Die vollständige Dokumentation von Jeedom finden Sie unter dieser Adresse",
         "Documentation": "Dokumentation",
         "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "Sie können auch unserer Community beitreten und alle Ihre Fragen stellen",
-        "Communauté Jeedom": "Jeedom Gemeinschaft"
+        "Communauté Jeedom": "Jeedom Gemeinschaft",
+        "Des dépendances sont toujours en cours d'installation, vous pouvez suivre l'avancement dans la page santé": "Abhängigkeiten werden noch installiert. Sie können den Fortschritt auf der Gesundheitsseite verfolgen"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
