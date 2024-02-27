@@ -71,7 +71,7 @@ if ($listPlugins) {
             $nameplug = $plugin->getId();
             if (in_array($nameplug, $arrayProtocols) == true) {
                 $nameplug = $plugin->getId();
-                jeeaasy::configInternalPlugin('gpio', 'Luna', $nameplug);
+                jeeasy::configInternalPlugin('gpio', 'Luna', $nameplug);
             }
         }
         ?> 
