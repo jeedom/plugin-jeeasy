@@ -51,7 +51,7 @@ if ($servicePack != 'Community') {
        // On vient lancer l'intervall pour faire avancer la barre de progression
        progressInterval = setInterval(updateProgress, 1500);
 
-       document.querySelector('.textAtlas').innerHTML = '{{Le plugin OpenVpn est en cours d\'installation... Veuillez patientez}}';
+       document.querySelector('.textAtlas').innerHTML = '{{La mise en place de l\'acces distant est cours... Veuillez patientez}}';
 
       $.ajax({
         type: "POST",
@@ -68,7 +68,7 @@ if ($servicePack != 'Community') {
           clearInterval(progressInterval);
           progressBar.style.width = '100%';
           progressBar.innerHTML = 100 + '%';
-          document.querySelector('.textAtlas').innerHTML = '{{Le plugin OpenVpn a été installé avec succès}}';
+          document.querySelector('.textAtlas').innerHTML = '{{La mise en place de l\'acces distant s\'est avec succès}}';
           document.getElementById('div_progressbar').innerHTML = 'FIN';
           Good();
         }
