@@ -66,16 +66,42 @@ function callAjax(choiceConfig, typeBox, pluginName){
 <?php
 
 if ($listPlugins) {
-   foreach ($listPlugins as $plugin) {
-       $nameplug = $plugin->getId();
-        if (in_array($nameplug, $arrayProtocols) == true) {
-           $nameplug = $plugin->getId();
-              $countProtocols++;
-              $i++;
-              array_push($arrayConfigChoice, $plugin);
-          
+    if($productName == 'Luna') {
+        foreach ($listPlugins as $plugin) {
+            $nameplug = $plugin->getId();
+            if (in_array($nameplug, $arrayProtocols) == true) {
+                $nameplug = $plugin->getId();
+                jeeaasy::configInternalPlugin('gpio', 'Luna', $nameplug);
+            }
         }
-   }
+        ?> 
+            <script>
+                choiceModeElement.style.display = 'none';
+                testbtnb.style.display = 'none';
+                textConfigAutoPlugElement.innerHTML = '{{Nous venons de configurer automatiquement les plugins pour votre box {{Luna}}}}';
+                if(document.getElementById('btn-choiceConfig')){
+                    document.getElementById('btn-choiceConfig').style.display = 'none';
+                    document.getElementById('contenuTextSpan').style.display = 'none';
+                }
+                if(document.getElementById('pluginsConfigSelect')){
+                    document.getElementById('pluginsConfigSelect').style.display = 'none';
+                    document.getElementById('contenuTextSpan').style.display = 'none';
+                }
+                btNext.style.display = 'block';
+            </script>
+        <?php
+        return;
+    }
+
+    foreach ($listPlugins as $plugin) {
+        $nameplug = $plugin->getId();
+        if (in_array($nameplug, $arrayProtocols) == true) {
+            $nameplug = $plugin->getId();
+            $countProtocols++;
+            $i++;
+            array_push($arrayConfigChoice, $plugin);
+        }
+    }
   
     if($countProtocols > 1){
       ?> <script>
