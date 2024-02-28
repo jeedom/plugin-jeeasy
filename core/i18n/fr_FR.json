@@ -94,8 +94,8 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
-        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez",
-        "Le plugin OpenVpn a été installé avec succès": "Le plugin OpenVpn a été installé avec succès"
+        "La mise en place de l\\'acces distant est cours... Veuillez patientez": "La mise en place de l\\'acces distant est cours... Veuillez patientez",
+        "La mise en place de l\\'acces distant s\\'est avec succès": "La mise en place de l\\'acces distant s\\'est avec succès"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "Le réseau Z-Wave est arrêté sur le serveur",
