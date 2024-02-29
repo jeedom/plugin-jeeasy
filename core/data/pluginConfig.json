@@ -68,6 +68,9 @@
                },
                "smart": {
                   "port" : "Odroid C2"
+               },
+               "Luna": {
+                  "port" : "auto"
                }
             }
         } ,
