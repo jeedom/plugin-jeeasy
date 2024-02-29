@@ -363,11 +363,16 @@ class jeeasy extends eqLogic {
 		return 'OK';
 	}
 
-
 	public static function configInternalPlugin($typeConfig, $key, $plugin) {
 		if ($typeConfig == 'gpio') {
-			$pluginsConf = json_decode(file_get_contents('../data/pluginConfig.json'), true);
+			$pluginConfigFile = dirname(__FILE__) . '/../data/pluginConfig.json';
+			if (!file_exists($pluginConfigFile)) {
+				throw new Exception("{{Fichier pluginConfig introuvable}}", 1);
+			}
+			$pluginConfigFile = file_get_contents($pluginConfigFile);
+			$pluginsConf = json_decode($pluginConfigFile, true);
 			$step = $pluginsConf['pluginsInfos'][$plugin]['versions'][$key];
+
 			foreach ($step as $k => $v) {
 				config::save($k, $v, $plugin);
 			}
