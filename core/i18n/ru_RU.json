@@ -421,13 +421,21 @@
         "ADRESSE MAC": "ADRESSE MAC"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
-        "401 - Accès non autorisé": "401 - Несанкционированный доступ",
-        "Vous êtes prêt à commencer": "Vous êtes prêt à commencer",
-        "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Vous pourrez trouver la documentation complète de Jeedom à cette adresse",
+        "Accès non autorisé": "Accès non autorisé",
+        "Félicitations": "Félicitations",
+        "pouce de validation": "pouce de validation",
+        "Vous avez terminé la phase de configuration": "Vous avez terminé la phase de configuration",
+        "Vous pouvez commencer à naviguer dans": "Vous pouvez commencer à naviguer dans",
+        "pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes.": "pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes",
+        "Accès local à votre box": "Accès local à votre box",
+        "Accès externe à votre box": "Accès externe à votre box",
+        "Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS après son installation": "Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS après son installation",
+        "Retrouvez la documentation Jeedom complète à cette adresse": "Retrouvez la documentation Jeedom complète à cette adresse",
         "Documentation": "документация",
-        "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "Vous pouvez également rejoindre notre communauté et poser toutes vos questions",
+        "Vous pouvez également rejoindre notre communauté": "Vous pouvez également rejoindre notre communauté",
         "Communauté Jeedom": "Communauté Jeedom",
-        "Des dépendances sont toujours en cours d'installation, vous pouvez suivre l'avancement dans la page santé": "Des dépendances sont toujours en cours d'installation, vous pouvez suivre l'avancement dans la page santé"
+        "Cliquez sur la coche en bas à droite": "Cliquez sur la coche en bas à droite",
+        "pour valider la configuration de votre box.": "pour valider la configuration de votre box"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
         "401 - Accès non autorisé": "401 - Несанкционированный доступ",

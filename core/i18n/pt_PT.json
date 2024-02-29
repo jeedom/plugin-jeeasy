@@ -421,13 +421,21 @@
         "ADRESSE MAC": "ENDEREÇO MAC"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
-        "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Vous êtes prêt à commencer": "Você está pronto para começar",
-        "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Você pode encontrar a documentação completa do Jeedom neste endereço",
+        "Accès non autorisé": "Acesso não autorizado",
+        "Félicitations": "Parabéns",
+        "pouce de validation": "polegar de validação",
+        "Vous avez terminé la phase de configuration": "Você concluiu a fase de configuração",
+        "Vous pouvez commencer à naviguer dans": "Você pode começar a navegar",
+        "pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes.": "enquanto os plug-ins terminam de ser instalados. Esta operação pode levar até 30 minutos",
+        "Accès local à votre box": "Acesso local à sua caixa",
+        "Accès externe à votre box": "Acesso externo à sua caixa",
+        "Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS après son installation": "O plugin Openvpn está sendo instalado, reinicie o serviço DNS após a instalação",
+        "Retrouvez la documentation Jeedom complète à cette adresse": "Encontre a documentação completa do Jeedom neste endereço",
         "Documentation": "Documentação",
-        "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "Você também pode participar da nossa comunidade e tirar todas as suas dúvidas",
+        "Vous pouvez également rejoindre notre communauté": "Você também pode participar da nossa comunidade",
         "Communauté Jeedom": "Comunidade Jeedom",
-        "Des dépendances sont toujours en cours d'installation, vous pouvez suivre l'avancement dans la page santé": "As dependências ainda estão sendo instaladas, você pode acompanhar o andamento na página de saúde"
+        "Cliquez sur la coche en bas à droite": "Clique na marca de seleção no canto inferior direito",
+        "pour valider la configuration de votre box.": "para validar a configuração da sua caixa"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
