@@ -49,7 +49,7 @@
         "Proposition de plugins à installer": "Proposition de plugins à installer",
         "Installation des plugins en cours": "Installation des plugins en cours",
         "Aucun plugin à installer, cliquez sur suivant": "Aucun plugin à installer, cliquez sur suivant",
-        "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.",
+        "Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant.": "Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant.",
         "Vous êtes en": "Vous êtes en",
         "Ignorer": "Ignorer",
         "Valider": "Valider",
@@ -241,6 +241,7 @@
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin",
         "Votre plugin à été configuré automatiquement": "Votre plugin à été configuré automatiquement",
+        "La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer": "La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer",
         "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer",
         "Aucun Plugin installé à paramétrer": "Aucun Plugin installé à paramétrer",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "Aucun Plugin installé à paramétrer, cliquez sur Suivant",
@@ -692,7 +693,8 @@
         "Nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support.": "Nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support.",
         "Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...": "Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...",
         "Nous n\\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin": "Nous n\\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin",
-        "Démarrage du démon réussi": "Démarrage du démon réussi"
+        "Démarrage du démon réussi": "Démarrage du démon réussi",
+        "Fichier pluginConfig introuvable": "Fichier pluginConfig introuvable"
     },
     "info.json": {
         "Plugin permettant de configurer facilement Jeedom": "Plugin permettant de configurer facilement Jeedom"

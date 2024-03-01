@@ -49,7 +49,7 @@
         "Proposition de plugins à installer": "Complementos sugeridos para instalar",
         "Installation des plugins en cours": "Instalación de complementos en curso",
         "Aucun plugin à installer, cliquez sur suivant": "No hay complemento para instalar, haga clic en siguiente",
-        "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Sus complementos están listos.<br> Las dependencias aún se están instalando, consulte la pestaña de configuración de sus complementos",
+        "Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant.": "Los complementos están instalados. Están configurados en segundo plano. Haga clic en Siguiente",
         "Vous êtes en": "Estás dentro",
         "Ignorer": "Ignorar",
         "Valider": "Validar",
@@ -241,6 +241,7 @@
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Ha elegido un controlador USB, configúrelo en la gestión de su complemento",
         "Votre plugin à été configuré automatiquement": "Su complemento se ha configurado automáticamente",
+        "La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer": "Se ha realizado la configuración automática de plugins para Luna, puedes pulsar en la flecha para continuar",
         "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "El puerto del complemento se ha configurado automáticamente, puede hacer clic en la flecha para continuar",
         "Aucun Plugin installé à paramétrer": "No hay complemento instalado para configurar",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "No hay complemento instalado para configurar, haga clic en Siguiente",
@@ -692,7 +693,8 @@
         "Nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support.": "No podemos instalar dependencias de complementos. Le recomendamos consultar los registros y\/o ponerse en contacto con soporte",
         "Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...": "Hemos detectado que el demonio no se está ejecutando, intentaremos iniciarlo. Espere por favor",
         "Nous n\\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin": "No podemos iniciar el demonio del complemento. Le recomendamos consultar los registros y\/o ponerse en contacto con soporte. enchufar",
-        "Démarrage du démon réussi": "Daemon se inició con éxito"
+        "Démarrage du démon réussi": "Daemon se inició con éxito",
+        "Fichier pluginConfig introuvable": "Archivo pluginConfig no encontrado"
     },
     "info.json": {
         "Plugin permettant de configurer facilement Jeedom": "Complemento para configurar fácilmente Jeedom"
