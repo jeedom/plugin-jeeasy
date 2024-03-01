@@ -49,7 +49,7 @@
         "Proposition de plugins à installer": "Suggested plugins to install",
         "Installation des plugins en cours": "Installing plugins in progress",
         "Aucun plugin à installer, cliquez sur suivant": "No plugin to install, click next",
-        "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Your plugins are ready.<br> Dependencies are still being installed, check the configuration tab of your plugins",
+        "Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant.": "The plugins are installed. They are configured in the background. Click next",
         "Vous êtes en": "You are in",
         "Ignorer": "Ignore",
         "Valider": "To validate",
@@ -94,8 +94,8 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
-        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "The OpenVpn plugin is being installed... Please wait",
-        "Le plugin OpenVpn a été installé avec succès": "OpenVpn plugin has been successfully installed"
+        "La mise en place de l\\'acces distant est cours... Veuillez patientez": "The implementation of remote access is in progress... Please wait",
+        "La mise en place de l\\'acces distant s\\'est avec succès": "The implementation of remote access was successful"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "The Z-Wave network is stopped on the server",
@@ -241,6 +241,7 @@
         "401 - Accès non autorisé": "401 - Unauthorized Access",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "You have chosen a USB controller, please configure it in the management of your plugin",
         "Votre plugin à été configuré automatiquement": "Your plugin has been configured automatically",
+        "La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer": "The automatic configuration of plugins for Luna has been carried out, you can click on the arrow to continue",
         "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "The plugin port has been automatically configured, you can click the arrow to continue",
         "Aucun Plugin installé à paramétrer": "No Plugin installed to set up",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "No plugin installed to configure, click Next",
@@ -421,12 +422,21 @@
         "ADRESSE MAC": "MAC ADDRESS"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Vous êtes prêt à commencer": "You are ready to start",
-        "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "You can find the complete documentation of Jeedom at this address",
+        "Accès non autorisé": "Unauthorized access",
+        "Félicitations": "Congratulations",
+        "pouce de validation": "validation thumb",
+        "Vous avez terminé la phase de configuration": "You have completed the configuration phase",
+        "Vous pouvez commencer à naviguer dans": "You can start browsing",
+        "pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes.": "while the plugins finish installing. This operation may take up to 30 minutes",
+        "Accès local à votre box": "Local access to your box",
+        "Accès externe à votre box": "External access to your box",
+        "Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS après son installation": "Openvpn plugin is being installed, please restart DNS service after installation",
+        "Retrouvez la documentation Jeedom complète à cette adresse": "Find the complete Jeedom documentation at this address",
         "Documentation": "Documentation",
-        "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "You can also join our community and ask all your questions",
-        "Communauté Jeedom": "Jeedom Community"
+        "Vous pouvez également rejoindre notre communauté": "You can also join our community",
+        "Communauté Jeedom": "Jeedom Community",
+        "Cliquez sur la coche en bas à droite": "Click on the check mark at the bottom right",
+        "pour valider la configuration de votre box.": "to validate the configuration of your box"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
@@ -683,7 +693,8 @@
         "Nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support.": "We are unable to install plugin dependencies. We advise you to consult the logs and\/or contact support",
         "Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...": "We have detected that the daemon is not running, we will try to start it. Please wait",
         "Nous n\\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin": "We are unable to start the plugin daemon. We advise you to consult the logs and\/or contact support. plugin",
-        "Démarrage du démon réussi": "Daemon started successfully"
+        "Démarrage du démon réussi": "Daemon started successfully",
+        "Fichier pluginConfig introuvable": "PluginConfig file not found"
     },
     "info.json": {
         "Plugin permettant de configurer facilement Jeedom": "Plugin to easily configure Jeedom"

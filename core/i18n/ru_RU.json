@@ -49,7 +49,7 @@
         "Proposition de plugins à installer": "Proposition de plugins à installer",
         "Installation des plugins en cours": "Installation des plugins en cours",
         "Aucun plugin à installer, cliquez sur suivant": "Aucun plugin à installer, cliquez sur suivant",
-        "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins",
+        "Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant.": "Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant",
         "Vous êtes en": "Vous êtes en",
         "Ignorer": "Ignorer",
         "Valider": "Valider",
@@ -94,8 +94,8 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
-        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez",
-        "Le plugin OpenVpn a été installé avec succès": "Le plugin OpenVpn a été installé avec succès"
+        "La mise en place de l\\'acces distant est cours... Veuillez patientez": "La mise en place de l\\'acces distant est cours... Veuillez patientez",
+        "La mise en place de l\\'acces distant s\\'est avec succès": "La mise en place de l\\'acces distant s\\'est avec succès"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "Le réseau Z-Wave est arreté sur le serveur",
@@ -241,6 +241,7 @@
         "401 - Accès non autorisé": "401 - Accès non autorisé",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin",
         "Votre plugin à été configuré automatiquement": "Votre plugin à été configuré automatiquement",
+        "La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer": "La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer",
         "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer",
         "Aucun Plugin installé à paramétrer": "Aucun Plugin installé à paramétrer",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "Aucun Plugin installé à paramétrer, cliquez sur Suivant",
@@ -421,12 +422,21 @@
         "ADRESSE MAC": "ADRESSE MAC"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
-        "401 - Accès non autorisé": "401 - Несанкционированный доступ",
-        "Vous êtes prêt à commencer": "Vous êtes prêt à commencer",
-        "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Vous pourrez trouver la documentation complète de Jeedom à cette adresse",
+        "Accès non autorisé": "Accès non autorisé",
+        "Félicitations": "Félicitations",
+        "pouce de validation": "pouce de validation",
+        "Vous avez terminé la phase de configuration": "Vous avez terminé la phase de configuration",
+        "Vous pouvez commencer à naviguer dans": "Vous pouvez commencer à naviguer dans",
+        "pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes.": "pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes",
+        "Accès local à votre box": "Accès local à votre box",
+        "Accès externe à votre box": "Accès externe à votre box",
+        "Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS après son installation": "Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS après son installation",
+        "Retrouvez la documentation Jeedom complète à cette adresse": "Retrouvez la documentation Jeedom complète à cette adresse",
         "Documentation": "документация",
-        "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "Vous pouvez également rejoindre notre communauté et poser toutes vos questions",
-        "Communauté Jeedom": "Communauté Jeedom"
+        "Vous pouvez également rejoindre notre communauté": "Vous pouvez également rejoindre notre communauté",
+        "Communauté Jeedom": "Communauté Jeedom",
+        "Cliquez sur la coche en bas à droite": "Cliquez sur la coche en bas à droite",
+        "pour valider la configuration de votre box.": "pour valider la configuration de votre box"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
         "401 - Accès non autorisé": "401 - Несанкционированный доступ",
@@ -683,7 +693,8 @@
         "Nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support.": "Nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support",
         "Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...": "Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter",
         "Nous n\\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin": "Nous n\\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin",
-        "Démarrage du démon réussi": "Démarrage du démon réussi"
+        "Démarrage du démon réussi": "Démarrage du démon réussi",
+        "Fichier pluginConfig introuvable": "Fichier pluginConfig introuvable"
     },
     "info.json": {
         "Plugin permettant de configurer facilement Jeedom": "Plugin permettant de configurer facilement Jeedom"

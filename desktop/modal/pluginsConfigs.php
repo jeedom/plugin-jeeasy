@@ -66,90 +66,117 @@ function callAjax(choiceConfig, typeBox, pluginName){
 <?php
 
 if ($listPlugins) {
-   foreach ($listPlugins as $plugin) {
-       $nameplug = $plugin->getId();
-        if (in_array($nameplug, $arrayProtocols) == true) {
-           $nameplug = $plugin->getId();
-              $countProtocols++;
-              $i++;
-              array_push($arrayConfigChoice, $plugin);
-          
-        }
-   }
-  
-    if($countProtocols > 1){
-      ?> <script>
-             <?php foreach($arrayConfigChoice as $plugin){ 
-                $nameplug = $plugin->getId();              
-               ?>
-           
-                var pluginsConfigSelect = document.getElementById('pluginsConfigSelect');
-
-                var newOption = document.createElement('option');
-
-                newOption.setAttribute('nameplugin', '<?= $nameplug; ?>');
-                newOption.setAttribute('typebox', '<?= $productName; ?>');
-                newOption.setAttribute('config', 'gpio');
-                newOption.textContent = '<?= $nameplug; ?>';
-
-                pluginsConfigSelect.appendChild(newOption);
-           <?php  } ?>
-
-                    </script>
-        <?php
-      
-      
-    }elseif($countProtocols == 1){
-      $nameplug = $arrayConfigChoice[0]->getId();
-       ?>
+    if($productName == 'Luna') {
+        foreach ($listPlugins as $plugin) {
+            $nameplug = $plugin->getId();
+            if (in_array($nameplug, $arrayProtocols) == true) {
+                $nameplug = $plugin->getId();
+                jeeasy::configInternalPlugin('gpio', $productName, $nameplug);
+                log::add('jeeasy', 'info', 'Configuration automatique du plugin ' . $nameplug . ' pour le produit Luna');
+            }
+        } 
+        ?> 
             <script>
-                var nameplugin = '<?= $nameplug; ?>';
-                var typebox = '<?= $productName; ?>';
-                var config = 'gpio';
-
-                callAjax(config, typebox, nameplugin);
-
+                choiceModeElement.style.display = 'none';
                 testbtnb.style.display = 'none';
-
-                var choiceModeElement = document.getElementById('choiceMode');
-                if (choiceModeElement) {
-                    choiceModeElement.innerHTML = '{{Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer}}';
+                textConfigAutoPlugElement.innerHTML = '{{La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer}}';
+                if(document.getElementById('btn-choiceConfig')){
+                        document.getElementById('btn-choiceConfig').style.display = 'none';
+                        document.getElementById('contenuTextSpan').style.display = 'none';
+                        //div_progressbar
                 }
-
-                var pluginsConfigSelectElement = document.getElementById('pluginsConfigSelect');
-                if (pluginsConfigSelectElement) {
-                    pluginsConfigSelectElement.style.display = 'none';
+                if(document.getElementById('pluginsConfigSelect')){
+                        document.getElementById('pluginsConfigSelect').style.display = 'none';
+                        document.getElementById('contenuTextSpan').style.display = 'none';
                 }
-
-                var yourBoxIsElement = document.getElementById('yourBoxIs');
-                if (yourBoxIsElement) {
-                    yourBoxIsElement.style.display = 'none';
-                }
-
+                btNext.style.display = 'block';
             </script>
-    <?php
-       
-    }
-  
-
-    if ($i == 0) {
-        ?> <script>
-            choiceModeElement.style.display = 'none';
-            testbtnb.style.display = 'none';
-            textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer}}';
-            if(document.getElementById('btn-choiceConfig')){
-                document.getElementById('btn-choiceConfig').style.display = 'none';
-                document.getElementById('contenuTextSpan').style.display = 'none';
+        <?php
+    } else {
+        foreach ($listPlugins as $plugin) {
+            $nameplug = $plugin->getId();
+            if (in_array($nameplug, $arrayProtocols) == true) {
+                $nameplug = $plugin->getId();
+                $countProtocols++;
+                $i++;
+                array_push($arrayConfigChoice, $plugin);
             }
-            if(document.getElementById('pluginsConfigSelect')){
-                document.getElementById('pluginsConfigSelect').style.display = 'none';
-                document.getElementById('contenuTextSpan').style.display = 'none';
-            }
-            btNext.style.display = 'block';
-        </script>
-    <?php
-
+        }
+      
+        if($countProtocols > 1) {
+          ?> <script>
+                 <?php foreach($arrayConfigChoice as $plugin){ 
+                    $nameplug = $plugin->getId();              
+                   ?>
+               
+                    var pluginsConfigSelect = document.getElementById('pluginsConfigSelect');
+    
+                    var newOption = document.createElement('option');
+    
+                    newOption.setAttribute('nameplugin', '<?= $nameplug; ?>');
+                    newOption.setAttribute('typebox', '<?= $productName; ?>');
+                    newOption.setAttribute('config', 'gpio');
+                    newOption.textContent = '<?= $nameplug; ?>';
+    
+                    pluginsConfigSelect.appendChild(newOption);
+               <?php  } ?>
+    
+                        </script>
+            <?php
+          
+          
+        } elseif ($countProtocols == 1) {
+          $nameplug = $arrayConfigChoice[0]->getId();
+           ?>
+                <script>
+                    var nameplugin = '<?= $nameplug; ?>';
+                    var typebox = '<?= $productName; ?>';
+                    var config = 'gpio';
+    
+                    callAjax(config, typebox, nameplugin);
+    
+                    testbtnb.style.display = 'none';
+    
+                    var choiceModeElement = document.getElementById('choiceMode');
+                    if (choiceModeElement) {
+                        choiceModeElement.innerHTML = '{{Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer}}';
+                    }
+    
+                    var pluginsConfigSelectElement = document.getElementById('pluginsConfigSelect');
+                    if (pluginsConfigSelectElement) {
+                        pluginsConfigSelectElement.style.display = 'none';
+                    }
+    
+                    var yourBoxIsElement = document.getElementById('yourBoxIs');
+                    if (yourBoxIsElement) {
+                        yourBoxIsElement.style.display = 'none';
+                    }
+    
+                </script>
+            <?php
+        }
+      
+    
+        if ($i == 0) {
+            ?> <script>
+                choiceModeElement.style.display = 'none';
+                testbtnb.style.display = 'none';
+                textConfigAutoPlugElement.innerHTML = '{{Aucun Plugin installé à paramétrer}}';
+                if(document.getElementById('btn-choiceConfig')){
+                    document.getElementById('btn-choiceConfig').style.display = 'none';
+                    document.getElementById('contenuTextSpan').style.display = 'none';
+                }
+                if(document.getElementById('pluginsConfigSelect')){
+                    document.getElementById('pluginsConfigSelect').style.display = 'none';
+                    document.getElementById('contenuTextSpan').style.display = 'none';
+                }
+                btNext.style.display = 'block';
+            </script>
+        <?php
+    
+        }        
     }
+
 } else {
     ?> <script>
         choiceModeElement.style.display = 'none';
@@ -167,7 +194,6 @@ if ($listPlugins) {
         btNext.style.display = 'block';
     </script>
 <?php
-
 }
 
 ?>
@@ -215,17 +241,18 @@ if ($listPlugins) {
 
 
 <div class="mainContainer" style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
-<div ><img class="img-responsive center-block img-atlas" style="width:60%;height:60%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
+    <div >
+        <img class="img-responsive center-block img-atlas" style="width:60%;height:60%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
         <div class="col-md-12 text-center">
             <p class="text-center">
-            <h3 class="configplugins">{{Configuration Auto des Plugins}} :</h3>
+                <h3 class="configplugins">{{Configuration Auto des Plugins}} :</h3>
             </p>
             <p class="text-center">
-            <h4 class="configplugins" id="choiceMode">{{Quel plugin souhaitez vous que Jeedom configure automatiquement le port ?}} :</h4>
+                <h4 class="configplugins" id="choiceMode">{{Quel plugin souhaitez vous que Jeedom configure automatiquement le port ?}} :</h4>
             </p>
         
             <p class="text-center">
-            <h4 class="textConfigAutoPlug" style="color:#93ca02;"></h4>
+                <h4 class="textConfigAutoPlug" style="color:#93ca02;"></h4>
             </p>
             <table class="table table-hover" id="pluginsConfigTab" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
                 <thead>
@@ -246,6 +273,5 @@ if ($listPlugins) {
                 <div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
             </div>
         </div>
-        </div>
-</div>
+    </div>
 </div>

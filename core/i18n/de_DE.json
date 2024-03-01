@@ -49,7 +49,7 @@
         "Proposition de plugins à installer": "Empfohlene Plugins zur Installation",
         "Installation des plugins en cours": "Plugins werden installiert",
         "Aucun plugin à installer, cliquez sur suivant": "Kein Plugin zum Installieren, klicken Sie auf Weiter",
-        "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Ihre Plugins sind fertig.<br> Abhängigkeiten werden noch installiert, überprüfen Sie die Konfigurationsregisterkarte Ihrer Plugins",
+        "Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant.": "Die Plugins sind installiert. Sie werden im Hintergrund konfiguriert. Weiter klicken",
         "Vous êtes en": "Sie befinden sich in",
         "Ignorer": "Ignorieren",
         "Valider": "Bestätigen",
@@ -94,8 +94,8 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 – Unbefugter Zugriff",
-        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "Das OpenVpn-Plugin wird installiert... Bitte warten",
-        "Le plugin OpenVpn a été installé avec succès": "Das OpenVpn-Plugin wurde erfolgreich installiert"
+        "La mise en place de l\\'acces distant est cours... Veuillez patientez": "Die Implementierung des Fernzugriffs ist in Bearbeitung... Bitte warten",
+        "La mise en place de l\\'acces distant s\\'est avec succès": "Die Implementierung des Fernzugriffs war erfolgreich"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "Das Z-Wave-Netzwerk wird auf dem Server gestoppt",
@@ -241,6 +241,7 @@
         "401 - Accès non autorisé": "401 - Unbefugter Zugriff",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Sie haben sich für einen USB-Controller entschieden, bitte konfigurieren Sie diesen in der Verwaltung Ihres Plugins",
         "Votre plugin à été configuré automatiquement": "Ihr Plugin wurde automatisch konfiguriert",
+        "La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer": "Die automatische Konfiguration der Plugins für Luna wurde durchgeführt, Sie können auf den Pfeil klicken, um fortzufahren",
         "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "Der Plugin-Port wurde automatisch konfiguriert. Sie können auf den Pfeil klicken, um fortzufahren",
         "Aucun Plugin installé à paramétrer": "Kein Plugin zum Konfigurieren installiert",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "Kein Plugin zum Konfigurieren installiert, klicken Sie auf Weiter",
@@ -421,12 +422,21 @@
         "ADRESSE MAC": "MAC-ADRESSE"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
-        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Vous êtes prêt à commencer": "Sie können loslegen",
-        "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Die vollständige Dokumentation von Jeedom finden Sie unter dieser Adresse",
+        "Accès non autorisé": "Unautorisierter Zugriff",
+        "Félicitations": "Glückwunsch",
+        "pouce de validation": "Validierungsdaumen",
+        "Vous avez terminé la phase de configuration": "Sie haben die Konfigurationsphase abgeschlossen",
+        "Vous pouvez commencer à naviguer dans": "Sie können mit dem Stöbern beginnen",
+        "pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes.": "während die Installation der Plugins abgeschlossen ist. Dieser Vorgang kann bis zu 30 Minuten dauern",
+        "Accès local à votre box": "Lokaler Zugriff auf Ihre Box",
+        "Accès externe à votre box": "Externer Zugriff auf Ihre Box",
+        "Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS après son installation": "Das OpenVPN-Plugin wird installiert. Bitte starten Sie den DNS-Dienst nach der Installation neu",
+        "Retrouvez la documentation Jeedom complète à cette adresse": "Die vollständige Jeedom-Dokumentation finden Sie unter dieser Adresse",
         "Documentation": "Dokumentation",
-        "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "Sie können auch unserer Community beitreten und alle Ihre Fragen stellen",
-        "Communauté Jeedom": "Jeedom Gemeinschaft"
+        "Vous pouvez également rejoindre notre communauté": "Sie können auch unserer Community beitreten",
+        "Communauté Jeedom": "Jeedom Gemeinschaft",
+        "Cliquez sur la coche en bas à droite": "Klicken Sie unten rechts auf das Häkchen",
+        "pour valider la configuration de votre box.": "um die Konfiguration Ihrer Box zu validieren"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
@@ -683,7 +693,8 @@
         "Nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support.": "Wir können Plug-in-Abhängigkeiten nicht installieren. Wir empfehlen Ihnen, die Protokolle zu konsultieren und\/oder den Support zu kontaktieren",
         "Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...": "Wir haben festgestellt, dass der Daemon nicht läuft, wir werden versuchen, ihn zu starten. Warten Sie mal",
         "Nous n\\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin": "Wir können den Plugin-Daemon nicht starten. Wir empfehlen Ihnen, die Protokolle zu konsultieren und\/oder den Support zu kontaktieren. Plugin",
-        "Démarrage du démon réussi": "Daemon erfolgreich gestartet"
+        "Démarrage du démon réussi": "Daemon erfolgreich gestartet",
+        "Fichier pluginConfig introuvable": "PluginConfig-Datei nicht gefunden"
     },
     "info.json": {
         "Plugin permettant de configurer facilement Jeedom": "Plugin zur einfachen Konfiguration von Jeedom"

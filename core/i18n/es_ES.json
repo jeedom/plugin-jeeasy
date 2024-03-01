@@ -49,7 +49,7 @@
         "Proposition de plugins à installer": "Complementos sugeridos para instalar",
         "Installation des plugins en cours": "Instalación de complementos en curso",
         "Aucun plugin à installer, cliquez sur suivant": "No hay complemento para instalar, haga clic en siguiente",
-        "Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\\'installation, vérifiez l\\'onglet configuration de vos plugins.": "Sus complementos están listos.<br> Las dependencias aún se están instalando, consulte la pestaña de configuración de sus complementos",
+        "Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant.": "Los complementos están instalados. Están configurados en segundo plano. Haga clic en Siguiente",
         "Vous êtes en": "Estás dentro",
         "Ignorer": "Ignorar",
         "Valider": "Validar",
@@ -94,8 +94,8 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Le plugin OpenVpn est en cours d\\'installation... Veuillez patientez": "El complemento OpenVpn se está instalando... Por favor, espere",
-        "Le plugin OpenVpn a été installé avec succès": "El complemento OpenVpn se ha instalado correctamente"
+        "La mise en place de l\\'acces distant est cours... Veuillez patientez": "La implementación del acceso remoto está en progreso... Espere por favor",
+        "La mise en place de l\\'acces distant s\\'est avec succès": "La implementación del acceso remoto fue exitosa"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "La red Z-Wave se detiene en el servidor",
@@ -241,6 +241,7 @@
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
         "Vous avez choisi un contrôleur USB, veuillez le configurer dans la gestion de votre plugin": "Ha elegido un controlador USB, configúrelo en la gestión de su complemento",
         "Votre plugin à été configuré automatiquement": "Su complemento se ha configurado automáticamente",
+        "La configuration automatique des plugins pour la Luna a été effectuée, vous pouvez cliquer sur la flèche pour continuer": "Se ha realizado la configuración automática de plugins para Luna, puedes pulsar en la flecha para continuar",
         "Le port du plugin a été automatiquement configuré, vous pouvez cliquer sur la flèche pour continuer": "El puerto del complemento se ha configurado automáticamente, puede hacer clic en la flecha para continuar",
         "Aucun Plugin installé à paramétrer": "No hay complemento instalado para configurar",
         "Aucun Plugin installé à paramétrer, cliquez sur Suivant": "No hay complemento instalado para configurar, haga clic en Siguiente",
@@ -421,12 +422,21 @@
         "ADRESSE MAC": "DIRECCIÓN MAC"
     },
     "plugins\/jeeasy\/desktop\/modal\/ready.php": {
-        "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Vous êtes prêt à commencer": "Estas listo para comenzar",
-        "Vous pourrez trouver la documentation complète de Jeedom à cette adresse": "Puede encontrar la documentación completa de Jeedom en esta dirección",
+        "Accès non autorisé": "Acceso no autorizado",
+        "Félicitations": "Felicidades",
+        "pouce de validation": "pulgar de validación",
+        "Vous avez terminé la phase de configuration": "Has completado la fase de configuración",
+        "Vous pouvez commencer à naviguer dans": "Puedes empezar a navegar",
+        "pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes.": "mientras los complementos terminan de instalarse. Esta operación puede tardar hasta 30 minutos",
+        "Accès local à votre box": "Acceso local a su caja",
+        "Accès externe à votre box": "Acceso externo a su caja",
+        "Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS après son installation": "Se está instalando el complemento Openvpn. Reinicie el servicio DNS después de la instalación",
+        "Retrouvez la documentation Jeedom complète à cette adresse": "Encuentre la documentación completa de Jeedom en esta dirección",
         "Documentation": "Documentación",
-        "Vous pouvez également rejoindre notre communauté et poser toutes vos questions": "También puedes unirte a nuestra comunidad y hacer todas tus preguntas",
-        "Communauté Jeedom": "Comunidad Jeedom"
+        "Vous pouvez également rejoindre notre communauté": "También puedes unirte a nuestra comunidad",
+        "Communauté Jeedom": "Comunidad Jeedom",
+        "Cliquez sur la coche en bas à droite": "Haga clic en la marca de verificación en la parte inferior derecha",
+        "pour valider la configuration de votre box.": "para validar la configuración de su caja"
     },
     "plugins\/jeeasy\/desktop\/modal\/jeedom.configuration.wizard.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
@@ -683,7 +693,8 @@
         "Nous n\\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support.": "No podemos instalar dependencias de complementos. Le recomendamos consultar los registros y\/o ponerse en contacto con soporte",
         "Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...": "Hemos detectado que el demonio no se está ejecutando, intentaremos iniciarlo. Espere por favor",
         "Nous n\\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et\/ou de contacter le support. Plugin": "No podemos iniciar el demonio del complemento. Le recomendamos consultar los registros y\/o ponerse en contacto con soporte. enchufar",
-        "Démarrage du démon réussi": "Daemon se inició con éxito"
+        "Démarrage du démon réussi": "Daemon se inició con éxito",
+        "Fichier pluginConfig introuvable": "Archivo pluginConfig no encontrado"
     },
     "info.json": {
         "Plugin permettant de configurer facilement Jeedom": "Complemento para configurar fácilmente Jeedom"

@@ -158,7 +158,7 @@ if ($servicePack != 'Community') {
         },
         success: function(data) {
           progress(100, 'div_progressbar');
-          document.getElementById('servicePackh3').innerHTML = '{{Vos plugins sont prêts.<br> Des dépendances sont toujours en cours d\'installation, vérifiez l\'onglet configuration de vos plugins.}}'
+          document.getElementById('servicePackh3').innerHTML = '{{Les plugins sont installés. Ils se configurent en arrière plan. Cliquez sur suivant.}}'
           document.getElementById('btn-choicePlugin').style.display = 'none';
         }
       });
