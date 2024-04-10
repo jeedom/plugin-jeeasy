@@ -14,21 +14,21 @@ if (!isConnect()) {
 			<h2>{{Que souhaitez-vous configurer}} ?</h2>
 		</div>
         <div class="testImgE" style="display:flex;width:100%;height:100vh;justify-content:space-evenly;">
-              <div id="selectHouse" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;">
+              <div id="selectHouse" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;max-width:30%;min-width:30%;">
                   <label class="image-checkbox testSize">
                       <img class="img-responsive" style="height:40%;max-height:40%;" src="/core/img/object_background/salon/salon_5.jpg" />
                       <input type="checkbox" name="selectHouse[house]" value="1" />
                       {{Une maison}}
                   </label>
               </div>
-              <div id="selectApartment" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;">
+              <div id="selectApartment" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;max-width:30%;min-width:30%;">
                   <label class="image-checkbox testSize">
                       <img class="img-responsive" style="height:40%;max-height:40%;"  src="/core/img/object_background/cuisine/cuisine_1.jpg" />
                       <input type="checkbox" name="selectHouse[apartment]" value="1" />
                       {{Un appartement}}
                   </label>
               </div>
-							<div id="selectBasement" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;">
+							<div id="selectBasement" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;max-width:30%;min-width:30%;">
                   <label class="image-checkbox testSize">
                       <img class="img-responsive" style="height:40%;max-height:40%;"  src="/core/img/object_background/batiment/industrial_building.jpg" />
                       <input type="checkbox" name="selectHouse[basement]" value="1" />
