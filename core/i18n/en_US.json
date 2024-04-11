@@ -94,8 +94,8 @@
     },
     "plugins\/jeeasy\/desktop\/modal\/dnsGo.php": {
         "401 - Accès non autorisé": "401 - Unauthorized Access",
-        "La mise en place de l\\'acces distant est cours... Veuillez patientez": "The implementation of remote access is in progress... Please wait",
-        "La mise en place de l\\'acces distant s\\'est avec succès": "The implementation of remote access was successful"
+        "La mise en place de l\\'acces distant est en cours... Veuillez patientez": "Setting up remote access is in progress... Please wait",
+        "La mise en place de l\\'acces distant s\\'est effectuée avec succès": "Remote access was successfully set up"
     },
     "plugins\/jeeasy\/desktop\/modal\/zwave.include.php": {
         "Le réseau Z-Wave est arrêté sur le serveur": "The Z-Wave network is stopped on the server",

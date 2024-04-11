@@ -47,7 +47,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 	<br>
 	<br>
 	<br>
-	<div style="align-self:flex-end;margin-right:20px;">
+	<div style="align-self:flex-center;margin-right:20px;">
 		{{Cliquez sur la coche en bas à droite}} <i class="fas fa-check-circle"></i> {{pour valider la configuration de votre box.}}
 	</div>
 </div>
