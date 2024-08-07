@@ -22,6 +22,21 @@ try {
 
 	ajax::init();
 
+
+	if(init('action') == 'getChilds'){
+		$objectId = init('object_id');
+		$jeeObject = jeeObject::byId($objectId);
+		log::add('bacnetServer', 'debug', 'jeeObject : ' . $jeeObject->getName());
+		if(is_object($jeeObject)){
+			$childs = $jeeObject->getEqLogic();
+			$childs = array_map('utils::o2a', $childs);
+			ajax::success($childs);
+
+		}else{
+			ajax::error(__('Object not found', __FILE__));
+		}
+	}
+
 	if (init('action') == 'generateScenario') {
 		ajax::success(jeeasy::generateScenario(init('name'), json_decode(init('replace'), true)));
 	}

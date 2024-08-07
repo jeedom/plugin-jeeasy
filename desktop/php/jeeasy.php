@@ -16,6 +16,11 @@ if (!isConnect('admin')) {
 				<br>
 				<span>{{Relancer le wizard}}</span>
 			</div>
+			<div class="cursor eqLogicAction logoPrimary" id="bt_scenariosWizard">
+					<i class="fas fa-hat-wizard iconTableJeeasy"></i>
+				<br>
+				<span>{{Création de Scénarios}}</span>
+			</div>
 			<div class="cursor eqLogicAction logoSecondary" id="bt_jeeasyDiscovery">
 				<i class="fas fa-wifi iconTableJeeasy"></i>
 				<br>

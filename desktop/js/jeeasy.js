@@ -92,24 +92,31 @@ $('#bt_jeeasyIncludeConfiguration').on('click', function() {
 	})
 })
 
-$('#bt_jeeasyMainConfiguration').on('click', function() {
+
+
+document.getElementById('bt_jeeasyMainConfiguration')?.addEventListener('click', function() {
 	$('#md_modal').dialog({ title: "{{Configuration frigo}}" })
 	$("#md_modal").load('index.php?v=d&modal=jeedom.configuration.wizard&plugin=jeeasy').dialog('open')
-
 })
 
-$('#bt_jeeasyDiscovery').on('click', function() {
+
+document.getElementById('bt_jeeasyDiscovery')?.addEventListener('click', function() {
 	$('#md_modal').dialog({ title: "{{Discovery}}" })
 	$("#md_modal").load('index.php?v=d&modal=network.discover&plugin=jeeasy').dialog('open')
 })
 
-$('#bt_jeeasyWizard').on('click', function() {
+document.getElementById('bt_jeeasyWizard')?.addEventListener('click', function() {
 	$('#md_modal').dialog({ title: "{{Bienvenue}}" })
 	$("#md_modal").load('index.php?v=d&modal=wizard&plugin=jeeasy').dialog('open')
 })
 
+document.getElementById('bt_scenariosWizard')?.addEventListener('click', function() {
+	$('#md_modal').dialog({ title: "{{Bienvenue}}" })
+	$("#md_modal").load('index.php?v=d&modal=scenarios&plugin=jeeasy').dialog('open')
+})
 
-$('#bt_jeeasyObjectConfiguration').on('click', function() {
+
+document.getElementById('bt_jeeasyObjectConfiguration')?.addEventListener('click', function() {
 	bootbox.confirm({
 		message: "{{Très bien configurons votre maison. Que souhaitez vous faire}} ?",
 		buttons: {

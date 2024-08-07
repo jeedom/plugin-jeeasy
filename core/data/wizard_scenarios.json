@@ -1,0 +1,22 @@
+{
+    "trame": {
+      "welcome_scenario" :
+        {
+          "title": "Bienvenue",
+          "wizard": "welcome_scenario",
+          "order": 0,
+          "custom": "",
+          "visible": 1
+        }
+      ,
+      "object_scenario" :
+        {
+          "title": "Choix de la pièce",
+          "wizard": "object_scenario",
+          "order": 1,
+          "custom": "",
+          "visible": 1
+        }
+    
+    }
+}
