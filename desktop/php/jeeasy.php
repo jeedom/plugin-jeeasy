@@ -11,6 +11,12 @@ if (!isConnect('admin')) {
 		<div class="eqLogicThumbnailContainer">
 			<legend style="margin-bottom:50px;"><i class="fas fa-cog"></i>  {{Bienvenue sur la configuration facile avec Jeeasy}}</legend>
 
+			<div class="cursor eqLogicAction logoPrimary" id="bt_jeeasyWizardV2">
+					<i class="fas fa-hat-wizard iconTableJeeasy"></i>
+				<br>
+				<span>{{Jeeasy V2}}</span>
+			</div>
+
 			<div class="cursor eqLogicAction logoPrimary" id="bt_jeeasyWizard">
 					<i class="fas fa-hat-wizard iconTableJeeasy"></i>
 				<br>

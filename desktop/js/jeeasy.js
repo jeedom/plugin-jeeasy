@@ -51,6 +51,17 @@ $('#bt_jeeasyEqLogicConfiguration').on('click', function() {
 	})
 })
 
+
+
+
+
+document.getElementById('bt_jeeasyWizardV2').addEventListener('click', function() {
+	var url = 'index.php?v=d&p=modaldisplay&loadmodal=welcome&plugin=jeeasy';
+	window.open(url).focus()
+})
+
+
+
 $('#bt_jeeasyIncludeConfiguration').on('click', function() {
 	bootbox.prompt({
 		title: "{{Très bien ajoutons un module à votre domotique. Quelle est sa technologie}} ?",
