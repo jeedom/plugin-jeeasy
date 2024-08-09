@@ -114,14 +114,29 @@ if (!isConnect()) {
 		background-color: transparent !important;
 	}
 
-	/* #div_mainContainer{
-      background-color: white !important;
-	}
+	.carousel-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
 
-	#div_pageContainer{
-	  background-color: white !important;
-	} */
+    .dot {
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+        background-color: #007bff;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+    }
 
+    .dot:hover {
+        background-color: #0056b3;
+    }
 
     </style>
 <body>
@@ -140,6 +155,7 @@ if (!isConnect()) {
 				<i class='icon far fa-arrow-alt-circle-right icon_green'></i>
 			</div> -->
     </div>
+	<div class="carousel-dots"></div>
 </body>
 
 	<script>
@@ -148,6 +164,35 @@ if (!isConnect()) {
 		document.getElementById('bt_quitJeeasyWizardV2').addEventListener('click', function() {
 			window.close();
 		});
+
+		const pages = [
+				{ index: 1, name: 'index.php?v=d&plugin=jeeasy&modal=welcome' },
+				{ index: 2, name: 'index.php?v=d&plugin=jeeasy&modal=boxName' },				
+				{ index: 3, name: 'page3.php' }
+         ];
+
+		 const carouselDots = document.querySelector('.carousel-dots');
+		 const contentContainer = document.querySelector('.container');
+
+		 pages.forEach(page => {
+				const dot = document.createElement('div');
+				dot.classList.add('dot');
+				dot.dataset.page = page.name;
+				dot.innerText = page.index;
+				dot.addEventListener('click', function() {
+					loadPageContent(this.dataset.page);
+				});
+				carouselDots.appendChild(dot);
+			});
+
+		function loadPageContent(page) {
+			fetch(page)
+				.then(response => response.text())
+				.then(data => {
+					contentContainer.innerHTML = data;
+				})
+				.catch(error => console.error('Erreur sur le chargement de la page:', error));
+		}
 
 	</script>
 
