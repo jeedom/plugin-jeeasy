@@ -36,6 +36,9 @@ if (!isConnect()) {
         }
         .container {
 			height: 100%;
+			min-height: 500px; 
+			/* height: 1200px;
+			width: 570px; */
             text-align: center;
             background: white;
             padding: 20px;
@@ -124,7 +127,7 @@ if (!isConnect()) {
         width: 20px;
         height: 20px;
         margin: 0 5px;
-        background-color: #007bff;
+        background-color: #94CA02;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
@@ -186,10 +189,22 @@ if (!isConnect()) {
 			});
 
 		function loadPageContent(page) {
+			const initialWidth = contentContainer.offsetWidth;
+			const initialHeight = contentContainer.offsetHeight;
+
 			fetch(page)
 				.then(response => response.text())
 				.then(data => {
-					contentContainer.innerHTML = data;
+					if (page === 'index.php?v=d&plugin=jeeasy&modal=welcome') {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const newContent = doc.querySelector('.container').innerHTML;
+                    contentContainer.innerHTML = newContent;
+                } else {
+                    contentContainer.innerHTML = data;
+					contentContainer.style.width = initialWidth + 'px';
+					contentContainer.style.height = initialHeight + 'px';
+                }
 				})
 				.catch(error => console.error('Erreur sur le chargement de la page:', error));
 		}
