@@ -138,8 +138,21 @@ if (!isConnect()) {
     }
 
     .dot:hover {
-        background-color: #0056b3;
+		transform: scale(1.5);
+
     }
+
+	.modal-tooltip {
+			position: absolute;
+			top:10px;
+			background-color: #94CA02;
+			color: #fff;
+			padding: 5px 10px;
+			border-radius: 5px;
+			font-size: 12px;
+			display: none;
+			z-index: 1000;
+}
 
     </style>
 <body>
@@ -172,22 +185,44 @@ if (!isConnect()) {
 
 
 		const pages = [
-				{ index: 1, name: 'index.php?v=d&plugin=jeeasy&modal=welcome' },
-				{ index: 2, name: 'index.php?v=d&plugin=jeeasy&modal=boxName' },				
+				{ index: 1, name: 'index.php?v=d&plugin=jeeasy&modal=welcome', tooltip:'Bienvenue' },
+				{ index: 2, name: 'index.php?v=d&plugin=jeeasy&modal=boxName', tooltip:'Nom de la box' },				
 				{ index: 3, name: 'page3.php' }
          ];
 
 		 const carouselDots = document.querySelector('.carousel-dots');
 		 const contentContainer = document.querySelector('.container');
 
+		 const tooltip = document.createElement('div');
+		tooltip.className = 'modal-tooltip';
+		document.body.appendChild(tooltip);
+
 		 pages.forEach(page => {
 				const dot = document.createElement('div');
 				dot.classList.add('dot');
 				dot.dataset.page = page.name;
 				dot.innerText = page.index;
+
+				dot.addEventListener('mouseover', function(event) {
+					tooltip.innerText = page.tooltip;
+					tooltip.style.display = 'block';
+					tooltip.style.left = event.pageX + 'px';
+					tooltip.style.top = (event.pageY + 20) + 'px';
+				});
+
+				dot.addEventListener('mouseout', function() {
+					tooltip.style.display = 'none';
+				});
+
+				dot.addEventListener('mousemove', function(event) {
+					tooltip.style.left = event.pageX + 'px';
+					tooltip.style.top = (event.pageY + 20) + 'px';
+				});
+
 				dot.addEventListener('click', function() {
 					loadPageContent(this.dataset.page);
 				});
+
 				carouselDots.appendChild(dot);
 			});
 
@@ -208,11 +243,27 @@ if (!isConnect()) {
 					contentContainer.style.width = initialWidth + 'px';
 					contentContainer.style.height = initialHeight + 'px';
                 }
+
+				// On ajoute le bouton pour quitter sur toutes les pages loadées
 				const exitButton = document.createElement('button');
 				exitButton.className = 'exit-button';
 				exitButton.id = 'bt_quitJeeasyWizardV2';
 				exitButton.innerText = 'Quitter l\'assistant';
 				contentContainer.appendChild(exitButton);
+
+				// Rechargement des scripts
+				const scripts = contentContainer.querySelectorAll('script');
+				scripts.forEach(script => {
+					console.log('script', script);
+					const newScript = document.createElement('script');
+					if (script.src) {
+						newScript.src = script.src;
+					} else {
+						newScript.textContent = script.textContent;
+					}
+					document.body.appendChild(newScript);
+					document.body.removeChild(newScript); // Optionnel : pour éviter d'encombrer le DOM
+				});
 				})
 				.catch(error => console.error('Erreur sur le chargement de la page:', error));
 		}

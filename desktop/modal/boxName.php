@@ -36,7 +36,7 @@ if(config::byKey('name') == ''){
     <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:80%;height:80%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
 <div class="col-md-12 text-center">
       <p class="text-center">
-          <h3 class="titlelanguage" id="titlelanguage">{{Nom actuel de votre box : }} <?= $nameBox ?></h3>
+          <h3 class="lead" id="titlelanguage">{{Nom actuel de votre box : }} <?= $nameBox ?></h3>
       </p>
       <p class="text-center">
           <h4 class="textAtlas" style="color:#93ca02;"></h4>
@@ -56,17 +56,16 @@ if(config::byKey('name') == ''){
 
   <script>
 
-    var btNext = document.getElementById('bt_next');
 
-    btNext.style.display = 'none';
+
 
     document.getElementById('btn-BoxNameIgnore').addEventListener('click', function() {
-         btNext.click();
-         btNext.style.display = 'block'; 
+
     });
 
   
     document.getElementById('btn-BoxName').addEventListener('click', function() {
+      alert('test');
       var inputText = document.querySelector('input[type="text"]');
       var choiceUser = inputText.value;
       var newString = '{{Nouveau nom de votre box : }} ' + choiceUser;
@@ -87,9 +86,8 @@ if(config::byKey('name') == ''){
             document.getElementById('btn-BoxName').style.display = 'none';
             document.getElementById('boxName').style.display = 'none';
             document.getElementById('btn-BoxNameIgnore').style.display = 'none';
-            btNext.style.display = 'block';
             document.getElementById('textValidate').removeAttribute('hidden');
-            document.getElementById('textValidate').innerHTML = 'Choix Validé, cliquez sur Suivant';
+            document.getElementById('textValidate').innerHTML = 'Choix Validé, vous pouvez passer à l\'étape suivante';
             document.getElementById('titlelanguage').innerHTML = newString;        
           }
         });
