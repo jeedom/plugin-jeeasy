@@ -164,9 +164,12 @@ if (!isConnect()) {
 	<script>
 
 
-		document.getElementById('bt_quitJeeasyWizardV2').addEventListener('click', function() {
-			window.close();
+		document.addEventListener('click', function(event) {
+			if (event.target && event.target.id === 'bt_quitJeeasyWizardV2') {
+				window.close();
+			}
 		});
+
 
 		const pages = [
 				{ index: 1, name: 'index.php?v=d&plugin=jeeasy&modal=welcome' },
@@ -205,6 +208,11 @@ if (!isConnect()) {
 					contentContainer.style.width = initialWidth + 'px';
 					contentContainer.style.height = initialHeight + 'px';
                 }
+				const exitButton = document.createElement('button');
+				exitButton.className = 'exit-button';
+				exitButton.id = 'bt_quitJeeasyWizardV2';
+				exitButton.innerText = 'Quitter l\'assistant';
+				contentContainer.appendChild(exitButton);
 				})
 				.catch(error => console.error('Erreur sur le chargement de la page:', error));
 		}
