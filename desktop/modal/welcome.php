@@ -179,7 +179,11 @@ if (!isConnect()) {
 
 		document.addEventListener('click', function(event) {
 			if (event.target && event.target.id === 'bt_quitJeeasyWizardV2') {
-				window.close();
+				bootbox.confirm("Voulez-vous vraiment quitter l'assistant de configuration ?", function(result) {
+					if (result) {
+						window.close();
+					}
+				});
 			}
 		});
 
