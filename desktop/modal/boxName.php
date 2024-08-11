@@ -24,12 +24,12 @@ if ($nameBox == '') {
 <div class="input-group col-md-4 col-md-offset-4">
   <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez un nouveau nom puis validez}}">
   <span class="input-group-btn">
-    <button type="button" class="btn btn-success roundedRight" id="btn_BoxName">{{Valider}}</button>
+    <button type="button" class="btn btn-success roundedRight" id="btn_boxName">{{Valider}}</button>
   </span>
 </div>
 
 <script>
-  document.getElementById('btn_BoxName').addEventListener('click', function(_event) {
+  document.getElementById('btn_boxName').addEventListener('click', function(_event) {
     let newBoxName = document.getElementById('in_boxName').value
     jeedom.config.save({
       configuration: {
