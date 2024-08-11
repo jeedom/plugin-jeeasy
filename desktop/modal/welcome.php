@@ -75,9 +75,9 @@ usort($steps, function ($step1, $step2) {
 	document.querySelectorAll('.navBtn').forEach(_navBtn => {
 		_navBtn.addEventListener('click', function() {
 			let activeNavDot = document.querySelector('.navDot.active')
-			if (this.classList.value.includes('right')) {
+			if (this.classList.value.includes('next')) {
 				activeNavDot.nextElementSibling.triggerEvent('click')
-			} else if (this.classList.value.includes('left')) {
+			} else if (this.classList.value.includes('prev')) {
 				activeNavDot.previousElementSibling.triggerEvent('click')
 			}
 		})

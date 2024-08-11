@@ -30,6 +30,7 @@
 	margin-top: 20px;
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 }
 
 #jeeasy_navigation>div {
@@ -39,6 +40,7 @@
 .navBtn {
 	font-size: 40px;
 	cursor: pointer !important;
+	color: var(--logo-primary-color);
 }
 
 .navDot {
