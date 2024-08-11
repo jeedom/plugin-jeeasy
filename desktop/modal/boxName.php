@@ -20,6 +20,7 @@ if ($nameBox == '') {
 <p>
   <strong>{{Vous pouvez changer le nom de votre installation ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 </p>
+<br>
 <div class="input-group col-md-4 col-md-offset-4">
   <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez un nouveau nom puis validez}}">
   <span class="input-group-btn">

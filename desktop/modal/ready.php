@@ -26,7 +26,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 <div style="display: <?= ($servicePack !== 'community') ? '' : 'none' ?>;">
 	<label style="color:#93ca02;">{{Accès externe à votre installation}} :</label>
 	<span style="font-weight:bold;">
-		<?= (network::getNetworkAccess('external') == 'http:') ? "{{Le plugin Openvpn est en cours d installation, veuillez redémarrer le service DNS à l'issue}}" : network::getNetworkAccess('external'); ?>
+		<?= (network::getNetworkAccess('external') == 'http:') ? "{{Le plugin Openvpn est en cours d installation}}" : network::getNetworkAccess('external'); ?>
 	</span>
 </div>
 
