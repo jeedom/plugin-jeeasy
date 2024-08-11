@@ -13,7 +13,7 @@ include_file('desktop', 'jeeasy.welcome', 'css', 'jeeasy');
 
 <div class="text-center" id="jeeasy_wizard">
 	<div class="container" id="jeeasy_container">
-		<h2>{{Assistant de configuration}}</h2>
+		<h3>{{Assistant de configuration}}</h3>
 		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
 		<p>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</p>
 		<p>{{Configurez facilement votre installation domotique en suivant les étapes de cet assistant.}}</p>

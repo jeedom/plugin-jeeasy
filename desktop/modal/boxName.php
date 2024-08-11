@@ -15,7 +15,7 @@ if ($nameBox == '') {
 }
 ?>
 
-<h2>{{Nom de l'installation}}</h2>
+<h3>{{Nom de l'installation}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
 <p>{{Le nom de votre box est}} : <strong id="boxName"><?= $nameBox ?></strong></p>
 <p>{{Vous pouvez changer le nom de votre box ou passer à l'étape suivante.}}</p>
