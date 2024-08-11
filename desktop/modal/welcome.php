@@ -26,7 +26,7 @@ usort($steps, function ($step1, $step2) {
 	</div>
 	<div id="jeeasy_navigation">
 		<div>
-			<i class="far fa-arrow-alt-circle-left navBtn prev hidden"></i>
+			<i class="far fa-arrow-alt-circle-left navBtn bt_prev hidden"></i>
 		</div>
 		<div>
 			<?php
@@ -39,7 +39,7 @@ usort($steps, function ($step1, $step2) {
 			<div id="div_dots_tooltip"></div>
 		</div>
 		<div>
-			<i class="far fa-arrow-alt-circle-right navBtn next"></i>
+			<i class="far fa-arrow-alt-circle-right navBtn bt_next"></i>
 		</div>
 	</div>
 </div>
@@ -75,9 +75,9 @@ usort($steps, function ($step1, $step2) {
 	document.querySelectorAll('.navBtn').forEach(_navBtn => {
 		_navBtn.addEventListener('click', function() {
 			let activeNavDot = document.querySelector('.navDot.active')
-			if (this.classList.value.includes('next')) {
+			if (this.classList.value.includes('bt_next')) {
 				activeNavDot.nextElementSibling.triggerEvent('click')
-			} else if (this.classList.value.includes('prev')) {
+			} else if (this.classList.value.includes('bt_prev')) {
 				activeNavDot.previousElementSibling.triggerEvent('click')
 			}
 		})
@@ -99,13 +99,13 @@ usort($steps, function ($step1, $step2) {
 			.then(response => response.text())
 			.then(data => {
 				if (_page === 'welcome') {
-					document.querySelector('.navBtn.prev').addClass('hidden')
+					document.querySelector('.navBtn.bt_prev').addClass('hidden')
 					const parser = new DOMParser();
 					const doc = parser.parseFromString(data, 'text/html');
 					const newContent = doc.querySelector('.container').innerHTML;
 					contentContainer.innerHTML = newContent;
 				} else {
-					document.querySelector('.navBtn.prev').removeClass('hidden')
+					document.querySelector('.navBtn.bt_prev').removeClass('hidden')
 					contentContainer.innerHTML = data;
 				}
 
