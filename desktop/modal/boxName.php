@@ -18,9 +18,9 @@ if ($nameBox == '') {
 <h3>{{Nom de l'installation}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
 <p>
-  <strong>{{Vous pouvez changer le nom de votre box ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
+  <strong>{{Vous pouvez changer le nom de votre installation ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 </p>
-<p>{{Le nom de votre box est}} : <strong id="boxName"><?= $nameBox ?></strong></p>
+<p>{{Le nom de votre installation est}} : <strong id="boxName"><?= $nameBox ?></strong></p>
 <div class="input-group col-md-4 col-md-offset-4">
   <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez un nouveau nom puis validez}}">
   <span class="input-group-btn">
@@ -43,7 +43,7 @@ if ($nameBox == '') {
       },
       success: function() {
         jeedomUtils.showAlert({
-          message: '{{Le nouveau nom de votre box est}} : <strong>' + newBoxName + '</strong>',
+          message: '{{Le nouveau nom de votre installation est}} : <strong>' + newBoxName + '</strong>',
           level: 'success',
           timeOut: 3000
         })

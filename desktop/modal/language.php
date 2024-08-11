@@ -9,7 +9,7 @@ $actualLanguage = config::byKey('language');
 <h3>{{Choix de la langue}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
 <p>
-  <strong>{{Vous pouvez changer la langue de votre box ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
+  <strong>{{Vous pouvez changer la langue de votre installation ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 </p>
 <div class="input-group col-md-4 col-md-offset-4">
   <select class="form-control roundedLeft" id="in_language" style="width:350px">
