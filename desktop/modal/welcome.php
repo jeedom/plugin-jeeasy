@@ -22,7 +22,7 @@ usort($steps, function ($step1, $step2) {
 		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
 		<p>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</p>
 		<p>{{Configurez facilement votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</p>
-		<strong>{{Cliquez sur la flèche pour commencer}} <i class='far fa-arrow-alt-circle-right'></i></strong>
+		<strong>{{Cliquez sur la flèche en bas à droite pour commencer}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 	</div>
 	<div id="jeeasy_navigation">
 		<div>
@@ -40,6 +40,7 @@ usort($steps, function ($step1, $step2) {
 		</div>
 		<div>
 			<i class="far fa-arrow-alt-circle-right navBtn bt_next"></i>
+			<i class="fas fa-check-circle hidden" id="bt_jeedom_ready"></i>
 		</div>
 	</div>
 </div>
@@ -94,10 +95,23 @@ usort($steps, function ($step1, $step2) {
 		})
 	})
 
+	document.getElementById('bt_jeedom_ready').addEventListener('click', function() {
+		// set jeedomm::firstUse to 0
+		// load dashboard
+	})
+
 	function loadPageContent(_page) {
 		fetch('index.php?v=d&plugin=jeeasy&modal=' + _page)
 			.then(response => response.text())
 			.then(data => {
+				if (_page === 'ready') {
+					document.querySelectorAll('.navBtn').unseen()
+					document.getElementById('bt_jeedom_ready').removeClass('hidden')
+				} else {
+					document.getElementById('bt_jeedom_ready').addClass('hidden')
+					document.querySelectorAll('.navBtn').seen()
+				}
+
 				if (_page === 'welcome') {
 					document.querySelector('.navBtn.bt_prev').addClass('hidden')
 					const parser = new DOMParser();
@@ -105,7 +119,7 @@ usort($steps, function ($step1, $step2) {
 					const newContent = doc.querySelector('.container').innerHTML;
 					contentContainer.innerHTML = newContent;
 				} else {
-					document.querySelector('.navBtn.bt_prev').removeClass('hidden')
+					document.querySelector('.navBtn.bt_prev.hidden')?.removeClass('hidden')
 					contentContainer.innerHTML = data;
 				}
 

@@ -23,11 +23,11 @@
 }
 
 #jeeasy_container {
-	min-height: 550px;
+	min-height: 600px;
 }
 
 #jeeasy_navigation {
-	margin-top: 20px;
+	margin-top: 15px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -37,7 +37,8 @@
 	min-width: 80px;
 }
 
-.navBtn {
+.navBtn,
+#bt_jeedom_ready {
 	font-size: 40px;
 	cursor: pointer !important;
 	color: var(--logo-primary-color);
