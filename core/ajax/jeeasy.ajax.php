@@ -34,8 +34,6 @@ try {
 		ajax::success(jeeasy::sendObjects(init('objects')));
 	}
 
-
-
 	if (init('action') == 'choiceLanguageJeeasy') {
 		ajax::success(jeeasy::changeLanguage(init('choice')));
 	}
@@ -44,27 +42,14 @@ try {
 		ajax::success(jeeasy::dns_Go());
 	}
 
-
-
-
-
-	if (init('action') == 'changeBoxName') {
-		if (init('choice') != '') {
-			$sanitizeString = htmlspecialchars(init('choice'), ENT_NOQUOTES, 'UTF-8');
-			config::save('name', $sanitizeString);
-		}
-		ajax::success();
-	}
-
-
 	if (init('action') == 'installPlugin') {
 		if (init('branch')) {
 			$checkInstall = jeeasy::checkInstallPlugin(init('id'), init('branch'));
 		} else {
-			if(config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha'){
-  				$checkInstall = jeeasy::checkInstallPlugin(init('id'), 'beta');
-			}else{
-  				$checkInstall = jeeasy::checkInstallPlugin(init('id'));
+			if (config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha') {
+				$checkInstall = jeeasy::checkInstallPlugin(init('id'), 'beta');
+			} else {
+				$checkInstall = jeeasy::checkInstallPlugin(init('id'));
 			}
 		}
 		if ($checkInstall == 'OK') {
