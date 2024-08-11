@@ -26,7 +26,7 @@ if ($nameBox == '') {
     <button type="button" class="btn btn-success roundedRight" id="btn_boxName">{{Valider}}</button>
   </span>
 </div>
-<p>{{Nom actuel de votre installation}} : <strong id="boxName"><?= $nameBox ?></strong></p>
+<p>{{Nom actuel}} : <strong id="boxName"><?= $nameBox ?></strong></p>
 
 <script>
   document.getElementById('btn_boxName').addEventListener('click', function(_event) {
