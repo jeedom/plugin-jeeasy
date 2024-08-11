@@ -9,8 +9,9 @@ include_file('desktop', 'jeeasy.welcome', 'css', 'jeeasy');
 // 	$path_wizard = json_decode(file_get_contents('plugins/jeeasy/core/data/wizard.json'), true);
 ?>
 
+<button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Quitter l'assistant}}</button>
+
 <div class="text-center" id="jeeasy_wizard">
-	<button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Quitter l'assistant}}</button>
 	<div class="container" id="jeeasy_container">
 		<h2>{{Assistant de configuration}}</h2>
 		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
