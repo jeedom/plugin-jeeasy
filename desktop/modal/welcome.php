@@ -17,7 +17,7 @@ include_file('desktop', 'jeeasy.welcome', 'css', 'jeeasy');
 		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
 		<p>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</p>
 		<p>{{Configurez facilement votre installation domotique en suivant les étapes de cet assistant.}}</p>
-		<p>{{Cliquez sur la flèche pour commencer}} <i class='far fa-arrow-alt-circle-right'></i></p>
+		<strong>{{Cliquez sur la flèche pour commencer}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 		<!-- <div class="arrow" onclick="window.location.href='nextpage.php'">
 			<i class='icon far fa-arrow-alt-circle-right icon_green'></i>
 		</div> -->

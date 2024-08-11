@@ -17,10 +17,12 @@ if ($nameBox == '') {
 
 <h3>{{Nom de l'installation}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
+<p>
+  <strong>{{Vous pouvez changer le nom de votre box ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
+</p>
 <p>{{Le nom de votre box est}} : <strong id="boxName"><?= $nameBox ?></strong></p>
-<p>{{Vous pouvez changer le nom de votre box ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></p>
-<div class="input-group col-md-6 col-md-offset-3">
-  <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez le nouveau nom puis validez}}">
+<div class="input-group col-md-4 col-md-offset-4">
+  <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez un nouveau nom puis validez}}">
   <span class="input-group-btn">
     <button type="button" class="btn btn-success roundedRight" id="btn_BoxName">{{Valider}}</button>
   </span>
