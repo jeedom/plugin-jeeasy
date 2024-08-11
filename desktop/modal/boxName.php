@@ -20,13 +20,13 @@ if ($nameBox == '') {
 <p>
   <strong>{{Vous pouvez changer le nom de votre installation ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 </p>
-<p>{{Le nom de votre installation est}} : <strong id="boxName"><?= $nameBox ?></strong></p>
 <div class="input-group col-md-4 col-md-offset-4">
   <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez un nouveau nom puis validez}}">
   <span class="input-group-btn">
     <button type="button" class="btn btn-success roundedRight" id="btn_boxName">{{Valider}}</button>
   </span>
 </div>
+<p>{{Nom actuel de votre installation}} : <strong id="boxName"><?= $nameBox ?></strong></p>
 
 <script>
   document.getElementById('btn_boxName').addEventListener('click', function(_event) {
