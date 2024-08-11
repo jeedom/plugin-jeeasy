@@ -106,11 +106,11 @@ usort($steps, function ($step1, $step2) {
 			.then(response => response.text())
 			.then(data => {
 				if (_page === 'ready') {
-					document.querySelectorAll('.navBtn').unseen()
+					document.querySelector('.navBtn.bt_next').addClass('hidden')
 					document.getElementById('bt_jeedom_ready').removeClass('hidden')
 				} else {
 					document.getElementById('bt_jeedom_ready').addClass('hidden')
-					document.querySelectorAll('.navBtn').seen()
+					document.querySelector('.navBtn.bt_next').removeClass('hidden')
 				}
 
 				if (_page === 'welcome') {
