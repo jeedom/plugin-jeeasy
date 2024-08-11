@@ -3,95 +3,51 @@ if (!isConnect()) {
   throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-
-
-if (file_exists(config::byKey('path_wizard')))
-  $path_wizard = json_decode(file_get_contents(config::byKey('path_wizard')), true);
-else
-  $path_wizard = json_decode(file_get_contents('plugins/jeeasy/core/data/wizard.json'), true);
-
-$hostname = shell_exec('cat /etc/hostname');
-
-if (strpos($hostname, 'Luna') !== false) {
-    config::save('hardware_name', "Luna");
-    $productName = 'Luna';
-}else{
-    $productName = jeedom::getHardwareName();
-
+if (strpos(shell_exec('cat /etc/hostname'), 'Luna') !== false) {
+  config::save('hardware_name', "Luna");
 }
+$productName = jeedom::getHardwareName();
 
-if(config::byKey('name') == ''){
-  $nameBox = 'Jeedom '.ucfirst($productName);
+$nameBox = config::byKey('name');
+if ($nameBox == '') {
+  $nameBox = 'Jeedom ' . ucfirst($productName);
   config::save('name', $nameBox);
-}else{
-  $nameBox = config::byKey('name');
-  
 }
-
 ?>
-  
- 
 
-<div class="mainContainer" style="height:100%;display:flex;flex-direction:column;justify-content:center;">
-    <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" style="width:80%;height:80%;" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
-<div class="col-md-12 text-center">
-      <p class="text-center">
-          <h3 class="lead" id="titlelanguage">{{Nom actuel de votre box : }} <?= $nameBox ?></h3>
-      </p>
-      <p class="text-center">
-          <h4 class="textAtlas" style="color:#93ca02;"></h4>
-      </p>
-
-      <input type="text" id="boxName" name="boxName" style="width:30%;" placeholder="{{ Nouveau nom de votre box (laissez vide pour laisser le nom par defaut) }}">
-      <br>
-
-
-      <div class="testbtnb" style="display:flex; flex-direction:row;justify-content:center; align-items:center;">
-      <button type="button" class="btn btn-primary btn-primary btn-lg" id="btn-BoxNameIgnore" style="margin-bottom:10px;margin-top:10px;">{{Ignorer}}</button>
-        <h4 id="textValidate" style="color:#93ca02;" hidden></h4>
-        <button type="button" class="btn btn-primary btn-success btn-lg" id="btn-BoxName" style="margin-left:35px;margin-bottom:10px;margin-top:10px;">{{Valider}}</button>
-      </div>
+<h2>{{Nom de l'installation}}</h2>
+<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
+<p>{{Le nom de votre box est}} : <strong id="boxName"><?= $nameBox ?></strong></p>
+<p>{{Vous pouvez changer le nom de votre box ou passer à l'étape suivante.}}</p>
+<div class="input-group col-md-6 col-md-offset-3">
+  <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez le nouveau nom puis validez}}">
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-success roundedRight" id="btn_BoxName">{{Valider}}</button>
+  </span>
 </div>
 
-
-  <script>
-
-
-
-
-    document.getElementById('btn-BoxNameIgnore').addEventListener('click', function() {
-
-    });
-
-  
-    document.getElementById('btn-BoxName').addEventListener('click', function() {
-      alert('test');
-      var inputText = document.querySelector('input[type="text"]');
-      var choiceUser = inputText.value;
-      var newString = '{{Nouveau nom de votre box : }} ' + choiceUser;
-
-      $.ajax({
-          type: "POST",
-          url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
-          data: {
-            action: "changeBoxName",
-            choice: choiceUser
-          },
-          dataType: 'json',
-          error: function(request, status, error) {
-            console.log(status);
-            handleAjaxError(request, status, error);
-          },
-          success: function(data) {
-            document.getElementById('btn-BoxName').style.display = 'none';
-            document.getElementById('boxName').style.display = 'none';
-            document.getElementById('btn-BoxNameIgnore').style.display = 'none';
-            document.getElementById('textValidate').removeAttribute('hidden');
-            document.getElementById('textValidate').innerHTML = 'Choix Validé, vous pouvez passer à l\'étape suivante';
-            document.getElementById('titlelanguage').innerHTML = newString;        
-          }
-        });
-    });
-  
-
-  </script>
+<script>
+  document.getElementById('btn_BoxName').addEventListener('click', function(_event) {
+    let newBoxName = document.getElementById('in_boxName').value
+    jeedom.config.save({
+      configuration: {
+        name: newBoxName
+      },
+      error: function(_error) {
+        jeedomUtils.showAlert({
+          message: _error.message,
+          level: 'danger'
+        })
+      },
+      success: function() {
+        jeedomUtils.showAlert({
+          message: '{{Le nouveau nom de votre box est}} : <strong>' + newBoxName + '</strong>',
+          level: 'success',
+          timeOut: 3000
+        })
+        document.getElementById('boxName').innerText = newBoxName
+        document.getElementById('in_boxName').value = ''
+      }
+    })
+  })
+</script>

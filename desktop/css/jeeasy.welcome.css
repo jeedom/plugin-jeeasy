@@ -1,0 +1,57 @@
+#jeedomMenuBar,
+#modalTitle {
+	display: none;
+}
+
+#div_mainContainer {
+	margin-top: -25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow-y: hidden;
+}
+
+#modalDisplay {
+	margin-top: unset !important;
+	border-radius: 8px;
+}
+
+#jeeasy_container {
+	min-height: 500px;
+}
+
+.carousel-dots {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.dot {
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+	background-color: var(--logo-primary-color);
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 14px;
+}
+
+.dot:hover {
+	transform: scale(1.5);
+}
+
+.modal-tooltip {
+	position: absolute;
+	top: 10px;
+	background-color: var(--logo-primary-color);
+	color: white;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 12px;
+	display: none;
+	z-index: 1000;
+}
