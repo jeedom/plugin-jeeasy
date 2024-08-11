@@ -23,34 +23,44 @@
 }
 
 #jeeasy_container {
-	min-height: 500px;
+	min-height: 550px;
 }
 
-.carousel-dots {
-	display: flex;
-	justify-content: center;
+#jeeasy_navigation {
 	margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
 }
 
-.dot {
-	width: 20px;
-	height: 20px;
+#jeeasy_navigation>div {
+	min-width: 40px;
+}
+
+.navBtn {
+	font-size: 40px;
+	cursor: pointer !important;
+}
+
+.navDot {
+	width: 25px;
+	height: 25px;
 	margin: 0 5px;
-	background-color: var(--logo-primary-color);
 	border-radius: 50%;
-	cursor: pointer;
-	display: flex;
+	cursor: pointer !important;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	color: white;
-	font-size: 14px;
+	background-color: var(--logo-primary-color);
 }
 
-.dot:hover {
+.navDot:hover,
+.navDot.active {
 	transform: scale(1.5);
+	margin: 0 10px;
 }
 
-.modal-tooltip {
+#div_dots_tooltip {
 	position: absolute;
 	top: 10px;
 	background-color: var(--logo-primary-color);
