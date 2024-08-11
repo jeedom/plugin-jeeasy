@@ -1,113 +1,89 @@
 {
-"trame": {
-  "welcome" :
-    {
-      "title": "Bienvenue",
+  "trame": {
+    "welcome": {
+      "title": "{{Accueil}}",
       "wizard": "welcome",
       "order": 0,
       "custom": "",
       "visible": 1
-    }
-  ,
-  "language" :
-    {
-      "title": "Choix de la langue",
+    },
+    "language": {
+      "title": "{{Choix de la langue}}",
       "wizard": "language",
       "order": 1,
       "custom": "",
       "visible": 1
-    }
-  ,
-  "boxName" :
-    {
-      "title": "Nommez votre box",
+    },
+    "boxName": {
+      "title": "{{Nom de l'installation}}",
       "wizard": "boxName",
       "order": 2,
       "custom": "",
       "visible": 1
     },
-
-  "objects" : {
-
+    "objects": {
       "title": "Pièces",
       "wizard": "objects",
       "order": 3,
       "custom": "",
       "visible": 1
-
-  },
-  "dnsGo" : {
-
+    },
+    "dnsGo": {
       "title": "OpenVPN",
       "wizard": "dnsGo",
       "order": 4,
       "custom": "",
       "visible": 1
-
-  },
-  "pack" :
-    {
+    },
+    "pack": {
       "title": "Service pack",
       "wizard": "pack",
       "order": 5,
       "custom": "",
       "visible": 1
-    }
-  ,
-  "pluginsConfigs" :
-    {
+    },
+    "pluginsConfigs": {
       "title": "Configuration des plugins",
       "wizard": "pluginsConfigs",
       "order": 6,
       "custom": "",
       "visible": 1
-    }
-  ,
-  "services" :
-    {
+    },
+    "services": {
       "title": "Services",
       "wizard": "services",
       "order": 7,
       "custom": "",
       "visible": 1
-    }
-  ,
-  "backupCloud" :
-  {
-    "title": "BackupCloud",
-    "wizard": "backupCloud",
-    "order": 8,
-    "custom": "",
-    "visible": 1
-  }
-,
-  "assistants" :
-    {
+    },
+    "backupCloud": {
+      "title": "BackupCloud",
+      "wizard": "backupCloud",
+      "order": 8,
+      "custom": "",
+      "visible": 1
+    },
+    "assistants": {
       "title": "Assistants Vocaux",
       "wizard": "assistants",
       "order": 9,
       "custom": "",
       "visible": 1
-    }
-  ,
-   "atlas" :
-   	{
-	  "title": "Options Atlas",
+    },
+    "atlas": {
+      "title": "Options Atlas",
       "wizard": "atlas",
       "order": 10,
       "custom": "",
       "visible": 1
-   	}
-  ,
-  "ready" :
-    {
+    },
+    "ready": {
       "title": "Prêt à démarrer",
       "wizard": "ready",
       "order": 11,
       "custom": "",
       "visible": 1
     }
-
   },
   "update": 1
 }
