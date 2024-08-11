@@ -12,7 +12,7 @@ $actualLanguage = config::byKey('language');
   <strong>{{Vous pouvez changer la langue de votre installation ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 </p>
 <div class="input-group col-md-4 col-md-offset-4">
-  <select class="form-control roundedLeft" id="in_language" style="width:350px">
+  <select class="form-control roundedLeft" id="in_language">
     <option value="fr_FR" <?= ($actualLanguage == 'fr_FR') ? ' selected' : '' ?>>Français</option>
     <option value="en_US" <?= ($actualLanguage == 'en_US') ? ' selected' : '' ?>>English</option>
     <option value="de_DE" <?= ($actualLanguage == 'de_DE') ? ' selected' : '' ?>>Deutsch</option>

@@ -34,7 +34,7 @@
 }
 
 #jeeasy_navigation>div {
-	min-width: 40px;
+	min-width: 80px;
 }
 
 .navBtn {
@@ -46,7 +46,7 @@
 .navDot {
 	width: 25px;
 	height: 25px;
-	margin: 0 5px;
+	margin: 5px;
 	border-radius: 50%;
 	cursor: pointer !important;
 	display: inline-flex;
