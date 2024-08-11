@@ -45,10 +45,10 @@ class jeeasy extends eqLogic {
 				continue;
 			}
 			if (strpos($line, 'MAC Address') !== false) {
-				$name = substr($line, ($p = strpos($line, '(')+1), strrpos($line, ')')-$p);
+				$name = substr($line, ($p = strpos($line, '(') + 1), strrpos($line, ')') - $p);
 				preg_match('/MAC Address: (.*?) \((.*?)\)/', $line, $matches);
 				$return[$matches[1]] = array('name' => $matches[2], 'ip' => $previous);
-			//	$name = $matches[2];
+				//	$name = $matches[2];
 				$mac = $matches[1];
 				$ip = $previous;
 				$arrayTemp = array('mac' => $mac, 'ip' => $ip);
@@ -86,12 +86,6 @@ class jeeasy extends eqLogic {
 			throw new Exception(__('Impossible de trouver le scénario', __FILE__) . ' : ' . $_name);
 		}
 		return json_decode(str_replace(array_keys($_replace), $_replace, json_encode(json_decode(file_get_contents(__DIR__ . '/../config/' . $_name . '.json'), true))), true);
-	}
-
-	public static function changeLanguage($choice) {
-		if ($choice != '') {
-			config::save('language', $choice);
-		}
 	}
 
 	public static function saveJson($_json) {
@@ -180,13 +174,13 @@ class jeeasy extends eqLogic {
 				'name'   => 'Travail',
 				'image'  => 'core/img/object_background/bureau/bureau_1.jpg',
 				'icon'   => '<i class="icon maison-man337"></i>'
-			),                
+			),
 			'basement' => array(
 				'name'   => 'Batiment',
 				'image'  => 'core/img/object_background/batiment/industrial_building.jpg',
 				'icon'   => '<i class="icon far fa-building"></i>'
 			)
-			
+
 		);
 
 		$_objects = json_decode($_objects, true);
@@ -290,20 +284,20 @@ class jeeasy extends eqLogic {
 	}
 
 	public static function checkPlugin($_plugin) {
-		if($_plugin == 'openvpn'){
-		 $plugin = $_plugin;
-		}else{
-		  $plugin = plugin::byId($_plugin);
+		if ($_plugin == 'openvpn') {
+			$plugin = $_plugin;
+		} else {
+			$plugin = plugin::byId($_plugin);
 		}
 
 		if (!is_object($plugin)) {
 			$plugin = $_plugin;
 		}
-		if(config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha'){
-        		self::checkInstallPlugin($plugin, 'beta');
-        	}else{
-        		self::checkInstallPlugin($plugin);
-        	}
+		if (config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha') {
+			self::checkInstallPlugin($plugin, 'beta');
+		} else {
+			self::checkInstallPlugin($plugin);
+		}
 		self::checkDependancyPlugin($plugin);
 		self::checkDeamonPlugin($plugin);
 	}
@@ -382,10 +376,10 @@ class jeeasy extends eqLogic {
 		}
 	}
 
-	public static function initStartBox(){
+	public static function initStartBox() {
 		log::removeAll();
 		log::add('jeeasy', 'debug', 'initStartBox');
-		if(config::byKey('jeedom::firstUse') == 1){
+		if (config::byKey('jeedom::firstUse') == 1) {
 			config::save('api', config::genKey());
 			config::save('apimarket', config::genKey());
 			config::save('apipro', config::genKey());
@@ -397,14 +391,13 @@ class jeeasy extends eqLogic {
 
 	public static function dns_Go() {
 		repo_market::test();
-		try{
-        jeeasy::checkPlugin('openvpn');
-		    sleep(10);
-          	config::save('market::allowDNS',1);
-		    network::dns_start();
-		}catch (Exception $e) {
-          log::add('jeeasy', 'debug', 'erreur DNS > '.$e);
-
+		try {
+			jeeasy::checkPlugin('openvpn');
+			sleep(10);
+			config::save('market::allowDNS', 1);
+			network::dns_start();
+		} catch (Exception $e) {
+			log::add('jeeasy', 'debug', 'erreur DNS > ' . $e);
 		}
 		sleep(2);
 		repo_market::test();
