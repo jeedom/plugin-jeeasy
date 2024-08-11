@@ -21,7 +21,7 @@ usort($steps, function ($step1, $step2) {
 		<h3>{{Assistant de configuration}}</h3>
 		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
 		<p>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</p>
-		<p>{{Configurez facilement votre installation domotique en suivant les étapes de cet assistant.}}</p>
+		<p>{{Configurez facilement votre installation en suivant les étapes de cet assistant.}}</p>
 		<strong>{{Cliquez sur la flèche pour commencer}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 	</div>
 	<div id="jeeasy_navigation">
