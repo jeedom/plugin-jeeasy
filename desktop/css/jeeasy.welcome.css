@@ -16,6 +16,12 @@
 	border-radius: 8px;
 }
 
+#bt_quitJeeasyWizard {
+	position: absolute;
+	top: 5%;
+	right: 5%;
+}
+
 #jeeasy_container {
 	min-height: 500px;
 }

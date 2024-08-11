@@ -10,22 +10,22 @@ include_file('desktop', 'jeeasy.welcome', 'css', 'jeeasy');
 ?>
 
 <div class="text-center" id="jeeasy_wizard">
-	<button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizardV2" style="margin-left:90%"><i class="fas fa-times"></i> {{Quitter l'assistant}}</button>
+	<button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Quitter l'assistant}}</button>
 	<div class="container" id="jeeasy_container">
 		<h2>{{Assistant de configuration}}</h2>
-		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
+		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
 		<p>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</p>
 		<p>{{Configurez facilement votre installation domotique en suivant les étapes de cet assistant.}}</p>
 		<p>{{Cliquez sur la flèche pour commencer...}}</p>
 		<!-- <div class="arrow" onclick="window.location.href='nextpage.php'">
-				<i class='icon far fa-arrow-alt-circle-right icon_green'></i>
-			</div> -->
+			<i class='icon far fa-arrow-alt-circle-right icon_green'></i>
+		</div> -->
 	</div>
 	<div class="carousel-dots"></div>
 </div>
 
 <script>
-	document.getElementById('bt_quitJeeasyWizardV2').addEventListener('click', function() {
+	document.getElementById('bt_quitJeeasyWizard').addEventListener('click', function() {
 		let confirm = "{{Voulez-vous vraiment quitter l'assistant de configuration?}}"
 		confirm += '<br><br>'
 		confirm += '<div class="alert alert-danger text-center">{{Certaines configurations ne seront pas effectuées et plusieurs plugins essentiels ne seront pas installés!}}</div>'
