@@ -40,9 +40,10 @@
 	grid-row-start: 2
 }
 
-#jeeasy_container .input-group {
-	max-width: 350px;
+#jeeasy_container .form-control {
+	max-width: 300px;
 	margin: auto;
+	text-align-last: center;
 }
 
 #jeeasy_navigation {
