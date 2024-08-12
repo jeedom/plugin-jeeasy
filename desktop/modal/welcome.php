@@ -3,58 +3,10 @@ if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 include_file('desktop', 'jeeasy.welcome', 'css', 'jeeasy');
-
-// On utilise le wizard du plugin, celui du core sautera, et ca sera plus simple a maintenir ^^
-
-// if (file_exists(config::byKey('path_wizard'))) {
-// 	$wizard = json_decode(file_get_contents(config::byKey('path_wizard')), true);
-// } else {
-// 	$wizard = json_decode(file_get_contents('plugins/jeeasy/core/data/wizard.json'), true);
-// }
-
-$productName = jeedom::getHardwareName();
-$wizard = json_decode(file_get_contents('plugins/jeeasy/core/data/wizard.json'), true);
-
-switch($productName) {
-	case 'Atlas':
-		$wizard['trame']['atlas'] = [
-			'title' => 'Options Atlas',
-			'wizard' => 'atlas',
-			'order' => 11,
-			'custom' => '',
-			'visible' => 1
-		];
-		break;
-	case 'Luna':
-		unset($wizard['trame']['atlas']);
-		$wizard['trame']['luna'] = [
-			'title' => 'Options Luna',
-			'wizard' => 'luna',
-			'order' => 11,
-			'custom' => '',
-			'visible' => 1
-		];
-		break;
-	default:
-		// prevoir screen pour DIY
-		unset($wizard['trame']['atlas']);
-		$wizard['trame']['diy'] = [
-			'title' => 'Options Diy',
-			'wizard' => 'diy',
-			'order' => 11,
-			'custom' => '',
-			'visible' => 1
-		];
-		break;
-};
-
-$steps = $wizard['trame'];
-usort($steps, function ($step1, $step2) {
-	return $step1['order'] <=> $step2['order'];
-});
+$steps = jeeasy::getWizard();
 ?>
 
-<button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Quitter l'assistant}}</button>
+<button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Annuler l'assistant}}</button>
 
 <div class="text-center" id="jeeasy_wizard">
 	<div class="container" id="jeeasy_container">
@@ -126,19 +78,28 @@ usort($steps, function ($step1, $step2) {
 	})
 
 	document.getElementById('bt_quitJeeasyWizard').addEventListener('click', function() {
-		let confirm = "{{Voulez-vous vraiment quitter l'assistant de configuration?}}"
+		let confirm = "{{Voulez-vous vraiment annuler l'assistant de configuration?}}"
 		confirm += '<br><br>'
 		confirm += '<div class="alert alert-danger text-center">{{Certaines configurations ne seront pas effectuées et plusieurs plugins essentiels ne seront pas installés!}}</div>'
 		bootbox.confirm(confirm, function(result) {
 			if (result) {
+				jeedom.config.save({
+					configuration: {
+						'jeedom::firstUse': 0
+					}
+				})
 				loadPage('index.php?v=d&p=dashboard')
 			}
 		})
 	})
 
 	document.getElementById('bt_jeedom_ready').addEventListener('click', function() {
-		// set jeedomm::firstUse to 0
-		// load dashboard
+		jeedom.config.save({
+			configuration: {
+				'jeedom::firstUse': 0
+			}
+		})
+		loadPage('index.php?v=d&p=dashboard')
 	})
 
 	function loadPageContent(_page) {
@@ -175,7 +136,7 @@ usort($steps, function ($step1, $step2) {
 						newScript.textContent = script.textContent;
 					}
 					document.getElementById('jeeasy_wizard').appendChild(newScript)
-					document.getElementById('jeeasy_wizard').removeChild(newScript) 
+					document.getElementById('jeeasy_wizard').removeChild(newScript)
 				});
 			})
 			.catch(error => console.error('{{Erreur au chargement de la page}}:', error));
