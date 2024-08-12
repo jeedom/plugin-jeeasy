@@ -14,9 +14,9 @@
       "custom": "",
       "visible": 1
     },
-    "misc": {
-      "title": "{{Parametres optionnels}}",
-      "wizard": "misc",
+    "theme": {
+      "title": "{{Thème}}",
+      "wizard": "theme",
       "order": 2,
       "custom": "",
       "visible": 1

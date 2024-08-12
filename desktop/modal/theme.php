@@ -7,8 +7,8 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
 
 ?>
 
-    <h3>{{Parametres optionnels}}</h3>
-    <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
+    <h3>{{Configuration du Thème}}</h3>
+    <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:80%">
     <br>
     <div class="input-group col-md-4 col-md-offset-4">
         <label>{{Theme actuel}} : </label>
