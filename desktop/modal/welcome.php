@@ -41,12 +41,30 @@ $steps = jeeasy::getWizard();
 </div>
 
 <script>
+	var contentContainer = document.getElementById('jeeasy_container')
+
 	let currentStep = getUrlVars('step')
 	if (currentStep && currentStep != 'welcome') {
-		document.getElementById('jeeasy_container').empty()
+		contentContainer.empty()
 	}
 
-	var contentContainer = document.getElementById('jeeasy_container')
+	var slideOut = {
+		opacity: [1, 0],
+		transform: ['translateX(0)', 'translateX(-10%)']
+	}
+	var slideIn = {
+		opacity: [0, 1],
+		transform: ['translateX(10%)', 'translateX(0)']
+	}
+	var slideOutReverse = {
+		opacity: [1, 0],
+		transform: ['translateX(0)', 'translateX(10%)']
+	}
+	var slideInReverse = {
+		opacity: [0, 1],
+		transform: ['translateX(-10%)', 'translateX(0)']
+	}
+
 	var tooltip = document.getElementById('div_dots_tooltip')
 
 	document.querySelectorAll('.navDot').forEach(_dot => {
@@ -67,26 +85,37 @@ $steps = jeeasy::getWizard();
 		});
 
 		_dot.addEventListener('click', function() {
-			document.querySelectorAll('.navDot.active').removeClass('active')
-			this.addClass('active')
+			let currentStep = document.querySelector('.navDot.active')
 
-			// Animation transition quand on change de page via les dots
-			contentContainer.classList.add('slide-out');
+			if (this == currentStep) {
+				return loadPageContent(this.dataset.step)
+			}
 
+			let outAnimation = slideOut
+			let inAnimation = slideIn
+			if (this.innerText < currentStep.innerText) {
+				outAnimation = slideOutReverse
+				inAnimation = slideInReverse
+			}
+
+			contentContainer.animate(outAnimation, {
+				duration: 500
+			})
 			setTimeout(() => {
-				loadPageContent(this.dataset.step);
-				contentContainer.classList.remove('slide-out');
-				contentContainer.classList.add('slide-in');
-				setTimeout(() => {
-					contentContainer.classList.remove('slide-in');
-				}, 500); 
-       		}, 500); 
-
-		});
+				contentContainer.empty()
+				document.querySelectorAll('.navDot.active').removeClass('active')
+				this.addClass('active')
+				contentContainer.animate(inAnimation, {
+					duration: 500
+				})
+				loadPageContent(this.dataset.step)
+			}, 450)
+		})
 	})
 
 	if (currentStep && currentStep != 'welcome') {
-		document.querySelector('.navDot[data-step="' + currentStep + '"]').triggerEvent('click')
+		document.querySelectorAll('.navDot.active').removeClass('active')
+		document.querySelector('.navDot[data-step="' + currentStep + '"]').addClass('active').triggerEvent('click')
 	}
 
 	document.querySelectorAll('.navBtn').forEach(_navBtn => {
