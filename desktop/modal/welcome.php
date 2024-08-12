@@ -2,7 +2,7 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-include_file('desktop', 'jeeasy.welcome', 'css', 'jeeasy');
+include_file('desktop', 'modal.welcome', 'css', 'jeeasy');
 $steps = jeeasy::getWizard();
 ?>
 
