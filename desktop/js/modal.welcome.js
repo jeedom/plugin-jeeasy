@@ -156,6 +156,9 @@ function configSave(_configuration) {
 				case 'language':
 					loadPageContent(step)
 					break
+				case 'theme':
+					jeedomUtils.changeTheme(_configuration.jeedom_theme_main)
+					break
 			}
 		}
 	})
