@@ -24,6 +24,17 @@
 
 #jeeasy_container {
 	min-height: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#jeeasy_container .input-group {
+	max-width: 350px;
+}
+
+#jeeasy_container img {
+	max-width: 400px;
 }
 
 #jeeasy_navigation {

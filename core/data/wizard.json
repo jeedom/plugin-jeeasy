@@ -15,7 +15,7 @@
       "visible": 1
     },
     "theme": {
-      "title": "{{Thème}}",
+      "title": "{{Choix du thème}}",
       "wizard": "theme",
       "order": 2,
       "custom": "",

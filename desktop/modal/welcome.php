@@ -8,10 +8,10 @@ $steps = jeeasy::getWizard();
 
 <button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Annuler l'assistant}}</button>
 
-<div class="text-center" id="jeeasy_wizard">
+<div id="jeeasy_wizard">
 	<div class="container" id="jeeasy_container">
 		<h3>{{Assistant de configuration}}</h3>
-		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
+		<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
 		<p>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</p>
 		<p>{{Configurez facilement votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</p>
 		<br>
