@@ -135,19 +135,13 @@ $steps = jeeasy::getWizard();
 		confirm += '<div class="alert alert-danger text-center">{{Certaines configurations ne seront pas effectuées et plusieurs plugins essentiels ne seront pas installés!}}</div>'
 		bootbox.confirm(confirm, function(result) {
 			if (result) {
-				configSave({
-					'jeedom::firstUse': 0
-				})
-				loadPage('index.php?v=d&p=dashboard')
+				exitJeeasy()
 			}
 		})
 	})
 
 	document.getElementById('bt_jeedom_ready').addEventListener('click', function() {
-		configSave({
-			'jeedom::firstUse': 0
-		})
-		loadPage('index.php?v=d&p=dashboard')
+		exitJeeasy()
 	})
 
 	function loadPageContent(_step) {
@@ -210,5 +204,12 @@ $steps = jeeasy::getWizard();
 				}
 			}
 		})
+	}
+
+	function exitJeeasy() {
+		configSave({
+			'jeedom::firstUse': 0
+		})
+		loadPage('index.php?v=d&p=dashboard')
 	}
 </script>
