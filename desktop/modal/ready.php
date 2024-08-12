@@ -11,7 +11,7 @@ if ($jsonrpc->sendRequest('servicepack::info')) {
 ?>
 
 <h3>{{Félicitations}} !</h3>
-<img src="plugins/jeeasy/core/img/greenthumb.png" alt="{{pouce de validation}}" style="width:20%;height:20%;">
+<img src="plugins/jeeasy/core/img/greenthumb.png" alt="{{pouce de validation}}" style="width:180px;">
 <h4>{{Vous avez terminé la phase de configuration}}</h4>
 <p>
 	{{Vous pouvez commencer à naviguer dans}} <?php echo config::byKey('product_name') ?> {{pendant que les plugins finissent de s'installer. Cette opération peut prendre jusqu'à 30 minutes.}}

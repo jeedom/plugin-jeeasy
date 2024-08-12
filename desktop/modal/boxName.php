@@ -17,17 +17,19 @@ if ($nameBox == '') {
 
 <h3>{{Nom de l'installation}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-<p>
-  <strong>{{Vous pouvez changer le nom de votre installation ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
-</p>
-<br>
-<div class="input-group">
-  <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez un nouveau nom puis validez}}">
-  <span class="input-group-btn">
-    <button type="button" class="btn btn-success roundedRight" id="btn_boxName">{{Valider}}</button>
-  </span>
+<div class="text-center">
+  <p>
+    <strong>{{Vous pouvez changer le nom de votre installation ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
+  </p>
+  <br>
+  <div class="input-group">
+    <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez un nouveau nom puis validez}}">
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-success roundedRight" id="btn_boxName">{{Valider}}</button>
+    </span>
+  </div>
+  <p>{{Nom actuel}} : <strong id="boxName"><?= $nameBox ?></strong></p>
 </div>
-<p>{{Nom actuel}} : <strong id="boxName"><?= $nameBox ?></strong></p>
 
 <script>
   document.getElementById('btn_boxName').addEventListener('click', function(_event) {
