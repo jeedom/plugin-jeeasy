@@ -36,8 +36,8 @@ if ($mbState == 0) {
 ?>
 	<hr class="hrPrimary">
 
-	<p>{{Retrouvez la documentation Jeedom complète à cette adresse}} : <a href="https://www.jeedom.com/doc" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> {{Documentation}}</a></p>
-	<p>{{Vous pouvez également rejoindre notre communauté}} : <a href="https://community.jeedom.com" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-users"></i> {{Communauté Jeedom}}</a></p>
+	<p>{{Retrouvez la documentation complète}} : <a href="https://www.jeedom.com/doc" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-book"></i> {{Documentation}}</a></p>
+	<p>{{Rejoignez la communauté}} : <a href="https://community.jeedom.com" target="_blank" class="btn btn-default btn-xs" role="button"><i class="fas fa-users"></i> {{Forum}}</a></p>
 <?php
 }
 ?>

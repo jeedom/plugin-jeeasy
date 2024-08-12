@@ -1,10 +1,13 @@
+body {
+	padding-top: unset;
+}
+
 #jeedomMenuBar,
 #modalTitle {
 	display: none;
 }
 
 #div_mainContainer {
-	margin-top: -25px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -13,6 +16,7 @@
 
 #modalDisplay {
 	margin-top: unset !important;
+	padding-bottom: 10px;
 	border-radius: 8px;
 }
 
@@ -80,6 +84,9 @@
 .navDot:hover,
 .navDot.active {
 	transform: scale(1.5);
+}
+
+.navDot.active {
 	margin: 0 10px;
 }
 
