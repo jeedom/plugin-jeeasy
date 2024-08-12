@@ -23,12 +23,11 @@ if ($nameBox == '') {
   </p>
   <br>
   <div class="input-group">
-    <input type="text" class="form-control roundedLeft" id="in_boxName" placeholder="{{Saisissez un nouveau nom puis validez}}">
+    <input type="text" class="form-control roundedLeft" id="in_boxName" value="<?= $nameBox ?>">
     <span class="input-group-btn">
       <button type="button" class="btn btn-success roundedRight" id="btn_boxName">{{Valider}}</button>
     </span>
   </div>
-  <p>{{Nom actuel}} : <strong id="boxName"><?= $nameBox ?></strong></p>
 </div>
 
 <script>
