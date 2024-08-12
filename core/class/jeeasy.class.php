@@ -22,6 +22,20 @@ include_file('core', 'discover', 'config', 'jeeasy');
 
 class jeeasy extends eqLogic {
 
+	public static function getWizard() {
+		if (file_exists(config::byKey('path_wizard'))) {
+			$wizard = json_decode(file_get_contents(config::byKey('path_wizard')), true);
+		} else {
+			$wizard = json_decode(file_get_contents('plugins/jeeasy/core/data/wizard.json'), true);
+		}
+
+		$steps = $wizard['trame'];
+		usort($steps, function ($step1, $step2) {
+			return $step1['order'] <=> $step2['order'];
+		});
+		return $steps;
+	}
+
 	public static function discoverNetwork() {
 		global $JEEDOM_JEEASY_DISCOVER;
 		$gw = shell_exec("ip route show default | awk '/default/ {print $3}'");
