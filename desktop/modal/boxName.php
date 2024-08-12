@@ -22,17 +22,13 @@ if ($nameBox == '') {
     <strong>{{Vous pouvez changer le nom de votre installation ou passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
   </p>
   <br>
-  <div class="input-group">
-    <input type="text" class="form-control roundedLeft" id="in_boxName" value="<?= $nameBox ?>">
-    <span class="input-group-btn">
-      <button type="button" class="btn btn-success roundedRight" id="btn_boxName">{{Valider}}</button>
-    </span>
-  </div>
+  <input type="text" class="form-control" id="in_boxName" value="<?= $nameBox ?>">
 </div>
 
 <script>
-  document.getElementById('btn_boxName').addEventListener('click', function(_event) {
-    let newBoxName = document.getElementById('in_boxName').value
+  document.getElementById('in_boxName').addEventListener('change', function(_event) {
+    let newBoxName = this.value
+
     jeedom.config.save({
       configuration: {
         name: newBoxName
@@ -44,8 +40,7 @@ if ($nameBox == '') {
         })
       },
       success: function() {
-        document.getElementById('boxName').innerText = newBoxName
-        document.getElementById('in_boxName').value = ''
+        console.log('new box name : ' + newBoxName)
       }
     })
   })
