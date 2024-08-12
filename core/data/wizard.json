@@ -14,73 +14,80 @@
       "custom": "",
       "visible": 1
     },
+    "misc": {
+      "title": "{{Parametres optionnels}}",
+      "wizard": "misc",
+      "order": 2,
+      "custom": "",
+      "visible": 1
+    },
     "boxName": {
       "title": "{{Nom de l'installation}}",
       "wizard": "boxName",
-      "order": 2,
+      "order": 3,
       "custom": "",
       "visible": 1
     },
     "objects": {
       "title": "Pièces",
       "wizard": "objects",
-      "order": 3,
+      "order": 4,
       "custom": "",
       "visible": 1
     },
     "dnsGo": {
       "title": "OpenVPN",
       "wizard": "dnsGo",
-      "order": 4,
+      "order": 5,
       "custom": "",
       "visible": 1
     },
     "pack": {
       "title": "Service pack",
       "wizard": "pack",
-      "order": 5,
+      "order": 6,
       "custom": "",
       "visible": 1
     },
     "pluginsConfigs": {
       "title": "Configuration des plugins",
       "wizard": "pluginsConfigs",
-      "order": 6,
+      "order": 7,
       "custom": "",
       "visible": 1
     },
     "services": {
       "title": "Services",
       "wizard": "services",
-      "order": 7,
+      "order": 8,
       "custom": "",
       "visible": 1
     },
     "backupCloud": {
       "title": "BackupCloud",
       "wizard": "backupCloud",
-      "order": 8,
+      "order": 9,
       "custom": "",
       "visible": 1
     },
     "assistants": {
       "title": "Assistants Vocaux",
       "wizard": "assistants",
-      "order": 9,
+      "order": 10,
       "custom": "",
       "visible": 1
     },
     "atlas": {
       "title": "Options Atlas",
       "wizard": "atlas",
-      "order": 10,
+      "order": 11,
       "custom": "",
       "visible": 1
     },
     "ready": {
       "title": "Prêt à démarrer",
       "wizard": "ready",
-      "order": 11,
+      "order": 12,
       "custom": "",
       "visible": 1
     }
