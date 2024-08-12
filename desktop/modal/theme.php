@@ -21,22 +21,8 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
 
 <script>
     document.getElementById('in_theme').addEventListener('change', function(_event) {
-        let newTheme = this.value
-
-        jeedom.config.save({
-            configuration: {
-                jeedom_theme_main: newTheme
-            },
-            error: function(_error) {
-                jeedomUtils.showAlert({
-                    message: _error.message,
-                    level: 'danger'
-                })
-            },
-            success: function() {
-                jeedomUtils.changeTheme(newTheme);
-
-            }
+        configSave({
+            jeedom_theme_main: this.value
         })
     })
 </script>

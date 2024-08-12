@@ -27,21 +27,8 @@ if ($nameBox == '') {
 
 <script>
   document.getElementById('in_boxName').addEventListener('change', function(_event) {
-    let newBoxName = this.value
-
-    jeedom.config.save({
-      configuration: {
-        name: newBoxName
-      },
-      error: function(_error) {
-        jeedomUtils.showAlert({
-          message: _error.message,
-          level: 'danger'
-        })
-      },
-      success: function() {
-        console.log('new box name : ' + newBoxName)
-      }
+    configSave({
+      name: this.value
     })
   })
 </script>

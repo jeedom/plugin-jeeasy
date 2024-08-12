@@ -26,21 +26,8 @@ $actualLanguage = config::byKey('language');
 
 <script>
   document.getElementById('in_language').addEventListener('change', function(_event) {
-    let newLanguage = this.value
-
-    jeedom.config.save({
-      configuration: {
-        language: newLanguage
-      },
-      error: function(_error) {
-        jeedomUtils.showAlert({
-          message: _error.message,
-          level: 'danger'
-        })
-      },
-      success: function() {
-        window.location.reload()
-      }
+    configSave({
+      language: this.value
     })
   })
 </script>

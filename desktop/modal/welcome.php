@@ -135,10 +135,8 @@ $steps = jeeasy::getWizard();
 		confirm += '<div class="alert alert-danger text-center">{{Certaines configurations ne seront pas effectuées et plusieurs plugins essentiels ne seront pas installés!}}</div>'
 		bootbox.confirm(confirm, function(result) {
 			if (result) {
-				jeedom.config.save({
-					configuration: {
-						'jeedom::firstUse': 0
-					}
+				configSave({
+					'jeedom::firstUse': 0
 				})
 				loadPage('index.php?v=d&p=dashboard')
 			}
@@ -146,10 +144,8 @@ $steps = jeeasy::getWizard();
 	})
 
 	document.getElementById('bt_jeedom_ready').addEventListener('click', function() {
-		jeedom.config.save({
-			configuration: {
-				'jeedom::firstUse': 0
-			}
+		configSave({
+			'jeedom::firstUse': 0
 		})
 		loadPage('index.php?v=d&p=dashboard')
 	})
@@ -194,5 +190,25 @@ $steps = jeeasy::getWizard();
 
 			})
 			.catch(error => console.error('{{Erreur au chargement de la page}}:', error))
+	}
+
+	function configSave(_configuration) {
+		jeedom.config.save({
+			configuration: _configuration,
+			error: function(_error) {
+				jeedomUtils.showAlert({
+					message: _error.message,
+					level: 'danger'
+				})
+			},
+			success: function() {
+				let step = getUrlVars('step')
+				switch (step) {
+					case 'language':
+						loadPageContent(step)
+						break;
+				}
+			}
+		})
 	}
 </script>
