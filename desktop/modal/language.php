@@ -40,7 +40,7 @@ $actualLanguage = config::byKey('language');
         })
       },
       success: function() {
-        document.getElementById('in_language').value = newLanguage
+        window.location.reload()
       }
     })
   })

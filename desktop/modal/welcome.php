@@ -24,7 +24,7 @@ $steps = jeeasy::getWizard();
 		<div>
 			<?php
 			foreach ($steps as $index => $step) {
-				echo '<span class="navDot' . (($index == 0) ? ' active' : '') . '" data-page="' . $step['wizard'] . '" data-title="' . $step['title'] . '">';
+				echo '<span class="navDot' . (($index == 0) ? ' active' : '') . '" data-step="' . $step['wizard'] . '" data-title="' . $step['title'] . '">';
 				echo $index + 1;
 				echo '</span>';
 			}
@@ -39,6 +39,11 @@ $steps = jeeasy::getWizard();
 </div>
 
 <script>
+	let currentStep = getUrlVars('step')
+	if (currentStep && currentStep != 'welcome') {
+		document.getElementById('jeeasy_container').empty()
+	}
+
 	var contentContainer = document.getElementById('jeeasy_container')
 	var tooltip = document.getElementById('div_dots_tooltip')
 
@@ -62,9 +67,13 @@ $steps = jeeasy::getWizard();
 		_dot.addEventListener('click', function() {
 			document.querySelectorAll('.navDot.active').removeClass('active')
 			this.addClass('active')
-			loadPageContent(this.dataset.page);
+			loadPageContent(this.dataset.step);
 		});
 	})
+
+	if (currentStep && currentStep != 'welcome') {
+		document.querySelector('.navDot[data-step="' + currentStep + '"]').triggerEvent('click')
+	}
 
 	document.querySelectorAll('.navBtn').forEach(_navBtn => {
 		_navBtn.addEventListener('click', function() {
@@ -102,11 +111,11 @@ $steps = jeeasy::getWizard();
 		loadPage('index.php?v=d&p=dashboard')
 	})
 
-	function loadPageContent(_page) {
-		fetch('index.php?v=d&plugin=jeeasy&modal=' + _page)
+	function loadPageContent(_step) {
+		fetch('index.php?v=d&plugin=jeeasy&modal=' + _step)
 			.then(response => response.text())
 			.then(data => {
-				if (_page === 'ready') {
+				if (_step === 'ready') {
 					document.querySelector('.navBtn.bt_next').addClass('hidden')
 					document.getElementById('bt_jeedom_ready').removeClass('hidden')
 				} else {
@@ -114,31 +123,33 @@ $steps = jeeasy::getWizard();
 					document.querySelector('.navBtn.bt_next').removeClass('hidden')
 				}
 
-				if (_page === 'welcome') {
+				if (_step === 'welcome') {
 					document.querySelector('.navBtn.bt_prev').addClass('hidden')
-					const parser = new DOMParser();
-					const doc = parser.parseFromString(data, 'text/html');
-					const newContent = doc.querySelector('.container').innerHTML;
-					contentContainer.innerHTML = newContent;
+					const parser = new DOMParser()
+					const doc = parser.parseFromString(data, 'text/html')
+					const newContent = doc.querySelector('.container').innerHTML
+					contentContainer.innerHTML = newContent
 				} else {
 					document.querySelector('.navBtn.bt_prev.hidden')?.removeClass('hidden')
-					contentContainer.innerHTML = data;
+					contentContainer.innerHTML = data
 				}
+				jeedomUtils.addOrUpdateUrl('step', _step)
 
 				// Rechargement des scripts
 				const scripts = contentContainer.querySelectorAll('script');
 				scripts.forEach(script => {
-					console.log('script', script);
+					console.log('script', script)
 					const newScript = document.createElement('script');
 					if (script.src) {
-						newScript.src = script.src;
+						newScript.src = script.src
 					} else {
 						newScript.textContent = script.textContent;
 					}
 					document.getElementById('jeeasy_wizard').appendChild(newScript)
 					document.getElementById('jeeasy_wizard').removeChild(newScript)
-				});
+				})
+
 			})
-			.catch(error => console.error('{{Erreur au chargement de la page}}:', error));
+			.catch(error => console.error('{{Erreur au chargement de la page}}:', error))
 	}
 </script>
