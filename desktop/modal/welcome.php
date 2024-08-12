@@ -69,7 +69,19 @@ $steps = jeeasy::getWizard();
 		_dot.addEventListener('click', function() {
 			document.querySelectorAll('.navDot.active').removeClass('active')
 			this.addClass('active')
-			loadPageContent(this.dataset.step);
+
+			// Animation transition quand on change de page via les dots
+			contentContainer.classList.add('slide-out');
+
+			setTimeout(() => {
+				loadPageContent(this.dataset.step);
+				contentContainer.classList.remove('slide-out');
+				contentContainer.classList.add('slide-in');
+				setTimeout(() => {
+					contentContainer.classList.remove('slide-in');
+				}, 500); 
+       		}, 500); 
+
 		});
 	})
 
