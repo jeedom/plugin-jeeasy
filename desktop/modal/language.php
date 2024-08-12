@@ -40,11 +40,6 @@ $actualLanguage = config::byKey('language');
         })
       },
       success: function() {
-        jeedomUtils.showAlert({
-          message: '{{La langue a été changée}}',
-          level: 'success',
-          timeOut: 3000
-        })
         document.getElementById('in_language').value = newLanguage
       }
     })

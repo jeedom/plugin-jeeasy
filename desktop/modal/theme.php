@@ -23,7 +23,6 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
 <script>
     document.getElementById('in_theme').addEventListener('change', function(_event) {
         let newTheme = this.value
-        // let humanReadableTheme = newTheme == 'core2019_Light' ? 'Thème Clair' : 'Thème Sombre';
 
         jeedom.config.save({
             configuration: {

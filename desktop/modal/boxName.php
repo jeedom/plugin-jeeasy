@@ -43,11 +43,6 @@ if ($nameBox == '') {
         })
       },
       success: function() {
-        jeedomUtils.showAlert({
-          message: '{{Le nouveau nom de votre installation est}} : <strong>' + newBoxName + '</strong>',
-          level: 'success',
-          timeOut: 3000
-        })
         document.getElementById('boxName').innerText = newBoxName
         document.getElementById('in_boxName').value = ''
       }
