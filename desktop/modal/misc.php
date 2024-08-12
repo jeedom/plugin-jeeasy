@@ -3,6 +3,7 @@ if (!isConnect()) {
   throw new Exception('{{401 - Accès non autorisé}}');
 }
 
+$jeedomTheme = config::byKey('jeedom_theme_main');
 
 ?>
 
@@ -75,76 +76,78 @@ if (!isConnect()) {
 
 <script>
 
+// Fonction pour eviter conflits de portée
+(function() {
+    let themeMain = '<?= $jeedomTheme ?>';
+    let coloredIcons = '<?= config::byKey('interface::advance::coloredIcons'); ?>';
 
- var themeMain = '<?= config::byKey('jeedom_theme_main'); ?>';
- var coloredIcons = '<?= config::byKey('interface::advance::coloredIcons'); ?>';
+    let selectElement = document.getElementById('changeThemeOnWizard');
+    let checkboxColored = document.getElementById('changeColoredIcons');
 
- var selectElement = document.getElementById('changeThemeOnWizard');
- var checkboxColored = document.getElementById('changeColoredIcons');
+    let isInitialUpdate = true;
 
- let isInitialUpdate = true;
+    checkboxColored.checked = coloredIcons == '1'  ? true : false;
 
- checkboxColored.checked = coloredIcons == '1'  ? true : false;
-
- isInitialUpdate = false;
-
-
- selectElement.value = themeMain;
+    isInitialUpdate = false;
 
 
+    selectElement.value = themeMain;
 
- selectElement.dispatchEvent(new Event('change'));
 
 
-selectElement.addEventListener('change', function(_event) {
-  let newTheme = document.getElementById('changeThemeOnWizard').value
-  let humanReadableTheme = newTheme == 'core2019_Light' ? 'Thème Clair' : 'Thème Sombre';
+    selectElement.dispatchEvent(new Event('change'));
 
-  jeedom.config.save({
-    configuration: {
-      jeedom_theme_main: newTheme
-    },
-    error: function(_error) {
-      jeedomUtils.showAlert({
-        message: _error.message,
-        level: 'danger'
-      })
-    },
-    success: function() {
-      jeedomUtils.showAlert({
-        message: '{{Le nouveau thème de votre installation est}} : <strong>' + humanReadableTheme + '</strong>',
-        level: 'success',
-        timeOut: 3000
-      })
-   
-    }
-  })
-})
 
-checkboxColored.addEventListener('click', function(_event) {
-    if (isInitialUpdate) {
-        return;
-    }
+    selectElement.addEventListener('change', function(_event) {
+    let newTheme = document.getElementById('changeThemeOnWizard').value
+    let humanReadableTheme = newTheme == 'core2019_Light' ? 'Thème Clair' : 'Thème Sombre';
 
-    let newColoredIcons = checkboxColored.checked ? 1 : 0;
     jeedom.config.save({
         configuration: {
-            'interface::advance::coloredIcons': newColoredIcons
+        jeedom_theme_main: newTheme
         },
         error: function(_error) {
-            jeedomUtils.showAlert({
-                message: _error.message,
-                level: 'danger'
-            });
+        jeedomUtils.showAlert({
+            message: _error.message,
+            level: 'danger'
+        })
         },
         success: function() {
-            jeedomUtils.showAlert({
-                message: '{{Les icones colorées sont}} : <strong>' + (newColoredIcons ? 'Activées' : 'Désactivées') + '</strong>',
-                level: 'success',
-                timeOut: 3000
-            });
+        jeedomUtils.showAlert({
+            message: '{{Le nouveau thème de votre installation est}} : <strong>' + humanReadableTheme + '</strong>',
+            level: 'success',
+            timeOut: 3000
+        })
+        jeedomUtils.changeTheme(newTheme);
+    
         }
-    });
-});
+    })
+    })
 
+    checkboxColored.addEventListener('click', function(_event) {
+        if (isInitialUpdate) {
+            return;
+        }
+
+        let newColoredIcons = checkboxColored.checked ? 1 : 0;
+        jeedom.config.save({
+            configuration: {
+                'interface::advance::coloredIcons': newColoredIcons
+            },
+            error: function(_error) {
+                jeedomUtils.showAlert({
+                    message: _error.message,
+                    level: 'danger'
+                });
+            },
+            success: function() {
+                jeedomUtils.showAlert({
+                    message: '{{Les icones colorées sont}} : <strong>' + (newColoredIcons ? 'Activées' : 'Désactivées') + '</strong>',
+                    level: 'success',
+                    timeOut: 3000
+                });
+            }
+        });
+    });
+})();
 </script>
