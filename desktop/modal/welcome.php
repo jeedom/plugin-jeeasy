@@ -93,7 +93,7 @@ $steps = jeeasy::getWizard();
 
 			let outAnimation = slideOut
 			let inAnimation = slideIn
-			if (this.innerText < currentStep.innerText) {
+			if (Number(this.innerText) < Number(currentStep.innerText)) {
 				outAnimation = slideOutReverse
 				inAnimation = slideInReverse
 			}
