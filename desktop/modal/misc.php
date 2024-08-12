@@ -7,18 +7,16 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
 
 ?>
 
-<div class="misc-container">
     <h3>{{Parametres optionnels}}</h3>
+    <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image" style="max-width:100%">
     <br>
-    <div class="misc-content">
+    <div class="input-group col-md-4 col-md-offset-4">
         <label>{{Theme actuel}} : </label>
         <br>
-        <div class="theme-selector">
-            <select id="changeThemeOnWizard">
+            <select class="form-control roundedLeft" id="changeThemeOnWizard">
             <option value="core2019_Light">Thème Clair</option>
             <option value="core2019_Dark">Thème Sombre</option>
             </select>
-        </div>
         <br>
         <br>
         <div class="checkbox-div">
@@ -27,36 +25,11 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
         </div>
 
     </div>
-  
 
-</div>
 
 
 <style>
 
-.misc-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 80vh; 
-    padding-top: 20px; 
-}
-
-.misc-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1; 
-    width: 50%;
-}
-
-.theme-selector {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-}
 
 .checkbox-div {
     display: flex;
