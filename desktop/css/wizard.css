@@ -22,8 +22,9 @@ body {
 	min-height: 600px;
 	display: grid;
 	justify-items: center;
+	align-items: center;
 	grid-template-columns: 100%;
-	grid-template-rows: 75px auto max-content;
+	grid-template-rows: 50px 250px 0 25px auto;
 }
 
 #jeeasy_container>h3 {
@@ -37,12 +38,17 @@ body {
 }
 
 #jeeasy_container .input-group {
-	max-width: 350px;
+	max-width: 450px;
 	margin: auto;
 }
 
 #jeeasy_container .form-control {
+	font-weight: bold;
 	text-align-last: center;
+}
+
+#jeeasy_container .next_step {
+	font-weight: bold;
 }
 
 #jeeasy_navigation {

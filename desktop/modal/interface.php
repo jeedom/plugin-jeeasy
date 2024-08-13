@@ -8,11 +8,13 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
 
 <h3>{{Paramètres d'interface}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-<p>
-    <strong>{{Vous pouvez modifier certains paramètres d'interface de votre installation et passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
-</p>
+<div class="next_step">{{Vous pouvez modifier certains paramètres d'interface de votre installation puis passer à l'étape suivante}}
+    <i class="far fa-arrow-alt-circle-right"></i>
+</div>
 <div class="input-group">
-    <span class="input-group-addon roundedLeft">{{Thème}}</span>
+    <div class="input-group-addon roundedLeft">{{Thème}}
+        <sup><i class="fas fa-question-circle tooltips" title="{{Sélectionner le thème de l'interface}}"></i></sup>
+    </div>
     <select class="form-control roundedRight" id="in_theme">
         <option value="core2019_Light" <?= ($jeedomTheme == 'core2019_Light') ? ' selected' : '' ?>>{{clair}} (Light)</option>
         <option value="core2019_Dark" <?= ($jeedomTheme == 'core2019_Dark') ? ' selected' : '' ?>>{{sombre}} (Dark)</option>
@@ -20,6 +22,7 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
 </div>
 
 <script>
+    jeedomUtils.initTooltips()
     document.getElementById('in_theme').addEventListener('change', function(_event) {
         configSave({
             jeedom_theme_main: this.value

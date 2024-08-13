@@ -6,27 +6,28 @@ if (jeeasy::getWizardMode() == 'recovery') {
 ?>
 	<h3>{{Assistant de restauration}}</h3>
 	<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-	<div class="text-center">
-		<p>{{Bienvenue dans l'assistant de restauration système}} <?php echo config::byKey('product_name'); ?>.</p>
-		<p>{{Préparez facilement la restauration système de votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</p>
-	</div>
+	<div>{{Bienvenue dans l'assistant de restauration système}} <?php echo config::byKey('product_name'); ?>.</div>
+	<div>{{Préparez facilement la restauration système de votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</div>
 <?php
 } else {
 ?>
 	<h3>{{Assistant de configuration}}</h3>
 	<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-	<div class="text-center">
-		<p>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</p>
-		<p>{{Configurez facilement votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</p>
-	</div>
+	<div>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</div>
+	<div>{{Configurez facilement votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</div>
 <?php
 }
 $language = config::byKey('language');
 ?>
+<div class="next_step">{{Choisissez la langue puis cliquez sur la flèche en bas à droite pour commencer}}
+	<i class="far fa-arrow-alt-circle-right"></i>
+</div>
 
 <div class="input-group">
-	<span class="input-group-addon roundedLeft">{{Langue}}</span>
-	<select class="form-control roundedRight" id="in_language">
+	<div class="input-group-addon roundedLeft">{{Langue}}
+		<sup><i class="fas fa-question-circle tooltips" title="{{Sélectionner la langue du système}}"></i></sup>
+	</div>
+	<select class="form-control roundedRight" id="sel_language">
 		<option value="fr_FR" <?= ($language == 'fr_FR') ? ' selected' : '' ?>>Français</option>
 		<option value="en_US" <?= ($language == 'en_US') ? ' selected' : '' ?>>English</option>
 		<option value="de_DE" <?= ($language == 'de_DE') ? ' selected' : '' ?>>Deutsch</option>
@@ -36,10 +37,9 @@ $language = config::byKey('language');
 	</select>
 </div>
 
-<strong style="align-self:end">{{Cliquez sur la flèche en bas à droite pour commencer}} <i class='far fa-arrow-alt-circle-right'></i></strong>
-
 <script>
-	document.getElementById('in_language').addEventListener('change', function(_event) {
+	jeedomUtils.initTooltips()
+	document.getElementById('sel_language').addEventListener('change', function(_event) {
 		configSave({
 			language: this.value
 		})
