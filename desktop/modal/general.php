@@ -12,7 +12,7 @@ if ($boxName == '') {
   $boxName = 'Jeedom ' . ucfirst(jeedom::getHardwareName());
   config::save('name', $boxName);
 }
-sendVarToJS('_timezone', config::byKey('timezone'));
+sendVarToJS('_timezone', config::byKey('timezone', 'Europe/Brussels'));
 ?>
 
 <h3>{{Paramètres généraux}}</h3>
