@@ -17,19 +17,19 @@ sendVarToJS('_timezone', config::byKey('timezone'));
 
 <h3>{{Paramètres généraux}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-<div class="next_step">{{Vous pouvez modifier certains paramètres généraux de votre installation puis passer à l'étape suivante}}
+<div class="bold">{{Vous pouvez modifier certains paramètres généraux de votre installation puis passer à l'étape suivante}}
   <i class="far fa-arrow-alt-circle-right"></i>
 </div>
 <div class="input-group">
   <div class="input-group-addon roundedLeft">{{Nom}}
-    <sup><i class="fas fa-question-circle tooltips" title="{{Modifier le nom du système}}"></i></sup>
+    <sup><i class="fas fa-question-circle" title="{{Modifier le nom du système}}"></i></sup>
   </div>
   <input type="text" class="form-control roundedRight" id="in_boxName" value="<?= $boxName ?>">
 </div>
 
 <div class="input-group">
   <div class="input-group-addon roundedLeft">{{Fuseau horaire}}
-    <sup><i class="fas fa-question-circle tooltips" title="{{Sélectionner le fuseau horaire}}"></i></sup>
+    <sup><i class="fas fa-question-circle" title="{{Sélectionner le fuseau horaire}}"></i></sup>
   </div>
   <select class="form-control roundedRight" id="sel_timezone">
     <option value="Pacific/Midway">(GMT-11:00) Midway Island, Samoa</option>
@@ -134,11 +134,11 @@ sendVarToJS('_timezone', config::byKey('timezone'));
 
 <div class="input-group">
   <div class="input-group-addon roundedLeft">{{Latitude}}
-    <sup><i class="fas fa-question-circle tooltips" title="{{Latitude GPS du site}}"></i></sup>
+    <sup><i class="fas fa-question-circle" title="{{Latitude GPS du site}}"></i></sup>
   </div>
   <input type="number" class="form-control" id="in_latitude" value="<?= config::byKey('info::latitude') ?>">
   <div class="input-group-addon">{{Longitude}}
-    <sup><i class="fas fa-question-circle tooltips" title="{{Longitude GPS du site}}"></i></sup>
+    <sup><i class="fas fa-question-circle" title="{{Longitude GPS du site}}"></i></sup>
   </div>
   <input type="number" class="form-control roundedRight" id="in_longitude" value="<?= config::byKey('info::longitude') ?>">
 </div>

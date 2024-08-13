@@ -23,7 +23,7 @@ if ($wizardMode == 'recovery') {
 		{{pendant que les plugins finissent de s'installer.}}
 	</div>
 	<div>{{Cette opération peut prendre jusqu'à 30 minutes.}}</div>
-	<div class="next_step">{{Cliquez sur la coche en bas à droite}} <i class="fas fa-check-circle"></i> {{pour valider la configuration de votre installation.}}</div>
+	<div class="bold">{{Cliquez sur la coche en bas à droite}} <i class="fas fa-check-circle"></i> {{pour valider la configuration de votre installation.}}</div>
 
 
 	<hr class="hrPrimary">

@@ -19,13 +19,13 @@ if (jeeasy::getWizardMode() == 'recovery') {
 }
 $language = config::byKey('language');
 ?>
-<div class="next_step">{{Choisissez la langue puis cliquez sur la flèche en bas à droite pour commencer}}
+<div class="bold">{{Choisissez la langue puis cliquez sur la flèche en bas à droite pour commencer}}
 	<i class="far fa-arrow-alt-circle-right"></i>
 </div>
 
 <div class="input-group">
 	<div class="input-group-addon roundedLeft">{{Langue}}
-		<sup><i class="fas fa-question-circle tooltips" title="{{Sélectionner la langue du système}}"></i></sup>
+		<sup><i class="fas fa-question-circle" title="{{Sélectionner la langue du système}}"></i></sup>
 	</div>
 	<select class="form-control roundedRight" id="sel_language">
 		<option value="fr_FR" <?= ($language == 'fr_FR') ? ' selected' : '' ?>>Français</option>
