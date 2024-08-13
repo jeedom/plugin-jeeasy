@@ -1,11 +1,14 @@
-var contentContainer = document.getElementById('jeeasy_container')
+var contentContainer
 
-let currentStep = getUrlVars('step')
-if (!currentStep) {
-	currentStep = document.querySelector('.navDot').dataset.step
-}
-document.querySelector('.navDot[data-step="' + currentStep + '"]').addClass('active')
-loadPageContent(currentStep)
+(function() {
+	contentContainer = document.getElementById('jeeasy_container')
+	let currentStep = getUrlVars('step')
+	if (!currentStep) {
+		currentStep = document.querySelector('.navDot').dataset.step
+	}
+	document.querySelector('.navDot[data-step="' + currentStep + '"]').addClass('active')
+	loadPageContent(currentStep)
+})()
 
 var slideOut = {
 	opacity: [1, 0],
