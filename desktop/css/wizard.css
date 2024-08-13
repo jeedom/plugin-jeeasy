@@ -2,8 +2,7 @@ body {
 	padding-top: unset;
 }
 
-#jeedomMenuBar,
-#modalTitle {
+#jeedomMenuBar {
 	display: none;
 }
 
@@ -11,13 +10,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow-y: hidden;
-}
-
-#modalDisplay {
-	margin-top: unset !important;
-	padding-bottom: 10px;
-	border-radius: 8px;
 }
 
 #bt_quitJeeasyWizard {

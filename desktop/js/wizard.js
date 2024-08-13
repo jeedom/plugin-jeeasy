@@ -1,12 +1,11 @@
 var contentContainer = document.getElementById('jeeasy_container')
 
 let currentStep = getUrlVars('step')
-if (currentStep && currentStep != 'welcome') {
-	contentContainer.empty()
-	document.querySelectorAll('.navDot.active').removeClass('active')
-	document.querySelector('.navDot[data-step="' + currentStep + '"]').addClass('active')
-	loadPageContent(currentStep)
+if (!currentStep) {
+	currentStep = document.querySelector('.navDot').dataset.step
 }
+document.querySelector('.navDot[data-step="' + currentStep + '"]').addClass('active')
+loadPageContent(currentStep)
 
 var slideOut = {
 	opacity: [1, 0],
@@ -103,24 +102,21 @@ function loadPageContent(_step) {
 	fetch('index.php?v=d&plugin=jeeasy&modal=' + _step)
 		.then(response => response.text())
 		.then(data => {
-			if (_step === 'ready') {
+			let currentStep = document.querySelector('.navDot[data-step="' + _step + '"]')
+			if (!currentStep.previousElementSibling) {
+				document.querySelector('.navBtn.bt_prev').addClass('hidden')
+			} else {
+				document.querySelector('.navBtn.bt_prev.hidden')?.removeClass('hidden')
+			}
+			if (currentStep.nextElementSibling.tagName == 'DIV') {
 				document.querySelector('.navBtn.bt_next').addClass('hidden')
 				document.getElementById('bt_jeedom_ready').removeClass('hidden')
 			} else {
 				document.getElementById('bt_jeedom_ready').addClass('hidden')
-				document.querySelector('.navBtn.bt_next').removeClass('hidden')
+				document.querySelector('.navBtn.bt_next.hidden')?.removeClass('hidden')
 			}
 
-			if (_step === 'welcome') {
-				document.querySelector('.navBtn.bt_prev').addClass('hidden')
-				const parser = new DOMParser()
-				const doc = parser.parseFromString(data, 'text/html')
-				const newContent = doc.querySelector('.container').innerHTML
-				contentContainer.innerHTML = newContent
-			} else {
-				document.querySelector('.navBtn.bt_prev.hidden')?.removeClass('hidden')
-				contentContainer.innerHTML = data
-			}
+			contentContainer.innerHTML = data
 			jeedomUtils.addOrUpdateUrl('step', _step)
 
 			// Rechargement des scripts
