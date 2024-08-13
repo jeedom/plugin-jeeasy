@@ -8,7 +8,7 @@ include_file('desktop', 'wizard', 'css', 'jeeasy');
 <button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Annuler l'assistant}}</button>
 
 <div id="jeeasy_wizard">
-	<div class="container" id="jeeasy_container">
+	<div class="container text-center" id="jeeasy_container">
 	</div>
 	<div id="jeeasy_navigation">
 		<div>

@@ -47,12 +47,13 @@ body {
 }
 
 #jeeasy_container>.replace_logo .sel_father {
-	max-width: 30%;
-	position: relative;
+	max-width: 33%;
+	border-radius: var(--border-radius);
+	overflow: hidden;
 }
 
 #jeeasy_container>.replace_logo .sel_father.selected {
-	border: solid 2px var(--logo-primary-color);
+	border: solid 4px var(--al-info-color);
 }
 
 #jeeasy_container>.replace_logo img {
@@ -61,12 +62,9 @@ body {
 }
 
 #jeeasy_container>.replace_logo .img_title {
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
 	font-weight: bold;
 	color: white;
-	background-color: var(--logo-primary-color);
+	background-color: var(--al-info-color);
 }
 
 #jeeasy_container .input-group {
@@ -125,11 +123,10 @@ body {
 #div_dots_tooltip {
 	position: absolute;
 	top: 10px;
-	background-color: var(--logo-primary-color);
 	color: white;
+	background-color: var(--logo-primary-color);
 	padding: 5px 10px;
 	border-radius: 5px;
-	font-size: 12px;
 	display: none;
 	z-index: 1000;
 }
