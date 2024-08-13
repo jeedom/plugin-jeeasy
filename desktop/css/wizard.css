@@ -36,9 +36,12 @@ body {
 	grid-row-start: 2
 }
 
-#jeeasy_container .form-control {
-	max-width: 300px;
+#jeeasy_container .input-group {
+	max-width: 350px;
 	margin: auto;
+}
+
+#jeeasy_container .form-control {
 	text-align-last: center;
 }
 

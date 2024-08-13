@@ -152,7 +152,7 @@ function configSave(_configuration) {
 		success: function() {
 			let step = getUrlVars('step')
 			switch (step) {
-				case 'language':
+				case 'welcome':
 					loadPageContent(step)
 					break
 				case 'theme':
