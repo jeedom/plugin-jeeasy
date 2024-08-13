@@ -18,7 +18,7 @@ include_file('desktop', 'wizard', 'css', 'jeeasy');
 			<?php
 			$i = 1;
 			foreach (jeeasy::getWizardSteps(jeeasy::getWizardMode()) as $step => $title) {
-				echo '<span class="navDot" data-step="' . $step . '" data-title="' . $title . '">';
+				echo '<span class="navDot cursor" data-step="' . $step . '" data-title="' . $title . '">';
 				echo $i;
 				echo '</span>';
 				$i++;
