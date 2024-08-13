@@ -28,9 +28,8 @@ class jeeasy extends eqLogic {
 		if ($_mode == 'recovery') {
 			$wizard['pack'] =	__('Installation plugins', __FILE__);
 		} else {
-			$wizard['theme'] =	__('Choix du thème', __FILE__);
+			$wizard['general'] =	__('Général', __FILE__);
 			$wizard['interface'] =	__('Interface', __FILE__);
-			$wizard['boxName'] =	__("Nom de l'installation", __FILE__);
 			$wizard['objects'] =	__("Type d'installaton", __FILE__);
 			$wizard['dnsGo'] =	__('Accès externe', __FILE__);
 			if ($_mode == 'default') {

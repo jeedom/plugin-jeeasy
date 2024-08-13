@@ -155,7 +155,7 @@ function configSave(_configuration) {
 				case 'welcome':
 					loadPageContent(step)
 					break
-				case 'theme':
+				case 'interface':
 					jeedomUtils.changeTheme(_configuration.jeedom_theme_main)
 					break
 			}

@@ -8,6 +8,7 @@ if (jeeasy::getWizardMode() == 'recovery') {
 	<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
 	<div class="text-center">
 		<p>{{Bienvenue dans l'assistant de restauration système}} <?php echo config::byKey('product_name'); ?>.</p>
+		<p>{{Préparez facilement la restauration système de votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</p>
 	</div>
 <?php
 } else {
@@ -34,7 +35,8 @@ $language = config::byKey('language');
 		<option value="pt_PT" <?= ($language == 'pt_PT') ? ' selected' : '' ?>>Português (sem apoio)</option>
 	</select>
 </div>
-<strong>{{Cliquez sur la flèche en bas à droite pour commencer}} <i class='far fa-arrow-alt-circle-right'></i></strong>
+
+<strong style="align-self:end">{{Cliquez sur la flèche en bas à droite pour commencer}} <i class='far fa-arrow-alt-circle-right'></i></strong>
 
 <script>
 	document.getElementById('in_language').addEventListener('change', function(_event) {

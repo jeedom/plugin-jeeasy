@@ -1,11 +1,34 @@
 <?php
 if (!isConnect()) {
-  throw new Exception('{{401 - Accès non autorisé}}');
+    throw new Exception('{{401 - Accès non autorisé}}');
 }
 
+$jeedomTheme = config::byKey('jeedom_theme_main');
 ?>
 
-    <h3>{{Personnalisation de l'interface}}</h3>
+<h3>{{Paramètres d'interface}}</h3>
+<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
+<p>
+    <strong>{{Vous pouvez modifier certains paramètres d'interface de votre installation et passer à l'étape suivante}} <i class='far fa-arrow-alt-circle-right'></i></strong>
+</p>
+<div class="input-group">
+    <span class="input-group-addon roundedLeft">{{Thème}}</span>
+    <select class="form-control roundedRight" id="in_theme">
+        <option value="core2019_Light" <?= ($jeedomTheme == 'core2019_Light') ? ' selected' : '' ?>>{{clair}} (Light)</option>
+        <option value="core2019_Dark" <?= ($jeedomTheme == 'core2019_Dark') ? ' selected' : '' ?>>{{sombre}} (Dark)</option>
+    </select>
+</div>
+
+<script>
+    document.getElementById('in_theme').addEventListener('change', function(_event) {
+        configSave({
+            jeedom_theme_main: this.value
+        })
+    })
+</script>
+
+
+<!-- <h3>{{Personnalisation de l'interface}}</h3>
     <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
     <br>
     <label>{{Icones colorées}} : </label>
@@ -56,4 +79,4 @@ if (!isConnect()) {
         });
     });
 })();
-</script>
+</script> -->
