@@ -56,8 +56,7 @@ $('#bt_jeeasyEqLogicConfiguration').on('click', function() {
 
 
 document.getElementById('bt_jeeasyWizardV2').addEventListener('click', function() {
-	var url = 'index.php?v=d&p=modaldisplay&loadmodal=welcome&plugin=jeeasy';
-	window.open(url).focus()
+	jeedomUtils.loadPage('index.php?v=d&m=jeeasy&p=wizard')
 })
 
 
