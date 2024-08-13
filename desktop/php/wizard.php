@@ -3,7 +3,6 @@ if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 include_file('desktop', 'wizard', 'css', 'jeeasy');
-$steps = jeeasy::getWizard();
 ?>
 
 <button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Annuler l'assistant}}</button>
@@ -17,10 +16,12 @@ $steps = jeeasy::getWizard();
 		</div>
 		<div>
 			<?php
-			foreach ($steps as $index => $step) {
-				echo '<span class="navDot" data-step="' . $step['wizard'] . '" data-title="' . $step['title'] . '">';
-				echo $index + 1;
+			$i = 1;
+			foreach (jeeasy::getWizardSteps(jeeasy::getWizardMode()) as $step => $title) {
+				echo '<span class="navDot" data-step="' . $step . '" data-title="' . $title . '">';
+				echo $i;
 				echo '</span>';
+				$i++;
 			}
 			?>
 			<div id="div_dots_tooltip"></div>

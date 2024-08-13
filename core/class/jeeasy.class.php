@@ -22,18 +22,39 @@ include_file('core', 'discover', 'config', 'jeeasy');
 
 class jeeasy extends eqLogic {
 
-	public static function getWizard() {
-		if (file_exists(config::byKey('path_wizard'))) {
-			$wizard = json_decode(file_get_contents(config::byKey('path_wizard')), true);
-		} else {
-			$wizard = json_decode(file_get_contents('plugins/jeeasy/core/data/wizard.json'), true);
-		}
+	public static function getWizardSteps($_mode = 'default'): array {
+		$wizard['welcome'] =  __('Accueil', __FILE__);
 
-		$steps = $wizard['trame'];
-		usort($steps, function ($step1, $step2) {
-			return $step1['order'] <=> $step2['order'];
-		});
-		return $steps;
+		if ($_mode == 'recovery') {
+			$wizard['pack'] =	__('Installation plugins', __FILE__);
+		} else {
+			$wizard['language'] =	__('Choix de la langue', __FILE__);
+			$wizard['theme'] =	__('Choix du thème', __FILE__);
+			$wizard['interface'] =	__('Interface', __FILE__);
+			$wizard['boxName'] =	__("Nom de l'installation", __FILE__);
+			$wizard['objects'] =	__("Type d'installaton", __FILE__);
+			$wizard['dnsGo'] =	__('Accès externe', __FILE__);
+			if ($_mode == 'default') {
+				$wizard['pack'] =	__('Installation plugins', __FILE__);
+			}
+			$wizard['pluginsConfigs'] =	__('Configuration plugins', __FILE__);
+			if ($_mode == 'default') {
+				$wizard['services'] =	__('Services', __FILE__);
+				$wizard['backupCloud'] =	__('Sauvegarde Cloud', __FILE__);
+				$wizard['assistants'] =	__('Assistants vocaux', __FILE__);
+			}
+		}
+		$wizard['ready'] = __('Prêt à démarrer', __FILE__);
+		return $wizard;
+	}
+
+	public static function getWizardMode(): string {
+		if (strtolower(trim(gethostname())) == 'jeedomatlasrecovery') {
+			return 'recovery';
+		} else if (config::byKey('mbState', 'core', 0) == 1) {
+			return 'mb';
+		}
+		return 'default';
 	}
 
 	public static function discoverNetwork() {
