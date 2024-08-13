@@ -19,13 +19,13 @@ if (!isConnect()) {
 		<div class="img_title">{{Un bâtiment}}</div>
 	</div>
 </div>
-<div class="step_father bold">{{Sélectionner le type d'installation qui sera géré par}} <?php echo config::byKey('product_name'); ?>.</div>
+<div class="step_father bold">{{Sélectionnez le type d'installation qui sera géré par}} <?php echo config::byKey('product_name'); ?>.</div>
 
 
 <h3 class="step_childs hidden"></h3>
 <div class="replace_logo step_childs hidden">
 </div>
-<div class="step_childs bold hidden">{{Sélectionner le type d'installation qui sera géré par}} <?php echo config::byKey('product_name'); ?>.</div>
+<div class="step_childs bold hidden"></div>
 
 <script>
 	jeedomUtils.initTooltips()
