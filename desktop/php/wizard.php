@@ -10,7 +10,7 @@ include_file('desktop', 'wizard', 'css', 'jeeasy');
 <div id="jeeasy_wizard">
 	<div class="container text-center" id="jeeasy_container">
 	</div>
-	<div id="jeeasy_navigation">
+	<div class="flex-evenly" id="jeeasy_navigation">
 		<div>
 			<i class="far fa-arrow-alt-circle-left navBtn bt_prev hidden"></i>
 		</div>
@@ -18,13 +18,12 @@ include_file('desktop', 'wizard', 'css', 'jeeasy');
 			<?php
 			$i = 1;
 			foreach (jeeasy::getWizardSteps(jeeasy::getWizardMode()) as $step => $title) {
-				echo '<span class="navDot cursor" data-step="' . $step . '" data-title="' . $title . '">';
+				echo '<span class="navDot cursor shadowed" data-step="' . $step . '" title="' . $title . '" data-tippy-placement="bottom">';
 				echo $i;
 				echo '</span>';
 				$i++;
 			}
 			?>
-			<div id="div_dots_tooltip"></div>
 		</div>
 		<div>
 			<i class="far fa-arrow-alt-circle-right navBtn bt_next"></i>

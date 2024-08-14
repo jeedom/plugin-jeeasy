@@ -30,7 +30,7 @@ class jeeasy extends eqLogic {
 		} else {
 			$wizard['general'] =	__('Général', __FILE__);
 			$wizard['interface'] =	__('Interface', __FILE__);
-			$wizard['typology'] =	__('Typologie', __FILE__);
+			$wizard['objects'] =	__('Objets', __FILE__);
 			$wizard['dnsGo'] =	__('Accès externe', __FILE__);
 			if ($_mode == 'default') {
 				$wizard['pack'] =	__('Installation plugins', __FILE__);

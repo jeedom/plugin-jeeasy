@@ -2,261 +2,70 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-
 ?>
 
-
-<!--<p>Nous vous proposons la configuration type suivante, vous pouvez déselectionner les pièces que vous ne souhaitez utiliser :
-</p>-->
-<div class="row globalObject" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-	<div id="divSelecthouse" >
-		<div class="col-md-12 text-center">
-			<h2>{{Que souhaitez-vous configurer}} ?</h2>
-		</div>
-        <div class="testImgE" style="display:flex;width:100%;height:100vh;justify-content:space-evenly;">
-              <div id="selectHouse" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;max-width:30%;min-width:30%;">
-                  <label class="image-checkbox testSize">
-                      <img class="img-responsive" style="height:40%;max-height:40%;" src="/core/img/object_background/salon/salon_5.jpg" />
-                      <input type="checkbox" name="selectHouse[house]" value="1" />
-                      {{Une maison}}
-                  </label>
-              </div>
-              <div id="selectApartment" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;max-width:30%;min-width:30%;">
-                  <label class="image-checkbox testSize">
-                      <img class="img-responsive" style="height:40%;max-height:40%;"  src="/core/img/object_background/cuisine/cuisine_1.jpg" />
-                      <input type="checkbox" name="selectHouse[apartment]" value="1" />
-                      {{Un appartement}}
-                  </label>
-              </div>
-							<div id="selectBasement" class="col-md-4 nopad text-center cursor selectType" style="display:flex;flex-direction:column;max-width:30%;min-width:30%;">
-                  <label class="image-checkbox testSize">
-                      <img class="img-responsive" style="height:40%;max-height:40%;"  src="/core/img/object_background/batiment/industrial_building.jpg" />
-                      <input type="checkbox" name="selectHouse[basement]" value="1" />
-                      {{Un batiment}}
-                  </label>
-              </div>
-        </div>
-		<div id="selectWork" class="col-xs-6 col-sm-5 col-md-4 nopad text-center cursor selectType" hidden>
-			<label class="image-checkbox">
-				<img class="img-responsive" src="/core/img/object_background/bureau/bureau_1.jpg" />
-				<input type="checkbox" name="selectHouse[work]" value="1" />
-				{{Un bureau}}
-			</label>
-		</div>
-        
+<h3 class="step_father">{{Configuration des objets}}</h3>
+<div class="logo step_father flex-evenly">
+	<div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Appartement"}}' data-father="apartment">
+		<img src="/core/img/object_background/salon/salon_4.jpg">
+		<div class="img_title">{{Un appartement}}</div>
 	</div>
-	<div class="selectEtage hidden">
-		<ul class="nav nav-pills nav-stacked">
-			<li role="etage" class="active"><a href="#">{{Rez de chaussée}}</a></li>
-			<li role="etage"><a href="#">{{Etage 1}}</a></li>
-			<li role="etage"><a href="#">{{Jardin}}</a></li>
-			<li role="etage"><a href="#">{{Ajouter}}</a></li>
-		</ul>
+	<div class="sel_father text-center cursor shadowed" title=' {{Créer un objet racine "Maison"}}' data-father="house">
+		<img src="/core/img/object_background/chambre/chambre_7.jpg">
+		<div class="img_title">{{Une maison}}</div>
 	</div>
-	<div class="selectObject hidden">
-		<div class="text-center">
-			<h2>{{Sélectionnez les pièces}}</h2>
-		</div>
-        <div class="generalDivFlex">
-		<div class="nopad text-center">
-			<label class="image-checkbox">
-				<img class="img-responsive imgresize flexStyle" src="/core/img/object_background/chambre/chambre_1.jpg" />
-				<input type="checkbox" name="selectObject[chambre1]" value="1" />
-				<i class="fas fa-check hidden"></i>
-				{{Chambre 1}}
-			</label>
-		</div>
-		<div class="nopad text-center">
-			<label class="image-checkbox">
-				<img class="img-responsive imgresize flexStyle" src="/core/img/object_background/chambre/chambre_3.jpg" />
-				<input type="checkbox" name="selectObject[chambre2]" value="1" />
-				<i class="fas fa-check hidden"></i>
-				{{Chambre 2}}
-			</label>
-		</div>
-		<div class="nopad text-center">
-			<label class="image-checkbox">
-				<img class="img-responsive imgresize flexStyle" src="/core/img/object_background/chambre/chambre_4.jpg" />
-				<input type="checkbox" name="selectObject[chambre3]" value="1" />
-				<i class="fas fa-check hidden"></i>
-				{{Chambre 3}}
-			</label>
-		</div>
-		<div class="nopad text-center">
-			<label class="image-checkbox">
-				<img class="img-responsive imgresize flexStyle" src="/core/img/object_background/cuisine/cuisine_2.jpg" />
-				<input type="checkbox" name="selectObject[cuisine]" value="1" />
-				<i class="fas fa-check hidden"></i>
-				{{Cuisine}}
-			</label>
-		</div>
-		<div class="nopad text-center">
-			<label class="image-checkbox">
-				<img class="img-responsive imgresize flexStyle" src="/core/img/object_background/salle_a_manger/salle_a_manger_1.jpg" />
-				<input type="checkbox" name="selectObject[sam]" value="1" />
-				<i class="fas fa-check hidden"></i>
-				{{Salle à manger}}
-			</label>
-		</div>
-		<div class="nopad text-center">
-			<label class="image-checkbox">
-				<img class="img-responsive imgresize flexStyle" src="/core/img/object_background/salon/salon_2.jpg" />
-				<input type="checkbox" name="selectObject[salon]" value="1" />
-				<i class="fas fa-check hidden"></i>
-				{{Salon}}
-			</label>
-		</div>
-		<div class="nopad text-center">
-			<label class="image-checkbox">
-				<img class="img-responsive imgresize flexStyle" src="/core/img/object_background/salle_de_bain/salle_de_bain_1.jpg" />
-				<input type="checkbox" name="selectObject[sdb]" value="1" />
-				<i class="fas fa-check hidden"></i>
-				{{Salle de bain}}
-			</label>
-		</div>
-       <div>
+	<div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Bâtiment"}}' data-father="building">
+		<img src="/core/img/object_background/batiment/industrial_building.jpg">
+		<div class="img_title">{{Un bâtiment}}</div>
+	</div>
+</div>
+<div class="step_father bold">{{Sélectionnez l'objet principal caractérisant au mieux la base de votre installation}} <?php echo config::byKey('product_name'); ?>.</div>
+<div class="step_father flex-evenly" style="margin:15px">
+	<!-- <div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Général"}}' data-father="general" data-tippy-placement="bottom">
+		<div class="img_title">{{Par fonctions}}</div>
+		<img src="/core/img/object_background/salon/salon_4.jpg">
+	</div>
+	<div class="sel_father text-center cursor shadowed" title="{{Créer un objet racine personnalisé}}" data-father="custom" data-tippy-placement="bottom">
+		<div class="img_title">{{Personnalisé}}</div>
+		<img src="/core/img/object_background/salon/salon_4.jpg">
+	</div> -->
+	<div class="sel_father text-center cursor shadowed" title="{{Ne pas créer d'objet racine}}" data-father="none" data-tippy-placement="bottom">
+		<div class="img_title">{{Pas d'objet racine}}</div>
+		<img id="no_father" style="opacity:.5">
 	</div>
 </div>
 
+<h3 class="step_childs hidden"></h3>
+<div class="logo step_childs hidden">
+</div>
+<div class="step_childs bold hidden"></div>
 
-<style>
-              
-
-  #divSelecthouse{
-     height:50vh;
-	}
-		.testSize{
-			width: 80%;
-			height: 80%;
-			
-		}
-						
-						
-	.imgresize{
-			max-height: 400px;
-			max-width: 400px;      
-	}
-
-   .generalDivFlex {
-        display:flex;
-        flex-direction: row; 
-        flex-wrap: wrap ;
-	      align-content:center;
-   }
-	
-   .flexStyle{
-       max-width:20vw; 
-       max-height:20vh;
-    }
-        
-              
-              
-	.globalObject {
-		width: 90%;
-		height: 60vh;
-		margin: 0 auto;
-    
-	}
-
-	.selectEtage {
-		border-right: 1px solid black;
-		min-height: 90%
-	}
-
-	.selectObject {
-		min-height: 90%
-      
-       
-	}
-
-	.nopad {
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-	}
-
-	/*image gallery*/
-	.image-checkbox {
-		cursor: pointer;
-		box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		border: 4px solid transparent;
-		margin-bottom: 0;
-		outline: 0;
-	}
-
-	.image-checkbox input[type="checkbox"] {
-		display: none;
-	}
-
-	.image-checkbox-checked {
-		border-color: #4783B0;
-	}
-
-	.image-checkbox .fas {
-		position: absolute;
-		color: #4A79A3;
-		background-color: #fff;
-		padding: 10px;
-		top: 0;
-		right: 0;
-	}
-
-	.image-checkbox-checked .fas {
-		display: block !important;
-	}
-</style>
 <script>
-	// image gallery
-	// init the state from the input
+	document.getElementById('no_father').src = '/core/img/background/jeedom_abstract_01' + document.body.dataset.theme.toLowerCase().replace('core2019', '') + '.jpg'
 
+	jeedomUtils.initTooltips()
 
+	var tradFather = {
+		'apartment': "{{Configuration de l'appartement}}",
+		'house': '{{Configuration de la maison}}',
+		'apartment': '"{{Configuration du bâtiment}}"',
+		'none': '{{des pièces}}'
+	}
 
-	var imageCheckboxes = document.querySelectorAll(".image-checkbox");
+	document.querySelectorAll('.sel_father').forEach(_father => {
+		_father.addEventListener('click', function() {
+			document.querySelectorAll('.sel_father.selected')?.removeClass('selected')
+			this.addClass('selected')
+			bootbox.confirm('<strong>' + this.dataset.title + ' ?</strong>', function(result) {
+				if (result) {
+					document.querySelector('h3.step_childs').innerText = tradFather[_father.dataset.father]
+					document.querySelectorAll('.step_father').unseen()
+					document.querySelectorAll('.step_childs').removeClass('hidden')
 
-	imageCheckboxes.forEach(function(imageCheckbox) {
-			var checkbox = imageCheckbox.querySelector('input[type="checkbox"]');
-			
-			if (checkbox.checked) {
-				imageCheckbox.classList.add('image-checkbox-checked');
-			} else {
-				imageCheckbox.classList.remove('image-checkbox-checked');
-			}
-	});
-
-
-	 document.querySelectorAll('.selectType').forEach(function(element) {
-			element.addEventListener('click', function() {
-				let elementId = element.getAttribute('id');
-				if(elementId !== 'selectBasement'){
-					document.querySelectorAll('.selectObject').forEach(function(element) {
-							element.classList.remove('hidden');
-					});
-				}else{
-					let btnNext = document.getElementById('bt_next');
-					btnNext.click();
+				} else {
+					_father.removeClass('selected')
 				}
-				document.getElementById('divSelecthouse').classList.add('hidden');
-
-			});
-	});
-
-
-	// sync the state to the input
-
-
-	var imageCheckboxes = document.querySelectorAll(".image-checkbox");
-
-	imageCheckboxes.forEach(function(imageCheckbox) {
-  		imageCheckbox.addEventListener("click", function(e) {
-    			imageCheckbox.classList.toggle('image-checkbox-checked');
-    
-   				 var checkbox = imageCheckbox.querySelector('input[type="checkbox"]');
-   				 checkbox.checked = !checkbox.checked;
-
-   				 e.preventDefault();
-       });
-  });
-
-
+			})
+		})
+	})
 </script>
