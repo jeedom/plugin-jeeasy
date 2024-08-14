@@ -1,7 +1,7 @@
 var contentContainer
 
 (function() {
-	contentContainer = document.getElementById('jeeasy_container')
+	contentContainer = document.getElementById('wizard_container')
 	let currentStep = getUrlVars('step')
 	if (!currentStep) {
 		currentStep = document.querySelector('.navDot').dataset.step
