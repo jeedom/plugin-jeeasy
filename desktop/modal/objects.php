@@ -55,12 +55,12 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/atelier/atelier_1.jpg">
-					<div class="img_title">{{Atelier}} <span></span></div>
+					<div class="img_title">{{Atelier}} <span>1</span></div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/atelier/atelier_3.jpg">
-					<div class="img_title">{{Atelier}} <span></span></div>
+					<div class="img_title">{{Atelier}} <span>1</span></div>
 				</div>
 			</div>
 		</div>
@@ -77,7 +77,7 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/buanderie/buanderie_1.jpg">
-					<div class="img_title">{{Buanderie}} <span></span></div>
+					<div class="img_title">{{Buanderie}} <span>1</span></div>
 				</div>
 			</div>
 		</div>
@@ -94,17 +94,17 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/bureau/bureau_1.jpg">
-					<div class="img_title">{{Bureau}} <span></span></div>
+					<div class="img_title">{{Bureau}} <span>1</span></div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/bureau/bureau_3.jpg">
-					<div class="img_title">{{Bureau}} <span></span></div>
+					<div class="img_title">{{Bureau}} <span>1</span></div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/bureau/bureau_5.jpg">
-					<div class="img_title">{{Bureau}} <span></span></div>
+					<div class="img_title">{{Bureau}} <span>1</span></div>
 				</div>
 			</div>
 		</div>
@@ -121,17 +121,17 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/cave/cave_1.jpg">
-					<div class="img_title">{{Cave}} <span></span></div>
+					<div class="img_title">{{Cave}} <span>1</span></div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/cave/cave_2.jpg">
-					<div class="img_title">{{Cave}} <span></span></div>
+					<div class="img_title">{{Cave}} <span>1</span></div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/cave/cave_3.jpg">
-					<div class="img_title">{{Cave}} <span></span></div>
+					<div class="img_title">{{Cave}} <span>1</span></div>
 				</div>
 			</div>
 		</div>
@@ -148,22 +148,22 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_1.jpg">
-					<div class="img_title">{{Chambre}} <span></span></div>
+					<div class="img_title">{{Chambre}} <span>1</span></div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_3.jpg">
-					<div class="img_title">{{Chambre}} <span></span></div>
+					<div class="img_title">{{Chambre}} <span>1</span></div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_4.jpg">
-					<div class="img_title">{{Chambre}} <span></span></div>
+					<div class="img_title">{{Chambre}} <span>1</span></div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_6.jpg">
-					<div class="img_title">{{Chambre}} <span></span></div>
+					<div class="img_title">{{Chambre}} <span>1</span></div>
 				</div>
 			</div>
 		</div>
@@ -211,30 +211,27 @@ if (!isConnect()) {
 				let countSelectedSpan = _target.closest('.panel-collapse').previousElementSibling.querySelector('.room_count_selected')
 				let countSelected = Number(countSelectedSpan.innerText)
 				if (_target.hasClass('selected')) {
-					_target.removeClass('selected')
+					let currentNumber = Number(_target.parentNode.querySelector('.sel_child:not(.selected) .img_title>span')?.innerText)
 
+					_target.removeClass('selected')
 					countSelectedSpan.innerText = countSelected - 1
 					if (countSelectedSpan.innerText == 0) {
 						countSelectedSpan.parentNode.style.color = ''
 					}
 
-					let currentNumber = Number(_target.querySelector('.img_title>span').innerText)
 					_target.parentNode.querySelectorAll('.sel_child').forEach(_child => {
 						let childNumberSpan = _child.querySelector('.img_title>span')
 						let childNumber = Number(childNumberSpan.innerText)
-						if (currentNumber == 0) {
-							childNumberSpan.innerText = ''
-						} else {
-							if (childNumber < 1) {
-								childNumberSpan.innerText = ''
-							} else if (childNumber != 1 && childNumber > currentNumber) {
+						if (!isNaN(currentNumber)) {
+							if (currentNumber <= 2) {
+								childNumberSpan.innerText = 1
+							} else if (childNumber >= currentNumber) {
 								childNumberSpan.innerText = childNumber - 1
 							}
 						}
 					})
 				} else {
 					_target.addClass('selected')
-
 					countSelectedSpan.innerText = countSelected + 1
 					if (countSelectedSpan.innerText != 0) {
 						countSelectedSpan.parentNode.style.color = 'var(--logo-primary-color)'
