@@ -24,9 +24,9 @@ $language = config::byKey('language');
 </div>
 
 <div class="input-group">
-	<div class="input-group-addon roundedLeft">{{Langue}}
+	<span class="input-group-addon roundedLeft">{{Langue}}
 		<sup><i class="fas fa-question-circle" title="{{Sélectionner la langue du système}}"></i></sup>
-	</div>
+	</span>
 	<select class="form-control roundedRight" id="sel_language">
 		<option value="fr_FR" <?= ($language == 'fr_FR') ? ' selected' : '' ?>>Français</option>
 		<option value="en_US" <?= ($language == 'en_US') ? ' selected' : '' ?>>English</option>

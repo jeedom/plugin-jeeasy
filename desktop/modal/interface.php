@@ -16,9 +16,9 @@ $alternateTheme = config::byKey('jeedom_theme_alternate');
     <i class="far fa-arrow-alt-circle-right"></i>
 </div>
 <div class="input-group">
-    <div class="input-group-addon roundedLeft">{{Thème}}
+    <span class="input-group-addon roundedLeft">{{Thème}}
         <sup><i class="fas fa-question-circle" title="{{Sélectionner le thème de l'interface}}"></i></sup>
-    </div>
+    </span>
     <select class="form-control roundedRight" id="in_theme">
         <option value="<?= $defaultTheme ?>"><?= $themesDescription[$defaultTheme] ?> ({{Principal}})</option>
         <option value="<?= $alternateTheme ?>"><?= $themesDescription[$alternateTheme] ?> ({{Alternatif}})</option>
