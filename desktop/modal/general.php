@@ -21,16 +21,16 @@ sendVarToJS('_timezone', config::byKey('timezone'));
   <i class="far fa-arrow-alt-circle-right"></i>
 </div>
 <div class="input-group">
-  <div class="input-group-addon roundedLeft">{{Nom}}
+  <span class="input-group-addon roundedLeft">{{Nom}}
     <sup><i class="fas fa-question-circle" title="{{Modifier le nom du système}}"></i></sup>
-  </div>
+  </span>
   <input type="text" class="form-control roundedRight" id="in_boxName" value="<?= $boxName ?>">
 </div>
 
 <div class="input-group">
-  <div class="input-group-addon roundedLeft">{{Fuseau horaire}}
+  <span class="input-group-addon roundedLeft">{{Fuseau horaire}}
     <sup><i class="fas fa-question-circle" title="{{Sélectionner le fuseau horaire}}"></i></sup>
-  </div>
+  </span>
   <select class="form-control roundedRight" id="sel_timezone">
     <option value="Pacific/Midway">(GMT-11:00) Midway Island, Samoa</option>
     <option value="Pacific/Tahiti">(GMT-10:00) Pacific/Tahiti</option>
@@ -133,14 +133,15 @@ sendVarToJS('_timezone', config::byKey('timezone'));
 </div>
 
 <div class="input-group">
-  <div class="input-group-addon roundedLeft">{{Latitude}}
-    <sup><i class="fas fa-question-circle" title="{{Latitude GPS du site}}"></i></sup>
-  </div>
+  <span class="input-group-addon roundedLeft">{{Coordonnées GPS}}
+    <sup><i class="fas fa-question-circle" title="{{Latitude et longitude du site}}"></i></sup>
+  </span>
   <input type="number" class="form-control" id="in_latitude" value="<?= config::byKey('info::latitude') ?>">
-  <div class="input-group-addon">{{Longitude}}
-    <sup><i class="fas fa-question-circle" title="{{Longitude GPS du site}}"></i></sup>
-  </div>
-  <input type="number" class="form-control roundedRight" id="in_longitude" value="<?= config::byKey('info::longitude') ?>">
+  <span class="input-group-addon">{{,}}</span>
+  <input type="number" class="form-control" id="in_longitude" value="<?= config::byKey('info::longitude') ?>">
+  <span class="input-group-btn">
+    <button class="btn btn-primary roundedRight" title="{{Saisie automatique des coordonnées GPS}}"><i class="fas fa-map-marked-alt"></i></button>
+  </span>
 </div>
 
 <script>
