@@ -95,7 +95,7 @@ function loadPageContent(_step) {
 			} else {
 				document.querySelector('.navBtn.bt_prev.hidden')?.removeClass('hidden')
 			}
-			if (currentStep.nextElementSibling.tagName == 'DIV') {
+			if (currentStep.nextElementSibling?.tagName == 'DIV') {
 				document.querySelector('.navBtn.bt_next').addClass('hidden')
 				document.getElementById('bt_jeedom_ready').removeClass('hidden')
 			} else {
