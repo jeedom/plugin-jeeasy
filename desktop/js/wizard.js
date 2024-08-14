@@ -50,7 +50,7 @@ document.querySelectorAll('.navDot').forEach(_dot => {
 		let currentStep = document.querySelector('.navDot.active')
 
 		if (this == currentStep) {
-			return loadPageContent(this.dataset.step)
+			return
 		}
 
 		let outAnimation = slideOut
@@ -154,9 +154,6 @@ function configSave(_configuration) {
 			switch (step) {
 				case 'welcome':
 					loadPageContent(step)
-					break
-				case 'interface':
-					jeedomUtils.changeTheme(_configuration.jeedom_theme_main)
 					break
 			}
 		}

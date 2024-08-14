@@ -2,8 +2,12 @@
 if (!isConnect()) {
     throw new Exception('{{401 - Accès non autorisé}}');
 }
-
-$jeedomTheme = config::byKey('jeedom_theme_main');
+$themesDescription = array(
+    'core2019_Light' => '{{Clair}}/Light',
+    'core2019_Dark' => '{{Sombre}}/Dark'
+);
+$defaultTheme = config::byKey('jeedom_theme_main');
+$alternateTheme = config::byKey('jeedom_theme_alternate');
 ?>
 
 <h3>{{Paramètres d'interface}}</h3>
@@ -16,18 +20,17 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
         <sup><i class="fas fa-question-circle" title="{{Sélectionner le thème de l'interface}}"></i></sup>
     </div>
     <select class="form-control roundedRight" id="in_theme">
-        <option value="core2019_Light" <?= ($jeedomTheme == 'core2019_Light') ? ' selected' : '' ?>>{{clair}} (Light)</option>
-        <option value="core2019_Dark" <?= ($jeedomTheme == 'core2019_Dark') ? ' selected' : '' ?>>{{sombre}} (Dark)</option>
+        <option value="<?= $defaultTheme ?>"><?= $themesDescription[$defaultTheme] ?> ({{Principal}})</option>
+        <option value="<?= $alternateTheme ?>"><?= $themesDescription[$alternateTheme] ?> ({{Alternatif}})</option>
     </select>
 </div>
 
 <script>
     jeedomUtils.initTooltips()
+
+    document.querySelector('#in_theme option[value="' + document.body.dataset.theme + '"]').selected = true
     document.getElementById('in_theme').addEventListener('change', function(_event) {
-        configSave({
-            jeedom_theme_main: this.value,
-            jeedom_theme_alternate: (this.value.includes('Dark')) ? this.value.replace('Dark', 'Light') : this.value.replace('Light', 'Dark')
-        })
+        jeedomUtils.switchTheme()
     })
 </script>
 
