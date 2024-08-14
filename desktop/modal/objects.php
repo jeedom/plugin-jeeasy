@@ -178,7 +178,7 @@ if (!isConnect()) {
 			'apartment': "{{Configuration de l'appartement}}",
 			'house': '{{Configuration de la maison}}',
 			'apartment': '"{{Configuration du bâtiment}}"',
-			'none': '{{des pièces}}'
+			'none': '{{Configuration des pièces}}'
 		}
 
 		document.querySelectorAll('.sel_father').forEach(_father => {
