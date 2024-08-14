@@ -30,22 +30,6 @@ var slideInReverse = {
 var tooltip = document.getElementById('div_dots_tooltip')
 
 document.querySelectorAll('.navDot').forEach(_dot => {
-	_dot.addEventListener('mouseover', function(_event) {
-		tooltip.innerText = this.dataset.title
-		tooltip.style.display = 'block'
-		tooltip.style.left = _event.pageX + 'px'
-		tooltip.style.top = (_event.pageY + 20) + 'px'
-	})
-
-	_dot.addEventListener('mouseout', function() {
-		tooltip.style.display = 'none'
-	})
-
-	_dot.addEventListener('mousemove', function(_event) {
-		tooltip.style.left = _event.pageX + 'px'
-		tooltip.style.top = (_event.pageY + 20) + 'px'
-	})
-
 	_dot.addEventListener('click', function() {
 		let currentStep = document.querySelector('.navDot.active')
 
