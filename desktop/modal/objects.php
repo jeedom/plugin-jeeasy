@@ -21,14 +21,14 @@ if (!isConnect()) {
 </div>
 <div class="step_father bold">{{Sélectionnez l'objet principal caractérisant au mieux la base de votre installation}} <?php echo config::byKey('product_name'); ?>.</div>
 <div class="step_father flex-evenly" style="margin:15px">
-	<div class="sel_father text-center cursor shadowed hidden" title='{{Créer un objet racine "Général"}}' data-father="general" data-tippy-placement="bottom">
+	<!-- <div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Général"}}' data-father="general" data-tippy-placement="bottom">
 		<div class="img_title">{{Par fonctions}}</div>
 		<img src="/core/img/object_background/atelier/atelier_2.jpg">
 	</div>
-	<div class="sel_father text-center cursor shadowed hidden" title="{{Créer un objet racine personnalisé}}" data-father="custom" data-tippy-placement="bottom">
+	<div class="sel_father text-center cursor shadowed" title="{{Créer un objet racine personnalisé}}" data-father="custom" data-tippy-placement="bottom">
 		<div class="img_title">{{Personnalisé}}</div>
 		<img src="/core/img/object_background/salle_de_bain/salle_de_bain_4.jpg">
-	</div>
+	</div> -->
 	<div class="sel_father text-center cursor shadowed" title="{{Ne pas créer d'objet racine}}" data-father="none" data-tippy-placement="bottom">
 		<div class="img_title">{{Pas d'objet racine}}</div>
 		<img id="no_father" style="opacity:.5">
@@ -174,7 +174,7 @@ if (!isConnect()) {
 
 		jeedomUtils.initTooltips()
 
-		var tradFather = {
+		var childsTitle = {
 			'apartment': "{{Configuration de l'appartement}}",
 			'house': '{{Configuration de la maison}}',
 			'apartment': '"{{Configuration du bâtiment}}"',
@@ -187,7 +187,7 @@ if (!isConnect()) {
 				this.addClass('selected')
 				bootbox.confirm('<strong>' + this.dataset.title + ' ?</strong>', function(result) {
 					if (result) {
-						document.querySelector('h3.step_childs').innerText = tradFather[_father.dataset.father]
+						document.querySelector('h3.step_childs').innerText = childsTitle[_father.dataset.father]
 						document.querySelectorAll('.step_father').unseen()
 						document.querySelectorAll('.step_childs').removeClass('hidden')
 
