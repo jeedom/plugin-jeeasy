@@ -25,7 +25,8 @@ $jeedomTheme = config::byKey('jeedom_theme_main');
     jeedomUtils.initTooltips()
     document.getElementById('in_theme').addEventListener('change', function(_event) {
         configSave({
-            jeedom_theme_main: this.value
+            jeedom_theme_main: this.value,
+            jeedom_theme_alternate: (this.value.includes('Dark')) ? this.value.replace('Dark', 'Light') : this.value.replace('Light', 'Dark')
         })
     })
 </script>
