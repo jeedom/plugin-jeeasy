@@ -6,7 +6,7 @@ var contentContainer
 	if (!currentStep) {
 		currentStep = document.querySelector('.navDot').dataset.step
 	}
-	document.querySelector('.navDot[data-step="' + currentStep + '"]').addClass('active')
+	document.querySelector('.navDot[data-step="' + currentStep + '"]').classList.add('active')
 	loadPageContent(currentStep)
 })()
 
@@ -48,9 +48,9 @@ document.querySelectorAll('.navDot').forEach(_dot => {
 			duration: 500
 		})
 		setTimeout(() => {
-			contentContainer.empty()
-			document.querySelectorAll('.navDot.active').removeClass('active')
-			this.addClass('active')
+			// contentContainer.empty()
+			document.querySelector('.navDot.active').classList.remove('active')
+			this.classList.add('active')
 			loadPageContent(this.dataset.step)
 			contentContainer.animate(inAnimation, {
 				duration: 500
@@ -63,9 +63,11 @@ document.querySelectorAll('.navBtn').forEach(_navBtn => {
 	_navBtn.addEventListener('click', function() {
 		let activeNavDot = document.querySelector('.navDot.active')
 		if (this.classList.value.includes('bt_next')) {
-			activeNavDot.nextElementSibling.triggerEvent('click')
+			// activeNavDot.nextElementSibling.triggerEvent('click') // 4.4 mini
+			activeNavDot.nextElementSibling.dispatchEvent(new Event('click'))
 		} else if (this.classList.value.includes('bt_prev')) {
-			activeNavDot.previousElementSibling.triggerEvent('click')
+			// activeNavDot.previousElementSibling.triggerEvent('click') // 4.4 mini
+			activeNavDot.previousElementSibling.dispatchEvent(new Event('click'))
 		}
 	})
 })
@@ -91,30 +93,28 @@ function loadPageContent(_step) {
 		.then(data => {
 			let currentStep = document.querySelector('.navDot[data-step="' + _step + '"]')
 			if (!currentStep.previousElementSibling) {
-				document.querySelector('.navBtn.bt_prev').addClass('hidden')
+				document.querySelector('.navBtn.bt_prev').classList.add('hidden')
 			} else {
-				document.querySelector('.navBtn.bt_prev.hidden')?.removeClass('hidden')
+				document.querySelector('.navBtn.bt_prev.hidden')?.classList.remove('hidden')
 			}
-			if (currentStep.nextElementSibling?.tagName == 'DIV') {
-				document.querySelector('.navBtn.bt_next').addClass('hidden')
-				document.getElementById('bt_jeedom_ready').removeClass('hidden')
+			if (currentStep.nextElementSibling == undefined) {
+				document.querySelector('.navBtn.bt_next').classList.add('hidden')
+				document.getElementById('bt_jeedom_ready').classList.remove('hidden')
 			} else {
-				document.getElementById('bt_jeedom_ready').addClass('hidden')
-				document.querySelector('.navBtn.bt_next.hidden')?.removeClass('hidden')
+				document.getElementById('bt_jeedom_ready').classList.add('hidden')
+				document.querySelector('.navBtn.bt_next.hidden')?.classList.remove('hidden')
 			}
 
 			contentContainer.innerHTML = data
 			jeedomUtils.addOrUpdateUrl('step', _step)
 
 			// Rechargement des scripts
-			const scripts = contentContainer.querySelectorAll('script')
-			scripts.forEach(script => {
-				console.log('script', script)
-				const newScript = document.createElement('script')
-				if (script.src) {
-					newScript.src = script.src
+			contentContainer.querySelectorAll('script').forEach(_script => {
+				let newScript = document.createElement('script')
+				if (_script.src) {
+					newScript.src = _script.src
 				} else {
-					newScript.textContent = script.textContent
+					newScript.textContent = _script.textContent
 				}
 				document.getElementById('jeeasy_wizard').appendChild(newScript)
 				document.getElementById('jeeasy_wizard').removeChild(newScript)
@@ -128,7 +128,8 @@ function configSave(_configuration) {
 	jeedom.config.save({
 		configuration: _configuration,
 		error: function(_error) {
-			jeedomUtils.showAlert({
+			// jeedomUtils.showAlert({ // 4.4 mini
+			$.fn.showAlert({
 				message: _error.message,
 				level: 'danger'
 			})

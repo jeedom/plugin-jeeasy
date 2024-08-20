@@ -6,8 +6,13 @@ $themesDescription = array(
     'core2019_Light' => '{{Clair}}/Light',
     'core2019_Dark' => '{{Sombre}}/Dark'
 );
-$defaultTheme = config::byKey('jeedom_theme_main');
-$alternateTheme = config::byKey('jeedom_theme_alternate');
+if (version_compare(jeedom::version(), '4.4', '>=')) {
+    $defaultTheme = config::byKey('jeedom_theme_main');
+    $alternateTheme = config::byKey('jeedom_theme_alternate');
+} else {
+    $defaultTheme = config::byKey('default_bootstrap_theme');
+    $alternateTheme = config::byKey('default_bootstrap_theme_night');
+}
 ?>
 
 <h3>{{Paramètres d'interface}}</h3>
