@@ -10,7 +10,7 @@ if (!isConnect()) {
 		<img src="/core/img/object_background/salon/salon_4.jpg">
 		<div class="img_title">{{Un appartement}}</div>
 	</div>
-	<div class="sel_father text-center cursor shadowed" title=' {{Créer un objet racine "Maison"}}' data-father="house">
+	<div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Maison"}}' data-father="house">
 		<img src="/core/img/object_background/chambre/chambre_7.jpg">
 		<div class="img_title">{{Une maison}}</div>
 	</div>
@@ -183,16 +183,21 @@ if (!isConnect()) {
 
 		document.querySelectorAll('.sel_father').forEach(_father => {
 			_father.addEventListener('click', function() {
-				document.querySelectorAll('.sel_father.selected')?.removeClass('selected')
-				this.addClass('selected')
-				bootbox.confirm('<strong>' + this.dataset.title + ' ?</strong>', function(result) {
+				this.classList.add('selected')
+				let title = this.dataset.title || $(this).tooltipster('content')
+				bootbox.confirm('<strong>' + title + ' ?</strong>', function(result) {
 					if (result) {
 						document.querySelector('h3.step_childs').innerText = childsTitle[_father.dataset.father]
-						document.querySelectorAll('.step_father').unseen()
-						document.querySelectorAll('.step_childs').removeClass('hidden')
-
+						// document.querySelectorAll('.step_father').unseen() // 4.4 mini
+						document.querySelectorAll('.step_father').forEach(_fatherStep => {
+							_fatherStep.classList.add('hidden')
+						})
+						// document.querySelectorAll('.step_childs').classList.remove('hidden') // 4.4 mini
+						document.querySelectorAll('.step_childs').forEach(_childStep => {
+							_childStep.classList.remove('hidden')
+						})
 					} else {
-						_father.removeClass('selected')
+						_father.classList.remove('selected')
 					}
 				})
 			})
@@ -202,18 +207,17 @@ if (!isConnect()) {
 			var _target = null
 
 			if (_target = event.target.closest('.panel-heading')) {
-				document.querySelectorAll('.collapse.in:not(' + _target.getAttribute('href') + ')').removeClass('in')
+				document.querySelector('.collapse.in:not(' + _target.getAttribute('href') + ')')?.classList.remove('in')
 				return
 			}
-
 
 			if (_target = event.target.closest('.sel_child')) {
 				let countSelectedSpan = _target.closest('.panel-collapse').previousElementSibling.querySelector('.room_count_selected')
 				let countSelected = Number(countSelectedSpan.innerText)
-				if (_target.hasClass('selected')) {
+				if (_target.classList.contains('selected')) {
 					let currentNumber = Number(_target.parentNode.querySelector('.sel_child:not(.selected) .img_title>span')?.innerText)
 
-					_target.removeClass('selected')
+					_target.classList.remove('selected')
 					countSelectedSpan.innerText = countSelected - 1
 					if (countSelectedSpan.innerText == 0) {
 						countSelectedSpan.parentNode.style.color = ''
@@ -231,7 +235,7 @@ if (!isConnect()) {
 						}
 					})
 				} else {
-					_target.addClass('selected')
+					_target.classList.add('selected')
 					countSelectedSpan.innerText = countSelected + 1
 					if (countSelectedSpan.innerText != 0) {
 						countSelectedSpan.parentNode.style.color = 'var(--logo-primary-color)'
