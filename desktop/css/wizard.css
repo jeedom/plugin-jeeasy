@@ -77,26 +77,29 @@ body {
 }
 
 /*** OBJECTS ***/
-#wizard_container>.step_father .sel_father {
+#wizard_container>.step_father .sel_father,
+#wizard_container>.step_childs .sel_child {
 	border-radius: var(--border-radius);
 	background-color: var(--el-defaultColor);
 	overflow: hidden;
 }
 
-#wizard_container>.step_childs .sel_child {
-	border-radius: var(--border-radius);
-	overflow: hidden;
-}
-
 #wizard_container>.step_father .sel_father:hover,
-#wizard_container>.step_childs .sel_child:hover,
 #wizard_container>.step_father .sel_father.selected {
 	transform: scale(1.2);
 }
 
-#wizard_container>.step_childs .sel_child.selected {
+#wizard_container>.step_childs .sel_child {
 	opacity: .25;
-	transform: scale(1);
+}
+
+#wizard_container>.step_childs .sel_child:hover {
+	opacity: 1;
+}
+
+#wizard_container>.step_childs .sel_child.selected {
+	opacity: 1;
+	border: solid 3px var(--logo-primary-color);
 }
 
 #wizard_container>.step_father img {
