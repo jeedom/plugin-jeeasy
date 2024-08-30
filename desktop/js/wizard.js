@@ -1,7 +1,8 @@
-var contentContainer
+var _navigation = true
+var _contentContainer
 
 (function() {
-	contentContainer = document.getElementById('wizard_container')
+	_contentContainer = document.getElementById('wizard_container')
 	let currentStep = getUrlVars('step')
 	if (!currentStep) {
 		currentStep = document.querySelector('.navDot').dataset.step
@@ -32,9 +33,8 @@ var tooltip = document.getElementById('div_dots_tooltip')
 document.querySelectorAll('.navDot').forEach(_dot => {
 	_dot.addEventListener('click', function() {
 		let currentStep = document.querySelector('.navDot.active')
-
-		if (this == currentStep) {
-			return
+		if (this == currentStep || !isNavigationAllowed()) {
+			return false
 		}
 
 		let outAnimation = slideOut
@@ -44,15 +44,15 @@ document.querySelectorAll('.navDot').forEach(_dot => {
 			inAnimation = slideInReverse
 		}
 
-		contentContainer.animate(outAnimation, {
+		_contentContainer.animate(outAnimation, {
 			duration: 500
 		})
 		setTimeout(() => {
-			// contentContainer.empty()
+			// _contentContainer.empty()
 			document.querySelector('.navDot.active').classList.remove('active')
 			this.classList.add('active')
 			loadPageContent(this.dataset.step)
-			contentContainer.animate(inAnimation, {
+			_contentContainer.animate(inAnimation, {
 				duration: 500
 			})
 		}, 450)
@@ -105,11 +105,11 @@ function loadPageContent(_step) {
 				document.querySelector('.navBtn.bt_next.hidden')?.classList.remove('hidden')
 			}
 
-			contentContainer.innerHTML = data
+			_contentContainer.innerHTML = data
 			jeedomUtils.addOrUpdateUrl('step', _step)
 
 			// Rechargement des scripts
-			contentContainer.querySelectorAll('script').forEach(_script => {
+			_contentContainer.querySelectorAll('script').forEach(_script => {
 				let newScript = document.createElement('script')
 				if (_script.src) {
 					newScript.src = _script.src
@@ -122,6 +122,21 @@ function loadPageContent(_step) {
 
 		})
 		.catch(error => console.error('{{Erreur au chargement de la page}}:', error))
+}
+
+function navigationAllowed(_allowed = true) {
+	_navigation = _allowed
+	document.querySelectorAll('.navDot:not(.active)').forEach(_navDot => {
+		if (!_navigation) {
+			_navDot.classList.add('blocked')
+		} else {
+			_navDot.classList.remove('blocked')
+		}
+	})
+}
+
+function isNavigationAllowed() {
+	return _navigation
 }
 
 function configSave(_configuration) {
