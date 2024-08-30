@@ -2,43 +2,54 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
+$allObjects = jeeObject::all();
+sendVarToJS([
+	'_allObjects' => array_combine(array_map(fn($o) => $o->getId(), $allObjects), array_map(fn($o) => $o->getName(), $allObjects)),
+	'_rootpath' => realpath(__DIR__ . '/../../../../')
+]);
 ?>
 
 <h3 class="step_father">{{Configuration des objets}}</h3>
 <div class="logo step_father flex-evenly">
-	<div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Appartement"}}' data-father="apartment">
+	<div class="sel_father text-center cursor shadowed" title='{{Définir un objet racine "Appartement"}}' data-father="apartment" data-name="{{Appartement}}">
 		<img src="/core/img/object_background/salon/salon_4.jpg">
-		<div class="img_title">{{Un appartement}}</div>
+		<div class="object_name">{{Un appartement}}
+			<i class="icon maison-building33"></i>
+		</div>
 	</div>
-	<div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Maison"}}' data-father="house">
+	<div class="sel_father text-center cursor shadowed" title='{{Définir un objet racine "Maison"}}' data-father="house" data-name="{{Maison}}">
 		<img src="/core/img/object_background/chambre/chambre_7.jpg">
-		<div class="img_title">{{Une maison}}</div>
+		<div class="object_name">{{Une maison}}
+			<i class="icon maison-modern13"></i>
+		</div>
 	</div>
-	<div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Bâtiment"}}' data-father="building">
+	<div class="sel_father text-center cursor shadowed" title='{{Définir un objet racine "Bâtiment"}}' data-father="building" data-name="{{Bâtiment}}">
 		<img src="/core/img/object_background/batiment/industrial_building.jpg">
-		<div class="img_title">{{Un bâtiment}}</div>
+		<div class="object_name">{{Un bâtiment}}
+			<i class="icon fas fa-building"></i>
+		</div>
 	</div>
 </div>
 <div class="step_father bold">{{Sélectionnez l'objet principal caractérisant au mieux la base de votre installation}} <?php echo config::byKey('product_name'); ?>.</div>
 <div class="step_father flex-evenly" style="margin:15px">
-	<!-- <div class="sel_father text-center cursor shadowed" title='{{Créer un objet racine "Général"}}' data-father="general" data-tippy-placement="bottom">
-		<div class="img_title">{{Par fonctions}}</div>
+	<!-- <div class="sel_father text-center cursor shadowed" title='{{Définir un objet racine "Général"}}' data-father="general" data-name="{{Général}}" data-tippy-placement="bottom">
+		<div class="object_name">{{Par fonctions}}</div>
 		<img src="/core/img/object_background/atelier/atelier_2.jpg">
 	</div>
-	<div class="sel_father text-center cursor shadowed" title="{{Créer un objet racine personnalisé}}" data-father="custom" data-tippy-placement="bottom">
-		<div class="img_title">{{Personnalisé}}</div>
+	<div class="sel_father text-center cursor shadowed" title="{{Définir un objet racine personnalisé}}" data-father="custom" data-name="" data-tippy-placement="bottom">
+		<div class="object_name">{{Personnalisé}}</div>
 		<img src="/core/img/object_background/salle_de_bain/salle_de_bain_4.jpg">
 	</div> -->
-	<div class="sel_father text-center cursor shadowed" title="{{Ne pas créer d'objet racine}}" data-father="none" data-tippy-placement="bottom">
-		<div class="img_title">{{Pas d'objet racine}}</div>
+	<div class="sel_father text-center cursor shadowed" title="{{Ne pas définir d'objet racine}}" data-father="none" data-tippy-placement="bottom">
+		<div class="object_name">{{Pas d'objet racine}}</div>
 		<img id="no_father" style="opacity:.5">
 	</div>
 </div>
 
 <h3 class="step_childs hidden"></h3>
 <div class="step_childs hidden logo flex-column">
-	<div class="bold" style="margin-bottom:15px">{{Sélectionnez les pièces à créer puis cliquer sur}}
-		<button class="btn btn-success" id="btn_validate_childs"><i class="fas fa-check"></i> {{Valider}}</button>
+	<div class="bold" style="margin-bottom:15px">{{Veuillez sélectionner les pièces à créer puis passer à l'étape suivante}}
+		<i class="far fa-arrow-alt-circle-right"></i>
 	</div>
 
 	<div class="panel panel-default hidden">
@@ -52,12 +63,18 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/atelier/atelier_1.jpg">
-					<div class="img_title">{{Atelier}} <span></span></div>
+					<div class="object_name">
+						<i class="icon fas fa-toolbox"></i>
+						{{Atelier}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/atelier/atelier_3.jpg">
-					<div class="img_title">{{Atelier}} <span></span></div>
+					<div class="object_name">
+						<i class="icon fas fa-tools"></i>
+						{{Atelier}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -74,7 +91,10 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/buanderie/buanderie_1.jpg">
-					<div class="img_title">{{Buanderie}} <span></span></div>
+					<div class="object_name">
+						<i class="icon kiko-laundry"></i>
+						{{Buanderie}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -91,17 +111,26 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/bureau/bureau_1.jpg">
-					<div class="img_title">{{Bureau}} <span></span></div>
+					<div class="object_name">
+						<i class="icon maison-man337"></i>
+						{{Bureau}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/bureau/bureau_3.jpg">
-					<div class="img_title">{{Bureau}} <span></span></div>
+					<div class="object_name">
+						<i class="icon fas fa-laptop-house"></i>
+						{{Bureau}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/bureau/bureau_5.jpg">
-					<div class="img_title">{{Bureau}} <span></span></div>
+					<div class="object_name">
+						<i class="icon maison-man77"></i>
+						{{Bureau}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -118,17 +147,26 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/cave/cave_1.jpg">
-					<div class="img_title">{{Cave}} <span></span></div>
+					<div class="object_name">
+						<i class="icon nourriture-wine23"></i>
+						{{Cave}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/cave/cave_2.jpg">
-					<div class="img_title">{{Cave}} <span></span></div>
+					<div class="object_name">
+						<i class="icon fas fa-wine-bottle"></i>
+						{{Cave}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/cave/cave_3.jpg">
-					<div class="img_title">{{Cave}} <span></span></div>
+					<div class="object_name">
+						<i class="icon kiko-basement"></i>
+						{{Cave}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -145,22 +183,34 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_1.jpg">
-					<div class="img_title">{{Chambre}} <span></span></div>
+					<div class="object_name">
+						<i class="icon maison-queen9"></i>
+						{{Chambre}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_3.jpg">
-					<div class="img_title">{{Chambre}} <span></span></div>
+					<div class="object_name">
+						<i class="icon fas fa-bed"></i>
+						{{Chambre}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_4.jpg">
-					<div class="img_title">{{Chambre}} <span></span></div>
+					<div class="object_name">
+						<i class="icon kiko-bedroom"></i>
+						{{Chambre}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_6.jpg">
-					<div class="img_title">{{Chambre}} <span></span></div>
+					<div class="object_name">
+						<i class="icon maison-baby139"></i>
+						{{Chambre}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -177,12 +227,18 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/cuisine/cuisine_1.jpg">
-					<div class="img_title">{{Cuisine}} <span></span></div>
+					<div class="object_name">
+						<i class="icon maison-kitchen56"></i>
+						{{Cuisine}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/cuisine/cuisine_2.jpg">
-					<div class="img_title">{{Cuisine}} <span></span></div>
+					<div class="object_name">
+						<i class="icon kiko-kitchen"></i>
+						{{Cuisine}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -199,7 +255,10 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/dressing/dressing_1.jpg">
-					<div class="img_title">{{Dressing}} <span></span></div>
+					<div class="object_name">
+						<i class="icon fashion-hanger2"></i>
+						{{Dressing}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -220,7 +279,10 @@ if (!isConnect()) {
 					} else {
 						echo '<img src="/core/img/object_background/salle_%23U00e0_manger/salle_%23U00e0_manger_1.jpg">';
 					} ?>
-					<div class="img_title">{{Salle à manger}} <span></span></div>
+					<div class="object_name">
+						<i class="icon maison-dining3"></i>
+						{{Salle à manger}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
@@ -229,7 +291,10 @@ if (!isConnect()) {
 					} else {
 						echo '<img src="/core/img/object_background/salle_%23U00e0_manger/salle_%23U00e0_manger_2.jpg">';
 					} ?>
-					<div class="img_title">{{Salle à manger}} <span></span></div>
+					<div class="object_name">
+						<i class="icon kiko-dining-room"></i>
+						{{Salle à manger}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -246,12 +311,18 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/salle_de_bain/salle_de_bain_1.jpg">
-					<div class="img_title">{{Salle de bain}} <span></span></div>
+					<div class="object_name">
+						<i class="icon fas fa-bath"></i>
+						{{Salle de bain}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/salle_de_bain/salle_de_bain_2.jpg">
-					<div class="img_title">{{Salle de bain}} <span></span></div>
+					<div class="object_name">
+						<i class="icon kiko-bathroom"></i>
+						{{Salle de bain}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -268,22 +339,34 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/salon/salon_1.jpg">
-					<div class="img_title">{{Salon}} <span></span></div>
+					<div class="object_name">
+						<i class="icon kiko-living-room"></i>
+						{{Salon}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/salon/salon_2.jpg">
-					<div class="img_title">{{Salon}} <span></span></div>
+					<div class="object_name">
+						<i class="icon maison-sofa3"></i>
+						{{Salon}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/salon/salon_3.jpg">
-					<div class="img_title">{{Salon}} <span></span></div>
+					<div class="object_name">
+						<i class="icon techno-tv6"></i>
+						{{Salon}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/salon/salon_5.jpg">
-					<div class="img_title">{{Salon}} <span></span></div>
+					<div class="object_name">
+						<i class="icon fas fa-couch"></i>
+						{{Salon}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -300,12 +383,18 @@ if (!isConnect()) {
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/toilettes/toilettes_1.jpg">
-					<div class="img_title">{{Toilettes}} <span></span></div>
+					<div class="object_name">
+						<i class="icon maison-toilet1"></i>
+						{{Toilettes}} <span></span>
+					</div>
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/toilettes/toilettes_3.jpg">
-					<div class="img_title">{{Toilettes}} <span></span></div>
+					<div class="object_name">
+						<i class="icon kiko-guest-toilet"></i>
+						{{Toilettes}} <span></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -314,9 +403,8 @@ if (!isConnect()) {
 </div>
 
 <script>
-	document.getElementById('no_father').src = '/core/img/background/jeedom_abstract_01' + document.body.dataset.theme.toLowerCase().replace('core2019', '') + '.jpg'
-
 	jeedomUtils.initTooltips()
+	document.getElementById('no_father').src = '/core/img/background/jeedom_abstract_01' + document.body.dataset.theme.toLowerCase().replace('core2019', '') + '.jpg'
 
 	var childsTitle = {
 		'apartment': "{{Configuration de l'appartement}}",
@@ -331,6 +419,7 @@ if (!isConnect()) {
 			let title = this.dataset.title || $(this).tooltipster('content')
 			bootbox.confirm('<strong>' + title + ' ?</strong>', function(result) {
 				if (result) {
+					navigationAllowed(false)
 					document.querySelector('h3.step_childs').innerText = childsTitle[_father.dataset.father]
 					// document.querySelectorAll('.step_father').unseen() // 4.4 mini
 					document.querySelectorAll('.step_father').forEach(_fatherStep => {
@@ -367,9 +456,9 @@ if (!isConnect()) {
 					countSelectedSpan.parentNode.style.color = ''
 				}
 
-				var targetNumber = _target.querySelector('.img_title>span').innerText != ''
+				var targetNumber = _target.querySelector('.object_name>span').innerText != ''
 				_target.parentNode.querySelectorAll('.sel_child').forEach(_child => {
-					let childNumberSpan = _child.querySelector('.img_title>span')
+					let childNumberSpan = _child.querySelector('.object_name>span')
 					let childNumber = Number(childNumberSpan.innerText)
 					if (totalSelected == 0) {
 						childNumberSpan.innerText = ''
@@ -391,11 +480,101 @@ if (!isConnect()) {
 				}
 
 				_target.parentNode.querySelectorAll('.sel_child:not(.selected)').forEach(_child => {
-					let childNumberSpan = _child.querySelector('.img_title>span')
+					let childNumberSpan = _child.querySelector('.object_name>span')
 					childNumberSpan.innerText = (childNumberSpan.innerText != '') ? Number(childNumberSpan.innerText) + 1 : 2
 				})
 			}
 			return
 		}
 	})
+
+	document.querySelectorAll('.navBtn').forEach(_navBtn => {
+		_navBtn.addEventListener('click', function(_event) {
+			_event.preventDefault()
+			_event.stopImmediatePropagation()
+
+			if (!isNavigationAllowed()) {
+				let objectsList = {
+					father: {},
+					childs: []
+				}
+				let message = '{{Créer les objets suivants ?}}'
+				let father = document.querySelector('.sel_father.selected')
+				if (isset(father.dataset.name)) {
+					objectsList.father = {
+						name: father.dataset.name,
+						icon: father.querySelector('.object_name>i')?.outerHTML,
+						background: father.querySelector('img').getAttribute('src')
+					}
+					message += '<ul>'
+					message += '<li>' + objectsList.father.icon + ' ' + objectsList.father.name + '</li>'
+				}
+				message += '<ul>'
+				document.querySelectorAll('.sel_child.selected').forEach(_child => {
+					objectsList.childs.push({
+						name: _child.querySelector('.object_name').innerText.replace(/[\t\n]/g, '').trim(),
+						icon: _child.querySelector('.object_name>i')?.outerHTML,
+						background: _child.querySelector('img').getAttribute('src')
+					})
+					message += '<li>' + _child.querySelector('.object_name').innerHTML + '</li>'
+				})
+				message += '</ul>'
+				if (isset(objectsList.father.name)) {
+					message += '</ul>'
+				}
+
+				bootbox.confirm(message, function(result) {
+					if (result) {
+						let fatherId = null
+						if (isset(objectsList.father.name)) {
+							fatherId = createObject(objectsList.father)
+						}
+						objectsList.childs.forEach(_child => {
+							createObject(_child, fatherId)
+						})
+						navigationAllowed()
+						_navBtn.dispatchEvent(new Event('click'))
+					}
+				})
+			}
+		})
+	})
+
+	function createObject(_object, _fatherId = null) {
+		objectId = Object.keys(_allObjects).find(key => _allObjects[key] === _object.name)
+		if (!objectId) {
+			jeedom.object.save({
+				object: {
+					name: _object.name,
+					display: {
+						icon: _object.icon
+					},
+					father_id: _fatherId
+				},
+				async: false,
+				error: function(_error) {
+					// jeedomUtils.showAlert({ // 4.4 mini
+					$.fn.showAlert({
+						message: _error.message,
+						level: 'danger'
+					})
+				},
+				success: function(_result) {
+					objectId = _result.id
+					jeedom.object.uploadImage({
+						id: objectId,
+						file: _rootpath + _object.background,
+						error: function(_error) {
+							// jeedomUtils.showAlert({ // 4.4 mini
+							$.fn.showAlert({
+								message: _error.message,
+								level: 'danger'
+							})
+						}
+					})
+				}
+			})
+		}
+		return objectId
+	}
 </script>

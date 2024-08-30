@@ -123,8 +123,8 @@ body {
 	max-height: 100px;
 }
 
-#wizard_container>.step_father .img_title,
-#wizard_container>.step_childs .img_title {
+#wizard_container>.step_father .object_name,
+#wizard_container>.step_childs .object_name {
 	font-weight: bold;
 	color: white;
 	padding: 2px;
@@ -167,4 +167,8 @@ body {
 
 .navDot.active {
 	margin: 0 10px;
+}
+
+.navDot.blocked {
+	opacity: .5;
 }
