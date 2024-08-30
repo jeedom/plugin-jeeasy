@@ -26,14 +26,6 @@ try {
 		ajax::success(jeeasy::generateScenario(init('name'), json_decode(init('replace'), true)));
 	}
 
-	if (init('action') == 'saveJson') {
-		ajax::success(jeeasy::saveJson(init('json')));
-	}
-
-	if (init('action') == 'sendObjects') {
-		ajax::success(jeeasy::sendObjects(init('objects')));
-	}
-
 	if (init('action') == 'dnsInstall') {
 		ajax::success(jeeasy::dns_Go());
 	}
