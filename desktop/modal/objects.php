@@ -33,7 +33,7 @@ sendVarToJS([
 <div class="step_father bold">{{Sélectionnez l'objet principal caractérisant au mieux la base de votre installation}} <?php echo config::byKey('product_name'); ?>.</div>
 <div class="step_father flex-evenly" style="margin:15px">
 	<!-- <div class="sel_father text-center cursor shadowed" title='{{Définir un objet racine "Général"}}' data-father="general" data-name="{{Général}}" data-tippy-placement="bottom">
-		<div class="object_name">{{Par fonctions}}</div>
+		<div class="object_name">{{Par fonctionnalités}}</div>
 		<img src="/core/img/object_background/atelier/atelier_2.jpg">
 	</div>
 	<div class="sel_father text-center cursor shadowed" title="{{Définir un objet racine personnalisé}}" data-father="custom" data-name="" data-tippy-placement="bottom">
@@ -48,9 +48,11 @@ sendVarToJS([
 
 <h3 class="step_childs hidden"></h3>
 <div class="step_childs hidden logo flex-column">
-	<div class="bold" style="margin-bottom:15px">{{Veuillez sélectionner les pièces à créer puis passer à l'étape suivante}}
+	<div class="bold">{{Veuillez sélectionner les pièces à créer puis passer à l'étape suivante}}
 		<i class="far fa-arrow-alt-circle-right"></i>
 	</div>
+
+	<button class="btn btn-primary" id="toggle_childs" style="margin:10px"><i class="fas fa-sync"></i> {{Voir d'autres pièces}}</button>
 
 	<div class="panel panel-default hidden">
 		<div class="panel-heading accordion-toggle collapsed cursor" data-toggle="collapse" data-parent="" aria-expanded="false" href="#atelier">
@@ -486,6 +488,15 @@ sendVarToJS([
 			}
 			return
 		}
+
+		if (_target = event.target.closest('#toggle_childs')) {
+			document.querySelector('.collapse.in')?.classList.remove('in')
+			document.querySelectorAll('.panel').forEach(_panel => {
+				_panel.classList.toggle('hidden')
+			})
+			return
+		}
+
 	})
 
 	document.querySelectorAll('.navBtn').forEach(_navBtn => {
