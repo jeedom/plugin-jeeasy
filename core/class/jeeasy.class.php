@@ -31,10 +31,7 @@ class jeeasy extends eqLogic {
 			$wizard['general'] =	__('Général', __FILE__);
 			$wizard['interface'] =	__('Affichage', __FILE__);
 			$wizard['objects'] =	__('Objets', __FILE__);
-			if ($_mode == 'default') {
-				$wizard['pluginsInstall'] =	__('Installation plugins', __FILE__);
-			}
-			$wizard['pluginsConfig'] =	__('Configuration plugins', __FILE__);
+			$wizard['plugins'] =	__('Installation plugins', __FILE__);
 			$wizard['dns'] =	__('Accès externe', __FILE__);
 			if ($_mode == 'default') {
 				$wizard['services'] =	__('Services', __FILE__);
@@ -121,99 +118,6 @@ class jeeasy extends eqLogic {
 		return json_decode(str_replace(array_keys($_replace), $_replace, json_encode(json_decode(file_get_contents(__DIR__ . '/../config/' . $_name . '.json'), true))), true);
 	}
 
-	public static function checkPlugin($_plugin) {
-		if ($_plugin == 'openvpn') {
-			$plugin = $_plugin;
-		} else {
-			$plugin = plugin::byId($_plugin);
-		}
-
-		if (!is_object($plugin)) {
-			$plugin = $_plugin;
-		}
-		if (config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha') {
-			self::checkInstallPlugin($plugin, 'beta');
-		} else {
-			self::checkInstallPlugin($plugin);
-		}
-		self::checkDependancyPlugin($plugin);
-		self::checkDeamonPlugin($plugin);
-	}
-
-	public static function checkInstallPlugin($_plugin, $branch = 'stable') {
-		$plugin = !is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
-		if (is_object($plugin) && $plugin->isActive()) {
-			return 'OK';
-		}
-		$market_info = repo_market::byLogicalId($_plugin);
-		if (!is_object($market_info)) {
-			return __('Le plugin n\'est pas présent sur le market', __FILE__);
-		}
-		if ($market_info->getCost() > 0) {
-			if ($market_info->getPurchase() != 1) {
-				return __('Veuillez vous rendre sur le market pour acquérir le plugin puis refaire l\'opération. Plugin', __FILE__) . ' : ' . $market_info->getName();
-			}
-		}
-
-		$update = update::byLogicalId($_plugin);
-		if (!is_object($update)) {
-			$update = new update();
-		}
-		$update->setLogicalId($_plugin);
-		$update->setSource('market');
-		$update->setConfiguration('version', $branch);
-		$update->save();
-		$update->doUpdate();
-		$plugin = plugin::byId($_plugin);
-		if (!is_object($plugin)) {
-			return __('Impossible d\'installer le plugin', __FILE__) . ' : ' . $market_info->getName();
-		}
-		if (!$plugin->isActive()) {
-			$plugin->setIsEnable(1);
-		}
-		if (!$plugin->isActive()) {
-			return __('Impossible d\'activer le plugin', __FILE__) . ' : ' . $market_info->getName();
-		}
-		return 'OK';
-	}
-
-	public static function checkDependancyPlugin($_plugin) {
-		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
-		if ($plugin->getHasDependency() != 1) {
-			return 'OK';
-		}
-		$dependancy = $plugin->dependancy_info();
-		if ($dependancy['state'] == 'ok') {
-			return 'OK';
-		}
-
-		$plugin->dependancy_install();
-		$dependancy = $plugin->dependancy_info();
-		if ($dependancy['state'] != 'ok') {
-			return __('Nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support.', __FILE__);
-		}
-		return 'OK';
-	}
-
-	public static function configInternalPlugin($typeConfig, $key, $plugin) {
-		if ($typeConfig == 'gpio') {
-			$pluginConfigFile = dirname(__FILE__) . '/../data/pluginConfig.json';
-			if (!file_exists($pluginConfigFile)) {
-				throw new Exception("{{Fichier pluginConfig introuvable}}", 1);
-			}
-			$pluginConfigFile = file_get_contents($pluginConfigFile);
-			$pluginsConf = json_decode($pluginConfigFile, true);
-			$step = $pluginsConf['pluginsInfos'][$plugin]['versions'][$key];
-
-			foreach ($step as $k => $v) {
-				config::save($k, $v, $plugin);
-			}
-			return 'gpio';
-		} elseif ($typeConfig == 'usb') {
-			return 'usb';
-		}
-	}
-
 	public static function initStartBox() {
 		log::removeAll();
 		log::add('jeeasy', 'debug', 'initStartBox');
@@ -239,25 +143,6 @@ class jeeasy extends eqLogic {
 		}
 		sleep(2);
 		repo_market::test();
-	}
-
-	public static function checkDeamonPlugin($_plugin) {
-		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
-		if ($plugin->getHasOwnDeamon() != 1) {
-			return;
-		}
-		$deamon = $plugin->deamon_info();
-		if ($deamon['state'] == 'ok') {
-			return;
-		}
-		echo '<div class="alert alert-info">' . __('Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...', __FILE__);
-		$plugin->deamon_start();
-		sleep(5);
-		$deamon = $plugin->deamon_info();
-		if ($deamon['state'] != 'ok') {
-			throw new Exception(__('Nous n\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support. Plugin', __FILE__) . ' : ' . $_plugin);
-		}
-		echo '<div class="alert alert-info">' . __('Démarrage du démon réussi', __FILE__);
 	}
 }
 

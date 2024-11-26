@@ -48,6 +48,7 @@ try {
 					if ($jsonrpc->sendRequest('market::byId', ['id' => $pluginId])) {
 						$result = $jsonrpc->getResult();
 						$plugins[$i]['id'] = $pluginId;
+						$plugins[$i]['logicalId'] = $result['logicalId'];
 						$plugins[$i]['name'] = $result['name'];
 						$plugins[$i]['icon'] = $marketURL . '/' . $result['img']['icon'];
 						$plugins[$i]['installed'] = is_file(__DIR__ . '/../../../' . $result['logicalId'] . '/plugin_info/info.json');
@@ -58,43 +59,9 @@ try {
 		ajax::success(array('servicePack' => $servicePack, 'plugins' => $plugins));
 	}
 
-
 	if (init('action') == 'dnsInstall') {
 		ajax::success(jeeasy::dns_Go());
 	}
-
-	// if (init('action') == 'installPlugin') {
-	// 	if (init('branch')) {
-	// 		$checkInstall = jeeasy::checkInstallPlugin(init('id'), init('branch'));
-	// 	} else {
-	// 		if (config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha') {
-	// 			$checkInstall = jeeasy::checkInstallPlugin(init('id'), 'beta');
-	// 		} else {
-	// 			$checkInstall = jeeasy::checkInstallPlugin(init('id'));
-	// 		}
-	// 	}
-	// 	if ($checkInstall == 'OK') {
-	// 		ajax::success();
-	// 	} else {
-	// 		ajax::error($checkInstall);
-	// 	}
-	// }
-
-	// if (init('action') == 'installDepPlugin') {
-	// 	$checkInstall = jeeasy::checkDependancyPlugin(init('id'));
-	// 	if ($checkInstall == 'OK') {
-	// 		ajax::success();
-	// 	} else {
-	// 		ajax::error($checkInstall);
-	// 	}
-	// }
-
-
-	// if (init('action') == 'configInternalPlugin') {
-	// 	$check = jeeasy::configInternalPlugin(init('typeConfig'), init('typeBox'), init('pluginName'));
-	// 	ajax::success($check);
-	// }
-
 
 	throw new Exception(__('Aucune méthode correspondante à', __FILE__) . ' : ' . init('action'));
 } catch (Exception $e) {

@@ -134,7 +134,7 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 
 <div class="input-group">
   <span class="input-group-addon roundedLeft">{{Coordonnées GPS}}
-    <sup><i class="fas fa-question-circle" title="{{Latitude et longitude du site}}"></i></sup>
+    <sup><i class="fas fa-question-circle" title="{{Renseigner la latitude et la longitude du site}}"></i></sup>
   </span>
   <input type="number" class="form-control" id="in_latitude" value="<?= config::byKey('info::latitude') ?>">
   <span class="input-group-addon">{{,}}</span>
