@@ -33,3 +33,4 @@ include_file('desktop', 'wizard', 'css', 'jeeasy');
 </div>
 
 <?php include_file('desktop', 'wizard', 'js', 'jeeasy'); ?>
+<?php include_file('core', 'jeeasy', 'class.js', 'jeeasy'); ?>

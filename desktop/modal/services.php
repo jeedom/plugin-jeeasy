@@ -3,17 +3,18 @@ if (!isConnect()) {
     throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-$arrayLanguages = ['fr_FR','en_US','es_ES','de_DE' ];
-$actualLanguage = config::byKey('language');
-if(!in_array($actualLanguage, $arrayLanguages)){
-    $actualLanguage = 'en_US';
-}
-
-
-
+$actualLanguage = config::byKey('language', 'core', 'en_US');
 ?>
-<div class="col-md-12 text-center">
-    <h2>{{Les services complémentaires}}</h2>
+
+<h3>{{Les services indispensables}}</h3>
+
+<div class="logo flex-evenly">
+</div>
+<div></div>
+<div class="flex-evenly">
+</div>
+<!-- <div class="col-md-12 text-center">
+    <h2>{{Les services incontournables}}</h2>
 </div>
 <div class="nos-services text-center">
     <div id="backup" class="col-xs-18 col-sm-6 col-md-3 services">
@@ -59,4 +60,4 @@ if(!in_array($actualLanguage, $arrayLanguages)){
     #backup {
         margin-left: 12%;
     }
-</style>
+</style> -->

@@ -18,7 +18,7 @@ sendVarToJS([
 		</div>
 	</div>
 	<div class="sel_father text-center cursor shadowed" title='{{Définir un objet racine "Maison"}}' data-father="house" data-name="{{Maison}}">
-		<img src="/core/img/object_background/chambre/chambre_7.jpg">
+		<img src="/core/img/object_background/salon/salon_3.jpg">
 		<div class="object_name">{{Une maison}}
 			<i class="icon maison-modern13"></i>
 		</div>
@@ -208,6 +208,14 @@ sendVarToJS([
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
+					<img src="/core/img/object_background/chambre/chambre_7.jpg">
+					<div class="object_name">
+						<i class="icon maison-bedroom10"></i>
+						{{Chambre}} <span></span>
+					</div>
+				</div>
+
+				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/chambre/chambre_6.jpg">
 					<div class="object_name">
 						<i class="icon maison-baby139"></i>
@@ -356,14 +364,6 @@ sendVarToJS([
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
-					<img src="/core/img/object_background/salon/salon_3.jpg">
-					<div class="object_name">
-						<i class="icon techno-tv6"></i>
-						{{Salon}} <span></span>
-					</div>
-				</div>
-
-				<div class="sel_child text-center cursor shadowed">
 					<img src="/core/img/object_background/salon/salon_5.jpg">
 					<div class="object_name">
 						<i class="icon fas fa-couch"></i>
@@ -419,9 +419,9 @@ sendVarToJS([
 		_father.addEventListener('click', function() {
 			this.classList.add('selected')
 			let title = this.dataset.title || $(this).tooltipster('content')
-			bootbox.confirm('<strong>' + title + ' ?</strong>', function(result) {
+			bootbox.confirm('<div class="bold">' + title + ' ?</div>', function(result) {
 				if (result) {
-					navigationAllowed(false)
+					allowNext(false)
 					document.querySelector('h3.step_childs').innerText = childsTitle[_father.dataset.father]
 					// document.querySelectorAll('.step_father').unseen() // 4.4 mini
 					document.querySelectorAll('.step_father').forEach(_fatherStep => {
@@ -499,60 +499,59 @@ sendVarToJS([
 
 	})
 
-	document.querySelectorAll('.navBtn').forEach(_navBtn => {
-		_navBtn.addEventListener('click', function(_event) {
-			_event.preventDefault()
-			_event.stopImmediatePropagation()
+	document.querySelector('.navBtn.bt_next').addEventListener('click', function(_event) {
+		_event.preventDefault()
+		_event.stopImmediatePropagation()
 
-			if (!isNavigationAllowed()) {
-				let objectsList = {
-					father: {},
-					childs: []
-				}
-				let message = '{{Créer les objets suivants ?}}'
-				let father = document.querySelector('.sel_father.selected')
-				if (isset(father.dataset.name)) {
-					objectsList.father = {
-						name: father.dataset.name,
-						icon: father.querySelector('.object_name>i')?.outerHTML,
-						background: father.querySelector('img').getAttribute('src')
-					}
-					message += '<ul>'
-					message += '<li>' + objectsList.father.icon + ' ' + objectsList.father.name + '</li>'
+		if (!canGoNext()) {
+			let next = this
+			let objectsList = {
+				father: {},
+				childs: []
+			}
+			let message = '{{Créer les objets suivants?}}'
+			let father = document.querySelector('.sel_father.selected')
+			if (isset(father.dataset.name)) {
+				objectsList.father = {
+					name: father.dataset.name,
+					icon: father.querySelector('.object_name>i')?.outerHTML,
+					background: father.querySelector('img').getAttribute('src')
 				}
 				message += '<ul>'
-				document.querySelectorAll('.sel_child.selected').forEach(_child => {
-					objectsList.childs.push({
-						name: _child.querySelector('.object_name').innerText.replace(/[\t\n]/g, '').trim(),
-						icon: _child.querySelector('.object_name>i')?.outerHTML,
-						background: _child.querySelector('img').getAttribute('src')
-					})
-					message += '<li>' + _child.querySelector('.object_name').innerHTML + '</li>'
-				})
-				message += '</ul>'
-				if (isset(objectsList.father.name)) {
-					message += '</ul>'
-				}
-
-				bootbox.confirm(message, function(result) {
-					if (result) {
-						let fatherId = null
-						if (isset(objectsList.father.name)) {
-							fatherId = createObject(objectsList.father)
-						}
-						objectsList.childs.forEach(_child => {
-							createObject(_child, fatherId)
-						})
-						navigationAllowed()
-						_navBtn.dispatchEvent(new Event('click'))
-					}
-				})
+				message += '<li class="bold">' + objectsList.father.icon + ' ' + objectsList.father.name + '</li>'
 			}
-		})
+			message += '<ul>'
+			document.querySelectorAll('.sel_child.selected').forEach(_child => {
+				objectsList.childs.push({
+					name: _child.querySelector('.object_name').innerText.replace(/[\t\n]/g, '').trim(),
+					icon: _child.querySelector('.object_name>i')?.outerHTML,
+					background: _child.querySelector('img').getAttribute('src')
+				})
+				message += '<li class="bold">' + _child.querySelector('.object_name').innerHTML + '</li>'
+			})
+			message += '</ul>'
+			if (isset(objectsList.father.name)) {
+				message += '</ul>'
+			}
+
+			bootbox.confirm(message, function(result) {
+				if (result) {
+					let fatherId = null
+					if (isset(objectsList.father.name)) {
+						fatherId = createObject(objectsList.father)
+					}
+					objectsList.childs.forEach(_child => {
+						createObject(_child, fatherId)
+					})
+					allowNext()
+					next.dispatchEvent(new Event('click'))
+				}
+			})
+		}
 	})
 
 	function createObject(_object, _fatherId = null) {
-		objectId = Object.keys(_allObjects).find(key => _allObjects[key] === _object.name)
+		let objectId = Object.keys(_allObjects).find(key => _allObjects[key] === _object.name)
 		if (!objectId) {
 			jeedom.object.save({
 				object: {

@@ -9,10 +9,10 @@ if (strpos(shell_exec('cat /etc/hostname'), 'Luna') !== false) {
 
 $boxName = config::byKey('name');
 if ($boxName == '') {
-  $boxName = 'Jeedom ' . ucfirst(jeedom::getHardwareName());
+  $boxName = config::byKey('product_name') . ' ' . ucfirst(jeedom::getHardwareName());
   config::save('name', $boxName);
 }
-sendVarToJS('_timezone', config::byKey('timezone'));
+sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 ?>
 
 <h3>{{Paramètres généraux}}</h3>

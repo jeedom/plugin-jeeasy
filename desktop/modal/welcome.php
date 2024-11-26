@@ -17,7 +17,7 @@ if (jeeasy::getWizardMode() == 'recovery') {
 	<div>{{Configurez facilement votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</div>
 <?php
 }
-$language = config::byKey('language');
+$language = config::byKey('language', 'core', 'en_US');
 ?>
 <div class="bold">{{Choisissez la langue puis cliquez sur la flèche en bas à droite pour commencer}}
 	<i class="far fa-arrow-alt-circle-right"></i>

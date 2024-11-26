@@ -14,7 +14,7 @@ body {
 
 #div_pageContainer {
 	background-color: rgba(var(--eq-bg-color), var(--opacity));
-	border-radius: var(--border-radius)
+	border-radius: var(--border-radius);
 }
 
 #jeeasy_wizard .flex-evenly {
@@ -45,7 +45,7 @@ body {
 	justify-items: center;
 	align-items: center;
 	grid-template-columns: 100%;
-	grid-template-rows: 50px 250px 0 25px auto;
+	grid-template-rows: 50px 225px 0 25px auto;
 }
 
 #wizard_container>h3 {
@@ -53,8 +53,8 @@ body {
 }
 
 #wizard_container>img {
-	max-width: 400px;
-	max-height: 250px;
+	max-width: 350px;
+	max-height: 225px;
 	grid-row-start: 2
 }
 
@@ -72,7 +72,7 @@ body {
 	text-align-last: center;
 }
 
-#wizard_container .bold {
+.bold {
 	font-weight: bold;
 }
 
@@ -131,6 +131,34 @@ body {
 	background-color: var(--al-info-color);
 }
 
+/*** PLUGINS ***/
+#wizard_container>#plugins {
+	min-height: 250px;
+}
+
+#wizard_container>#plugins>.plugin {
+	max-height: 50%;
+	min-width: 10%;
+	opacity: .5;
+	border: solid 3px var(--linkHover-color);
+	border-radius: var(--border-radius);
+	padding: 6px 0;
+}
+
+#wizard_container>#plugins>.plugin:hover {
+	opacity: 1;
+}
+
+#wizard_container>#plugins>.plugin.selected {
+	opacity: 1;
+	border: solid 3px var(--logo-primary-color);
+}
+
+#wizard_container>#plugins>.plugin>img {
+	max-height: 95px;
+	max-width: 85%;
+}
+
 /*** NAVIGATION ***/
 #wizard_navigation {
 	margin: 15px auto;
@@ -158,6 +186,7 @@ body {
 	justify-content: center;
 	color: white;
 	background-color: rgb(var(--contrast-color), .7);
+	user-select: none;
 }
 
 .navDot:hover,

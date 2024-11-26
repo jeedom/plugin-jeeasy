@@ -1,4 +1,4 @@
-var _navigation = true
+var _goNext = true
 var _contentContainer
 
 (function() {
@@ -33,8 +33,11 @@ var tooltip = document.getElementById('div_dots_tooltip')
 document.querySelectorAll('.navDot').forEach(_dot => {
 	_dot.addEventListener('click', function() {
 		let currentStep = document.querySelector('.navDot.active')
-		if (this == currentStep || !isNavigationAllowed()) {
+		if (this == currentStep || this.classList.contains('blocked')) {
 			return false
+		}
+		if (!canGoNext()) {
+			allowNext()
 		}
 
 		let outAnimation = slideOut
@@ -48,7 +51,6 @@ document.querySelectorAll('.navDot').forEach(_dot => {
 			duration: 500
 		})
 		setTimeout(() => {
-			// _contentContainer.empty()
 			document.querySelector('.navDot.active').classList.remove('active')
 			this.classList.add('active')
 			loadPageContent(this.dataset.step)
@@ -88,6 +90,7 @@ document.getElementById('bt_jeedom_ready').addEventListener('click', function() 
 })
 
 function loadPageContent(_step) {
+	// _contentContainer.empty()
 	fetch('index.php?v=d&plugin=jeeasy&modal=' + _step)
 		.then(response => response.text())
 		.then(data => {
@@ -124,19 +127,21 @@ function loadPageContent(_step) {
 		.catch(error => console.error('{{Erreur au chargement de la page}}:', error))
 }
 
-function navigationAllowed(_allowed = true) {
-	_navigation = _allowed
-	document.querySelectorAll('.navDot:not(.active)').forEach(_navDot => {
-		if (!_navigation) {
-			_navDot.classList.add('blocked')
+function allowNext(_allowed = true) {
+	_goNext = _allowed
+	let nextDot = document.querySelector('.navDot.active').nextElementSibling
+	while (nextDot) {
+		if (!_goNext) {
+			nextDot.classList.add('blocked')
 		} else {
-			_navDot.classList.remove('blocked')
+			nextDot.classList.remove('blocked')
 		}
-	})
+		nextDot = nextDot.nextElementSibling
+	}
 }
 
-function isNavigationAllowed() {
-	return _navigation
+function canGoNext() {
+	return _goNext
 }
 
 function configSave(_configuration) {

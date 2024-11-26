@@ -15,12 +15,12 @@ if (version_compare(jeedom::version(), '4.4', '>=')) {
 }
 ?>
 
-<h3>{{Paramètres d'interface}}</h3>
+<h3>{{Paramètres d'affichage}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-<div class="bold">{{Vous pouvez modifier certains paramètres d'interface de votre installation puis passer à l'étape suivante}}
+<div class="bold">{{Vous pouvez modifier certains paramètres d'affichage de votre installation puis passer à l'étape suivante}}
     <i class="far fa-arrow-alt-circle-right"></i>
 </div>
-<div class="input-group">
+<div class="input-group <?= ($defaultTheme == $alternateTheme) ? ' hidden' : ''  ?>">
     <span class="input-group-addon roundedLeft">{{Thème}}
         <sup><i class="fas fa-question-circle" title="{{Sélectionner le thème de l'interface}}"></i></sup>
     </span>

@@ -26,20 +26,20 @@ class jeeasy extends eqLogic {
 		$wizard['welcome'] =  __('Accueil', __FILE__);
 
 		if ($_mode == 'recovery') {
-			$wizard['pack'] =	__('Installation plugins', __FILE__);
+			$wizard['pluginsInstall'] =	__('Installation plugins', __FILE__);
 		} else {
 			$wizard['general'] =	__('Général', __FILE__);
-			$wizard['interface'] =	__('Interface', __FILE__);
+			$wizard['interface'] =	__('Affichage', __FILE__);
 			$wizard['objects'] =	__('Objets', __FILE__);
-			$wizard['dnsGo'] =	__('Accès externe', __FILE__);
 			if ($_mode == 'default') {
-				$wizard['pack'] =	__('Installation plugins', __FILE__);
+				$wizard['pluginsInstall'] =	__('Installation plugins', __FILE__);
 			}
-			$wizard['pluginsConfigs'] =	__('Configuration plugins', __FILE__);
+			$wizard['pluginsConfig'] =	__('Configuration plugins', __FILE__);
+			$wizard['dns'] =	__('Accès externe', __FILE__);
 			if ($_mode == 'default') {
 				$wizard['services'] =	__('Services', __FILE__);
-				$wizard['backupCloud'] =	__('Sauvegarde Cloud', __FILE__);
-				$wizard['assistants'] =	__('Assistants vocaux', __FILE__);
+				// $wizard['backupCloud'] =	__('Sauvegarde Cloud', __FILE__);
+				// $wizard['assistants'] =	__('Assistants vocaux', __FILE__);
 			}
 		}
 		$wizard['ready'] = __('Prêt à démarrer', __FILE__);
