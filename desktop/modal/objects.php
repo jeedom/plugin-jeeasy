@@ -284,11 +284,7 @@ sendVarToJS([
 		<div id="salle_a_manger" class="panel-collapse collapse">
 			<div class="panel-body flex-evenly">
 				<div class="sel_child text-center cursor shadowed">
-					<?php if (version_compare(jeedom::version(), '4.4', '>=')) {
-						echo '<img src="/core/img/object_background/salle_a_manger/salle_a_manger_1.jpg">';
-					} else {
-						echo '<img src="/core/img/object_background/salle_%23U00e0_manger/salle_%23U00e0_manger_1.jpg">';
-					} ?>
+					<img src="/core/img/object_background/salle_a_manger/salle_a_manger_1.jpg">
 					<div class="object_name">
 						<i class="icon maison-dining3"></i>
 						{{Salle à manger}} <span></span>
@@ -296,11 +292,7 @@ sendVarToJS([
 				</div>
 
 				<div class="sel_child text-center cursor shadowed">
-					<?php if (version_compare(jeedom::version(), '4.4', '>=')) {
-						echo '<img src="/core/img/object_background/salle_a_manger/salle_a_manger_2.jpg">';
-					} else {
-						echo '<img src="/core/img/object_background/salle_%23U00e0_manger/salle_%23U00e0_manger_2.jpg">';
-					} ?>
+					<img src="/core/img/object_background/salle_a_manger/salle_a_manger_2.jpg">
 					<div class="object_name">
 						<i class="icon kiko-dining-room"></i>
 						{{Salle à manger}} <span></span>
@@ -423,14 +415,9 @@ sendVarToJS([
 				if (result) {
 					allowNext(false)
 					document.querySelector('h3.step_childs').innerText = childsTitle[_father.dataset.father]
-					// document.querySelectorAll('.step_father').unseen() // 4.4 mini
-					document.querySelectorAll('.step_father').forEach(_fatherStep => {
-						_fatherStep.classList.add('hidden')
-					})
-					// document.querySelectorAll('.step_childs').classList.remove('hidden') // 4.4 mini
-					document.querySelectorAll('.step_childs').forEach(_childStep => {
-						_childStep.classList.remove('hidden')
-					})
+					document.querySelectorAll('.step_father').addClass('hidden')
+					document.querySelectorAll('.step_childs').removeClass('hidden')
+
 				} else {
 					_father.classList.remove('selected')
 				}
@@ -544,7 +531,7 @@ sendVarToJS([
 						createObject(_child, fatherId)
 					})
 					allowNext()
-					next.dispatchEvent(new Event('click'))
+					next.triggerEvent('click')
 				}
 			})
 		}
@@ -563,8 +550,7 @@ sendVarToJS([
 				},
 				async: false,
 				error: function(_error) {
-					// jeedomUtils.showAlert({ // 4.4 mini
-					$.fn.showAlert({
+					jeedomUtils.showAlert({
 						message: _error.message,
 						level: 'danger'
 					})
@@ -575,8 +561,7 @@ sendVarToJS([
 						id: objectId,
 						file: _rootpath + _object.background,
 						error: function(_error) {
-							// jeedomUtils.showAlert({ // 4.4 mini
-							$.fn.showAlert({
+							jeedomUtils.showAlert({
 								message: _error.message,
 								level: 'danger'
 							})

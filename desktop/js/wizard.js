@@ -28,8 +28,6 @@ var slideInReverse = {
 	transform: ['translateX(-10%)', 'translateX(0)']
 }
 
-var tooltip = document.getElementById('div_dots_tooltip')
-
 document.querySelectorAll('.navDot').forEach(_dot => {
 	_dot.addEventListener('click', function() {
 		let currentStep = document.querySelector('.navDot.active')
@@ -65,11 +63,9 @@ document.querySelectorAll('.navBtn').forEach(_navBtn => {
 	_navBtn.addEventListener('click', function() {
 		let activeNavDot = document.querySelector('.navDot.active')
 		if (this.classList.value.includes('bt_next')) {
-			// activeNavDot.nextElementSibling.triggerEvent('click') // 4.4 mini
-			activeNavDot.nextElementSibling.dispatchEvent(new Event('click'))
+			activeNavDot.nextElementSibling.triggerEvent('click')
 		} else if (this.classList.value.includes('bt_prev')) {
-			// activeNavDot.previousElementSibling.triggerEvent('click') // 4.4 mini
-			activeNavDot.previousElementSibling.dispatchEvent(new Event('click'))
+			activeNavDot.previousElementSibling.triggerEvent('click')
 		}
 	})
 })
@@ -90,7 +86,6 @@ document.getElementById('bt_jeedom_ready').addEventListener('click', function() 
 })
 
 function loadPageContent(_step) {
-	// _contentContainer.empty()
 	fetch('index.php?v=d&plugin=jeeasy&modal=' + _step)
 		.then(response => response.text())
 		.then(data => {
@@ -148,8 +143,7 @@ function configSave(_configuration) {
 	jeedom.config.save({
 		configuration: _configuration,
 		error: function(_error) {
-			// jeedomUtils.showAlert({ // 4.4 mini
-			$.fn.showAlert({
+			jeedomUtils.showAlert({
 				message: _error.message,
 				level: 'danger'
 			})
