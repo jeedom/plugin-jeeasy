@@ -521,19 +521,24 @@ sendVarToJS([
 				message += '</ul>'
 			}
 
-			bootbox.confirm(message, function(result) {
-				if (result) {
-					let fatherId = null
-					if (isset(objectsList.father.name)) {
-						fatherId = createObject(objectsList.father)
+			if (isset(father.dataset.name) || objectsList.childs.length > 0) {
+				bootbox.confirm(message, function(result) {
+					if (result) {
+						let fatherId = null
+						if (isset(objectsList.father.name)) {
+							fatherId = createObject(objectsList.father)
+						}
+						objectsList.childs.forEach(_child => {
+							createObject(_child, fatherId)
+						})
+						allowNext()
+						next.triggerEvent('click')
 					}
-					objectsList.childs.forEach(_child => {
-						createObject(_child, fatherId)
-					})
-					allowNext()
-					next.triggerEvent('click')
-				}
-			})
+				})
+			} else {
+				allowNext()
+				next.triggerEvent('click')
+			}
 		}
 	})
 

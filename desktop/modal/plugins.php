@@ -67,7 +67,7 @@ if (!isConnect()) {
 
 		if (!canGoNext()) {
 			let next = this
-			let plugins = document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="true"])')
+			let plugins = document.getElementById('plugins')?.querySelectorAll('.plugin.selected:not([data-installed="true"])')
 			let message = '{{Installer les plugins suivants?}}'
 			message += '<ul>'
 			plugins.forEach(_plugin => {
