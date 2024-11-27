@@ -9,3 +9,4 @@ Thumbs.db
 *.php~
 .remote-sync.json
 .vscode
+.history

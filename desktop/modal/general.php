@@ -13,21 +13,25 @@ if ($boxName == '') {
   config::save('name', $boxName);
 }
 sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
+
 ?>
+
+
+
 
 <h3>{{Paramètres généraux}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
 <div class="bold">{{Vous pouvez modifier certains paramètres généraux de votre installation puis passer à l'étape suivante}}
   <i class="far fa-arrow-alt-circle-right"></i>
 </div>
-<div class="input-group">
+<div class="input-group" style="width:100%;min-width:500px;">
   <span class="input-group-addon roundedLeft">{{Nom}}
     <sup><i class="fas fa-question-circle" title="{{Modifier le nom du système}}"></i></sup>
   </span>
   <input type="text" class="form-control roundedRight" id="in_boxName" value="<?= $boxName ?>">
 </div>
 
-<div class="input-group">
+<div class="input-group" style="width:100%;min-width:500px;">
   <span class="input-group-addon roundedLeft">{{Fuseau horaire}}
     <sup><i class="fas fa-question-circle" title="{{Sélectionner le fuseau horaire}}"></i></sup>
   </span>
@@ -132,19 +136,101 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
   </select>
 </div>
 
-<div class="input-group">
+
+<div class="input-group" style="width:100%;min-width:500px;">
+      <span class="input-group-addon roundedLeft">{{Adresse}}
+        <sup><i class="fas fa-question-circle" title="{{Coordonnées de votre box}}"></i></sup>
+      </span>
+        <input type="text" class="form-control" id="address-input" placeholder="Entrez une adresse" autocomplete="off" >
+          <span class="hidden" id="openStreetButton">
+            <button class="btn btn-info roundedRight" id="openStreetButton" title="{{Valider l'adresse}}" style="height: 100%;"><i class="fas fa-map-marked-alt"></i></button>
+          </span>
+</div>
+
+
+
+<div  class="input-group" id="gpsCoordonates" style="width:100%;min-width:500px;">
   <span class="input-group-addon roundedLeft">{{Coordonnées GPS}}
-    <sup><i class="fas fa-question-circle" title="{{Renseigner la latitude et la longitude du site}}"></i></sup>
+    <sup><i class="fas fa-question-circle" title="{{Renseigner la latitude et la longitude du site. Ces champs seront remplis automatiquement si vous recherchez votre adresse}}"></i></sup>
   </span>
   <input type="number" class="form-control" id="in_latitude" value="<?= config::byKey('info::latitude') ?>">
   <span class="input-group-addon">{{,}}</span>
   <input type="number" class="form-control" id="in_longitude" value="<?= config::byKey('info::longitude') ?>">
-  <span class="input-group-btn">
-    <button class="btn btn-primary roundedRight" title="{{Saisie automatique des coordonnées GPS}}"><i class="fas fa-map-marked-alt"></i></button>
-  </span>
 </div>
 
+
+
+
 <script>
+
+
+document.getElementById('address-input')?.addEventListener('keyup', function(_event) {
+  if (this.value == '') {
+    document.getElementById('openStreetButton').classList.add('hidden');
+  } else {
+    document.getElementById('openStreetButton').classList.remove('hidden');
+    document.getElementById('openStreetButton').classList.add('input-group-btn');
+  }
+});
+
+
+document.getElementById('openStreetButton')?.addEventListener('click', function(_event) {
+  var addressInput = document.getElementById('address-input').value;
+
+  var addressPattern = /^(.+?)\s+(\d{5})\s+(.+)$/;
+  var match = addressPattern.exec(addressInput);
+
+  if (match) {
+    var address = match[1];
+    var zipCode = match[2];
+    var city = match[3];
+
+    var fullAddress = encodeURIComponent(address + ' ' + zipCode + ' ' + city);
+    var url = "https://nominatim.openstreetmap.org/search?q=" + fullAddress + "&format=json&addressdetails=1";
+
+
+    var fetchTimeout = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('Request timed out')), 5000)
+    );
+
+    Promise.race([fetch(url), fetchTimeout])
+      .then(response => {
+        if (!response.ok) {
+          //$('#div_alert').showAlert({ message: "Erreur réseau.", level: 'warning' });
+          throw new Error('Erreur réseau.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.length > 0) {
+          var latitudeInput = document.getElementById('in_latitude');
+          var longitudeInput = document.getElementById('in_longitude');
+          latitudeInput.value = data[0].lat;
+          longitudeInput.value = data[0].lon;
+          var event = new Event('change');
+          latitudeInput.dispatchEvent(event);
+          longitudeInput.dispatchEvent(event);
+
+          configSave({
+            'info::address': address,
+            'info::postalCode': zipCode,
+            'info::city': city,
+            'info::stateCode': data[0].address.country_code.toUpperCase(),
+          });
+          $('#div_alert').showAlert({ message: "Coordonnées enregistrées en configuration", level: 'success' });
+        }
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération des coordonnées GPS:', error);
+        $('#div_alert').showAlert({ message: 'Erreur lors de la récupération des coordonnées GPS : '+error.message, level: 'danger' });
+        $('#div_alert').showAlert({ message: "Recharger la page pour réessayer", level: 'warning' });
+      });
+  } else {
+    $('#div_alert').showAlert({ message: "L'adresse n'est pas au format attendu.", level: 'warning' });
+  }
+});
+
+
   jeedomUtils.initTooltips()
   document.querySelector('#sel_timezone > option[value="' + _timezone + '"]').selected = true
 
@@ -153,6 +239,8 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
       timezone: this.value
     })
   })
+
+
 
   document.getElementById('in_boxName').addEventListener('change', function(_event) {
     configSave({
@@ -172,3 +260,9 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
     })
   })
 </script>
+
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
