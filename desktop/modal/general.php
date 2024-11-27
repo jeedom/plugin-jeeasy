@@ -211,13 +211,30 @@ document.getElementById('openStreetButton')?.addEventListener('click', function(
           latitudeInput.dispatchEvent(event);
           longitudeInput.dispatchEvent(event);
 
-          configSave({
-            'info::address': address,
-            'info::postalCode': zipCode,
-            'info::city': city,
-            'info::stateCode': data[0].address.country_code.toUpperCase(),
+          bootbox.confirm({
+            message: "Coordonnées GPS trouvées.<br>Voulez-vous les enregistrer dans la configuration de la box ?",
+            buttons: {
+              confirm: {
+                label: 'Oui',
+                className: 'btn-success'
+              },
+              cancel: {
+                label: 'Non',
+                className: 'btn-danger'
+              }
+            },
+            callback: function(result) {
+              if (result) {
+                configSave({
+                  'info::address': address,
+                  'info::postalCode': zipCode,
+                  'info::city': city,
+                  'info::stateCode': data[0].address.country_code.toUpperCase(),
+                });
+                $('#div_alert').showAlert({ message: "Coordonnées enregistrées en configuration", level: 'success' });
+              }
+            }
           });
-          $('#div_alert').showAlert({ message: "Coordonnées enregistrées en configuration", level: 'success' });
         }
       })
       .catch(error => {
