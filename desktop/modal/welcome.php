@@ -344,9 +344,8 @@ sendVarToJS('_country', $country);
 			language: this.value
 		})
 	})
-	let country = document.getElementById('sel_country')
-	country.value = _country
-	country.addEventListener('change', function() {
+	document.getElementById('sel_country').value = _country
+	document.getElementById('sel_country').addEventListener('change', function() {
 		configSave({
 			'info::stateCode': this.value
 		})
