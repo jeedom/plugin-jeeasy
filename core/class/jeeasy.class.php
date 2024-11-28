@@ -52,6 +52,29 @@ class jeeasy extends eqLogic {
 		return 'default';
 	}
 
+	public static function updateServicePackInfos() {
+		$servicePack = 'Community';
+		$plugins = array();
+		$jsonrpc = repo_market::getJsonRpc();
+		if ($jsonrpc->sendRequest('servicepack::info')) {
+			$result = $jsonrpc->getResult();
+			$servicePack = $result['licenceName'];
+			if ($servicePack != 'Community') {
+				if (is_array($result['licencePlugins'])) {
+					$plugins = $result['licencePlugins'];
+				}
+				$plugins = array_merge($plugins, $result['mainPlugins']);
+			}
+			config::save('SPInfos', array('servicePack' => $servicePack, 'plugins' => $plugins), __CLASS__);
+			return array('servicePack' => $servicePack, 'plugins' => $plugins);
+		}
+		return false;
+	}
+
+	public static function cronDaily() {
+		self::updateServicePackInfos();
+	}
+
 	public static function discoverNetwork() {
 		global $JEEDOM_JEEASY_DISCOVER;
 		$gw = shell_exec("ip route show default | awk '/default/ {print $3}'");
