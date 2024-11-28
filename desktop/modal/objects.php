@@ -30,7 +30,9 @@ sendVarToJS([
 		</div>
 	</div>
 </div>
-<div class="step_father bold">{{Sélectionnez l'objet principal caractérisant au mieux la base de votre installation}} <?php echo config::byKey('product_name'); ?>.</div>
+<div class="step_father bold">{{Sélectionnez l'objet principal caractérisant au mieux la base de votre installation}} <?php echo config::byKey('product_name'); ?> {{ou passer à l'étape suivante}}
+	<i class="far fa-arrow-alt-circle-right"></i>
+</div>
 <div class="step_father flex-evenly" style="margin:15px">
 	<!-- <div class="sel_father text-center cursor shadowed" title='{{Définir un objet racine "Général"}}' data-father="general" data-name="{{Général}}" data-tippy-placement="bottom">
 		<div class="object_name">{{Par fonctionnalités}}</div>

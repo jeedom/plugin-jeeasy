@@ -26,12 +26,12 @@ class jeeasy extends eqLogic {
 		$wizard['welcome'] =  __('Accueil', __FILE__);
 
 		if ($_mode == 'recovery') {
-			$wizard['pluginsInstall'] =	__('Installation plugins', __FILE__);
+			$wizard['pluginsInstall'] =	__('Plugins', __FILE__);
 		} else {
 			$wizard['general'] =	__('Général', __FILE__);
 			$wizard['interface'] =	__('Affichage', __FILE__);
 			$wizard['objects'] =	__('Objets', __FILE__);
-			$wizard['plugins'] =	__('Installation plugins', __FILE__);
+			$wizard['plugins'] =	__('Plugins', __FILE__);
 			$wizard['dns'] =	__('Accès externe', __FILE__);
 			if ($_mode == 'default') {
 				$wizard['services'] =	__('Services', __FILE__);

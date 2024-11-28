@@ -94,6 +94,7 @@ function loadPageContent(_step) {
 			if (!currentStep.previousElementSibling) {
 				document.querySelector('.navBtn.bt_prev').classList.add('hidden')
 			} else {
+				document.querySelector('.navBtn.bt_prev').title = currentStep.previousElementSibling.dataset.title
 				document.querySelector('.navBtn.bt_prev.hidden')?.classList.remove('hidden')
 			}
 			if (currentStep.nextElementSibling == undefined) {
@@ -101,6 +102,7 @@ function loadPageContent(_step) {
 				document.getElementById('bt_jeedom_ready').classList.remove('hidden')
 			} else {
 				document.getElementById('bt_jeedom_ready').classList.add('hidden')
+				document.querySelector('.navBtn.bt_next').title = currentStep.nextElementSibling.dataset.title
 				document.querySelector('.navBtn.bt_next.hidden')?.classList.remove('hidden')
 			}
 

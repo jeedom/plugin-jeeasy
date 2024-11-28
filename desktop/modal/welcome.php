@@ -2,19 +2,24 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
+$productName =	config::byKey('product_name');
 if (jeeasy::getWizardMode() == 'recovery') {
 ?>
 	<h3>{{Assistant de restauration}}</h3>
 	<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-	<div>{{Bienvenue dans l'assistant de restauration système}} <?php echo config::byKey('product_name'); ?>.</div>
-	<div>{{Préparez facilement la restauration système de votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</div>
+	<div>{{Bienvenue dans l'assistant de restauration système}} <?php echo $productName; ?>.
+		<br>
+		{{Restaurez facilement votre système <?php echo $productName; ?> en suivant les étapes de cet assistant interactif.}}
+	</div>
 <?php
 } else {
 ?>
 	<h3>{{Assistant de configuration}}</h3>
 	<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-	<div>{{Bienvenue dans l'assistant de configuration}} <?php echo config::byKey('product_name'); ?>.</div>
-	<div>{{Configurez facilement votre installation <?php echo config::byKey('product_name'); ?> en suivant les étapes de cet assistant interactif.}}</div>
+	<div>{{Bienvenue dans l'assistant de configuration}} <?php echo $productName; ?>.
+		<br>
+		{{Configurez facilement votre installation <?php echo $productName; ?> en suivant les étapes de cet assistant interactif.}}
+	</div>
 <?php
 }
 $language = config::byKey('language', 'core');
