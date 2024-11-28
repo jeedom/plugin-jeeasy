@@ -154,6 +154,10 @@ body {
 	border: solid 3px var(--logo-primary-color);
 }
 
+#wizard_container>#plugins>.plugin.selected[data-installed="true"] {
+	border: solid 3px var(--al-info-color);
+}
+
 #wizard_container>#plugins>.plugin>img {
 	max-height: 95px;
 	max-width: 85%;

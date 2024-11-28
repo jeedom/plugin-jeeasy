@@ -486,59 +486,61 @@ sendVarToJS([
 
 	})
 
-	document.querySelector('.navBtn.bt_next').addEventListener('click', function(_event) {
-		_event.preventDefault()
-		_event.stopImmediatePropagation()
-
-		if (!canGoNext()) {
-			let next = this
-			let objectsList = {
-				father: {},
-				childs: []
-			}
-			let message = '{{Créer les objets suivants?}}'
-			let father = document.querySelector('.sel_father.selected')
-			if (isset(father.dataset.name)) {
-				objectsList.father = {
-					name: father.dataset.name,
-					icon: father.querySelector('.object_name>i')?.outerHTML,
-					background: father.querySelector('img').getAttribute('src')
+	document.querySelector('#wizard_navigation').addEventListener('click', function(_event) {
+		var _target = null
+		if (_target = event.target.closest('.navBtn.bt_next[data-step="objects"]')) {
+			_event.preventDefault()
+			_event.stopImmediatePropagation()
+			if (!canGoNext()) {
+				let objectsList = {
+					father: {},
+					childs: []
+				}
+				let message = '{{Créer les objets suivants?}}'
+				let father = document.querySelector('.sel_father.selected')
+				if (isset(father.dataset.name)) {
+					objectsList.father = {
+						name: father.dataset.name,
+						icon: father.querySelector('.object_name>i')?.outerHTML,
+						background: father.querySelector('img').getAttribute('src')
+					}
+					message += '<ul>'
+					message += '<li class="bold">' + objectsList.father.icon + ' ' + objectsList.father.name + '</li>'
 				}
 				message += '<ul>'
-				message += '<li class="bold">' + objectsList.father.icon + ' ' + objectsList.father.name + '</li>'
-			}
-			message += '<ul>'
-			document.querySelectorAll('.sel_child.selected').forEach(_child => {
-				objectsList.childs.push({
-					name: _child.querySelector('.object_name').innerText.replace(/[\t\n]/g, '').trim(),
-					icon: _child.querySelector('.object_name>i')?.outerHTML,
-					background: _child.querySelector('img').getAttribute('src')
+				document.querySelectorAll('.sel_child.selected').forEach(_child => {
+					objectsList.childs.push({
+						name: _child.querySelector('.object_name').innerText.replace(/[\t\n]/g, '').trim(),
+						icon: _child.querySelector('.object_name>i')?.outerHTML,
+						background: _child.querySelector('img').getAttribute('src')
+					})
+					message += '<li class="bold">' + _child.querySelector('.object_name').innerHTML + '</li>'
 				})
-				message += '<li class="bold">' + _child.querySelector('.object_name').innerHTML + '</li>'
-			})
-			message += '</ul>'
-			if (isset(objectsList.father.name)) {
 				message += '</ul>'
-			}
+				if (isset(objectsList.father.name)) {
+					message += '</ul>'
+				}
 
-			if (isset(father.dataset.name) || objectsList.childs.length > 0) {
-				bootbox.confirm(message, function(result) {
-					if (result) {
-						let fatherId = null
-						if (isset(objectsList.father.name)) {
-							fatherId = createObject(objectsList.father)
+				if (isset(objectsList.father.name) || objectsList.childs.length > 0) {
+					bootbox.confirm(message, function(result) {
+						if (result) {
+							let fatherId = null
+							if (isset(objectsList.father.name)) {
+								fatherId = createObject(objectsList.father)
+							}
+							objectsList.childs.forEach(_child => {
+								createObject(_child, fatherId)
+							})
+							allowNext()
+							_target.triggerEvent('click')
 						}
-						objectsList.childs.forEach(_child => {
-							createObject(_child, fatherId)
-						})
-						allowNext()
-						next.triggerEvent('click')
-					}
-				})
-			} else {
-				allowNext()
-				next.triggerEvent('click')
+					})
+				} else {
+					allowNext()
+					_target.triggerEvent('click')
+				}
 			}
+			return
 		}
 	})
 

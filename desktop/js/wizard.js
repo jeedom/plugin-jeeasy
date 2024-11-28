@@ -90,6 +90,7 @@ function loadPageContent(_step) {
 		.then(response => response.text())
 		.then(data => {
 			let currentStep = document.querySelector('.navDot[data-step="' + _step + '"]')
+			document.querySelector('.navBtn.bt_next').dataset.step = _step
 			if (!currentStep.previousElementSibling) {
 				document.querySelector('.navBtn.bt_prev').classList.add('hidden')
 			} else {
@@ -117,7 +118,6 @@ function loadPageContent(_step) {
 				document.getElementById('jeeasy_wizard').appendChild(newScript)
 				document.getElementById('jeeasy_wizard').removeChild(newScript)
 			})
-
 		})
 		.catch(error => console.error('{{Erreur au chargement de la page}}:', error))
 }

@@ -42,13 +42,23 @@ if (!isConnect()) {
 					div.dataset.logicalId = data.plugins[i].logicalId
 					div.dataset.installed = data.plugins[i].installed
 					let content = '<img src="' + data.plugins[i].icon + '" alt="{{Icone}}">'
-					content += '<div class="bold plugin-name">' + data.plugins[i].name + '</div>'
+					content += '<div class="bold plugin-name">'
+					if (data.plugins[i].installed) {
+						content += '<i class="fas fa-check-circle icon_blue" title="{{Installé}}"></i>'
+					} else {
+						content += '<i class="fas fa-times-circle" title="{{Installable}}"></i>'
+						content += '<i class="fas fa-plus-circle icon_green hidden" title="{{A installer}}"></i>'
+					}
+					content += ' ' + data.plugins[i].name + '</div>'
 					div.innerHTML = content
 					plugins.appendChild(div)
 
 					div.addEventListener('click', function() {
 						if (this.dataset.installed != 'true') {
 							this.classList.toggle('selected')
+							div.querySelectorAll('.plugin-name>i').forEach(_icon => {
+								_icon.classList.toggle('hidden')
+							})
 							if (document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="true"])').length > 0) {
 								allowNext(false)
 							} else {
@@ -57,55 +67,58 @@ if (!isConnect()) {
 						}
 					})
 				}
+				jeedomUtils.initTooltips()
 			}
 		}
 	})
 
-	document.querySelector('.navBtn.bt_next').addEventListener('click', function(_event) {
-		_event.preventDefault()
-		_event.stopImmediatePropagation()
-
-		if (!canGoNext()) {
-			let next = this
-			let plugins = document.getElementById('plugins')?.querySelectorAll('.plugin.selected:not([data-installed="true"])')
-			let message = '{{Installer les plugins suivants?}}'
-			message += '<ul>'
-			plugins.forEach(_plugin => {
-				message += '<li class="bold"><img src="' + _plugin.querySelector('img').src + '" height="24px"> ' + _plugin.querySelector('.plugin-name').innerText + '</li>'
-			})
-			message += '</ul>'
-			bootbox.confirm(message, function(result) {
-				if (result) {
-					plugins.forEach(_plugin => {
-						jeedom.repo.install({
-							id: _plugin.dataset.id,
-							repo: 'market',
-							async: false,
-							error: function(error) {
-								jeedomUtils.showAlert({
-									message: error.message,
-									level: 'danger'
-								})
-							},
-							success: function() {
-								jeedom.plugin.toggle({
-									id: _plugin.dataset.logicalId,
-									state: 1,
-									global: false,
-									error: function(error) {
-										jeedomUtils.showAlert({
-											message: error.message,
-											level: 'danger'
-										})
-									}
-								})
-							}
+	document.querySelector('#wizard_navigation').addEventListener('click', function(_event) {
+		var _target = null
+		if (_target = event.target.closest('.navBtn.bt_next[data-step="plugins"]')) {
+			_event.preventDefault()
+			_event.stopImmediatePropagation()
+			if (!canGoNext()) {
+				let plugins = document.getElementById('plugins')?.querySelectorAll('.plugin.selected:not([data-installed="true"])')
+				let message = '{{Installer les plugins suivants?}}'
+				message += '<ul>'
+				plugins?.forEach(_plugin => {
+					message += '<li class="bold"><img src="' + _plugin.querySelector('img').src + '" height="24px"> ' + _plugin.querySelector('.plugin-name').innerText + '</li>'
+				})
+				message += '</ul>'
+				bootbox.confirm(message, function(result) {
+					if (result) {
+						plugins.forEach(_plugin => {
+							jeedom.repo.install({
+								id: _plugin.dataset.id,
+								repo: 'market',
+								async: false,
+								error: function(error) {
+									jeedomUtils.showAlert({
+										message: error.message,
+										level: 'danger'
+									})
+								},
+								success: function() {
+									jeedom.plugin.toggle({
+										id: _plugin.dataset.logicalId,
+										state: 1,
+										global: false,
+										error: function(error) {
+											jeedomUtils.showAlert({
+												message: error.message,
+												level: 'danger'
+											})
+										}
+									})
+								}
+							})
 						})
-					})
-					allowNext()
-					next.triggerEvent('click')
-				}
-			})
+						allowNext()
+						_target.triggerEvent('click')
+					}
+				})
+			}
+			return
 		}
 	})
 </script>
