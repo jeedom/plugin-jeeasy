@@ -32,7 +32,7 @@ sendVarToJS('_country', $country);
 
 <div class="input-group">
 	<span class="input-group-addon roundedLeft">{{Langue}}
-		<sup><i class="fas fa-question-circle" title="{{Sélectionner la langue}}"></i></sup>
+		<sup><i class="fas fa-question-circle" title="{{Sélectionner la langue de l'installation}}"></i></sup>
 	</span>
 	<select class="form-control roundedRight" id="sel_language">
 		<option value="fr_FR" <?= ($language == 'fr_FR') ? ' selected' : '' ?>>{{Français}} (Français)</option>
@@ -46,7 +46,7 @@ sendVarToJS('_country', $country);
 
 <div class="input-group">
 	<span class="input-group-addon roundedLeft">{{Pays}}
-		<sup><i class="fas fa-question-circle" title="{{Sélectionner le pays}}"></i></sup>
+		<sup><i class="fas fa-question-circle" title="{{Sélectionner le pays de l'installation}}"></i></sup>
 	</span>
 	<select class="form-control roundedRight" id="sel_country">
 		<optgroup label="A">
@@ -347,8 +347,10 @@ sendVarToJS('_country', $country);
 	document.getElementById('sel_language').addEventListener('change', function() {
 		configSave({
 			language: this.value
-		})
+		}, false)
+		loadPageContent(getUrlVars('step'))
 	})
+
 	document.getElementById('sel_country').value = _country
 	document.getElementById('sel_country').addEventListener('change', function() {
 		configSave({

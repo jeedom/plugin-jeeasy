@@ -18,7 +18,7 @@ include_file('desktop', 'wizard', 'css', 'jeeasy');
 			<?php
 			$i = 1;
 			foreach (jeeasy::getWizardSteps(jeeasy::getWizardMode()) as $step => $title) {
-				echo '<span class="navDot cursor shadowed" data-step="' . $step . '" title="' . $title . '" data-tippy-placement="bottom">';
+				echo '<span class="navDot cursor shadowed" data-step="' . $step . '" title="' . $title . '">';
 				echo $i;
 				echo '</span>';
 				$i++;
@@ -27,7 +27,7 @@ include_file('desktop', 'wizard', 'css', 'jeeasy');
 		</div>
 		<div>
 			<i class="far fa-arrow-alt-circle-right navBtn bt_next"></i>
-			<i class="fas fa-check-circle hidden" id="bt_jeedom_ready"></i>
+			<i class="fas fa-check-circle hidden" id="bt_jeedom_ready" title="{{Démarrer}}"></i>
 		</div>
 	</div>
 </div>

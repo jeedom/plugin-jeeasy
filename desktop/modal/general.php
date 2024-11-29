@@ -24,14 +24,14 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 <div class="bold">{{Vous pouvez modifier certains paramètres généraux de votre installation puis passer à l'étape suivante}}
   <i class="far fa-arrow-alt-circle-right"></i>
 </div>
-<div class="input-group" style="width:100%;min-width:500px;">
-  <span class="input-group-addon roundedLeft">{{Nom}}
+<div class="input-group">
+  <span class="input-group-addon roundedLeft">{{Nom du système}}
     <sup><i class="fas fa-question-circle" title="{{Modifier le nom du système}}"></i></sup>
   </span>
   <input type="text" class="form-control roundedRight" id="in_boxName" value="<?= $boxName ?>">
 </div>
 
-<div class="input-group" style="width:100%;min-width:500px;">
+<div class="input-group">
   <span class="input-group-addon roundedLeft">{{Fuseau horaire}}
     <sup><i class="fas fa-question-circle" title="{{Sélectionner le fuseau horaire}}"></i></sup>
   </span>
@@ -146,12 +146,12 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 
 
 <script>
-
-
-document.getElementById('coordonatesModale').addEventListener('click', function(_event) {
-  $('#md_modal3').dialog({title: "{{Coordonnées}}"});
-	$('#md_modal3').load('index.php?v=d&plugin=jeeasy&modal=coordonates').dialog('open');
-});
+  document.getElementById('coordonatesModale').addEventListener('click', function(_event) {
+    $('#md_modal3').dialog({
+      title: "{{Coordonnées}}"
+    });
+    $('#md_modal3').load('index.php?v=d&plugin=jeeasy&modal=coordonates').dialog('open');
+  });
 
 
   jeedomUtils.initTooltips()

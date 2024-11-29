@@ -30,7 +30,7 @@ sendVarToJS([
 		</div>
 	</div>
 </div>
-<div class="step_father bold">{{Sélectionnez l'objet principal caractérisant au mieux la base de votre installation}} <?php echo config::byKey('product_name'); ?> {{ou passer à l'étape suivante}}
+<div class="step_father bold">{{Vous pouvez sélectionner l'objet principal caractérisant au mieux la base de votre installation ou passer à l'étape suivante}}
 	<i class="far fa-arrow-alt-circle-right"></i>
 </div>
 <div class="step_father flex-evenly" style="margin:15px">
@@ -50,7 +50,7 @@ sendVarToJS([
 
 <h3 class="step_childs hidden"></h3>
 <div class="step_childs hidden logo flex-column">
-	<div class="bold">{{Veuillez sélectionner les pièces à créer puis passer à l'étape suivante}}
+	<div class="bold">{{Vous pouvez sélectionner les pièces à créer puis passer à l'étape suivante}}
 		<i class="far fa-arrow-alt-circle-right"></i>
 	</div>
 

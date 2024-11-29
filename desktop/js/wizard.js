@@ -51,6 +51,7 @@ document.querySelectorAll('.navDot').forEach(_dot => {
 		setTimeout(() => {
 			document.querySelector('.navDot.active').classList.remove('active')
 			this.classList.add('active')
+			_contentContainer.empty()
 			loadPageContent(this.dataset.step)
 			_contentContainer.animate(inAnimation, {
 				duration: 500
@@ -141,22 +142,15 @@ function canGoNext() {
 	return _goNext
 }
 
-function configSave(_configuration) {
+async function configSave(_configuration, _async = true) {
 	jeedom.config.save({
 		configuration: _configuration,
+		async: _async,
 		error: function(_error) {
 			jeedomUtils.showAlert({
 				message: _error.message,
 				level: 'danger'
 			})
-		},
-		success: function() {
-			let step = getUrlVars('step')
-			switch (step) {
-				case 'welcome':
-					loadPageContent(step)
-					break
-			}
 		}
 	})
 }

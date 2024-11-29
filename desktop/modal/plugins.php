@@ -7,14 +7,14 @@ if (!isConnect()) {
 <h3>{{Installation des plugins}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
 <h4 id="servicePack"></h4>
-<div id="jeeasy-loading"><i class="fas fa-spinner fa-spin"></i> {{Chargement en cours, veuillez patienter un instant...}}</div>
+<div id="plugins-loading"><i class="fas fa-spinner fa-spin"></i> {{Chargement en cours, veuillez patienter un instant...}}</div>
 <div class="hidden" id="community">
-	<div class="bold">{{Aucun plugin à installer, passer à l'étape suivante}}
+	<div class="bold">{{Aucun plugin à installer, vous pouvez passer à l'étape suivante}}
 		<i class="far fa-arrow-alt-circle-right"></i>
 	</div>
 </div>
 <div class="hidden" id="others">
-	<div class="bold">{{Veuillez sélectionner les plugins à installer puis passer à l'étape suivante}}
+	<div class="bold">{{Vous pouvez sélectionner des plugins à installer puis passer à l'étape suivante}}
 		<i class="far fa-arrow-alt-circle-right"></i>
 	</div>
 </div>
@@ -25,10 +25,10 @@ if (!isConnect()) {
 	jeedom.jeeasy.getMarketPluginsList({
 		global: false,
 		error: function(error) {
-			document.getElementById('jeeasy-loading').innerHTML = '<i class="fas fa-times"></i> {{Une erreur est survenue}}: ' + error.message
+			document.getElementById('plugins-loading').innerHTML = '<i class="fas fa-times"></i> {{Une erreur est survenue}}: ' + error.message
 		},
 		success: function(data) {
-			document.getElementById('jeeasy-loading').remove()
+			document.getElementById('plugins-loading').remove()
 			document.getElementById('servicePack').innerText = data.servicePack
 			if (data.plugins.length <= 0) {
 				document.getElementById('community').removeClass('hidden')

@@ -4,21 +4,21 @@ if (!isConnect('admin')) {
 }
 ?>
 
-<div class="row row-overflow" >
+<div class="row row-overflow">
 
-	<div class="col-xs-12 eqLogicThumbnailDisplay" >
+	<div class="col-xs-12 eqLogicThumbnailDisplay">
 
 		<div class="eqLogicThumbnailContainer">
-			<legend style="margin-bottom:50px;"><i class="fas fa-cog"></i>  {{Bienvenue sur la configuration facile avec Jeeasy}}</legend>
+			<legend style="margin-bottom:50px;"><i class="fas fa-cog"></i> {{Bienvenue sur la configuration facile avec Jeeasy}}</legend>
 
 			<div class="cursor eqLogicAction logoPrimary" id="bt_jeeasyWizardV2">
-					<i class="fas fa-hat-wizard iconTableJeeasy"></i>
+				<i class="fas fa-hat-wizard iconTableJeeasy"></i>
 				<br>
 				<span>{{Jeeasy V2}}</span>
 			</div>
 
 			<div class="cursor eqLogicAction logoPrimary" id="bt_jeeasyWizard">
-					<i class="fas fa-hat-wizard iconTableJeeasy"></i>
+				<i class="fas fa-hat-wizard iconTableJeeasy"></i>
 				<br>
 				<span>{{Relancer le wizard}}</span>
 			</div>
@@ -50,7 +50,6 @@ if (!isConnect('admin')) {
 <!-- Inclusion du fichier javascript du plugin (dossier, nom_du_fichier, extension_du_fichier, id_du_plugin) -->
 
 
-<?php include_file('desktop', 'jeeasy', 'js', 'jeeasy');?>
-<?php include_file('desktop', 'common', 'js', 'jeeasy');?>
+<?php include_file('desktop', 'jeeasy', 'js', 'jeeasy'); ?>
 <!-- Inclusion du fichier javascript du core - NE PAS MODIFIER NI SUPPRIMER -->
-<?php include_file('core', 'plugin.template', 'js');?>
+<?php include_file('core', 'plugin.template', 'js'); ?>
