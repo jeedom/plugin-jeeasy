@@ -29,14 +29,14 @@ $coloredIcons = config::byKey('interface::advance::coloredIcons');
 
 <div class="input-group">
     <span class="input-group-addon roundedLeft">{{Couleur des icônes}}
-        <sup><i class="fas fa-question-circle" title="{{Cliquer sur le bouton pour autoriser les icônes colorées ou non}}"></i></sup>
+        <sup><i class="fas fa-question-circle" title="{{Cliquer sur le bouton pour basculer la coloration des icônes}}"></i></sup>
     </span>
     <div class="input-group-addon flex-evenly" style="font-size:20px;height:32px;">
         <i class="fas fa-check-circle icon_green"></i>
         <i class="fas fa-exclamation-circle icon_orange"></i>
         <i class="fas fa-times-circle icon_red"></i>
         <i class="fas fa-lightbulb icon_yellow"></i>
-        <i class="fas fa-thermometer-empty icon_blue"></i>
+        <i class="fas fa-tint icon_blue"></i>
     </div>
     <span class="input-group-btn">
         <button class="btn btn-primary roundedRight" title="<?= ($coloredIcons == 1) ? '{{Ne pas colorer les icônes}}' : '{{Colorer les icônes}}' ?>" id="btn_coloredIcons" data-state="<?= $coloredIcons ?>">
