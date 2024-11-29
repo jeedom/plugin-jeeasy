@@ -3,8 +3,9 @@ if (!isConnect()) {
   throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-$defaultLang = config::byKey('language');
-sendVarToJS('defaultLang', $defaultLang);
+$userCountry = config::byKey('info::stateCode', 'core', 'FR');
+sendVarToJS('userCountry', $userCountry);
+
 ?>
 
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://nominatim.openstreetmap.org; style-src 'self' 'unsafe-inline';">
@@ -12,9 +13,8 @@ sendVarToJS('defaultLang', $defaultLang);
 
 
 <div class="modalContainer" style="display:flex;flex-direction:column;align-items:center;height:100%; width:100%;">
-
-            <h3>{{Coordonnées}}</h3>          
-            <div class="input-group" style="width:50%;min-width:400px;">
+   
+            <div class="input-group" style="width:50%;min-width:600px;">
                 <span class="input-group-addon roundedLeft">{{Adresse}}
                     <sup><i class="fas fa-question-circle" title="{{Coordonnées de votre box}}"></i></sup>
                 </span>
@@ -23,11 +23,11 @@ sendVarToJS('defaultLang', $defaultLang);
                     <button  id="openStreetButton" class="hidden btn btn-info roundedRight" title="{{Valider l'adresse}}" style="height: 100%;"><i class="fas fa-map-marked-alt"></i></button>
                 </div>
             </div>
-            <ul id="suggestions"></ul>
+            <ul id="suggestions" style="z-index:1000;"></ul>
 
 
 
-            <div  class="input-group" id="gpsCoordonates" style="width:50%;min-width:500px;">
+            <div  class="input-group" id="gpsCoordonates" style="width:50%;min-width:600px;">
             <span class="input-group-addon roundedLeft">{{Coordonnées GPS}}
                 <sup><i class="fas fa-question-circle" title="{{Renseigner la latitude et la longitude du site. Ces champs seront remplis automatiquement si vous recherchez votre adresse}}"></i></sup>
             </span>
@@ -37,7 +37,8 @@ sendVarToJS('defaultLang', $defaultLang);
             </div>
 
 
-            <div id="mapTest" style="height:400px;width:50%;margin-top:5%;"></div>
+            <div id="mapJeeasy" style="height:80%;width:100%;margin-top:2%;"></div>
+            <span style="font-size:12px;margin-top:1%;">{{ Ceci est alimenté par }} [OpenStreetMap] <a>(https://www.openstreetmap.org/)</a></span>
 
 
 </div>
@@ -48,29 +49,30 @@ sendVarToJS('defaultLang', $defaultLang);
 <script>
 
 var map, marker, adresse, zipCode, city, country_code;
+var timeout = null;
+
 const capitalsCoordonates = {
-    "fr_FR" : "48.8566,2.3522",  
-    "en_US" : "38.9072,-77.0369", 
-    "es_ES" : "40.4168,-3.7038",  
-    "de_DE" : "52.5200,13.4050", 
-    "it_IT" : "41.9028,12.4964"   
+    "FR" : "48.8566,2.3522",  
+    "US" : "38.9072,-77.0369", 
+    "ES" : "40.4168,-3.7038",  
+    "DE" : "52.5200,13.4050", 
+    "IT" : "41.9028,12.4964"   
 }
 
-let defaultLatitude = capitalsCoordonates[defaultLang].split(',')[0];
-let defaultLongitude = capitalsCoordonates[defaultLang].split(',')[1];
+let defaultLatitude = capitalsCoordonates[userCountry].split(',')[0];
+let defaultLongitude = capitalsCoordonates[userCountry].split(',')[1];
 
 
 
 initializeMap(defaultLatitude, defaultLongitude);
 
   function initializeMap(latitude, longitude) {
-    map = L.map('mapTest').setView([latitude, longitude], 18);
+    map = L.map('mapJeeasy').setView([latitude, longitude], 18);
 
     marker = new L.marker([latitude,longitude],{
         draggable: true,
         autoPan: true
         }).addTo(map).bindPopup('Vous pouvez affiner la position en déplaçant le marqueur', {className: 'popUp'}).openPopup();
-    // This is powered by [OpenStreetMap](https://www.openstreetmap.org/) 
 
     L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -105,56 +107,98 @@ initializeMap(defaultLatitude, defaultLongitude);
   }
 
 
-
 document.getElementById('address-input')?.addEventListener('keyup', function(_event) {
-  if (this.value == '') {
-    document.getElementById('openStreetButton').classList.add('hidden');
-  } else {
-    document.getElementById('openStreetButton').classList.remove('hidden');
-  }
-});
-
-
-
- // carrer del pont, 27, 12500, vinaros, Espagne
-document.getElementById('openStreetButton')?.addEventListener('click', function(_event) {
+    clearTimeout(timeout);
     var addressInput = document.getElementById('address-input').value;
-    var fullAddress = encodeURIComponent(addressInput);
-    var url = "https://nominatim.openstreetmap.org/search?q=" + fullAddress + "&format=json&addressdetails=1";
+    if (addressInput.length < 4) {
+      document.getElementById('suggestions').style.display = 'none';
+      return;
+    }
 
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        var suggestions = document.getElementById('suggestions');
-        suggestions.innerHTML = '';
-        if (data.length > 0) {
+    timeout = setTimeout(function() {
+      var fullAddress = encodeURIComponent(addressInput);
+      var countryCode = userCountry;
+      var url = "https://nominatim.openstreetmap.org/search?q=" + fullAddress + "&format=json&addressdetails=1&countrycodes=" + countryCode;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          var suggestions = document.getElementById('suggestions');
+          suggestions.innerHTML = '';
+          if (data.length > 0) {
             console.log(data);
-          data.forEach(function(item) {
-            var li = document.createElement('li');
-            li.textContent = item.display_name;
-            li.style.padding = '5px';
-            li.style.cursor = 'pointer';
-            li.addEventListener('click', function() {
-              document.getElementById('address-input').value = item.display_name;
-              document.getElementById('in_latitude').value = item.lat;
-              document.getElementById('in_longitude').value = item.lon;
-              var event = new Event('change');
-              document.getElementById('in_latitude').dispatchEvent(event);
-              document.getElementById('in_longitude').dispatchEvent(event);
-              updateMap(item.lat, item.lon);
-              suggestions.style.display = 'none';
+            data.forEach(function(item) {
+              var li = document.createElement('li');
+             // li.style.height = '30px';
+              li.textContent = item.display_name;
+              li.style.padding = '5px';
+              li.style.cursor = 'pointer';
+              li.addEventListener('click', function() {
+                document.getElementById('address-input').value = item.display_name;
+                document.getElementById('in_latitude').value = item.lat;
+                document.getElementById('in_longitude').value = item.lon;
+                var event = new Event('change');
+                document.getElementById('in_latitude').dispatchEvent(event);
+                document.getElementById('in_longitude').dispatchEvent(event);
+                updateMap(item.lat, item.lon);
+                suggestions.style.display = 'none';
+              });
+              suggestions.appendChild(li);
             });
-            suggestions.appendChild(li);
-          });
-          suggestions.style.display = 'block';
-        } else {
-          suggestions.style.display = 'none';
-        }
-      })
-      .catch(error => {
-        console.error('Erreur lors de la récupération des suggestions d\'adresse:', error);
-      });
+            suggestions.style.display = 'block';
+          } else {
+            suggestions.style.display = 'none';
+          }
+        })
+        .catch(error => {
+          console.error('Erreur lors de la récupération des suggestions d\'adresse:', error);
+        });
+    }, 1000); 
   });
+
+
+  // Methode sans auto completion pour lapi
+
+// document.getElementById('openStreetButton')?.addEventListener('click', function(_event) {
+//     var addressInput = document.getElementById('address-input').value;
+//     var countryCode = userCountry;
+//     var fullAddress = encodeURIComponent(addressInput);
+//     var url = "https://nominatim.openstreetmap.org/search?q=" + fullAddress + "&format=json&addressdetails=1&countrycodes=" + countryCode;
+
+//     fetch(url)
+//       .then(response => response.json())
+//       .then(data => {
+//         var suggestions = document.getElementById('suggestions');
+//         suggestions.innerHTML = '';
+//         if (data.length > 0) {
+//             console.log(data);
+//           data.forEach(function(item) {
+//             var li = document.createElement('li');
+//             li.textContent = item.display_name;
+//             li.style.padding = '5px';
+//             li.style.cursor = 'pointer';
+//             li.addEventListener('click', function() {
+//               document.getElementById('address-input').value = item.display_name;
+//               document.getElementById('in_latitude').value = item.lat;
+//               document.getElementById('in_longitude').value = item.lon;
+//               var event = new Event('change');
+//               document.getElementById('in_latitude').dispatchEvent(event);
+//               document.getElementById('in_longitude').dispatchEvent(event);
+//               updateMap(item.lat, item.lon);
+//               suggestions.style.display = 'none';
+//             });
+//             suggestions.appendChild(li);
+//           });
+//           suggestions.style.display = 'block';
+//         } else {
+//           $('#div_alert').showAlert({ message: "Aucune adresse trouvée", level: 'warning' });
+//           suggestions.style.display = 'none';
+//         }
+//       })
+//       .catch(error => {
+//         console.error('Erreur lors de la récupération des suggestions d\'adresse:', error);
+//       });
+//   });
 
 
 
@@ -232,6 +276,7 @@ document.getElementById('validCoordonates')?.addEventListener('click', function(
     margin: 0; 
     width: 50%; 
     min-width: 400px; 
+    min-height: 50px;
     display: none; 
     border: 1px solid #ccc; 
     max-height: 150px; 

@@ -149,8 +149,8 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 
 
 document.getElementById('coordonatesModale').addEventListener('click', function(_event) {
-  $('#md_modal').dialog({title: "{{Coordonnées}}"});
-	$('#md_modal').load('index.php?v=d&plugin=jeeasy&modal=coordonates').dialog('open');
+  $('#md_modal3').dialog({title: "{{Coordonnées}}"});
+	$('#md_modal3').load('index.php?v=d&plugin=jeeasy&modal=coordonates').dialog('open');
 });
 
 
