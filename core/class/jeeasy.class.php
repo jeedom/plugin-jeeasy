@@ -24,22 +24,24 @@ class jeeasy extends eqLogic {
 
 	public static function getWizardSteps($_mode = 'default'): array {
 		$wizard['welcome'] =  __('Accueil', __FILE__);
-
 		if ($_mode == 'recovery') {
-			$wizard['pluginsInstall'] =	__('Plugins', __FILE__);
+			$wizard['atlas'] =	__('Atlas', __FILE__);
 		} else {
 			$wizard['general'] =	__('Général', __FILE__);
-			$wizard['interface'] =	__('Affichage', __FILE__);
-			$wizard['objects'] =	__('Objets', __FILE__);
+			$wizard['interface'] =	__('Interface', __FILE__);
+			$wizard['networks'] =	__('Réseaux', __FILE__);
+			if (in_array($hardware = strtolower(jeedom::getHardwareName()), ['atlas', 'luna', 'freeboxdelta'])) {
+				$wizard[$hardware] =	ucfirst($hardware);
+			}
 			$wizard['plugins'] =	__('Plugins', __FILE__);
-			$wizard['dns'] =	__('Accès externe', __FILE__);
+			$wizard['objects'] =	__('Objets', __FILE__);
 			if ($_mode == 'default') {
 				$wizard['services'] =	__('Services', __FILE__);
 				// $wizard['backupCloud'] =	__('Sauvegarde Cloud', __FILE__);
 				// $wizard['assistants'] =	__('Assistants vocaux', __FILE__);
 			}
+			$wizard['ready'] = __('Prêt à démarrer', __FILE__);
 		}
-		$wizard['ready'] = __('Prêt à démarrer', __FILE__);
 		return $wizard;
 	}
 
@@ -151,20 +153,6 @@ class jeeasy extends eqLogic {
 			config::save('apitts', config::genKey());
 		}
 		message::removeAll();
-		repo_market::test();
-	}
-
-	public static function dns_Go() {
-		repo_market::test();
-		try {
-			jeeasy::checkPlugin('openvpn');
-			sleep(10);
-			config::save('market::allowDNS', 1);
-			network::dns_start();
-		} catch (Exception $e) {
-			log::add('jeeasy', 'debug', 'erreur DNS > ' . $e);
-		}
-		sleep(2);
 		repo_market::test();
 	}
 }

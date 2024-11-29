@@ -26,7 +26,7 @@ if ($wizardMode == 'recovery') {
 	<div class="bold">{{Cliquez sur la coche en bas à droite}} <i class="fas fa-check-circle"></i> {{pour valider la configuration de votre installation.}}</div>
 
 
-	<hr class="hrPrimary">
+	<!-- <hr class="hrPrimary">
 
 	<div class="internalDiv">
 		<span>{{Accès local}} :</span>
@@ -37,7 +37,7 @@ if ($wizardMode == 'recovery') {
 		<span style="font-weight:bold;">
 			<?= (network::getNetworkAccess('external') == 'http:') ? "{{Le plugin Openvpn est en cours d installation}}" : network::getNetworkAccess('external'); ?>
 		</span>
-	</div>
+	</div> -->
 
 	<?php
 	if ($wizardMode == 'default') {

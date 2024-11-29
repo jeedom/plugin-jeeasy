@@ -52,10 +52,6 @@ try {
 		ajax::success(array('servicePack' => $SPInfos['servicePack'], 'plugins' => $plugins));
 	}
 
-	if (init('action') == 'dnsInstall') {
-		ajax::success(jeeasy::dns_Go());
-	}
-
 	throw new Exception(__('Aucune méthode correspondante à', __FILE__) . ' : ' . init('action'));
 } catch (Exception $e) {
 	ajax::error(displayException($e), $e->getCode());
