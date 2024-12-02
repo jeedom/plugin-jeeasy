@@ -230,8 +230,8 @@ sendVarToJS('userCountry', $userCountry);
           callback: function(secondResult) {
             if (secondResult) {
                 configSave({
-                    'info::latitude': selectedAddressData.lat,
-                    'info::longitude': selectedAddressData.long,
+                    'info::latitude': document.getElementById('in_latitude').value,
+                    'info::longitude': document.getElementById('in_longitude').value,
                 });
                 $('#div_alert').showAlert({ message: "Adresse enregistrée en configuration", level: 'success' });
             } else {
