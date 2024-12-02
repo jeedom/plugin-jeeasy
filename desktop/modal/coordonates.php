@@ -83,9 +83,15 @@ sendVarToJS('userCountry', $userCountry);
     }
     map = L.map('mapJeeasy').setView([latitude, longitude], 18);
 
+    var customIcon = L.icon({
+      iconUrl: 'plugins/jeeasy/3rdparty/images/marker-icon.png',
+      shadowUrl: 'plugins/jeeasy/3rdparty/images/marker-shadow.png'
+    });
+
     marker = new L.marker([latitude,longitude],{
       draggable: true,
-      autoPan: true
+      autoPan: true,
+      icon: customIcon
     }).addTo(map).bindPopup('Vous pouvez affiner la position en déplaçant le marqueur', {className: 'popUp'}).openPopup();
 
     L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
