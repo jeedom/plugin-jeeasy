@@ -139,7 +139,7 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 
 
 <div>
-  <button type="button" class="btn btn-info" id="coordonatesModale">{{Configuration de votre adresse}}</button>
+  <button type="button" class="modern-btn" id="coordonatesModale">{{Configuration de votre adresse}}</button>
 </div>
 
 
@@ -188,4 +188,22 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
   .hidden {
     display: none;
   }
+
+  .modern-btn {
+    background-color: #94CA04;
+    border: none;
+    color: white;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border-radius: 25px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, box-shadow 0.3s; 
+  }
+
+  .modern-btn:hover {
+    background-color: #85b604; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+  }
+
+
 </style>
