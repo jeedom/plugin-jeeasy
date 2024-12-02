@@ -12,29 +12,38 @@ sendVarToJS('userCountry', $userCountry);
 <link rel="stylesheet" href="plugins/jeeasy/3rdparty/leaflet.css"/>
 
 
+
 <div class="modalContainer" style="display:flex;flex-direction:column;align-items:center;height:100%; width:100%;">
-   
+
+ 
             <div class="input-group" style="width:50%;min-width:600px;">
                 <span class="input-group-addon roundedLeft">{{Adresse}}
                     <sup><i class="fas fa-question-circle" title="{{Coordonnées de votre box}}"></i></sup>
                 </span>
-                <div style="display:flex;">
-                    <input type="text" class="form-control" id="address-input" placeholder="Entrez une adresse" autocomplete="off" >
-                    <button  id="openStreetButton" class="hidden btn btn-info roundedRight" title="{{Valider l'adresse}}" style="height: 100%;"><i class="fas fa-map-marked-alt"></i></button>
+
+                <div style="display:flex; align-items: center;" class="inputcontainer">
+                    <input type="text" class="form-control " id="address-input" placeholder="Entrez une adresse" autocomplete="off">
+                    <div class="icon-container hidden" id="iconSpinner" style="z-index:1000;">
+                        <i class="loader"></i>
+                    </div>
+                    <button id="openStreetButton" class="hidden btn btn-info roundedRight" title="{{Valider l'adresse}}" style="height: 100%;"><i class="fas fa-map-marked-alt"></i></button>
                 </div>
             </div>
             <ul id="suggestions" style="z-index:1000;"></ul>
 
 
 
-            <div  class="input-group" id="gpsCoordonates" style="width:50%;min-width:600px;">
-            <span class="input-group-addon roundedLeft">{{Coordonnées GPS}}
-                <sup><i class="fas fa-question-circle" title="{{Renseigner la latitude et la longitude du site. Ces champs seront remplis automatiquement si vous recherchez votre adresse}}"></i></sup>
-            </span>
-            <input type="number" class="form-control" id="in_latitude" value="<?= config::byKey('info::latitude') ?>">
-            <span class="input-group-addon">{{,}}</span>
-            <input type="number" class="form-control" id="in_longitude" value="<?= config::byKey('info::longitude') ?>">
+            <div  class="input-group" id="gpsCoordonates" style="width:50%;min-width:600px;display:flex:">
+                <span class="input-group-addon roundedLeft">{{Coordonnées GPS}}
+                    <sup><i class="fas fa-question-circle" title="{{Renseigner la latitude et la longitude du site. Ces champs seront remplis automatiquement si vous recherchez votre adresse}}"></i></sup>
+                </span>
+                <input type="number" class="form-control" id="in_latitude" value="<?= config::byKey('info::latitude') ?>">
+                <span class="input-group-addon">{{,}}</span>
+                <input type="number" class="form-control" id="in_longitude" value="<?= config::byKey('info::longitude') ?>">
+                <span id="validCoordonates" class="input-group-addon roundedLeft btn disabled">{{Valider les coordonnées}}</span>
             </div>
+
+
 
 
             <div id="mapJeeasy" style="height:80%;width:100%;margin-top:2%;"></div>
@@ -110,12 +119,20 @@ sendVarToJS('userCountry', $userCountry);
   }
 
   document.getElementById('address-input')?.addEventListener('keyup', function(_event) {
+    if(this.value.length == 0){    
+        let btnValidCoordonates = document.getElementById('validCoordonates');
+        btnValidCoordonates.classList.add('disabled');
+        btnValidCoordonates.classList.remove('btn-success');
+        document.getElementById('iconSpinner').classList.add('hidden');
+    }
     clearTimeout(timeout);
     var addressInput = document.getElementById('address-input').value;
     if (addressInput.length < 4) {
       document.getElementById('suggestions').style.display = 'none';
       return;
     }
+
+    document.getElementById('iconSpinner').classList.remove('hidden');
 
     timeout = setTimeout(function() {
       var fullAddress = encodeURIComponent(addressInput);
@@ -125,6 +142,7 @@ sendVarToJS('userCountry', $userCountry);
       fetch(url)
         .then(response => response.json())
         .then(data => {
+          document.getElementById('iconSpinner').classList.add('hidden');
           var suggestions = document.getElementById('suggestions');
           suggestions.innerHTML = '';
           if (data.length > 0) {
@@ -143,6 +161,12 @@ sendVarToJS('userCountry', $userCountry);
                 document.getElementById('in_longitude').dispatchEvent(event);
                 updateMap(item.lat, item.lon);
                 suggestions.style.display = 'none';
+
+                var btnValidCoordonates = document.getElementById('validCoordonates');
+                btnValidCoordonates.classList.remove('disabled');
+                btnValidCoordonates.classList.add('btn-success');
+
+                
               });
               suggestions.appendChild(li);
             });
@@ -152,6 +176,7 @@ sendVarToJS('userCountry', $userCountry);
           }
         })
         .catch(error => {
+          document.getElementById('iconSpinner').classList.remove('hidden');
           console.error('Erreur lors de la récupération des suggestions d\'adresse:', error);
         });
     }, 1000); 
@@ -159,7 +184,7 @@ sendVarToJS('userCountry', $userCountry);
 
   document.getElementById('validCoordonates')?.addEventListener('click', function(_event) {
     bootbox.confirm({
-      message: "Coordonnées GPS trouvées.<br>Voulez-vous les enregistrer dans la configuration de la box ?",
+      message: "Voulez-vous enregistrer cette adresse dans la configuration de la box ?",
       buttons: {
         confirm: {
           label: 'Oui',
@@ -242,6 +267,55 @@ font-size : 1.6em;
 
 #suggestions li:hover {
 background-color: #94CA04;
+}
+
+.inputcontainer {
+  position: relative;
+  width: 100%;
+}
+
+.icon-container {
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 10px);
+}
+.loader {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  animation: around 5.4s infinite;
+}
+
+@keyframes around {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.loader::after, .loader::before {
+  content: "";
+  background: #E0E2E2;
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-width: 2px;
+  border-color: #94CA04 #94CA04 transparent transparent;
+  border-style: solid;
+  border-radius: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  animation: around 0.7s ease-in-out infinite;
+}
+
+.loader::after {
+  animation: around 0.7s ease-in-out 0.1s infinite;
+  background: transparent;
 }
 
 </style>
