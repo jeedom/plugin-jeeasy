@@ -48,31 +48,35 @@ sendVarToJS('userCountry', $userCountry);
 
 <script>
 
-var map, marker, adresse, zipCode, city, country_code;
-var timeout = null;
+(function() {
 
-const capitalsCoordonates = {
+  var map, marker, adresse, zipCode, city, country_code;
+  var timeout = null;
+
+  const capitalsCoordonates = {
     "FR" : "48.8566,2.3522",  
     "US" : "38.9072,-77.0369", 
     "ES" : "40.4168,-3.7038",  
     "DE" : "52.5200,13.4050", 
     "IT" : "41.9028,12.4964"   
-}
+  }
 
-let defaultLatitude = capitalsCoordonates[userCountry].split(',')[0];
-let defaultLongitude = capitalsCoordonates[userCountry].split(',')[1];
+  let defaultLatitude = capitalsCoordonates[userCountry].split(',')[0];
+  let defaultLongitude = capitalsCoordonates[userCountry].split(',')[1];
 
+  initializeMap(defaultLatitude, defaultLongitude);
 
-
-initializeMap(defaultLatitude, defaultLongitude);
 
   function initializeMap(latitude, longitude) {
+    if (map) {
+      map.remove();
+    }
     map = L.map('mapJeeasy').setView([latitude, longitude], 18);
 
     marker = new L.marker([latitude,longitude],{
-        draggable: true,
-        autoPan: true
-        }).addTo(map).bindPopup('Vous pouvez affiner la position en déplaçant le marqueur', {className: 'popUp'}).openPopup();
+      draggable: true,
+      autoPan: true
+    }).addTo(map).bindPopup('Vous pouvez affiner la position en déplaçant le marqueur', {className: 'popUp'}).openPopup();
 
     L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -93,7 +97,6 @@ initializeMap(defaultLatitude, defaultLongitude);
     });
   }
 
-
   function updateMap(latitude, longitude) {
     map.setView([latitude, longitude], 18);
     marker.setLatLng([latitude, longitude]);
@@ -106,8 +109,7 @@ initializeMap(defaultLatitude, defaultLongitude);
     longitudeInput.dispatchEvent(event);
   }
 
-
-document.getElementById('address-input')?.addEventListener('keyup', function(_event) {
+  document.getElementById('address-input')?.addEventListener('keyup', function(_event) {
     clearTimeout(timeout);
     var addressInput = document.getElementById('address-input').value;
     if (addressInput.length < 4) {
@@ -129,7 +131,6 @@ document.getElementById('address-input')?.addEventListener('keyup', function(_ev
             console.log(data);
             data.forEach(function(item) {
               var li = document.createElement('li');
-             // li.style.height = '30px';
               li.textContent = item.display_name;
               li.style.padding = '5px';
               li.style.cursor = 'pointer';
@@ -156,120 +157,73 @@ document.getElementById('address-input')?.addEventListener('keyup', function(_ev
     }, 1000); 
   });
 
-
-  // Methode sans auto completion pour lapi
-
-// document.getElementById('openStreetButton')?.addEventListener('click', function(_event) {
-//     var addressInput = document.getElementById('address-input').value;
-//     var countryCode = userCountry;
-//     var fullAddress = encodeURIComponent(addressInput);
-//     var url = "https://nominatim.openstreetmap.org/search?q=" + fullAddress + "&format=json&addressdetails=1&countrycodes=" + countryCode;
-
-//     fetch(url)
-//       .then(response => response.json())
-//       .then(data => {
-//         var suggestions = document.getElementById('suggestions');
-//         suggestions.innerHTML = '';
-//         if (data.length > 0) {
-//             console.log(data);
-//           data.forEach(function(item) {
-//             var li = document.createElement('li');
-//             li.textContent = item.display_name;
-//             li.style.padding = '5px';
-//             li.style.cursor = 'pointer';
-//             li.addEventListener('click', function() {
-//               document.getElementById('address-input').value = item.display_name;
-//               document.getElementById('in_latitude').value = item.lat;
-//               document.getElementById('in_longitude').value = item.lon;
-//               var event = new Event('change');
-//               document.getElementById('in_latitude').dispatchEvent(event);
-//               document.getElementById('in_longitude').dispatchEvent(event);
-//               updateMap(item.lat, item.lon);
-//               suggestions.style.display = 'none';
-//             });
-//             suggestions.appendChild(li);
-//           });
-//           suggestions.style.display = 'block';
-//         } else {
-//           $('#div_alert').showAlert({ message: "Aucune adresse trouvée", level: 'warning' });
-//           suggestions.style.display = 'none';
-//         }
-//       })
-//       .catch(error => {
-//         console.error('Erreur lors de la récupération des suggestions d\'adresse:', error);
-//       });
-//   });
-
-
-
-document.getElementById('validCoordonates')?.addEventListener('click', function(_event) {
+  document.getElementById('validCoordonates')?.addEventListener('click', function(_event) {
     bootbox.confirm({
-            message: "Coordonnées GPS trouvées.<br>Voulez-vous les enregistrer dans la configuration de la box ?",
-            buttons: {
-              confirm: {
-                label: 'Oui',
-                className: 'btn-success'
-              },
-              cancel: {
-                label: 'Non',
-                className: 'btn-danger'
-              }
-            },
-            callback: function(result) {
-              if (result) {
-                configSave({
-                  'info::address': address,
-                  'info::postalCode': zipCode,
-                  'info::city': city,
-                  'info::stateCode': data[0].address.country_code.toUpperCase(),
-                });
-                $('#div_alert').showAlert({ message: "Coordonnées enregistrées en configuration", level: 'success' });
-              }
-            }
+      message: "Coordonnées GPS trouvées.<br>Voulez-vous les enregistrer dans la configuration de la box ?",
+      buttons: {
+        confirm: {
+          label: 'Oui',
+          className: 'btn-success'
+        },
+        cancel: {
+          label: 'Non',
+          className: 'btn-danger'
+        }
+      },
+      callback: function(result) {
+        if (result) {
+          configSave({
+            'info::address': address,
+            'info::postalCode': zipCode,
+            'info::city': city,
+            'info::stateCode': data[0].address.country_code.toUpperCase(),
           });
-});
+          $('#div_alert').showAlert({ message: "Coordonnées enregistrées en configuration", level: 'success' });
+        }
+      }
+    });
+  });
 
-  jeedomUtils.initTooltips()
-  document.querySelector('#sel_timezone > option[value="' + _timezone + '"]').selected = true
+  jeedomUtils.initTooltips();
+  document.querySelector('#sel_timezone > option[value="' + _timezone + '"]').selected = true;
 
   document.getElementById('sel_timezone').addEventListener('change', function(_event) {
     configSave({
       timezone: this.value
-    })
-  })
-
-
+    });
+  });
 
   document.getElementById('in_boxName').addEventListener('change', function(_event) {
     configSave({
       name: this.value
-    })
-  })
+    });
+  });
 
   document.getElementById('in_latitude').addEventListener('change', function(_event) {
     configSave({
       'info::latitude': this.value
-    })
-  })
+    });
+  });
 
   document.getElementById('in_longitude').addEventListener('change', function(_event) {
     configSave({
       'info::longitude': this.value
-    })
-  })
+    });
+  });
+})();
 </script>
 
 
-
 <style>
-  .hidden {
-    display: none;
-  }
 
-  .popUp{
-    font-size : 1.6em;
+.hidden {
+display: none;
+}
 
-  }
+.popUp{
+font-size : 1.6em;
+}
+
 #suggestions {
     list-style-type: none; 
     padding: 0; 
@@ -286,8 +240,8 @@ document.getElementById('validCoordonates')?.addEventListener('click', function(
   }
 
 
-  #suggestions li:hover {
-    background-color: #94CA04;
-  }
+#suggestions li:hover {
+background-color: #94CA04;
+}
 
 </style>
