@@ -139,7 +139,7 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 
 
 <div>
-  <button type="button" class="modern-btn" id="coordonatesModale">{{Configuration de votre adresse}}</button>
+  <button type="button" class="modern-btn" id="coordonatesModale">{{Configuration de votre adresse postale}}</button>
 </div>
 
 
@@ -148,7 +148,7 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 <script>
   document.getElementById('coordonatesModale').addEventListener('click', function(_event) {
     $('#md_modal3').dialog({
-      title: "{{Coordonnées}}"
+      title: "{{Coordonnées GPS}}"
     });
     $('#md_modal3').load('index.php?v=d&plugin=jeeasy&modal=coordonates').dialog('open');
   });

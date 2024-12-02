@@ -26,7 +26,6 @@ sendVarToJS('userCountry', $userCountry);
                     <div class="icon-container hidden" id="iconSpinner" style="z-index:1000;">
                         <i class="loader"></i>
                     </div>
-                    <button id="openStreetButton" class="hidden btn btn-info roundedRight" title="{{Valider l'adresse}}" style="height: 100%;"><i class="fas fa-map-marked-alt"></i></button>
                 </div>
             </div>
             <ul id="suggestions" style="z-index:1000;"></ul>
@@ -40,7 +39,9 @@ sendVarToJS('userCountry', $userCountry);
                 <input type="number" class="form-control" id="in_latitude" value="<?= config::byKey('info::latitude') ?>">
                 <span class="input-group-addon">{{,}}</span>
                 <input type="number" class="form-control" id="in_longitude" value="<?= config::byKey('info::longitude') ?>">
-                <span id="validCoordonates" class="input-group-addon roundedLeft btn disabled">{{Valider les coordonnées}}</span>
+                <span id="validCoordonates" class="input-group-addon roundedLeft modern-btn-disabled">{{Valider les coordonnées}}
+                    <sup><i class="fas fa-question-circle" id="iValidBtn" title="{{Veuillez rechercher une adresse valide pour enregistrer le résultat.}}"></i></sup>
+                </span>
             </div>
 
 
@@ -122,7 +123,7 @@ sendVarToJS('userCountry', $userCountry);
     if(this.value.length == 0){    
         let btnValidCoordonates = document.getElementById('validCoordonates');
         btnValidCoordonates.classList.add('disabled');
-        btnValidCoordonates.classList.remove('btn-success');
+        document.getElementById('iValidBtn').classList.remove('hidden');
         document.getElementById('iconSpinner').classList.add('hidden');
     }
     clearTimeout(timeout);
@@ -163,8 +164,10 @@ sendVarToJS('userCountry', $userCountry);
                 suggestions.style.display = 'none';
 
                 var btnValidCoordonates = document.getElementById('validCoordonates');
-                btnValidCoordonates.classList.remove('disabled');
-                btnValidCoordonates.classList.add('btn-success');
+                btnValidCoordonates.classList.remove('modern-btn-disabled');
+                btnValidCoordonates.classList.add('modern-btn');
+                document.getElementById('iValidBtn').classList.add('hidden');
+                //btnValidCoordonates.classList.add('btn-success');
 
                 
               });
@@ -183,6 +186,9 @@ sendVarToJS('userCountry', $userCountry);
   });
 
   document.getElementById('validCoordonates')?.addEventListener('click', function(_event) {
+    if(this.classList.contains('modern-btn-disabled')){
+      return;
+    }
     bootbox.confirm({
       message: "Voulez-vous enregistrer cette adresse dans la configuration de la box ?",
       buttons: {
@@ -317,5 +323,17 @@ background-color: #94CA04;
   animation: around 0.7s ease-in-out 0.1s infinite;
   background: transparent;
 }
+
+.modern-btn {
+    background-color: #94CA04 !important;
+  }
+
+  .modern-btn-disabled {
+    background-color: #cc6600;
+  }
+
+  .modern-btn:hover {
+    cursor: pointer !important;
+  }
 
 </style>
