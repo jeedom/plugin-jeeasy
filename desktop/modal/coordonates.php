@@ -11,11 +11,8 @@ sendVarToJS('userCountry', $userCountry);
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://nominatim.openstreetmap.org; style-src 'self' 'unsafe-inline';">
 <link rel="stylesheet" href="plugins/jeeasy/3rdparty/leaflet.css"/>
 
-
-
 <div class="modalContainer" style="display:flex;flex-direction:column;align-items:center;height:100%; width:100%;">
 
- 
             <div class="input-group" style="width:50%;min-width:600px;">
                 <span class="input-group-addon roundedLeft">{{Adresse}}
                     <sup><i class="fas fa-question-circle" title="{{Coordonnées de votre box}}"></i></sup>
@@ -30,8 +27,6 @@ sendVarToJS('userCountry', $userCountry);
             </div>
             <ul id="suggestions" style="z-index:1000;"></ul>
 
-
-
             <div  class="input-group" id="gpsCoordonates" style="width:50%;min-width:600px;display:flex:">
                 <span class="input-group-addon roundedLeft">{{Coordonnées GPS}}
                     <sup><i class="fas fa-question-circle" title="{{Renseigner la latitude et la longitude du site. Ces champs seront remplis automatiquement si vous recherchez votre adresse}}"></i></sup>
@@ -43,9 +38,6 @@ sendVarToJS('userCountry', $userCountry);
                     <sup><i class="fas fa-question-circle" id="iValidBtn" title="{{Veuillez rechercher une adresse valide pour enregistrer le résultat.}}"></i></sup>
                 </span>
             </div>
-
-
-
 
             <div id="mapJeeasy" style="height:80%;width:100%;margin-top:2%;"></div>
             <span style="font-size:12px;margin-top:1%;">{{ Ceci est alimenté par }} [OpenStreetMap] <a>(https://www.openstreetmap.org/)</a></span>
@@ -125,6 +117,8 @@ sendVarToJS('userCountry', $userCountry);
     longitudeInput.dispatchEvent(event);
   }
 
+  var selectedAddressData = null;
+
   document.getElementById('address-input')?.addEventListener('keyup', function(_event) {
     if(this.value.length == 0){    
         let btnValidCoordonates = document.getElementById('validCoordonates');
@@ -173,9 +167,9 @@ sendVarToJS('userCountry', $userCountry);
                 btnValidCoordonates.classList.remove('modern-btn-disabled');
                 btnValidCoordonates.classList.add('modern-btn');
                 document.getElementById('iValidBtn').classList.add('hidden');
-                //btnValidCoordonates.classList.add('btn-success');
 
-                
+                selectedAddressData = item;
+
               });
               suggestions.appendChild(li);
             });
@@ -195,6 +189,10 @@ sendVarToJS('userCountry', $userCountry);
     if(this.classList.contains('modern-btn-disabled')){
       return;
     }
+    if (!selectedAddressData) {
+       return;
+    }
+    console.log('selectedAddressData', selectedAddressData);
     bootbox.confirm({
       message: "Voulez-vous enregistrer cette adresse dans la configuration de la box ?",
       buttons: {
@@ -210,14 +208,39 @@ sendVarToJS('userCountry', $userCountry);
       callback: function(result) {
         if (result) {
           configSave({
-            'info::address': address,
-            'info::postalCode': zipCode,
-            'info::city': city,
-            'info::stateCode': data[0].address.country_code.toUpperCase(),
+            'info::address': selectedAddressData.address.house_number ? selectedAddressData.address.house_number + ' ' + selectedAddressData.address.road : selectedAddressData.address.road,
+            'info::postalCode': selectedAddressData.address.postcode,
+            'info::city': selectedAddressData.address.city,
+            'info::stateCode': selectedAddressData.address.country_code.toUpperCase(),
           });
-          $('#div_alert').showAlert({ message: "Coordonnées enregistrées en configuration", level: 'success' });
+          $('#div_alert').showAlert({ message: "Adresse enregistrée en configuration", level: 'success' });
         }
+        bootbox.confirm({
+          message: "Voulez-vous enregistrer vos points coordonnés ?",
+          buttons: {
+            confirm: {
+              label: 'Oui',
+              className: 'btn-success'
+            },
+            cancel: {
+              label: 'Non',
+              className: 'btn-danger'
+            }
+          },
+          callback: function(secondResult) {
+            if (secondResult) {
+                configSave({
+                    'info::latitude': selectedAddressData.lat,
+                    'info::longitude': selectedAddressData.long,
+                });
+                $('#div_alert').showAlert({ message: "Adresse enregistrée en configuration", level: 'success' });
+            } else {
+
+            }
+          }
+        });
       }
+
     });
   });
 
