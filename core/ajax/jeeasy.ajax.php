@@ -26,32 +26,6 @@ try {
 		ajax::success(jeeasy::generateScenario(init('name'), json_decode(init('replace'), true)));
 	}
 
-	if (init('action') == 'getMarketPluginsList') {
-		$SPInfos = config::byKey('SPInfos', 'jeeasy');
-		if ($SPInfos == '' && !($SPInfos = jeeasy::updateServicePackInfos())) {
-			throw new Exception(__('La récupération des informations depuis le Market a échoué', __FILE__) . ' : ' . init('action'));
-		}
-		$jsonrpc = repo_market::getJsonRpc();
-		$marketURL = config::byKey('market::address');
-		$plugins = (array) $SPInfos['plugins'];
-		foreach ($plugins as $i => $pluginId) {
-			unset($plugins[$i]);
-			if ($pluginId == 'official' || $pluginId == 2286 /*wifip*/) {
-				continue;
-			}
-
-			if ($jsonrpc->sendRequest('market::byId', ['id' => $pluginId])) {
-				$result = $jsonrpc->getResult();
-				$plugins[$i]['id'] = $pluginId;
-				$plugins[$i]['logicalId'] = $result['logicalId'];
-				$plugins[$i]['name'] = $result['name'];
-				$plugins[$i]['icon'] = $marketURL . '/' . $result['img']['icon'];
-				$plugins[$i]['installed'] = is_file(__DIR__ . '/../../../' . $result['logicalId'] . '/plugin_info/info.json');
-			}
-		}
-		ajax::success(array('servicePack' => $SPInfos['servicePack'], 'plugins' => $plugins));
-	}
-
 	throw new Exception(__('Aucune méthode correspondante à', __FILE__) . ' : ' . init('action'));
 } catch (Exception $e) {
 	ajax::error(displayException($e), $e->getCode());

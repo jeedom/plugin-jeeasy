@@ -110,7 +110,6 @@ function loadPageContent(_step) {
 			_contentContainer.innerHTML = data
 			jeedomUtils.addOrUpdateUrl('step', _step)
 
-			// Rechargement des scripts
 			_contentContainer.querySelectorAll('script').forEach(_script => {
 				let newScript = document.createElement('script')
 				if (_script.src) {
@@ -118,9 +117,10 @@ function loadPageContent(_step) {
 				} else {
 					newScript.textContent = _script.textContent
 				}
-				document.getElementById('jeeasy_wizard').appendChild(newScript)
-				document.getElementById('jeeasy_wizard').removeChild(newScript)
+				_contentContainer.appendChild(newScript)
+				_contentContainer.removeChild(newScript)
 			})
+			jeedomUtils.initTooltips(_contentContainer)
 		})
 		.catch(error => console.error('{{Erreur au chargement de la page}}:', error))
 }
@@ -142,7 +142,7 @@ function canGoNext() {
 	return _goNext
 }
 
-async function configSave(_configuration, _async = true) {
+function configSave(_configuration, _async = true) {
 	jeedom.config.save({
 		configuration: _configuration,
 		async: _async,
@@ -150,6 +150,34 @@ async function configSave(_configuration, _async = true) {
 			jeedomUtils.showAlert({
 				message: _error.message,
 				level: 'danger'
+			})
+		}
+	})
+}
+
+function installPlugin(_marketId, _logicalId, _async = true) {
+	jeedom.repo.install({
+		id: _marketId,
+		repo: 'market',
+		async: _async,
+		global: false,
+		error: function(error) {
+			jeedomUtils.showAlert({
+				message: error.message,
+				level: 'danger'
+			})
+		},
+		success: function() {
+			jeedom.plugin.toggle({
+				id: _logicalId,
+				state: 1,
+				global: false,
+				error: function(error) {
+					jeedomUtils.showAlert({
+						message: error.message,
+						level: 'danger'
+					})
+				}
 			})
 		}
 	})

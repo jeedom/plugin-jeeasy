@@ -2,74 +2,77 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
+$servicePack = 'Community';
+$plugins = array();
+$SPInfos = config::byKey('SPInfos', 'jeeasy');
+if ($SPInfos != '' || $SPInfos = jeeasy::updateServicePackInfos()) {
+	$servicePack = $SPInfos['servicePack'];
+	$pluginsDetails = jeeasy::getPluginDetails();
+	foreach (((array) $SPInfos['plugins']) as $pluginId) {
+		if (isset($pluginsDetails[$pluginId])) {
+			$plugins[$pluginId] = $pluginsDetails[$pluginId];
+		}
+	}
+}
 ?>
 
 <h3>{{Installation des plugins}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-<h4 id="servicePack"></h4>
-<div id="plugins-loading"><i class="fas fa-spinner fa-spin"></i> {{Chargement en cours, veuillez patienter un instant...}}</div>
-<div class="hidden" id="community">
+<h4><?= $servicePack ?></h4>
+<?php
+if (empty($plugins)) {
+?>
 	<div class="bold">{{Aucun plugin à installer, vous pouvez passer à l'étape suivante}}
 		<i class="far fa-arrow-alt-circle-right"></i>
 	</div>
-</div>
-<div class="hidden" id="others">
+<?php
+} else {
+?>
 	<div class="bold">{{Vous pouvez sélectionner des plugins à installer puis passer à l'étape suivante}}
 		<i class="far fa-arrow-alt-circle-right"></i>
 	</div>
-</div>
+<?php
+}
+?>
 <div class="flex-evenly" style="flex-wrap:wrap;" id="plugins">
+	<?php
+	foreach ($plugins as $pluginId => $pluginDetails) {
+	?>
+		<div class="plugin cursor shadowed<?= ($pluginDetails['installed'] ? ' selected' : '') ?>" data-id="<?= $pluginId ?>" data-logicalid="<?= $pluginDetails['logicalId'] ?>" data-installed="<?= $pluginDetails['installed'] ?>" title="<?= $pluginDetails['description'] ?>">
+			<div class="bold plugin-name">
+				<?php
+				if ($pluginDetails['installed']) {
+					echo '<i class="fas fa-check-circle icon_blue" title="{{Installé}}"></i>';
+				} else {
+					echo '<i class="fas fa-times-circle" title="{{Installable}}"></i>';
+					echo '<i class="fas fa-plus-circle icon_green hidden" title="{{A installer}}"></i>';
+				}
+				?>
+				<?= $pluginDetails['name'] ?>
+			</div>
+			<img src="<?= $pluginDetails['icon'] ?>" alt="{{Icone du plugin}}">
+			<div class="plugin-category"><?= $pluginDetails['category'] ?></div>
+		</div>
+	<?php
+	}
+	?>
 </div>
 
 <script>
-	jeedom.jeeasy.getMarketPluginsList({
-		global: false,
-		error: function(error) {
-			document.getElementById('plugins-loading').innerHTML = '<i class="fas fa-times"></i> {{Une erreur est survenue}}: ' + error.message
-		},
-		success: function(data) {
-			document.getElementById('plugins-loading').remove()
-			document.getElementById('servicePack').innerText = data.servicePack
-			if (data.plugins.length <= 0) {
-				document.getElementById('community').removeClass('hidden')
-			} else {
-				document.getElementById('others').removeClass('hidden')
-				let plugins = document.getElementById('plugins')
-				for (let i in data.plugins) {
-					let div = document.createElement('div')
-					div.classList = 'plugin cursor shadowed' + ((data.plugins[i].installed) ? ' selected' : '')
-					div.dataset.id = data.plugins[i].id
-					div.dataset.logicalId = data.plugins[i].logicalId
-					div.dataset.installed = data.plugins[i].installed
-					let content = '<img src="' + data.plugins[i].icon + '" alt="{{Icone}}">'
-					content += '<div class="bold plugin-name">'
-					if (data.plugins[i].installed) {
-						content += '<i class="fas fa-check-circle icon_blue" title="{{Installé}}"></i>'
-					} else {
-						content += '<i class="fas fa-times-circle" title="{{Installable}}"></i>'
-						content += '<i class="fas fa-plus-circle icon_green hidden" title="{{A installer}}"></i>'
-					}
-					content += ' ' + data.plugins[i].name + '</div>'
-					div.innerHTML = content
-					plugins.appendChild(div)
-
-					div.addEventListener('click', function() {
-						if (this.dataset.installed != 'true') {
-							this.classList.toggle('selected')
-							div.querySelectorAll('.plugin-name>i').forEach(_icon => {
-								_icon.classList.toggle('hidden')
-							})
-							if (document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="true"])').length > 0) {
-								allowNext(false)
-							} else {
-								allowNext()
-							}
-						}
-					})
+	document.getElementById('plugins').querySelectorAll('.plugin').forEach(_plugin => {
+		_plugin.addEventListener('click', function() {
+			if (this.dataset.installed != '1') {
+				this.classList.toggle('selected')
+				_plugin.querySelectorAll('.plugin-name>i').forEach(_icon => {
+					_icon.classList.toggle('hidden')
+				})
+				if (document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="1"])').length > 0) {
+					allowNext(false)
+				} else {
+					allowNext()
 				}
-				jeedomUtils.initTooltips()
 			}
-		}
+		})
 	})
 
 	document.querySelector('#wizard_navigation').addEventListener('click', function(_event) {
@@ -78,40 +81,17 @@ if (!isConnect()) {
 			_event.preventDefault()
 			_event.stopImmediatePropagation()
 			if (!canGoNext()) {
-				let plugins = document.getElementById('plugins')?.querySelectorAll('.plugin.selected:not([data-installed="true"])')
+				let plugins = document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="1"])')
 				let message = '{{Installer les plugins suivants?}}'
 				message += '<ul>'
-				plugins?.forEach(_plugin => {
+				plugins.forEach(_plugin => {
 					message += '<li class="bold"><img src="' + _plugin.querySelector('img').src + '" height="24px"> ' + _plugin.querySelector('.plugin-name').innerText + '</li>'
 				})
 				message += '</ul>'
 				bootbox.confirm(message, function(result) {
 					if (result) {
 						plugins.forEach(_plugin => {
-							jeedom.repo.install({
-								id: _plugin.dataset.id,
-								repo: 'market',
-								async: false,
-								error: function(error) {
-									jeedomUtils.showAlert({
-										message: error.message,
-										level: 'danger'
-									})
-								},
-								success: function() {
-									jeedom.plugin.toggle({
-										id: _plugin.dataset.logicalId,
-										state: 1,
-										global: false,
-										error: function(error) {
-											jeedomUtils.showAlert({
-												message: error.message,
-												level: 'danger'
-											})
-										}
-									})
-								}
-							})
+							installPlugin(_plugin.dataset.id, _plugin.dataset.logicalid)
 						})
 						allowNext()
 						_target.triggerEvent('click')
