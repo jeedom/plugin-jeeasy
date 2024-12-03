@@ -1,111 +1,46 @@
 <?php
 if (!isConnect()) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+  throw new Exception('{{401 - Accès non autorisé}}');
 }
-
-if( file_exists( config::byKey('path_wizard') ) )
-  $path_wizard = json_decode( file_get_contents( config::byKey( 'path_wizard' ) ), true );
-else
-  $path_wizard = json_decode( file_get_contents('plugins/jeeasy/core/data/wizard.json'), true );
-
-$custom = null;
-
-if($path_wizard['trame']['atlas']['custom']){
-	if($path_wizard['trame']['atlas']['custom'] != ''){
-		$custom = $path_wizard['trame']['atlas']['custom'];
-	}
-}
+$pluginId = 4195;
+$plugin = jeeasy::getPluginDetails($pluginId);
+$plugin['id'] = $pluginId;
+sendVarToJS('_plugin', $plugin);
 ?>
-    <script src="../js/common.js"></script>
-		<script>
-    var btNext = document.getElementById('bt_next');
-    var btPrev = document.getElementById('bt_prev');
 
-    btNext.style.display = 'none';
-    btPrev.style.display = 'none';
+<h3>{{Plugin}} <?= $plugin['name'] ?></h3>
+<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
+<div class="bold toggle-visibility <?= ($plugin['installed'] ? ' hidden' : '') ?>" id="jeeasy-loading">
+  <i class="fas fa-spinner fa-spin"></i> {{Le plugin <?= $plugin['name'] ?> est en cours d'installation, veuillez patienter un instant...}}
+</div>
+<div class="bold toggle-visibility <?= ($plugin['installed'] ? '' : ' hidden') ?>">{{Le plugin <?= $plugin['name'] ?> est installé, vous pouvez passer à l'étape suivante}}
+  <i class="far fa-arrow-alt-circle-right"></i>
+</div>
 
-    var progressInterval;
-    var progressBar = document.getElementById('div_progressbar');
-    progressBar.classList.add('progress-bar-success');
-    var progressValue = 0;
+<div class="flex-evenly" id="plugins">
+  <div class="plugin<?= ($plugin['installed'] ? ' selected' : '') ?>" data-id="<?= $plugin['id'] ?>" data-logicalid="<?= $plugin['logicalId'] ?>" data-installed="<?= $plugin['installed'] ?>" title="<?= $plugin['description'] ?>">
+    <div class="bold plugin-name">
+      <i class="fas fa-check-circle icon_blue toggle-visibility <?= ($plugin['installed'] ? '' : ' hidden') ?>" title="{{Installé}}"></i>
+      <i class="fas fa-spinner fa-spin toggle-visibility <?= ($plugin['installed'] ? ' hidden' : '') ?>" title="{{Installation en cours...}}"></i>
+      <?= $plugin['name'] ?>
+    </div>
+    <img src="<?= $plugin['icon'] ?>" alt="{{Icone du plugin}}">
+    <div class="plugin-category"><?= $plugin['category'] ?></div>
+  </div>
+</div>
 
-       function updateProgress() {
-          if (progressValue >= 90) {
-              clearInterval(progressInterval);
-          } else {
-              progressValue += 10; 
-              progressBar.innerHTML = progressValue + '%';
-              progressBar.style.width = progressValue + '%';
-          }
-       }
-       // On vient lancer l'intervall pour faire avancer la barre de progression
-    progressInterval = setInterval(updateProgress, 1500);
-		//progress(20, 'div_progressbar');
-    document.getElementById('textAtlas').innerHTML = '{{Installation du Plugin Atlas en cours.}}';
-
-		$.ajax({
-			type: "POST",
-			url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
-			data: {
-			    action: "installPlugin",
-			    id: 'atlas'
-					<?php if($custom['branch']){echo ", branch: '".$custom['branch']."'";} ?>
-			},
-			dataType: 'json',
-			error: function(request, status, error) {
-        clearInterval(progressInterval);
-					handleAjaxError(request, status, error);
-			},
-			success: function(data) {
-				testDep();
-       
-				//progress(50, 'div_progressbar');
-			}
-    	});
-
-      function testDep(){
-        $.ajax({
-          type: "POST",
-          url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
-          data: {
-              action: "installDepPlugin",
-              id: 'atlas'
-          },
-          dataType: 'json',
-          error: function(request, status, error) {
-              handleAjaxError(request, status, error);
-          },
-          success: function(data) {
-            clearInterval(progressInterval);
-            var progressBar = document.getElementById('div_progressbar');
-            progressBar.style.width = '100%';
-            progressBar.innerHTML = 100 + '%';
-            //document.querySelector('.textAtlas').innerHTML = '{{Le plugin OpenVpn a été installé avec succès}}';
-            progressBar.innerHTML = 'FIN';
-            Good();
-            //progress(100, 'div_progressbar');
-          }
-          });
-       }
-
-    
-      function Good(){
-        btNext.style.display = 'block';
-       // btNext.style.marginTop = '70px';
-        var imgElement = document.querySelector('.img-atlas');
-        imgElement.setAttribute('src', '<?php echo config::byKey("product_connection_image"); ?>');
-
-      }
-      </script>
-
-
-      <div class="col-md-12 text-center"><h2>{{Merci d'avoir choisi Jeedom Atlas}}</h2></div>
-      <div class="col-md-6 col-md-offset-3 text-center"><img class="img-responsive center-block img-atlas" src="<?php echo config::byKey('product_connection_image'); ?>" /></div>
-      <div class="col-md-12 text-center"><p class="text-center"><h3 class="textAtlas" id="textAtlas"></h3></p>
-      <div class="col-md-12 text-center">
-      <div id="contenuTextSpan" class="progress">
-      	<div class="progress-bar progress-bar-striped progress-bar-animated active" id="div_progressbar" role="progressbar" style="width: 0; height:20px;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-      	</div>
-      </div>
-      </div>
-      </div>
+<script>
+  if (_plugin.installed != 1) {
+    allowNext(false)
+    setTimeout(() => {
+      installPlugin(_plugin.id, _plugin.logicalId, false)
+      document.querySelectorAll('.toggle-visibility').forEach(_toggle => {
+        _toggle.classList.toggle('hidden')
+      })
+      let plugin = document.getElementById('plugins').querySelector('.plugin')
+      plugin.addClass('selected')
+      plugin.dataset.installed = 1
+      allowNext()
+    }, 1500)
+  }
+</script>
