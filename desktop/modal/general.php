@@ -13,11 +13,7 @@ if ($boxName == '') {
   config::save('name', $boxName);
 }
 sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
-
 ?>
-
-
-
 
 <h3>{{Paramètres généraux}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
@@ -25,8 +21,8 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
   <i class="far fa-arrow-alt-circle-right"></i>
 </div>
 <div class="input-group">
-  <span class="input-group-addon roundedLeft">{{Nom du système}}
-    <sup><i class="fas fa-question-circle" title="{{Modifier le nom du système}}"></i></sup>
+  <span class="input-group-addon roundedLeft">{{Nom de l'installation}}
+    <sup><i class="fas fa-question-circle" title="{{Modifier le nom de l'installation}}"></i></sup>
   </span>
   <input type="text" class="form-control roundedRight" id="in_boxName" value="<?= $boxName ?>">
 </div>
@@ -154,7 +150,6 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
   });
 
 
-  jeedomUtils.initTooltips()
   document.querySelector('#sel_timezone > option[value="' + _timezone + '"]').selected = true
 
   document.getElementById('sel_timezone').addEventListener('change', function(_event) {
@@ -193,17 +188,15 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
     background-color: #94CA04;
     border: none;
     color: white;
-    padding: 10px 20px; 
-    font-size: 16px; 
-    border-radius: 25px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    transition: background-color 0.3s, box-shadow 0.3s; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
   }
 
   .modern-btn:hover {
-    background-color: #85b604; 
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+    background-color: #85b604;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
-
-
 </style>

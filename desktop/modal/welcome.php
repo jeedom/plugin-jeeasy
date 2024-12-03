@@ -3,7 +3,7 @@ if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 $productName =	config::byKey('product_name');
-if (jeeasy::getWizardMode() == 'recovery') {
+if (jeeasy::getWizardMode() == 'atlasRecovery') {
 ?>
 	<h3>{{Assistant de restauration}}</h3>
 	<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
@@ -26,7 +26,7 @@ $language = config::byKey('language', 'core');
 $country = config::byKey('info::stateCode', 'core', 'FR');
 sendVarToJS('_country', $country);
 ?>
-<div class="bold">{{Choisissez votre langue et votre pays puis cliquez sur la flèche en bas à droite pour commencer}}
+<div class="bold">{{Vous pouvez modifier la langue et le pays de votre installation puis cliquer sur la flèche en bas à droite pour commencer}}
 	<i class="far fa-arrow-alt-circle-right"></i>
 </div>
 
@@ -343,7 +343,6 @@ sendVarToJS('_country', $country);
 </div>
 
 <script>
-	jeedomUtils.initTooltips()
 	document.getElementById('sel_language').addEventListener('change', function() {
 		configSave({
 			language: this.value

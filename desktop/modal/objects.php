@@ -30,7 +30,7 @@ sendVarToJS([
 		</div>
 	</div>
 </div>
-<div class="step_father bold">{{Vous pouvez sélectionner l'objet principal caractérisant au mieux la base de votre installation ou passer à l'étape suivante}}
+<div class="step_father bold">{{Vous pouvez sélectionner l'objet principal définissant au mieux votre installation ou passer à l'étape suivante}}
 	<i class="far fa-arrow-alt-circle-right"></i>
 </div>
 <div class="step_father flex-evenly" style="margin:15px">
@@ -399,7 +399,6 @@ sendVarToJS([
 </div>
 
 <script>
-	jeedomUtils.initTooltips()
 	document.getElementById('no_father').src = '/core/img/background/jeedom_abstract_01' + document.body.dataset.theme.toLowerCase().replace('core2019', '') + '.jpg'
 
 	var childsTitle = {

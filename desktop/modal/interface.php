@@ -45,8 +45,6 @@ $coloredIcons = config::byKey('interface::advance::coloredIcons');
     </span>
 </div>
 <script>
-    jeedomUtils.initTooltips()
-
     document.querySelector('#in_theme option[value="' + document.body.dataset.theme + '"]').selected = true
     document.getElementById('in_theme').addEventListener('change', function() {
         jeedomUtils.switchTheme()

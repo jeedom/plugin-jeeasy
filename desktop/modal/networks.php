@@ -114,8 +114,6 @@ $docker = config::byKeys(['network::localip']);
 </div>
 
 <script>
-	jeedomUtils.initTooltips()
-
 	document.getElementById('in_internalAddr').addEventListener('change', function() {
 		configSave({
 			internalAddr: this.value
