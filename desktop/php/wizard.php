@@ -3,9 +3,11 @@ if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
 include_file('desktop', 'wizard', 'css', 'jeeasy');
+$wizardMode = jeeasy::getWizardMode();
+sendVarToJS('_wizardMode', $wizardMode);
 ?>
 
-<button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Annuler l'assistant}}</button>
+<button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Fermer l'assistant}}</button>
 
 <div id="jeeasy_wizard">
 	<div class="container text-center" id="wizard_container">
@@ -17,7 +19,7 @@ include_file('desktop', 'wizard', 'css', 'jeeasy');
 		<div>
 			<?php
 			$i = 1;
-			foreach (jeeasy::getWizardSteps(jeeasy::getWizardMode()) as $step => $title) {
+			foreach (jeeasy::getWizardSteps($wizardMode) as $step => $title) {
 				echo '<span class="navDot cursor shadowed" data-step="' . $step . '" title="' . $title . '">';
 				echo $i;
 				echo '</span>';

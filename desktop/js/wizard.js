@@ -1,15 +1,10 @@
-var _goNext = true
-var _contentContainer
-
-(function() {
-	_contentContainer = document.getElementById('wizard_container')
-	let currentStep = getUrlVars('step')
-	if (!currentStep) {
-		currentStep = document.querySelector('.navDot').dataset.step
-	}
-	document.querySelector('.navDot[data-step="' + currentStep + '"]').classList.add('active')
-	loadPageContent(currentStep)
-})()
+var _contentContainer = document.getElementById('wizard_container')
+var currentStep = getUrlVars('step')
+if (!currentStep) {
+	currentStep = document.querySelector('.navDot').dataset.step
+}
+document.querySelector('.navDot[data-step="' + currentStep + '"]').classList.add('active')
+loadStep(currentStep)
 
 var slideOut = {
 	opacity: [1, 0],
@@ -30,17 +25,17 @@ var slideInReverse = {
 
 document.querySelectorAll('.navDot').forEach(_dot => {
 	_dot.addEventListener('click', function() {
-		let currentStep = document.querySelector('.navDot.active')
-		if (this == currentStep || this.classList.contains('blocked')) {
+		let current = document.querySelector('.navDot.active')
+		if (this == current || this.hasClass('blocked')) {
 			return false
 		}
-		if (!canGoNext()) {
-			allowNext()
+		if (current.nextElementSibling?.hasClass('blocked')) {
+			allowNavigation()
 		}
 
 		let outAnimation = slideOut
 		let inAnimation = slideIn
-		if (Number(this.innerText) < Number(currentStep.innerText)) {
+		if (Number(this.innerText) < Number(current.innerText)) {
 			outAnimation = slideOutReverse
 			inAnimation = slideInReverse
 		}
@@ -52,7 +47,7 @@ document.querySelectorAll('.navDot').forEach(_dot => {
 			document.querySelector('.navDot.active').classList.remove('active')
 			this.classList.add('active')
 			_contentContainer.empty()
-			loadPageContent(this.dataset.step)
+			loadStep(this.dataset.step)
 			_contentContainer.animate(inAnimation, {
 				duration: 500
 			})
@@ -72,9 +67,17 @@ document.querySelectorAll('.navBtn').forEach(_navBtn => {
 })
 
 document.getElementById('bt_quitJeeasyWizard').addEventListener('click', function() {
-	let confirm = "{{Voulez-vous vraiment annuler l'assistant de configuration?}}"
-	confirm += '<br><br>'
-	confirm += '<div class="alert alert-danger text-center">{{Certaines configurations ne seront pas effectuées et plusieurs plugins essentiels ne seront pas installés!}}</div>'
+	let confirm
+	if (!_wizardMode.includes('Recovery')) {
+		confirm = "{{Voulez-vous vraiment fermer l'assistant de configuration?}}"
+		confirm += '<br><br>'
+		confirm += '<div class="alert alert-danger text-center">{{Certaines configurations ne seront pas effectuées et plusieurs plugins essentiels ne seront pas installés}}</div>'
+	} else {
+		confirm = "{{Voulez-vous vraiment fermer l'assistant de restauration?}}"
+		confirm += '<br><br>'
+		confirm += '<div class="alert alert-danger text-center">{{Le système ne sera pas restauré}}</div>'
+	}
+
 	bootbox.confirm(confirm, function(result) {
 		if (result) {
 			exitJeeasy()
@@ -86,29 +89,16 @@ document.getElementById('bt_jeedom_ready').addEventListener('click', function() 
 	exitJeeasy()
 })
 
-function loadPageContent(_step) {
-	fetch('index.php?v=d&plugin=jeeasy&modal=' + _step)
+function loadStep(_step) {
+	updateContent('index.php?v=d&plugin=jeeasy&modal=' + _step)
+	updateNavigation(_step)
+}
+
+function updateContent(_url) {
+	fetch(_url)
 		.then(response => response.text())
 		.then(data => {
-			let currentStep = document.querySelector('.navDot[data-step="' + _step + '"]')
-			document.querySelector('.navBtn.bt_next').dataset.step = _step
-			if (!currentStep.previousElementSibling) {
-				document.querySelector('.navBtn.bt_prev').classList.add('hidden')
-			} else {
-				document.querySelector('.navBtn.bt_prev').title = currentStep.previousElementSibling.dataset.title
-				document.querySelector('.navBtn.bt_prev.hidden')?.classList.remove('hidden')
-			}
-			if (currentStep.nextElementSibling == undefined) {
-				document.querySelector('.navBtn.bt_next').classList.add('hidden')
-				document.getElementById('bt_jeedom_ready').classList.remove('hidden')
-			} else {
-				document.getElementById('bt_jeedom_ready').classList.add('hidden')
-				document.querySelector('.navBtn.bt_next').title = currentStep.nextElementSibling.dataset.title
-				document.querySelector('.navBtn.bt_next.hidden')?.classList.remove('hidden')
-			}
-
 			_contentContainer.innerHTML = data
-			jeedomUtils.addOrUpdateUrl('step', _step)
 
 			_contentContainer.querySelectorAll('script').forEach(_script => {
 				let newScript = document.createElement('script')
@@ -121,25 +111,59 @@ function loadPageContent(_step) {
 				_contentContainer.removeChild(newScript)
 			})
 			jeedomUtils.initTooltips(_contentContainer)
+			// return true
 		})
-		.catch(error => console.error('{{Erreur au chargement de la page}}:', error))
+		.catch(error => {
+			console.error('{{Erreur au chargement de la page}}:', error)
+		})
 }
 
-function allowNext(_allowed = true) {
-	_goNext = _allowed
-	let nextDot = document.querySelector('.navDot.active').nextElementSibling
-	while (nextDot) {
-		if (!_goNext) {
-			nextDot.classList.add('blocked')
-		} else {
-			nextDot.classList.remove('blocked')
-		}
-		nextDot = nextDot.nextElementSibling
+function updateNavigation(_step) {
+	let current = document.querySelector('.navDot[data-step="' + _step + '"]')
+	document.querySelector('.navBtn.bt_next').dataset.step = _step
+	if (!current.previousElementSibling) {
+		document.querySelector('.navBtn.bt_prev').classList.add('hidden')
+	} else {
+		document.querySelector('.navBtn.bt_prev').title = current.previousElementSibling.dataset.title
+		document.querySelector('.navBtn.bt_prev.hidden')?.classList.remove('hidden')
 	}
+	if (!current.nextElementSibling) {
+		document.querySelector('.navBtn.bt_next').classList.add('hidden')
+		if (_step == 'ready') {
+			document.getElementById('bt_jeedom_ready').classList.remove('hidden')
+		}
+	} else {
+		document.getElementById('bt_jeedom_ready').classList.add('hidden')
+		document.querySelector('.navBtn.bt_next').title = current.nextElementSibling.dataset.title
+		document.querySelector('.navBtn.bt_next.hidden')?.classList.remove('hidden')
+	}
+	jeedomUtils.addOrUpdateUrl('step', _step)
 }
 
-function canGoNext() {
-	return _goNext
+function allowNavigation(_direction = 'both', _allowed = true) {
+	let current = document.querySelector('.navDot.active')
+	if (_direction != 'next') {
+		let prevDot = current.previousElementSibling
+		while (prevDot) {
+			if (!_allowed) {
+				prevDot.classList.add('blocked')
+			} else {
+				prevDot.classList.remove('blocked')
+			}
+			prevDot = prevDot.previousElementSibling
+		}
+	}
+	if (_direction != 'prev') {
+		let nextDot = current.nextElementSibling
+		while (nextDot) {
+			if (!_allowed) {
+				nextDot.classList.add('blocked')
+			} else {
+				nextDot.classList.remove('blocked')
+			}
+			nextDot = nextDot.nextElementSibling
+		}
+	}
 }
 
 function configSave(_configuration, _async = true) {

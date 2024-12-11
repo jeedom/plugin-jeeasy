@@ -67,9 +67,9 @@ if (empty($plugins)) {
 					_icon.classList.toggle('hidden')
 				})
 				if (document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="1"])').length > 0) {
-					allowNext(false)
+					allowNavigation('next', false)
 				} else {
-					allowNext()
+					allowNavigation()
 				}
 			}
 		})
@@ -80,7 +80,7 @@ if (empty($plugins)) {
 		if (_target = event.target.closest('.navBtn.bt_next[data-step="plugins"]')) {
 			_event.preventDefault()
 			_event.stopImmediatePropagation()
-			if (!canGoNext()) {
+			if (document.querySelector('.navDot.active').nextElementSibling.hasClass('blocked')) {
 				let plugins = document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="1"])')
 				let message = '{{Installer les plugins suivants?}}'
 				message += '<ul>'
@@ -93,7 +93,7 @@ if (empty($plugins)) {
 						plugins.forEach(_plugin => {
 							installPlugin(_plugin.dataset.id, _plugin.dataset.logicalid)
 						})
-						allowNext()
+						allowNavigation()
 						_target.triggerEvent('click')
 					}
 				})

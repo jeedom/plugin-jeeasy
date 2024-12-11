@@ -414,7 +414,7 @@ sendVarToJS([
 			let title = this.dataset.title || $(this).tooltipster('content')
 			bootbox.confirm('<div class="bold">' + title + ' ?</div>', function(result) {
 				if (result) {
-					allowNext(false)
+					allowNavigation('next', false)
 					document.querySelector('h3.step_childs').innerText = childsTitle[_father.dataset.father]
 					document.querySelectorAll('.step_father').addClass('hidden')
 					document.querySelectorAll('.step_childs').removeClass('hidden')
@@ -492,7 +492,7 @@ sendVarToJS([
 		if (_target = event.target.closest('.navBtn.bt_next[data-step="objects"]')) {
 			_event.preventDefault()
 			_event.stopImmediatePropagation()
-			if (!canGoNext()) {
+			if (document.querySelector('.navDot.active').nextElementSibling.hasClass('blocked')) {
 				let objectsList = {
 					father: {},
 					childs: []
@@ -532,12 +532,12 @@ sendVarToJS([
 							objectsList.childs.forEach(_child => {
 								createObject(_child, fatherId)
 							})
-							allowNext()
+							allowNavigation()
 							_target.triggerEvent('click')
 						}
 					})
 				} else {
-					allowNext()
+					allowNavigation()
 					_target.triggerEvent('click')
 				}
 			}

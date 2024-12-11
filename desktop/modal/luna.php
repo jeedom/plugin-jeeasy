@@ -31,7 +31,7 @@ sendVarToJS('_plugin', $plugin);
 
 <script>
   if (_plugin.installed != 1) {
-    allowNext(false)
+    allowNavigation('next', false)
     setTimeout(() => {
       installPlugin(_plugin.id, _plugin.logicalId, false)
       document.querySelectorAll('.toggle-visibility').forEach(_toggle => {
@@ -40,7 +40,7 @@ sendVarToJS('_plugin', $plugin);
       let plugin = document.getElementById('plugins').querySelector('.plugin')
       plugin.addClass('selected')
       plugin.dataset.installed = 1
-      allowNext()
+      allowNavigation()
     }, 1500)
   }
 </script>
