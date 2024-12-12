@@ -64,9 +64,9 @@ sendVarToJS('_product', config::byKeys(['product_image', 'product_name']));
 							div.addEventListener('click', function() {
 								this.classList.toggle('selected')
 								if (document.getElementById('updates').querySelectorAll('.update.selected').length > 0) {
-									allowNext(false)
+									allowNavigation('next', false)
 								} else {
-									allowNext()
+									allowNavigation()
 								}
 							})
 						})
@@ -83,7 +83,7 @@ sendVarToJS('_product', config::byKeys(['product_image', 'product_name']));
 		if (_target = event.target.closest('.navBtn.bt_next[data-step="updates"]')) {
 			_event.preventDefault()
 			_event.stopImmediatePropagation()
-			if (!canGoNext()) {
+			if (document.querySelector('.navDot.active').nextElementSibling.hasClass('blocked')) {
 				let updates = document.getElementById('updates').querySelectorAll('.update.selected')
 				let message = '{{Effectuer les mises à jour suivantes?}}'
 				message += '<ul>'
@@ -118,7 +118,7 @@ sendVarToJS('_product', config::byKeys(['product_image', 'product_name']));
 								})
 							}
 						})
-						allowNext()
+						allowNavigation()
 						_target.triggerEvent('click')
 					}
 				})
