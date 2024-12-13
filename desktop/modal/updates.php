@@ -55,7 +55,7 @@ sendVarToJS('_product', config::byKeys(['product_image', 'product_name']));
 								div.innerHTML = content
 								updatesDiv.insertAdjacentElement('afterbegin', div)
 							} else {
-								content += update.plugin.name + '</div>'
+								content += (update.plugin?.name || update.name.charAt(0).toUpperCase() + update.name.slice(1)) + '</div>'
 								content += '<img src="/plugins/' + update.logicalId + '/plugin_info/' + update.logicalId + '_icon.png" alt="{{Icone}}">'
 								div.innerHTML = content
 								updatesDiv.appendChild(div)
