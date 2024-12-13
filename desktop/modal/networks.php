@@ -218,7 +218,7 @@ $docker = config::byKeys(['network::localip']);
 				})
 			},
 			success: function() {
-				loadPageContent(getUrlVars('step'))
+				updateContent('index.php?v=d&plugin=jeeasy&modal=networks')
 			}
 		})
 	}

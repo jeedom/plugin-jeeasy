@@ -111,7 +111,6 @@ function updateContent(_url) {
 				_contentContainer.removeChild(newScript)
 			})
 			jeedomUtils.initTooltips(_contentContainer)
-			// return true
 		})
 		.catch(error => {
 			console.error('{{Erreur au chargement de la page}}:', error)
