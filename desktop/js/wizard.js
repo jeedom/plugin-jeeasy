@@ -209,6 +209,6 @@ function installPlugin(_marketId, _logicalId, _async = true) {
 function exitJeeasy() {
 	configSave({
 		'jeedom::firstUse': 0
-	})
-	loadPage('index.php?v=d&p=dashboard')
+	}, false)
+	loadPage('index.php?v=d&p=overview')
 }
