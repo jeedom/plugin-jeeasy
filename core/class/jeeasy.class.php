@@ -193,12 +193,17 @@ class jeeasy extends eqLogic {
 			$wizard['atlas'] =	__('Atlas', __FILE__);
 			$wizard['atlasRecovery'] =	__('Restauration système', __FILE__);
 		} else {
-			$wizard['updates'] =	__('Mises à jour', __FILE__);
+			update::checkAllUpdate();
+			if (update::nbNeedUpdate() > 0) {
+				$wizard['updates'] =	__('Mises à jour', __FILE__);
+			}
 			if (in_array($hardware = strtolower(jeedom::getHardwareName()), ['atlas', 'luna', 'freeboxdelta'])) {
 				if (strpos($hardware, 'freebox') !== false) {
 					$hardware = 'freebox_OS';
 				}
-				$wizard[$hardware] =	ucfirst($hardware);
+				if (!is_object(update::byLogicalId($hardware))) {
+					$wizard[$hardware] =	ucfirst($hardware);
+				}
 			}
 			$wizard['general'] =	__('Général', __FILE__);
 			$wizard['interface'] =	__('Interface', __FILE__);

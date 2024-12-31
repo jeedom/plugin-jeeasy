@@ -11,7 +11,7 @@ sendVarToJS('_product', config::byKeys(['product_image', 'product_name']));
 </div>
 
 <script>
-	jeedom.update.checkAll({
+	jeedom.update.get({
 		global: false,
 		error: function(error) {
 			jeedomUtils.showAlert({
@@ -19,62 +19,51 @@ sendVarToJS('_product', config::byKeys(['product_image', 'product_name']));
 				level: 'danger'
 			})
 		},
-		success: function() {
-			jeedom.update.get({
-				global: false,
-				error: function(error) {
-					jeedomUtils.showAlert({
-						message: error.message,
-						level: 'danger'
-					})
-				},
-				success: function(plugins) {
-					if (getUrlVars('step') == 'updates') {
-						let updates = []
-						plugins.forEach(plugin => {
-							if (plugin.status == 'update' && (plugin.type == 'core' || isset(plugin.plugin))) {
-								updates.push(plugin)
-							}
-						});
-
-						if (updates.length <= 0) {
-							return document.getElementById('jeeasy-loading').innerHTML = "{{Votre installation est à jour, vous pouvez passer à l'étape suivante}} " + '<i class="far fa-arrow-alt-circle-right"></i>'
-						}
-						let updatesDiv = document.getElementById('updates')
-						updates.forEach(update => {
-							let div = document.createElement('div')
-							div.classList = 'update cursor shadowed'
-							div.dataset.id = update.id
-							div.dataset.type = update.type
-							div.dataset.remoteVersion = update.remoteVersion
-							div.title = '{{Actuelle}}: ' + update.localVersion + '<br>{{Nouvelle}}: ' + update.remoteVersion
-							let content = '<div class="bold update-name">'
-							if (update.type == 'core') {
-								content += _product.product_name + '</div>'
-								content += '<img src="' + _product.product_image + '" alt="{{Icone}}">'
-								div.innerHTML = content
-								updatesDiv.insertAdjacentElement('afterbegin', div)
-							} else {
-								content += update.plugin.name + '</div>'
-								content += '<img src="/plugins/' + update.logicalId + '/plugin_info/' + update.logicalId + '_icon.png" alt="{{Icone}}">'
-								div.innerHTML = content
-								updatesDiv.appendChild(div)
-							}
-
-							div.addEventListener('click', function() {
-								this.classList.toggle('selected')
-								if (document.getElementById('updates').querySelectorAll('.update.selected').length > 0) {
-									allowNavigation('next', false)
-								} else {
-									allowNavigation()
-								}
-							})
-						})
-						document.getElementById('jeeasy-loading').innerHTML = "{{Vous pouvez sélectionner les mises à jour à effectuer puis passer à l'étape suivante}} " + '<i class="far fa-arrow-alt-circle-right"></i>'
-						jeedomUtils.initTooltips()
+		success: function(plugins) {
+			if (getUrlVars('step') == 'updates') {
+				let updates = []
+				plugins.forEach(plugin => {
+					if (plugin.status == 'update' && (plugin.type == 'core' || isset(plugin.plugin))) {
+						updates.push(plugin)
 					}
+				});
+
+				if (updates.length <= 0) {
+					return document.getElementById('jeeasy-loading').innerHTML = "{{Votre installation est à jour, vous pouvez passer à l'étape suivante}} " + '<i class="far fa-arrow-alt-circle-right"></i>'
 				}
-			})
+				let updatesDiv = document.getElementById('updates')
+				updates.forEach(update => {
+					let div = document.createElement('div')
+					div.classList = 'update cursor shadowed'
+					div.dataset.id = update.id
+					div.dataset.type = update.type
+					div.dataset.remoteVersion = update.remoteVersion
+					div.title = '{{Actuelle}}: ' + update.localVersion + '<br>{{Nouvelle}}: ' + update.remoteVersion
+					let content = '<div class="bold update-name">'
+					if (update.type == 'core') {
+						content += _product.product_name + '</div>'
+						content += '<img src="' + _product.product_image + '" alt="{{Icone}}">'
+						div.innerHTML = content
+						updatesDiv.insertAdjacentElement('afterbegin', div)
+					} else {
+						content += update.plugin.name + '</div>'
+						content += '<img src="/plugins/' + update.logicalId + '/plugin_info/' + update.logicalId + '_icon.png" alt="{{Icone}}">'
+						div.innerHTML = content
+						updatesDiv.appendChild(div)
+					}
+
+					div.addEventListener('click', function() {
+						this.classList.toggle('selected')
+						if (document.getElementById('updates').querySelectorAll('.update.selected').length > 0) {
+							allowNavigation('next', false)
+						} else {
+							allowNavigation()
+						}
+					})
+				})
+				document.getElementById('jeeasy-loading').innerHTML = "{{Vous pouvez sélectionner les mises à jour à effectuer puis passer à l'étape suivante}} " + '<i class="far fa-arrow-alt-circle-right"></i>'
+				jeedomUtils.initTooltips()
+			}
 		}
 	})
 
