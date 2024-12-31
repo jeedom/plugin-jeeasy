@@ -90,8 +90,8 @@ document.getElementById('bt_jeedom_ready').addEventListener('click', function() 
 })
 
 function loadStep(_step) {
-	updateContent('index.php?v=d&plugin=jeeasy&modal=' + _step)
 	updateNavigation(_step)
+	updateContent('index.php?v=d&plugin=jeeasy&modal=' + _step)
 }
 
 function updateContent(_url) {
@@ -210,5 +210,6 @@ function exitJeeasy() {
 	configSave({
 		'jeedom::firstUse': 0
 	}, false)
-	loadPage('index.php?v=d&p=overview')
+	// loadPage('index.php?v=d&p=overview')
+	window.location.href = 'index.php?v=d&p=overview'
 }

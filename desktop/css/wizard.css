@@ -12,11 +12,6 @@ body {
 	align-items: center;
 }
 
-#div_pageContainer {
-	background-color: rgba(var(--eq-bg-color), var(--opacity));
-	border-radius: var(--border-radius);
-}
-
 #jeeasy_wizard .flex-evenly {
 	width: 100%;
 	height: 100%;
@@ -47,6 +42,8 @@ body {
 	grid-template-columns: 100%;
 	grid-template-rows: 50px 250px 0 25px auto;
 	overflow: hidden;
+	background-color: rgb(var(--panel-bg-color));
+	border-radius: var(--border-radius);
 }
 
 #wizard_container>h3 {
