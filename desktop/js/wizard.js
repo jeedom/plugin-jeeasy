@@ -200,6 +200,28 @@ function installPlugin(_marketId, _logicalId, _async = true) {
 						message: error.message,
 						level: 'danger'
 					})
+				},
+				success: function() {
+					jeedom.plugin.dependancyChangeAutoMode({
+						id: _logicalId,
+						mode: 1,
+						error: function(error) {
+							jeedomUtils.showAlert({
+								message: error.message,
+								level: 'danger'
+							})
+						}
+					})
+					jeedom.plugin.deamonChangeAutoMode({
+						id: _logicalId,
+						mode: 1,
+						error: function(error) {
+							jeedomUtils.showAlert({
+								message: error.message,
+								level: 'danger'
+							})
+						}
+					})
 				}
 			})
 		}
