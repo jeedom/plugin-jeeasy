@@ -10,9 +10,8 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 
 <script src="../js/common.js"></script>
 <script>
-
 	var btNext = document.getElementById('bt_next');
-  var btPrev = document.getElementById('bt_prev');
+	var btPrev = document.getElementById('bt_prev');
 	btNext.style.display = 'none';
 	btPrev.style.display = 'none';
 	progress(20, 'div_progressbar');
@@ -42,7 +41,7 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 	function autorisationFreebox() {
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "connect",
 			},
@@ -75,7 +74,7 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 		var fbx_track_id = jsonParser.result.track_id;
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "sendToBdd",
 				app_token: fbx_app_token,
@@ -101,7 +100,7 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 		progress(80, 'div_progressbar');
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "ask_track_authorization",
 			},
@@ -139,7 +138,7 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 
 						case "denied":
 							textFreeboxElement.innerHTML = '{{Vous avez refusé, il faut vous rendre sur le plugin freebox pour relancer l\'association. Merci}}':
-							progress(-1, 'div_progressbar');
+								progress(-1, 'div_progressbar');
 							Good();
 							break;
 						default:
@@ -157,12 +156,10 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 
 	function Good() {
 		btNext.style.display = 'block';
-	  btPrev.style.display = 'block';
+		btPrev.style.display = 'block';
 		let productConnectionImage = '<?php echo config::byKey('product_connection_image'); ?>';
 		document.querySelector('.img-freeboxOS').setAttribute('src', productConnectionImage);
 	}
-
-
 </script>
 
 <div class="col-md-12 text-center">
