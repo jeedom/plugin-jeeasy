@@ -189,39 +189,32 @@ class jeeasy extends eqLogic {
 
 	public static function getWizardSteps($_mode = 'default'): array {
 		$wizard['welcome'] =  __('Accueil', __FILE__);
-		if ($_mode == 'atlasRecovery') {
-			$wizard['atlas'] =	__('Atlas', __FILE__);
-			$wizard['atlasRecovery'] =	__('Restauration système', __FILE__);
-		} else {
-			update::checkAllUpdate();
-			if (update::nbNeedUpdate() > 0) {
-				$wizard['updates'] =	__('Mises à jour', __FILE__);
-			}
-			if (in_array($hardware = strtolower(jeedom::getHardwareName()), ['atlas', 'luna', 'freeboxdelta'])) {
-				if (strpos($hardware, 'freebox') !== false) {
-					$hardware = 'freebox_OS';
-				}
-				if (!is_object(update::byLogicalId($hardware))) {
-					$wizard[$hardware] =	ucfirst($hardware);
-				}
-			}
-			$wizard['general'] =	__('Général', __FILE__);
-			$wizard['interface'] =	__('Interface', __FILE__);
-			$wizard['networks'] =	__('Réseaux', __FILE__);
-			$wizard['plugins'] =	__('Plugins', __FILE__);
-			$wizard['objects'] =	__('Objets', __FILE__);
-			if ($_mode != 'mb') {
-				$wizard['services'] =	__('Services', __FILE__);
-			}
-			$wizard['ready'] = __('Prêt à démarrer', __FILE__);
+		update::checkAllUpdate();
+		if (update::nbNeedUpdate() > 0) {
+			$wizard['updates'] =	__('Mises à jour', __FILE__);
 		}
+		if (in_array($hardware = strtolower(jeedom::getHardwareName()), ['atlas', 'luna', 'freeboxdelta'])) {
+			if (strpos($hardware, 'freebox') !== false) {
+				$hardware = 'freebox_OS';
+			}
+			if (!is_object(update::byLogicalId($hardware))) {
+				$wizard[$hardware] =	ucfirst($hardware);
+			}
+		}
+		$wizard['general'] =	__('Général', __FILE__);
+		$wizard['interface'] =	__('Interface', __FILE__);
+		$wizard['networks'] =	__('Réseaux', __FILE__);
+		$wizard['plugins'] =	__('Plugins', __FILE__);
+		$wizard['objects'] =	__('Objets', __FILE__);
+		if ($_mode != 'mb') {
+			$wizard['services'] =	__('Services', __FILE__);
+		}
+		$wizard['ready'] = __('Prêt à démarrer', __FILE__);
 		return $wizard;
 	}
 
 	public static function getWizardMode(): string {
-		if (strtolower(trim(gethostname())) == 'jeedomatlasrecovery') {
-			return 'atlasRecovery';
-		} else if (config::byKey('mbState', 'core', 0) == 1) {
+		if (config::byKey('mbState', 'core', 0) == 1) {
 			return 'mb';
 		}
 		return 'default';
