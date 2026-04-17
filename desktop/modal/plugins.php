@@ -34,7 +34,7 @@ if (empty($plugins)) {
 <?php
 }
 ?>
-<div class="flex-evenly" style="flex-wrap:wrap;" id="plugins">
+<div class="flex-evenly" id="plugins">
 	<?php
 	foreach ($plugins as $pluginId => $pluginDetails) {
 	?>
@@ -44,7 +44,7 @@ if (empty($plugins)) {
 				if ($pluginDetails['installed']) {
 					echo '<i class="fas fa-check-circle icon_blue" title="{{Installé}}"></i>';
 				} else {
-					echo '<i class="fas fa-times-circle" title="{{Installable}}"></i>';
+					echo '<i class="fas fa-times-circle" title="{{Non installé}}"></i>';
 					echo '<i class="fas fa-plus-circle icon_green hidden" title="{{A installer}}"></i>';
 				}
 				?>

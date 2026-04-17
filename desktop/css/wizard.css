@@ -77,14 +77,19 @@ body {
 /*** UPDATES ***/
 #wizard_container>#updates {
 	min-height: 250px;
+	flex-wrap: wrap;
 }
 
 #wizard_container>#updates>.update {
-	height: 108px;
-	width: 90px;
+	height: 130px;
+	width: 100px;
 	border: solid 3px var(--al-warning-color);
 	border-radius: 15px;
 	overflow: hidden;
+}
+
+#wizard_container>#updates>.update>.update-name {
+	height: 40px;
 }
 
 #wizard_container>#updates>.update>img {
@@ -106,6 +111,7 @@ body {
 /*** PLUGINS ***/
 #wizard_container>#plugins {
 	min-height: 250px;
+	flex-wrap: wrap;
 }
 
 #wizard_container>#plugins>.plugin {
