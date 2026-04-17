@@ -4,12 +4,19 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
+# 17/04/2026 (Beta - WIP)
+
+### Début de réécriture totale du plugin
+
+- Suppression des fichiers de configuration `json`
+- Automatisation des étapes à afficher par l'assistant de configuration
+- Réécriture complète, optimisation et modernisation de l'assistant de configuration
+- Version minimale du core Jeedom : 4.4
 
 # 18/01/2024
 
 - Ajout Image Batiment pour création objet
 - Clean jquery object.modal
-
 
 # 20/11/2022
 
@@ -38,4 +45,4 @@
 
 # 16/09/2021
 
-- Integration de l'installation automatique du plugin Atlas.
+- Intégration de l'installation automatique du plugin Atlas.
