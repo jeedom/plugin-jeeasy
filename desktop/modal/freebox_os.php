@@ -2,47 +2,55 @@
 if (!isConnect()) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-
-config::save('FREEBOX_SERVER_APP_NAME', config::byKey('product_name'), 'Freebox_OS');
-config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freebox_OS');
-
+$pluginId = 1666;
+$plugin = jeeasy::getPluginDetails($pluginId);
+$plugin['id'] = $pluginId;
+sendVarToJS('_plugin', $plugin);
 ?>
 
-<script src="../js/common.js"></script>
+<h3>{{Plugin}} <?= $plugin['name'] ?></h3>
+<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
+<div class="bold toggle-visibility <?= ($plugin['installed'] ? ' hidden' : '') ?>" id="jeeasy-loading">
+	<i class="fas fa-spinner fa-spin"></i> {{Le plugin <?= $plugin['name'] ?> est en cours d'installation, veuillez patienter un instant...}}
+</div>
+<div class="bold toggle-visibility <?= ($plugin['installed'] ? '' : ' hidden') ?>">{{Le plugin <?= $plugin['name'] ?> est installé, vous pouvez passer à l'étape suivante}}
+	<i class="far fa-arrow-alt-circle-right"></i>
+</div>
+
+<div class="flex-evenly" id="plugins">
+	<div class="plugin<?= ($plugin['installed'] ? ' selected' : '') ?>" data-id="<?= $plugin['id'] ?>" data-logicalid="<?= $plugin['logicalId'] ?>" data-installed="<?= $plugin['installed'] ?>" title="<?= $plugin['description'] ?>">
+		<div class="bold plugin-name">
+			<i class="fas fa-check-circle icon_blue toggle-visibility <?= ($plugin['installed'] ? '' : ' hidden') ?>" title="{{Installé}}"></i>
+			<i class="fas fa-spinner fa-spin toggle-visibility <?= ($plugin['installed'] ? ' hidden' : '') ?>" title="{{Installation en cours...}}"></i>
+			<?= $plugin['name'] ?>
+		</div>
+		<img src="<?= $plugin['icon'] ?>" alt="{{Icone du plugin}}">
+		<div class="plugin-category"><?= $plugin['category'] ?></div>
+	</div>
+</div>
+
 <script>
+	if (_plugin.installed != 1) {
+		allowNavigation('next', false)
+		setTimeout(() => {
+			installPlugin(_plugin.id, _plugin.logicalId, false)
+			document.querySelectorAll('.toggle-visibility').forEach(_toggle => {
+				_toggle.classList.toggle('hidden')
+			})
+			let plugin = document.getElementById('plugins').querySelector('.plugin')
+			plugin.addClass('selected')
+			plugin.dataset.installed = 1
+			allowNavigation()
+		}, 1500)
+	}
+</script>
 
-	var btNext = document.getElementById('bt_next');
-  var btPrev = document.getElementById('bt_prev');
-	btNext.style.display = 'none';
-	btPrev.style.display = 'none';
-	progress(20, 'div_progressbar');
-	var textFreeboxElement = document.querySelector('.textFreebox');
-
-
-	textFreeboxElement.innerHTML = '{{Installation du Plugin Freebox en cours.}}';
-
-	$.ajax({
-		type: "POST",
-		url: "plugins/jeeasy/core/ajax/jeeasy.ajax.php",
-		data: {
-			action: "installPlugin",
-			id: 'Freebox_OS'
-		},
-		dataType: 'json',
-		error: function(request, status, error) {
-			handleAjaxError(request, status, error);
-		},
-		success: function(data) {
-			textFreeboxElement.innerHTML = '{{Demande d\'autorisation sur votre Freebox Delta}}';
-			progress(50, 'div_progressbar');
-			autorisationFreebox();
-		}
-	});
-
+<!-- <script src="../js/common.js"></script>
+<script>
 	function autorisationFreebox() {
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "connect",
 			},
@@ -75,7 +83,7 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 		var fbx_track_id = jsonParser.result.track_id;
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "sendToBdd",
 				app_token: fbx_app_token,
@@ -101,7 +109,7 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 		progress(80, 'div_progressbar');
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "ask_track_authorization",
 			},
@@ -179,4 +187,4 @@ config::save('FREEBOX_SERVER_DEVICE_NAME', config::byKey('product_name'), 'Freeb
 		</div>
 	</div>
 </div>
-</div>
+</div> -->

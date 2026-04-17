@@ -22,6 +22,227 @@ include_file('core', 'discover', 'config', 'jeeasy');
 
 class jeeasy extends eqLogic {
 
+	public static function getPluginDetails($_marketId = null) {
+		$marketURL = config::byKey('market::address');
+		$pluginDetails = array(
+			26 => [
+				'logicalId' => 'alarm',
+				'name' => __('Alarme', __FILE__),
+				'category' => '<i class="fas fa-lock"></i> ' . __('Sécurité', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/alarm_icon.png',
+				'description' => __("Créez facilement votre système d'alarme sur mesure", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../alarm/plugin_info/info.json')
+			],
+			52 => [
+				'logicalId' => 'rfxcom',
+				'name' => __('RFXcom', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/rfxcom_icon.png',
+				'description' => __("Pilotez vos périphériques RFXcom", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../rfxcom/plugin_info/info.json')
+			],
+			203 => [
+				'logicalId' => 'eibd',
+				'name' => __('EIB - KNX', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/eibd_icon.png',
+				'description' => __("Pilotez vos périphériques KNX", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../eibd/plugin_info/info.json')
+			],
+			1666 => [
+				'logicalId' => 'Freebox_OS',
+				'name' => __('Freebox OS', __FILE__),
+				'category' => '<i class="fas fa-tachometer-alt"></i> ' . __('Monitoring', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/Freebox_OS_icon.png',
+				'description' => __("Prenez le contrôle de votre Freebox", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../Freebox_OS/plugin_info/info.json')
+			],
+			2030 => [
+				'logicalId' => 'mobile',
+				'name' => __('Mobile', __FILE__),
+				'category' => '<i class="fas fa-comment"></i> ' . __('Communication', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/mobile_icon.png',
+				'description' => __("Pilotez votre installation domotique depuis iOS/Android", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../mobile/plugin_info/info.json')
+			],
+			2046 => [
+				'logicalId' => 'ipx800v4',
+				'name' => __('IPX 800 v4', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/ipx800v4_icon.png',
+				'description' => __("Pilotez vos périphériques IPX 800", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../ipx800v4/plugin_info/info.json')
+			],
+			// 2286 => [
+			// 	'logicalId' => 'wifip',
+			// 	'name' => __('Wifip', __FILE__),
+			// 	'category' => '<i class="fas fa-comment"></i> ' . __('Communication', __FILE__),
+			// 	'icon' => $marketURL . '/filestore/market/plugin/images/wifip_icon.png',
+			// 'description' => '',
+			// 	'installed' => is_file(__DIR__ . '/../../../wifip/plugin_info/info.json')
+			// ],
+			2622 => [
+				'logicalId' => 'openenocean',
+				'name' => __('EnOcean', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/openenocean_icon.png',
+				'description' => __("Pilotez vos périphériques Enocean", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../openenocean/plugin_info/info.json')
+			],
+			// 2781 => [
+			// 	'logicalId' => 'rfplayer',
+			// 	'name' => __('Ziblue RfPlayer', __FILE__),
+			// 	'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+			// 	'icon' => $marketURL . '/filestore/market/plugin/images/rfplayer_icon.png',
+			// 'description' => '',
+			// 	'installed' => is_file(__DIR__ . '/../../../rfplayer/plugin_info/info.json')
+			// ],
+			3349 => [
+				'logicalId' => 'rfplayer2',
+				'name' => __('RfPlayer2', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/rfplayer2_icon.png',
+				'description' => __("Pilotez vos périphériques RF Player", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../rfplayer2/plugin_info/info.json')
+			],
+			3610 => [
+				'logicalId' => 'deconz',
+				'name' => __('Deconz', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/deconz_icon.png',
+				'description' => __("Pilotez vos périphériques Deconz", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../deconz/plugin_info/info.json')
+			],
+			3895 => [
+				'logicalId' => 'ventilairsec',
+				'name' => __('Ventilairsec', __FILE__),
+				'category' => '<i class="fas fa-tachometer-alt"></i> ' . __('Monitoring', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/ventilairsec_icon.png',
+				'description' => __("Liez votre VMI du groupe Ventilairsec avec l'application VMI Link", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../ventilairsec/plugin_info/info.json')
+			],
+			// 4050 => [
+			// 	'logicalId' => 'zigbee',
+			// 	'name' => __('Zigbee', __FILE__),
+			// 	'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+			// 	'icon' => $marketURL . '/filestore/market/plugin/images/zigbee_icon.png',
+			// 'description' => ',
+			// 	'installed' => is_file(__DIR__ . '/../../../zigbee/plugin_info/info.json')
+			// ],
+			4146 => [
+				'logicalId' => 'lorapayload',
+				'name' => __('Lora Payload', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/lorapayload_icon.png',
+				'description' => __("Pilotez vos périphériques Lora", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../lorapayload/plugin_info/info.json')
+			],
+			4195 => [
+				'logicalId' => 'atlas',
+				'name' => __('Atlas', __FILE__),
+				'category' => '<i class="fas fa-asterisk"></i> ' . __('Passerelle domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/atlas_icon.png',
+				'description' => __("Prenez le contrôle de votre Atlas", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../atlas/plugin_info/info.json')
+			],
+			4306 => [
+				'logicalId' => 'zwavejs',
+				'name' => __('Z-Wave JS', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/zwavejs_icon.png',
+				'description' => __("Pilotez vos périphériques Z-Wave", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../zwavejs/plugin_info/info.json')
+			],
+			4346 => [
+				'logicalId' => 'luna',
+				'name' => __('Luna', __FILE__),
+				'category' => '<i class="fas fa-asterisk"></i> ' . __('Passerelle domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/luna_icon.png',
+				'description' => __("Prenez le contrôle de votre Luna", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../luna/plugin_info/info.json')
+			],
+			4351 => [
+				'logicalId' => 'z2m',
+				'name' => __('JeeZigbee', __FILE__),
+				'category' => '<i class="fas fa-rss"></i> ' . __('Protocole domotique', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/z2m_icon.png',
+				'description' => __("Pilotez vos périphériques Zigbee", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../z2m/plugin_info/info.json')
+			],
+			4408 => [
+				'logicalId' => 'lns',
+				'name' => __('LNS', __FILE__),
+				'category' => __('Programmation', __FILE__),
+				'icon' => $marketURL . '/filestore/market/plugin/images/lns_icon.png',
+				'description' => __("Installez et configurez automatiquement Chirpstack V3", __FILE__),
+				'installed' => is_file(__DIR__ . '/../../../lns/plugin_info/info.json')
+			]
+		);
+		if (!$_marketId) {
+			return $pluginDetails;
+		}
+		if (isset($pluginDetails[$_marketId])) {
+			return $pluginDetails[$_marketId];
+		}
+		return false;
+	}
+
+	public static function getWizardSteps($_mode = 'default'): array {
+		$wizard['welcome'] =  __('Accueil', __FILE__);
+		update::checkAllUpdate();
+		if (update::nbNeedUpdate() > 0) {
+			$wizard['updates'] =	__('Mises à jour', __FILE__);
+		}
+		if (in_array($hardware = strtolower(jeedom::getHardwareName()), ['atlas', 'luna', 'freeboxdelta'])) {
+			if (strpos($hardware, 'freebox') !== false) {
+				$hardware = 'freebox_OS';
+			}
+			if (!is_object(update::byLogicalId($hardware))) {
+				$wizard[$hardware] =	ucfirst($hardware);
+			}
+		}
+		$wizard['general'] =	__('Général', __FILE__);
+		$wizard['interface'] =	__('Interface', __FILE__);
+		$wizard['networks'] =	__('Réseaux', __FILE__);
+		$wizard['plugins'] =	__('Plugins', __FILE__);
+		$wizard['objects'] =	__('Objets', __FILE__);
+		if ($_mode != 'mb') {
+			$wizard['services'] =	__('Services', __FILE__);
+		}
+		$wizard['ready'] = __('Prêt à démarrer', __FILE__);
+		return $wizard;
+	}
+
+	public static function getWizardMode(): string {
+		if (config::byKey('mbState', 'core', 0) == 1) {
+			return 'mb';
+		}
+		return 'default';
+	}
+
+	public static function updateServicePackInfos() {
+		$servicePack = 'Community';
+		$plugins = array();
+		$jsonrpc = repo_market::getJsonRpc();
+		if ($jsonrpc->sendRequest('servicepack::info')) {
+			$result = $jsonrpc->getResult();
+			$servicePack = $result['licenceName'];
+			if ($servicePack != 'Community') {
+				if (is_array($result['licencePlugins'])) {
+					$plugins = $result['licencePlugins'];
+				}
+				$plugins = array_merge($plugins, $result['mainPlugins']);
+			}
+			config::save('SPInfos', array('servicePack' => $servicePack, 'plugins' => $plugins), __CLASS__);
+			return array('servicePack' => $servicePack, 'plugins' => $plugins);
+		}
+		return false;
+	}
+
+	public static function cronDaily() {
+		self::updateServicePackInfos();
+	}
+
 	public static function discoverNetwork() {
 		global $JEEDOM_JEEASY_DISCOVER;
 		$gw = shell_exec("ip route show default | awk '/default/ {print $3}'");
@@ -45,10 +266,10 @@ class jeeasy extends eqLogic {
 				continue;
 			}
 			if (strpos($line, 'MAC Address') !== false) {
-				$name = substr($line, ($p = strpos($line, '(')+1), strrpos($line, ')')-$p);
+				$name = substr($line, ($p = strpos($line, '(') + 1), strrpos($line, ')') - $p);
 				preg_match('/MAC Address: (.*?) \((.*?)\)/', $line, $matches);
 				$return[$matches[1]] = array('name' => $matches[2], 'ip' => $previous);
-			//	$name = $matches[2];
+				//	$name = $matches[2];
 				$mac = $matches[1];
 				$ip = $previous;
 				$arrayTemp = array('mac' => $mac, 'ip' => $ip);
@@ -88,304 +309,10 @@ class jeeasy extends eqLogic {
 		return json_decode(str_replace(array_keys($_replace), $_replace, json_encode(json_decode(file_get_contents(__DIR__ . '/../config/' . $_name . '.json'), true))), true);
 	}
 
-	public static function changeLanguage($choice) {
-		if ($choice != '') {
-			config::save('language', $choice);
-		}
-	}
-
-	public static function saveJson($_json) {
-		$jsonFile = __DIR__ . '/../../../../data/custom/wizard.json';
-		if (!$fh = fopen($jsonFile, 'w')) {
-			throw new Exception(__('Impossible d\'ouvrir : ', __FILE__) . $jsonFile);
-		}
-		fwrite($fh, $_json);
-		fclose($fh);
-		return true;
-	}
-
-	public static function sendObjects($_objects) {
-
-		$roomsDatas = array(
-			'cuisine' => array(
-				'level'  => 1,
-				'name'   => 'Cuisine',
-				'image'  => 'core/img/object_background/cuisine/cuisine_2.jpg',
-				'icon'   => '<i class="icon maison-kitchen56"></i>',
-				'parent' => ''
-			),
-			// 'bureau' => array(
-			// 	'level'  => 1,
-			// 	'name'   => 'Bureau',
-			// 	'image'  => 'core/img/object_background/bureau/bureau_1.jpg',
-			// 	'icon'   => ''
-			// 	'parent' => ''
-			// ),
-			'sam' => array(
-				'level'  => 1,
-				'name'   => 'Salle à manger',
-				'image'  => 'core/img/object_background/salle_a_manger/salle_a_manger_1.jpg',
-				'icon'   => '<i class="icon maison-dining3"></i>',
-				'parent' => ''
-			),
-			'salon' => array(
-				'level'  => 1,
-				'name'   => 'Salon',
-				'image'  => 'core/img/object_background/salon/salon_2.jpg',
-				'icon'   => '<i class="icon maison-sofa5"></i>',
-				'parent' => ''
-			),
-			'sdb' => array(
-				'level'  => 1,
-				'name'   => 'Salle de bain',
-				'image'  => 'core/img/object_background/salle_de_bain/salle_de_bain_1.jpg',
-				'icon'   => '<i class="icon maison-bathroom22"></i>',
-				'parent' => ''
-			),
-			'chambre1' => array(
-				'level'  => 1,
-				'name'   => 'Chambre 1',
-				'image'  => 'core/img/object_background/chambre/chambre_1.jpg',
-				'icon'   => '<i class="icon maison-queen9"></i>',
-				'parent' => ''
-			),
-			'chambre2' => array(
-				'level'  => 1,
-				'name'   => 'Chambre 2',
-				'image'  => 'core/img/object_background/chambre/chambre_3.jpg',
-				'icon'   => '<i class="icon maison-queen9"></i>',
-				'parent' => ''
-			),
-			'chambre3' => array(
-				'level'  => 1,
-				'name'   => 'Chambre 3',
-				'image'  => 'core/img/object_background/chambre/chambre_4.jpg',
-				'icon'   => '<i class="icon maison-baby139"></i>',
-				'parent' => ''
-			)
-		);
-
-		$houseData = array(
-			'house' => array(
-				'name'   => 'Maison',
-				'image'  => 'core/img/object_background/salon/salon_5.jpg',
-				'icon'   => '<i class="icon maison-modern13"></i>'
-			),
-			'apartment' => array(
-				'name'   => 'Appartement',
-				'image'  => 'core/img/object_background/cuisine/cuisine_1.jpg',
-				'icon'   => '<i class="icon maison-building33"></i>'
-			),
-			'work' => array(
-				'name'   => 'Travail',
-				'image'  => 'core/img/object_background/bureau/bureau_1.jpg',
-				'icon'   => '<i class="icon maison-man337"></i>'
-			),                
-			'basement' => array(
-				'name'   => 'Batiment',
-				'image'  => 'core/img/object_background/batiment/industrial_building.jpg',
-				'icon'   => '<i class="icon far fa-building"></i>'
-			)
-			
-		);
-
-		$_objects = json_decode($_objects, true);
-
-		preg_match('/\[([^]]+)\]/', $_objects[0], $key);
-		$main = $key[1];
-		$house = jeeObject::byName($houseData[$main]['name']);
-
-		if (!is_object($house)) {
-			//log::add('core', 'info', 'création box');
-			$house = new jeeObject();
-			$house->setName($houseData[$main]['name']);
-			$house->setIsVisible(1);
-			$house->setFather_id(0);
-			$house->save();
-			$house->setDisplay('icon', $houseData[$main]['icon']);
-			$files = ls(__DIR__ . '/../../../../data/object/', 'object' . $house->getId() . '*');
-			if (count($files)  > 0) {
-				foreach ($files as $file) {
-					unlink(__DIR__ . '/../../../../data/object/' . $file);
-				}
-			}
-			$house->setImage('type', 'jpg');
-			$image =  __DIR__ . '/../../../../' . $houseData[$main]['image'];
-			$house->setImage('sha512', sha512(file_get_contents($image)));
-			$filename = 'object' . $house->getId() . '-' . $house->getImage('sha512') . '.' . $house->getImage('type');
-			$filepath = __DIR__ . '/../../../../data/object/' . $filename;
-			file_put_contents($filepath, file_get_contents($image));
-			$house->save();
-		}
-
-		$houseId = $house->getId();
-
-		unset($_objects[0]);
-		$structure = array();
-		$structure[$main]['image'] = 'core/img/object_background//';
-		$structure[$main]['icon'] = '';
-
-		foreach ($_objects as $obj) {
-
-			preg_match('/\[([^]]+)\]/', $obj, $regexRoom);
-			$currentRoom = $regexRoom[1];
-
-			$structure[$main]['rooms'][] = $roomsDatas[$currentRoom];
-
-			$room = jeeObject::byName($roomsDatas[$currentRoom]['name']);
-
-			if (!is_object($room)) {
-				$room = new jeeObject();
-				$room->setName($roomsDatas[$currentRoom]['name']);
-				$room->setIsVisible(1);
-				$room->setFather_id($houseId);
-				$room->save();
-				$room->setDisplay('icon', $roomsDatas[$currentRoom]['icon']);
-				$files = ls(__DIR__ . '/../../../../data/object/', 'object' . $room->getId() . '*');
-				if (count($files)  > 0) {
-					foreach ($files as $file) {
-						unlink(__DIR__ . '/../../../../data/object/' . $file);
-					}
-				}
-				$room->setImage('type', 'jpg');
-				$image =  __DIR__ . '/../../../../' . $roomsDatas[$currentRoom]['image'];
-				$room->setImage('sha512', sha512(file_get_contents($image)));
-				$filename = 'object' . $room->getId() . '-' . $room->getImage('sha512') . '.' . $room->getImage('type');
-				$filepath = __DIR__ . '/../../../../data/object/' . $filename;
-				file_put_contents($filepath, file_get_contents($image));
-				$room->save();
-			}
-		}
-		$json = json_encode($structure);
-		//self::saveJson($json);
-		return true;
-	}
-
-	public static function generateObject() {
-		// $house = object::byName('box-' . $houseCode);
-		//       if (!is_object($house)) {
-		//           //log::add('core', 'info', 'création box');
-		//           $house = new object();
-		//           $house->setName('box-' . $houseCode);
-		//           $house->setIsVisible(1);
-		//           $house->setFather_id(0);
-		//           $house->save();
-		//       }
-		//       $houseId = $house->getId();
-		// //on parse toutes les lignes pour trouver le logement passé en paramètre
-		// foreach ($Reader as $Row) {
-		//     if ($Row[0] == $houseCode) {
-		//         //list($cKey, $cValue) = explode('-', $Row[3], 2);
-		//         $roomName = $Row[1];
-		//         $room = object::byName('Chambre '.$roomName);
-		//         if (!is_object($room)) {
-		//             //log::add('core', 'info', 'création pièce ' . $roomName);
-		//             $room = new object();
-		//         }
-		//         $room->setName('Chambre '.$roomName);
-		//         $room->setIsVisible(1);
-		//         $room->setFather_id($houseId);
-		//         $room->save();
-		//         $roomId = $room->getId();
-	}
-
-	public static function checkPlugin($_plugin) {
-		if($_plugin == 'openvpn'){
-		 $plugin = $_plugin;
-		}else{
-		  $plugin = plugin::byId($_plugin);
-		}
-
-		if (!is_object($plugin)) {
-			$plugin = $_plugin;
-		}
-		if(config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha'){
-        		self::checkInstallPlugin($plugin, 'beta');
-        	}else{
-        		self::checkInstallPlugin($plugin);
-        	}
-		self::checkDependancyPlugin($plugin);
-		self::checkDeamonPlugin($plugin);
-	}
-
-	public static function checkInstallPlugin($_plugin, $branch = 'stable') {
-		$plugin = !is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
-		if (is_object($plugin) && $plugin->isActive()) {
-			return 'OK';
-		}
-		$market_info = repo_market::byLogicalId($_plugin);
-		if (!is_object($market_info)) {
-			return __('Le plugin n\'est pas présent sur le market', __FILE__);
-		}
-		if ($market_info->getCost() > 0) {
-			if ($market_info->getPurchase() != 1) {
-				return __('Veuillez vous rendre sur le market pour acquérir le plugin puis refaire l\'opération. Plugin', __FILE__) . ' : ' . $market_info->getName();
-			}
-		}
-
-		$update = update::byLogicalId($_plugin);
-		if (!is_object($update)) {
-			$update = new update();
-		}
-		$update->setLogicalId($_plugin);
-		$update->setSource('market');
-		$update->setConfiguration('version', $branch);
-		$update->save();
-		$update->doUpdate();
-		$plugin = plugin::byId($_plugin);
-		if (!is_object($plugin)) {
-			return __('Impossible d\'installer le plugin', __FILE__) . ' : ' . $market_info->getName();
-		}
-		if (!$plugin->isActive()) {
-			$plugin->setIsEnable(1);
-		}
-		if (!$plugin->isActive()) {
-			return __('Impossible d\'activer le plugin', __FILE__) . ' : ' . $market_info->getName();
-		}
-		return 'OK';
-	}
-
-	public static function checkDependancyPlugin($_plugin) {
-		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
-		if ($plugin->getHasDependency() != 1) {
-			return 'OK';
-		}
-		$dependancy = $plugin->dependancy_info();
-		if ($dependancy['state'] == 'ok') {
-			return 'OK';
-		}
-
-		$plugin->dependancy_install();
-		$dependancy = $plugin->dependancy_info();
-		if ($dependancy['state'] != 'ok') {
-			return __('Nous n\'arrivons pas à installer les dépendances du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support.', __FILE__);
-		}
-		return 'OK';
-	}
-
-	public static function configInternalPlugin($typeConfig, $key, $plugin) {
-		if ($typeConfig == 'gpio') {
-			$pluginConfigFile = dirname(__FILE__) . '/../data/pluginConfig.json';
-			if (!file_exists($pluginConfigFile)) {
-				throw new Exception("{{Fichier pluginConfig introuvable}}", 1);
-			}
-			$pluginConfigFile = file_get_contents($pluginConfigFile);
-			$pluginsConf = json_decode($pluginConfigFile, true);
-			$step = $pluginsConf['pluginsInfos'][$plugin]['versions'][$key];
-
-			foreach ($step as $k => $v) {
-				config::save($k, $v, $plugin);
-			}
-			return 'gpio';
-		} elseif ($typeConfig == 'usb') {
-			return 'usb';
-		}
-	}
-
-	public static function initStartBox(){
+	public static function initStartBox() {
 		log::removeAll();
 		log::add('jeeasy', 'debug', 'initStartBox');
-		if(config::byKey('jeedom::firstUse') == 1){
+		if (config::byKey('jeedom::firstUse') == 1) {
 			config::save('api', config::genKey());
 			config::save('apimarket', config::genKey());
 			config::save('apipro', config::genKey());
@@ -393,40 +320,6 @@ class jeeasy extends eqLogic {
 		}
 		message::removeAll();
 		repo_market::test();
-	}
-
-	public static function dns_Go() {
-		repo_market::test();
-		try{
-        jeeasy::checkPlugin('openvpn');
-		    sleep(10);
-          	config::save('market::allowDNS',1);
-		    network::dns_start();
-		}catch (Exception $e) {
-          log::add('jeeasy', 'debug', 'erreur DNS > '.$e);
-
-		}
-		sleep(2);
-		repo_market::test();
-	}
-
-	public static function checkDeamonPlugin($_plugin) {
-		$plugin = is_object($_plugin) ? $_plugin : plugin::byId($_plugin);
-		if ($plugin->getHasOwnDeamon() != 1) {
-			return;
-		}
-		$deamon = $plugin->deamon_info();
-		if ($deamon['state'] == 'ok') {
-			return;
-		}
-		echo '<div class="alert alert-info">' . __('Nous avons détecté que le démon ne tourne pas, nous allons essayer de le démarrer. Merci de patienter...', __FILE__);
-		$plugin->deamon_start();
-		sleep(5);
-		$deamon = $plugin->deamon_info();
-		if ($deamon['state'] != 'ok') {
-			throw new Exception(__('Nous n\'arrivons pas à démarrer le démon du plugin. Nous vous conseillons de consulter les logs et/ou de contacter le support. Plugin', __FILE__) . ' : ' . $_plugin);
-		}
-		echo '<div class="alert alert-info">' . __('Démarrage du démon réussi', __FILE__);
 	}
 }
 

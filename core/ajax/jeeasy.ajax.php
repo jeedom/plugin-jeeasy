@@ -26,76 +26,7 @@ try {
 		ajax::success(jeeasy::generateScenario(init('name'), json_decode(init('replace'), true)));
 	}
 
-	if (init('action') == 'saveJson') {
-		ajax::success(jeeasy::saveJson(init('json')));
-	}
-
-	if (init('action') == 'sendObjects') {
-		ajax::success(jeeasy::sendObjects(init('objects')));
-	}
-
-
-
-	if (init('action') == 'choiceLanguageJeeasy') {
-		ajax::success(jeeasy::changeLanguage(init('choice')));
-	}
-
-	if (init('action') == 'dnsInstall') {
-		ajax::success(jeeasy::dns_Go());
-	}
-
-
-
-
-
-	if (init('action') == 'changeBoxName') {
-		if (init('choice') != '') {
-			$sanitizeString = htmlspecialchars(init('choice'), ENT_NOQUOTES, 'UTF-8');
-			config::save('name', $sanitizeString);
-		}
-		ajax::success();
-	}
-
-
-	if (init('action') == 'installPlugin') {
-		if (init('branch')) {
-			$checkInstall = jeeasy::checkInstallPlugin(init('id'), init('branch'));
-		} else {
-			if(config::byKey('core::branch') == 'beta' || config::byKey('core::branch') == 'alpha'){
-  				$checkInstall = jeeasy::checkInstallPlugin(init('id'), 'beta');
-			}else{
-  				$checkInstall = jeeasy::checkInstallPlugin(init('id'));
-			}
-		}
-		if ($checkInstall == 'OK') {
-			ajax::success();
-		} else {
-			ajax::error($checkInstall);
-		}
-	}
-
-	if (init('action') == 'installDepPlugin') {
-		$checkInstall = jeeasy::checkDependancyPlugin(init('id'));
-		if ($checkInstall == 'OK') {
-			ajax::success();
-		} else {
-			ajax::error($checkInstall);
-		}
-	}
-
-
-	if (init('action') == 'configInternalPlugin') {
-		$check = jeeasy::configInternalPlugin(init('typeConfig'), init('typeBox'), init('pluginName'));
-		ajax::success($check);
-	}
-
-
 	throw new Exception(__('Aucune méthode correspondante à', __FILE__) . ' : ' . init('action'));
-	/*     * *********Catch exeption*************** */
 } catch (Exception $e) {
-	if (version_compare(jeedom::version(), '4.4', '>=')) {
-		ajax::error(displayException($e), $e->getCode());
-	} else {
-		ajax::error(displayExeption($e), $e->getCode());
-	}
+	ajax::error(displayException($e), $e->getCode());
 }

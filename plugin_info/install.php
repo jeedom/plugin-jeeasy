@@ -19,15 +19,12 @@
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
 function jeeasy_install() {
-
+	jeeasy::updateServicePackInfos();
 }
 
 function jeeasy_update() {
-
+	jeeasy::updateServicePackInfos();
 }
 
 function jeeasy_remove() {
-
 }
-
-?>
