@@ -50,7 +50,7 @@ sendVarToJS('_plugin', $plugin);
 	function autorisationFreebox() {
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "connect",
 			},
@@ -83,7 +83,7 @@ sendVarToJS('_plugin', $plugin);
 		var fbx_track_id = jsonParser.result.track_id;
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "sendToBdd",
 				app_token: fbx_app_token,
@@ -109,7 +109,7 @@ sendVarToJS('_plugin', $plugin);
 		progress(80, 'div_progressbar');
 		$.ajax({
 			type: "POST",
-			url: "plugins/Freebox_OS/core/ajax/Freebox_OS.ajax.php",
+			url: "plugins/Freebox_OS/core/ajax/FreeboxOS.ajax.php",
 			data: {
 				action: "ask_track_authorization",
 			},
