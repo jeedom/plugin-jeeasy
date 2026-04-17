@@ -1,11 +1,4 @@
 var _contentContainer = document.getElementById('wizard_container')
-var currentStep = getUrlVars('step')
-if (!currentStep) {
-	currentStep = document.querySelector('.navDot').dataset.step
-}
-document.querySelector('.navDot[data-step="' + currentStep + '"]').classList.add('active')
-loadStep(currentStep)
-
 var slideOut = {
 	opacity: [1, 0],
 	transform: ['translateX(0)', 'translateX(-10%)']
@@ -22,6 +15,15 @@ var slideInReverse = {
 	opacity: [0, 1],
 	transform: ['translateX(-10%)', 'translateX(0)']
 }
+
+let currentStep = getUrlVars('step')
+if (!currentStep) {
+	currentStep = document.querySelector('.navDot').dataset.step
+}
+document.querySelector('.navDot[data-step="' + currentStep + '"]').classList.add('active')
+setTimeout(() => {
+	loadStep(currentStep)
+}, 250)
 
 document.querySelectorAll('.navDot').forEach(_dot => {
 	_dot.addEventListener('click', function() {
@@ -67,16 +69,9 @@ document.querySelectorAll('.navBtn').forEach(_navBtn => {
 })
 
 document.getElementById('bt_quitJeeasyWizard').addEventListener('click', function() {
-	let confirm
-	if (!_wizardMode.includes('Recovery')) {
-		confirm = "{{Voulez-vous vraiment fermer l'assistant de configuration?}}"
-		confirm += '<br><br>'
-		confirm += '<div class="alert alert-danger text-center">{{Certaines configurations ne seront pas effectuées et plusieurs plugins essentiels ne seront pas installés}}</div>'
-	} else {
-		confirm = "{{Voulez-vous vraiment fermer l'assistant de restauration?}}"
-		confirm += '<br><br>'
-		confirm += '<div class="alert alert-danger text-center">{{Le système ne sera pas restauré}}</div>'
-	}
+	let confirm = "{{Voulez-vous vraiment fermer l'assistant de configuration?}}"
+	confirm += '<br><br>'
+	confirm += '<div class="alert alert-danger text-center">{{Certaines configurations ne seront pas effectuées et plusieurs plugins essentiels ne seront pas installés}}</div>'
 
 	bootbox.confirm(confirm, function(result) {
 		if (result) {

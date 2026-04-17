@@ -4,7 +4,6 @@ if (!isConnect()) {
 }
 include_file('desktop', 'wizard', 'css', 'jeeasy');
 $wizardMode = jeeasy::getWizardMode();
-sendVarToJS('_wizardMode', $wizardMode);
 ?>
 
 <button class="btn btn-xs btn-danger" id="bt_quitJeeasyWizard"><i class="fas fa-times"></i> {{Fermer l'assistant}}</button>
