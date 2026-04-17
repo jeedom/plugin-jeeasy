@@ -132,23 +132,18 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
   </select>
 </div>
 
-
-
-<div>
+<!-- <div>
   <button type="button" class="modern-btn" id="coordonatesModale">{{Configuration de votre adresse postale}}</button>
-</div>
-
-
-
+</div> -->
 
 <script>
-  document.getElementById('coordonatesModale').addEventListener('click', function(_event) {
-    $('#md_modal3').dialog({
-      title: "{{Coordonnées GPS}}"
-    });
-    $('#md_modal3').load('index.php?v=d&plugin=jeeasy&modal=coordonates').dialog('open');
-  });
-
+  // document.getElementById('coordonatesModale').addEventListener('click', function(_event) {
+  //   jeeDialog.dialog({
+  //     id: 'jee_modal3',
+  //     title: '{{Coordonnées GPS}}',
+  //     contentUrl: 'index.php?v=d&plugin=jeeasy&modal=coordonates'
+  //   })
+  // })
 
   document.querySelector('#sel_timezone > option[value="' + _timezone + '"]').selected = true
 
@@ -157,8 +152,6 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
       timezone: this.value
     })
   })
-
-
 
   document.getElementById('in_boxName').addEventListener('change', function(_event) {
     configSave({
@@ -179,7 +172,7 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
   // })
 </script>
 
-<style>
+<!-- <style>
   .hidden {
     display: none;
   }
@@ -199,4 +192,4 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
     background-color: #85b604;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
-</style>
+</style> -->
