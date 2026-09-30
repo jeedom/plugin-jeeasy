@@ -7,12 +7,11 @@ if (!isConnect('admin')) {
 <div class="row row-overflow">
 	<div class="col-xs-12 eqLogicThumbnailDisplay">
 		<div class="eqLogicThumbnailContainer">
-			<legend style="margin-bottom:50px;"><i class="fas fa-cog"></i> {{Bienvenue sur la configuration facile avec Jeeasy}}</legend>
-
+			<legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
 			<div class="cursor eqLogicAction logoPrimary" id="bt_jeeasyWizardV2">
 				<i class="fas fa-hat-wizard"></i>
 				<br>
-				<span>{{Démarrer l'assistant}}</span>
+				<span>{{Assistant de configuration}}</span>
 			</div>
 			<div class="cursor eqLogicAction logoSecondary" id="bt_jeeasyDiscovery">
 				<i class="fas fa-wifi"></i>
@@ -36,7 +35,6 @@ if (!isConnect('admin')) {
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <?php include_file('desktop', 'jeeasy', 'js', 'jeeasy'); ?>
