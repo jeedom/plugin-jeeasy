@@ -96,22 +96,10 @@ $('#bt_jeeasyIncludeConfiguration').on('click', function() {
 	})
 })
 
-$('#bt_jeeasyMainConfiguration').on('click', function() {
-	$('#md_modal').dialog({ title: "{{Configuration frigo}}" })
-	$("#md_modal").load('index.php?v=d&modal=jeedom.configuration.wizard&plugin=jeeasy').dialog('open')
-
-})
-
 $('#bt_jeeasyDiscovery').on('click', function() {
 	$('#md_modal').dialog({ title: "{{Discovery}}" })
 	$("#md_modal").load('index.php?v=d&modal=network.discover&plugin=jeeasy').dialog('open')
 })
-
-$('#bt_jeeasyWizard').on('click', function() {
-	$('#md_modal').dialog({ title: "{{Bienvenue}}" })
-	$("#md_modal").load('index.php?v=d&modal=wizard&plugin=jeeasy').dialog('open')
-})
-
 
 $('#bt_jeeasyObjectConfiguration').on('click', function() {
 	bootbox.confirm({
