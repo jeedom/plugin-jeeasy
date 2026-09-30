@@ -6,26 +6,14 @@ $productName =	config::byKey('product_name');
 $language = config::byKey('language', 'core');
 $country = config::byKey('info::stateCode', 'core', 'FR');
 sendVarToJS('_country', $country);
-if (jeeasy::getWizardMode() == 'atlasRecovery') {
 ?>
-	<h3>{{Assistant de restauration}}</h3>
-	<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-	<div>{{Bienvenue dans l'assistant de restauration système}} <?php echo $productName; ?>.
-		<br>
-		{{Vous allez pouvoir facilement restaurer votre système en suivant les étapes de cet assistant interactif.}}
-	</div>
-<?php
-} else {
-?>
-	<h3>{{Assistant de configuration}}</h3>
-	<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
-	<div>{{Bienvenue dans l'assistant de configuration}} <?php echo $productName; ?>.
-		<br>
-		{{Vous allez pouvoir facilement configurer votre installation en suivant les étapes de cet assistant interactif.}}
-	</div>
-<?php
-}
-?>
+<h3>{{Assistant de configuration}}</h3>
+<img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
+<div>{{Bienvenue dans l'assistant de configuration}} <?php echo $productName; ?>.
+	<br>
+	{{Vous allez pouvoir facilement configurer votre installation en suivant les étapes de cet assistant interactif.}}
+</div>
+
 <div class="bold">{{Choisissez votre langue et votre pays puis cliquez sur la flèche en bas à droite pour commencer}}
 	<i class="far fa-arrow-alt-circle-right"></i>
 </div>
