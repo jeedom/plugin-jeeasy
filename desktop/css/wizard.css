@@ -74,40 +74,6 @@ body {
 	font-weight: bold;
 }
 
-/*** UPDATES ***/
-#wizard_container>#updates {
-	min-height: 250px;
-	flex-wrap: wrap;
-}
-
-#wizard_container>#updates>.update {
-	height: 130px;
-	width: 100px;
-	border: solid 3px var(--al-warning-color);
-	border-radius: 15px;
-	overflow: hidden;
-}
-
-#wizard_container>#updates>.update>.update-name {
-	height: 40px;
-}
-
-#wizard_container>#updates>.update>img {
-	width: 80px;
-}
-
-#wizard_container>#updates>.update[data-type="core"] {
-	border: solid 3px var(--al-danger-color);
-}
-
-#wizard_container>#updates>.update[data-type="core"]>img {
-	margin-bottom: -50%;
-}
-
-#wizard_container>#updates>.update.selected {
-	border: solid 3px var(--logo-primary-color);
-}
-
 /*** PLUGINS ***/
 #wizard_container>#plugins {
 	min-height: 250px;

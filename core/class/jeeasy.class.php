@@ -189,10 +189,6 @@ class jeeasy extends eqLogic {
 
 	public static function getWizardSteps($_mode = 'default'): array {
 		$wizard['welcome'] =  __('Accueil', __FILE__);
-		update::checkAllUpdate();
-		if (update::nbNeedUpdate() > 0) {
-			$wizard['updates'] =	__('Mises à jour', __FILE__);
-		}
 		if (in_array($hardware = strtolower(jeedom::getHardwareName()), ['atlas', 'luna', 'freeboxdelta'])) {
 			if (strpos($hardware, 'freebox') !== false) {
 				$hardware = 'freebox_OS';
