@@ -3,10 +3,6 @@ if (!isConnect()) {
   throw new Exception('{{401 - Accès non autorisé}}');
 }
 
-if (strpos(shell_exec('cat /etc/hostname'), 'Luna') !== false) {
-  config::save('hardware_name', "Luna");
-}
-
 $boxName = config::byKey('name');
 if ($boxName == '') {
   $boxName = config::byKey('product_name') . ' ' . ucfirst(jeedom::getHardwareName());

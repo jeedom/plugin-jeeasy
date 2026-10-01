@@ -4,10 +4,16 @@ if (!isConnect()) {
 }
 $servicePack = 'Community';
 $plugins = array();
+$pluginsDetails = jeeasy::getPluginDetails();
+// Dedicated plugin listed first
+$hardwarePluginIds = array('atlas' => 4195, 'luna' => 4346, 'freeboxdelta' => 1666);
+$hardware = strtolower(jeedom::getHardwareName());
+if (isset($hardwarePluginIds[$hardware])) {
+	$plugins[$hardwarePluginIds[$hardware]] = $pluginsDetails[$hardwarePluginIds[$hardware]];
+}
 $SPInfos = config::byKey('SPInfos', 'jeeasy');
 if ($SPInfos != '' || $SPInfos = jeeasy::updateServicePackInfos()) {
 	$servicePack = $SPInfos['servicePack'];
-	$pluginsDetails = jeeasy::getPluginDetails();
 	foreach (((array) $SPInfos['plugins']) as $pluginId) {
 		if (isset($pluginsDetails[$pluginId])) {
 			$plugins[$pluginId] = $pluginsDetails[$pluginId];

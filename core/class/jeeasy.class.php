@@ -22,9 +22,9 @@ include_file('core', 'discover', 'config', 'jeeasy');
 
 class jeeasy extends eqLogic {
 
-	public static function getPluginDetails($_marketId = null) {
+	public static function getPluginDetails(): array {
 		$marketURL = config::byKey('market::address');
-		$pluginDetails = array(
+		return array(
 			26 => [
 				'logicalId' => 'alarm',
 				'name' => __('Alarme', __FILE__),
@@ -178,25 +178,10 @@ class jeeasy extends eqLogic {
 				'installed' => is_file(__DIR__ . '/../../../lns/plugin_info/info.json')
 			]
 		);
-		if (!$_marketId) {
-			return $pluginDetails;
-		}
-		if (isset($pluginDetails[$_marketId])) {
-			return $pluginDetails[$_marketId];
-		}
-		return false;
 	}
 
 	public static function getWizardSteps($_mode = 'default'): array {
 		$wizard['welcome'] =  __('Accueil', __FILE__);
-		if (in_array($hardware = strtolower(jeedom::getHardwareName()), ['atlas', 'luna', 'freeboxdelta'])) {
-			if (strpos($hardware, 'freebox') !== false) {
-				$hardware = 'freebox_OS';
-			}
-			if (!is_object(update::byLogicalId($hardware))) {
-				$wizard[$hardware] =	ucfirst($hardware);
-			}
-		}
 		$wizard['general'] =	__('Général', __FILE__);
 		$wizard['interface'] =	__('Interface', __FILE__);
 		$wizard['networks'] =	__('Réseaux', __FILE__);
