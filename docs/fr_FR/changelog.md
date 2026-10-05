@@ -4,13 +4,15 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
-# 17/04/2026 (Beta - WIP)
+# 05/10/2026
 
-### Début de réécriture totale du plugin
-
-- Suppression des fichiers de configuration `json`
-- Automatisation des étapes à afficher par l'assistant de configuration
 - Réécriture complète, optimisation et modernisation de l'assistant de configuration
+- Ajout du choix du pays dans l'étape Accueil
+- Ajout d'une étape Interface *(choix du thème et coloration des icônes)*
+- Ajout d'une étape Réseaux *(accès local et externe)*
+- Le plugin dédié aux box Atlas, Luna et Freebox Delta est proposé dans l'étape Plugins au lieu d'être installé automatiquement
+- Suppression de l'étape de configuration des plugins, chacun appliquant sa propre configuration par défaut
+- Suppression de l'assistant de restauration Atlas désormais gérée par le core
 - Version minimale du core Jeedom : 4.4
 
 # 18/01/2024
