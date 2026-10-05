@@ -1,6 +1,6 @@
 <?php
 if (!isConnect()) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+	throw new Exception('401 - {{Accès non autorisé}}');
 }
 include_file('desktop', 'wizard', 'css', 'jeeasy');
 $wizardMode = jeeasy::getWizardMode();
@@ -33,4 +33,7 @@ $wizardMode = jeeasy::getWizardMode();
 	</div>
 </div>
 
-<?php include_file('desktop', 'wizard', 'js', 'jeeasy'); ?>
+<?php
+include_file('desktop', 'tools', 'js', 'jeeasy');
+include_file('desktop', 'wizard', 'js', 'jeeasy');
+?>

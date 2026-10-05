@@ -52,7 +52,7 @@ $('#bt_jeeasyEqLogicConfiguration').on('click', function() {
 })
 
 document.getElementById('bt_jeeasyWizardV2').addEventListener('click', function() {
-	jeedomUtils.loadPage('index.php?v=d&m=jeeasy&p=wizard&noFirstUse=1')
+	jeedomUtils.loadPage('index.php?v=d&m=jeeasy&p=wizard&noFirstUse=1&step=welcome')
 })
 
 $('#bt_jeeasyIncludeConfiguration').on('click', function() {

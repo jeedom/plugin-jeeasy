@@ -1,6 +1,6 @@
 <?php
 if (!isConnect()) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+	throw new Exception('401 - {{Accès non autorisé}}');
 }
 $servicePack = 'Community';
 $plugins = array();
@@ -65,46 +65,43 @@ if (empty($plugins)) {
 </div>
 
 <script>
-	document.getElementById('plugins').querySelectorAll('.plugin').forEach(_plugin => {
-		_plugin.addEventListener('click', function() {
-			if (this.dataset.installed != '1') {
-				this.classList.toggle('selected')
-				_plugin.querySelectorAll('.plugin-name>i').forEach(_icon => {
+	(function() {
+		const pluginList = document.getElementById('plugins')
+
+		function installSelectedPlugins(_next) {
+			let selected = pluginList.querySelectorAll('.plugin.selected:not([data-installed="1"])')
+			if (selected.length == 0) {
+				_next()
+				return
+			}
+			let message = '<ul>'
+			selected.forEach(_plugin => {
+				message += '<li><img src="' + _plugin.querySelector('img').src + '" height="24px"> ' + _plugin.querySelector('.plugin-name').innerText + '</li>'
+			})
+			message += '</ul>'
+			jeeDialog.confirm({
+				title: '{{Installer les plugins suivants ?}}',
+				message: message
+			}, function(result) {
+				if (result) {
+					selected.forEach(_plugin => {
+						jeeFrontEnd.jeeasyTools.installPlugin(_plugin.dataset.id, _plugin.dataset.logicalid)
+					})
+					_next()
+				}
+			})
+		}
+
+		jeeP.onNext = installSelectedPlugins
+
+		pluginList.addEventListener('click', function(_event) {
+			let _target = null
+			if (_target = _event.target.closest('.plugin:not([data-installed="1"])')) {
+				_target.classList.toggle('selected')
+				_target.querySelectorAll('.plugin-name>i').forEach(_icon => {
 					_icon.classList.toggle('hidden')
 				})
-				if (document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="1"])').length > 0) {
-					allowNavigation('next', false)
-				} else {
-					allowNavigation()
-				}
 			}
 		})
-	})
-
-	document.querySelector('#wizard_navigation').addEventListener('click', function(_event) {
-		var _target = null
-		if (_target = event.target.closest('.navBtn.bt_next[data-step="plugins"]')) {
-			_event.preventDefault()
-			_event.stopImmediatePropagation()
-			if (document.querySelector('.navDot.active').nextElementSibling.hasClass('blocked')) {
-				let plugins = document.getElementById('plugins').querySelectorAll('.plugin.selected:not([data-installed="1"])')
-				let message = '{{Installer les plugins suivants?}}'
-				message += '<ul>'
-				plugins.forEach(_plugin => {
-					message += '<li class="bold"><img src="' + _plugin.querySelector('img').src + '" height="24px"> ' + _plugin.querySelector('.plugin-name').innerText + '</li>'
-				})
-				message += '</ul>'
-				bootbox.confirm(message, function(result) {
-					if (result) {
-						plugins.forEach(_plugin => {
-							installPlugin(_plugin.dataset.id, _plugin.dataset.logicalid)
-						})
-						allowNavigation()
-						_target.triggerEvent('click')
-					}
-				})
-			}
-			return
-		}
-	})
+	})()
 </script>

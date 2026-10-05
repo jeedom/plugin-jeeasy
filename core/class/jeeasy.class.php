@@ -201,6 +201,12 @@ class jeeasy extends eqLogic {
 		return 'default';
 	}
 
+	public static function getDocUrl(string $_section, string $_page = ''): string {
+		$language = config::byKey('language', 'core', 'fr_FR');
+		$docLanguage = in_array($language, ['fr_FR', 'en_US', 'es_ES', 'de_DE']) ? $language : 'en_US';
+		return config::byKey('doc::base_url') . '/' . $_section . '/' . $docLanguage . '/' . $_page;
+	}
+
 	public static function updateServicePackInfos() {
 		$servicePack = 'Community';
 		$plugins = array();

@@ -1,6 +1,6 @@
 <?php
 if (!isConnect()) {
-  throw new Exception('{{401 - Accès non autorisé}}');
+  throw new Exception('401 - {{Accès non autorisé}}');
 }
 
 $boxName = config::byKey('name');
@@ -8,7 +8,7 @@ if ($boxName == '') {
   $boxName = config::byKey('product_name') . ' ' . ucfirst(jeedom::getHardwareName());
   config::save('name', $boxName);
 }
-sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
+sendVarToJS('jeephp2js.timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 ?>
 
 <h3>{{Paramètres généraux}}</h3>
@@ -133,39 +133,41 @@ sendVarToJS('_timezone', config::byKey('timezone', 'core', 'Europe/Brussels'));
 </div> -->
 
 <script>
-  // document.getElementById('coordonatesModale').addEventListener('click', function(_event) {
-  //   jeeDialog.dialog({
-  //     id: 'jee_modal3',
-  //     title: '{{Coordonnées GPS}}',
-  //     contentUrl: 'index.php?v=d&plugin=jeeasy&modal=coordonates'
-  //   })
-  // })
+  (function() {
+    // document.getElementById('coordonatesModale').addEventListener('click', function(_event) {
+    //   jeeDialog.dialog({
+    //     id: 'jee_modal3',
+    //     title: '{{Coordonnées GPS}}',
+    //     contentUrl: 'index.php?v=d&plugin=jeeasy&modal=coordonates'
+    //   })
+    // })
 
-  document.querySelector('#sel_timezone > option[value="' + _timezone + '"]').selected = true
+    document.querySelector('#sel_timezone > option[value="' + jeephp2js.timezone + '"]').selected = true
 
-  document.getElementById('sel_timezone').addEventListener('change', function(_event) {
-    configSave({
-      timezone: this.value
+    document.getElementById('sel_timezone').addEventListener('change', function(_event) {
+      jeeFrontEnd.jeeasyTools.configSave({
+        timezone: this.value
+      })
     })
-  })
 
-  document.getElementById('in_boxName').addEventListener('change', function(_event) {
-    configSave({
-      name: this.value
+    document.getElementById('in_boxName').addEventListener('change', function(_event) {
+      jeeFrontEnd.jeeasyTools.configSave({
+        name: this.value
+      })
     })
-  })
 
-  // document.getElementById('in_latitude').addEventListener('change', function(_event) {
-  //   configSave({
-  //     'info::latitude': this.value
-  //   })
-  // })
+    // document.getElementById('in_latitude').addEventListener('change', function(_event) {
+    //   jeeFrontEnd.jeeasyTools.configSave({
+    //     'info::latitude': this.value
+    //   })
+    // })
 
-  // document.getElementById('in_longitude').addEventListener('change', function(_event) {
-  //   configSave({
-  //     'info::longitude': this.value
-  //   })
-  // })
+    // document.getElementById('in_longitude').addEventListener('change', function(_event) {
+    //   jeeFrontEnd.jeeasyTools.configSave({
+    //     'info::longitude': this.value
+    //   })
+    // })
+  })()
 </script>
 
 <!-- <style>

@@ -1,11 +1,11 @@
 <?php
 if (!isConnect()) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+	throw new Exception('401 - {{Accès non autorisé}}');
 }
 $productName =	config::byKey('product_name');
 $language = config::byKey('language', 'core');
 $country = config::byKey('info::stateCode', 'core', 'FR');
-sendVarToJS('_country', $country);
+sendVarToJS('jeephp2js.country', $country);
 ?>
 <h3>{{Assistant de configuration}}</h3>
 <img src="<?php echo config::byKey('product_connection_image'); ?>" alt="Product Image">
@@ -23,12 +23,12 @@ sendVarToJS('_country', $country);
 		<sup><i class="fas fa-question-circle" title="{{Sélectionner la langue de l'installation}}"></i></sup>
 	</span>
 	<select class="form-control roundedRight" id="sel_language">
-		<option value="fr_FR" <?= ($language == 'fr_FR') ? ' selected' : '' ?>>{{Français}} (Français)</option>
-		<option value="en_US" <?= ($language == 'en_US') ? ' selected' : '' ?>>{{Anglais}} (English)</option>
-		<option value="de_DE" <?= ($language == 'de_DE') ? ' selected' : '' ?>>{{Allemand}} (Deutsch)</option>
-		<option value="es_ES" <?= ($language == 'es_ES') ? ' selected' : '' ?>>{{Espagnol}} (Español)</option>
-		<option value="it_IT" <?= ($language == 'it_IT') ? ' selected' : '' ?>>{{Italien}} (Italiano)</option>
-		<option value="pt_PT" <?= ($language == 'pt_PT') ? ' selected' : '' ?>>{{Portugais}} (Português)</option>
+		<option value="fr_FR" <?= ($language == 'fr_FR') ? ' selected' : '' ?>>Français</option>
+		<option value="en_US" <?= ($language == 'en_US') ? ' selected' : '' ?>>English</option>
+		<option value="de_DE" <?= ($language == 'de_DE') ? ' selected' : '' ?>>Deutsch</option>
+		<option value="es_ES" <?= ($language == 'es_ES') ? ' selected' : '' ?>>Español</option>
+		<option value="it_IT" <?= ($language == 'it_IT') ? ' selected' : '' ?>>Italiano</option>
+		<option value="pt_PT" <?= ($language == 'pt_PT') ? ' selected' : '' ?>>Português</option>
 	</select>
 </div>
 
@@ -331,17 +331,20 @@ sendVarToJS('_country', $country);
 </div>
 
 <script>
-	document.getElementById('sel_language').addEventListener('change', function() {
-		configSave({
-			language: this.value
-		}, false)
-		loadPageContent(getUrlVars('step'))
-	})
-
-	document.getElementById('sel_country').value = _country
-	document.getElementById('sel_country').addEventListener('change', function() {
-		configSave({
-			'info::stateCode': this.value
+	(function() {
+		document.getElementById('sel_language').addEventListener('change', function() {
+			jeeFrontEnd.jeeasyTools.configSave({
+				language: this.value
+			}, function() {
+				jeedomUtils.loadPage('index.php?' + window.location.href.split('index.php?')[1])
+			})
 		})
-	})
+
+		document.getElementById('sel_country').value = jeephp2js.country
+		document.getElementById('sel_country').addEventListener('change', function() {
+			jeeFrontEnd.jeeasyTools.configSave({
+				'info::stateCode': this.value
+			})
+		})
+	})()
 </script>

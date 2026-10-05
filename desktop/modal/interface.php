@@ -1,6 +1,6 @@
 <?php
 if (!isConnect()) {
-    throw new Exception('{{401 - Accès non autorisé}}');
+    throw new Exception('401 - {{Accès non autorisé}}');
 }
 $themesDescription = array(
     'core2019_Light' => '{{Clair}}/Light',
@@ -45,18 +45,20 @@ $coloredIcons = config::byKey('interface::advance::coloredIcons');
     </span>
 </div>
 <script>
-    document.querySelector('#in_theme option[value="' + document.body.dataset.theme + '"]').selected = true
-    document.getElementById('in_theme').addEventListener('change', function() {
-        jeedomUtils.switchTheme()
-    })
-
-    document.getElementById('btn_coloredIcons').addEventListener('click', function() {
-        let value = (this.dataset.state == 1) ? 0 : 1
-        configSave({
-            'interface::advance::coloredIcons': value
+    (function() {
+        document.querySelector('#in_theme option[value="' + document.body.dataset.theme + '"]').selected = true
+        document.getElementById('in_theme').addEventListener('change', function() {
+            jeedomUtils.switchTheme()
         })
-        this.dataset.state = value
-        this.title = (value == 1) ? '{{Ne pas colorer les icônes}}' : '{{Colorer les icônes}}'
-        document.body.setAttribute('data-coloredIcons', value)
-    })
+
+        document.getElementById('btn_coloredIcons').addEventListener('click', function() {
+            let value = (this.dataset.state == 1) ? 0 : 1
+            jeeFrontEnd.jeeasyTools.configSave({
+                'interface::advance::coloredIcons': value
+            })
+            this.dataset.state = value
+            this.title = (value == 1) ? '{{Ne pas colorer les icônes}}' : '{{Colorer les icônes}}'
+            document.body.setAttribute('data-coloredIcons', value)
+        })
+    })()
 </script>

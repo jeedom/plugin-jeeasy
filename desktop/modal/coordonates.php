@@ -1,10 +1,10 @@
 <?php
 if (!isConnect()) {
-  throw new Exception('{{401 - Accès non autorisé}}');
+  throw new Exception('401 - {{Accès non autorisé}}');
 }
 
 $userCountry = config::byKey('info::stateCode', 'core', 'FR');
-sendVarToJS('userCountry', $userCountry);
+sendVarToJS('jeephp2js.userCountry', $userCountry);
 ?>
 
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://nominatim.openstreetmap.org; style-src 'self' 'unsafe-inline';">
@@ -58,8 +58,8 @@ sendVarToJS('userCountry', $userCountry);
       "IT": "41.9028,12.4964"
     }
 
-    let defaultLatitude = capitalsCoordonates[userCountry].split(',')[0];
-    let defaultLongitude = capitalsCoordonates[userCountry].split(',')[1];
+    let defaultLatitude = capitalsCoordonates[jeephp2js.userCountry].split(',')[0];
+    let defaultLongitude = capitalsCoordonates[jeephp2js.userCountry].split(',')[1];
 
     initializeMap(defaultLatitude, defaultLongitude);
 
@@ -134,7 +134,7 @@ sendVarToJS('userCountry', $userCountry);
 
       timeout = setTimeout(function() {
         var fullAddress = encodeURIComponent(addressInput);
-        var countryCode = userCountry;
+        var countryCode = jeephp2js.userCountry;
         var url = "https://nominatim.openstreetmap.org/search?q=" + fullAddress + "&format=json&addressdetails=1&countrycodes=" + countryCode;
 
         fetch(url)
@@ -204,7 +204,7 @@ sendVarToJS('userCountry', $userCountry);
         },
         callback: function(result) {
           if (result) {
-            configSave({
+            jeeFrontEnd.jeeasyTools.configSave({
               'info::address': selectedAddressData.address.house_number ? selectedAddressData.address.house_number + ' ' + selectedAddressData.address.road : selectedAddressData.address.road,
               'info::postalCode': selectedAddressData.address.postcode,
               'info::city': selectedAddressData.address.city,
@@ -229,7 +229,7 @@ sendVarToJS('userCountry', $userCountry);
             },
             callback: function(secondResult) {
               if (secondResult) {
-                configSave({
+                jeeFrontEnd.jeeasyTools.configSave({
                   'info::latitude': document.getElementById('in_latitude').value,
                   'info::longitude': document.getElementById('in_longitude').value,
                 });
@@ -251,25 +251,25 @@ sendVarToJS('userCountry', $userCountry);
     document.querySelector('#sel_timezone > option[value="' + _timezone + '"]').selected = true;
 
     document.getElementById('sel_timezone').addEventListener('change', function(_event) {
-      configSave({
+      jeeFrontEnd.jeeasyTools.configSave({
         timezone: this.value
       });
     });
 
     document.getElementById('in_boxName').addEventListener('change', function(_event) {
-      configSave({
+      jeeFrontEnd.jeeasyTools.configSave({
         name: this.value
       });
     });
 
     document.getElementById('in_latitude').addEventListener('change', function(_event) {
-      configSave({
+      jeeFrontEnd.jeeasyTools.configSave({
         'info::latitude': this.value
       });
     });
 
     document.getElementById('in_longitude').addEventListener('change', function(_event) {
-      configSave({
+      jeeFrontEnd.jeeasyTools.configSave({
         'info::longitude': this.value
       });
     });

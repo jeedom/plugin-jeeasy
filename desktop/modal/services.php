@@ -1,15 +1,14 @@
 <?php
 if (!isConnect()) {
-    throw new Exception('{{401 - Accès non autorisé}}');
+    throw new Exception('401 - {{Accès non autorisé}}');
 }
-$language = config::byKey('language', 'core');
 ?>
 
 <h3>{{Services}} Jeedom</h3>
 
 <div class="logo flex-evenly services">
     <div class="panel service" style="background-image:url('plugins/jeeasy/core/img/service_backup.jpg')">
-        <a href="https://doc.jeedom.com/<?= $language ?>/howto/backup_cloud" target="_blank" title="{{Accéder à la documentation du service Sauvegarde Cloud}}"></a>
+        <a href="<?= jeeasy::getDocUrl('howto', 'backup_cloud') ?>" target="_blank" title="{{Accéder à la documentation du service Sauvegarde Cloud}}"></a>
         <div class="panel-heading">
             <h3 class="panel-title"><i class="fas fa-cloud"></i> {{Sauvegarde dans le Cloud}}</h3>
         </div>
@@ -27,12 +26,12 @@ $language = config::byKey('language', 'core');
     <i class="far fa-arrow-alt-circle-right"></i>
 </div>
 
-<div class="flex-evenly services">
+<div class="flex-evenly services" id="services_carousel">
     <i class="fas fa-chevron-left service-nav cursor" data-direction="prev" title="{{SMS et Appels}}"></i>
 
-    <div>
+    <div id="services_slides">
         <div class="panel service service-carousel" style="background-image:url('plugins/jeeasy/core/img/service_cadenas.jpg')">
-            <a href="https://doc.jeedom.com/<?= $language ?>/howto/mise_en_place_dns_jeedom" target="_blank" title="{{Accéder à la documentation du service Accès à distance}}"></a>
+            <a href="<?= jeeasy::getDocUrl('howto', 'mise_en_place_dns_jeedom') ?>" target="_blank" title="{{Accéder à la documentation du service Accès à distance}}"></a>
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fas fa-lock"></i> {{Accès à distance}}</h3>
             </div>
@@ -46,7 +45,7 @@ $language = config::byKey('language', 'core');
         </div>
 
         <div class="panel service service-carousel hidden" style="background-image:url('plugins/jeeasy/core/img/service_vocal.jpg')">
-            <a href="https://doc.jeedom.com/<?= $language ?>/howto/assistant_vocaux_cloud" target="_blank" title="{{Accéder à la documentation du service Assistants vocaux}}"></a>
+            <a href="<?= jeeasy::getDocUrl('howto', 'assistant_vocaux_cloud') ?>" target="_blank" title="{{Accéder à la documentation du service Assistants vocaux}}"></a>
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fas fa-microphone"></i> {{Assistants vocaux}}</h3>
             </div>
@@ -60,7 +59,7 @@ $language = config::byKey('language', 'core');
         </div>
 
         <div class="panel service service-carousel hidden" style="background-image:url('plugins/jeeasy/core/img/service_monitoring.jpg')" title="{{Accéder à la documentation du service Monitoring}}">
-            <a href="https://doc.jeedom.com/<?= $language ?>/howto/monitoring_cloud" target="_blank" title="{{Accéder à la documentation du service Monitoring}}"></a>
+            <a href="<?= jeeasy::getDocUrl('howto', 'monitoring_cloud') ?>" target="_blank" title="{{Accéder à la documentation du service Monitoring}}"></a>
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fas fa-medkit"></i> {{Monitoring}}</h3>
             </div>
@@ -74,7 +73,7 @@ $language = config::byKey('language', 'core');
         </div>
 
         <div class="panel service service-carousel hidden" style="background-image:url('plugins/jeeasy/core/img/service_sms.jpg')" title="{{Accéder à la documentation du service SMS et Appels}}">
-            <a href="https://doc.jeedom.com/<?= $language ?>/howto/sms_cloud" target="_blank" title="{{Accéder à la documentation du service SMS et Appels}}"></a>
+            <a href="<?= jeeasy::getDocUrl('howto', 'sms_cloud') ?>" target="_blank" title="{{Accéder à la documentation du service SMS et Appels}}"></a>
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fas fa-sms"></i> {{SMS et Appels}}</h3>
             </div>
@@ -92,52 +91,59 @@ $language = config::byKey('language', 'core');
 </div>
 
 <script>
-    if (isset(servicesCarousel)) {
-        clearInterval(servicesCarousel)
-    }
-    if (isset(servicesCarouselTimeout)) {
-        clearTimeout(servicesCarouselTimeout)
-    }
-    var servicesCarousel, servicesCarouselTimeout
-    servicesCarousel = setInterval(() => {
-        document.querySelector('.service-nav[data-direction="next"]')?.triggerEvent('click')
-    }, 5000);
+    (function() {
+        const btPrev = document.querySelector('.service-nav[data-direction="prev"]')
+        const btNext = document.querySelector('.service-nav[data-direction="next"]')
+        const carousel = document.getElementById('services_carousel')
+        const slides = document.getElementById('services_slides')
+        let carouselInterval = null
 
-    document.querySelectorAll('.service-nav').forEach(_nav => {
-        _nav.addEventListener('click', function(_event) {
-            if (_event.pointerType) {
-                clearInterval(servicesCarousel)
-                clearTimeout(servicesCarouselTimeout)
-                servicesCarouselTimeout = setTimeout(() => {
-                    servicesCarousel = setInterval(() => {
-                        document.querySelector('.service-nav[data-direction="next"]')?.triggerEvent('click')
-                    }, 5000);
-                }, 10000);
-            }
-
-            let current = document.querySelector('.service-carousel:not(.hidden)')
-            if (this.dataset.direction == 'next') {
-                var prevTitle = current.querySelector('.panel-title').innerText
-                var goTo = current.nextElementSibling || document.querySelector('.service-carousel')
-                var nextTitle = goTo.nextElementSibling?.querySelector('.panel-title').innerText || document.querySelector('.service-carousel').querySelector('.panel-title').innerText
+        function slideTo(_direction) {
+            let current = slides.querySelector('.service-carousel:not(.hidden)')
+            let goTo, prevTitle, nextTitle
+            if (_direction == 'next') {
+                prevTitle = current.querySelector('.panel-title').innerText
+                goTo = current.nextElementSibling || slides.querySelector('.service-carousel')
+                nextTitle = goTo.nextElementSibling?.querySelector('.panel-title').innerText || slides.querySelector('.service-carousel').querySelector('.panel-title').innerText
             } else {
-                var nextTitle = current.querySelector('.panel-title').innerText
-                var goTo = current.previousElementSibling || document.querySelector('.service-carousel:last-child')
-                var prevTitle = goTo.previousElementSibling?.querySelector('.panel-title').innerText || document.querySelector('.service-carousel:last-child').querySelector('.panel-title').innerText
+                nextTitle = current.querySelector('.panel-title').innerText
+                goTo = current.previousElementSibling || slides.querySelector('.service-carousel:last-child')
+                prevTitle = goTo.previousElementSibling?.querySelector('.panel-title').innerText || slides.querySelector('.service-carousel:last-child').querySelector('.panel-title').innerText
             }
 
-            current.animate({
-                opacity: [1, 0]
-            }, {
-                duration: 250
-            })
-
-            setTimeout(() => {
+            jeeFrontEnd.jeeasyTools.slide(slides, _direction == 'prev', () => {
                 current.addClass('hidden')
                 goTo.removeClass('hidden')
-                document.querySelector('.service-nav[data-direction="prev"]').title = prevTitle.substring(1)
-                document.querySelector('.service-nav[data-direction="next"]').title = nextTitle.substring(1)
-            }, 250);
+                btPrev.title = prevTitle.substring(1)
+                btNext.title = nextTitle.substring(1)
+            })
+        }
+
+        // Stops itself once the step is gone
+        function startCarousel() {
+            clearInterval(carouselInterval)
+            carouselInterval = setInterval(() => {
+                if (!carousel.isConnected) {
+                    clearInterval(carouselInterval)
+                    return
+                }
+                slideTo('next')
+            }, 5000)
+        }
+
+        startCarousel()
+
+        // Paused while hovered
+        carousel.addEventListener('pointerenter', function() {
+            clearInterval(carouselInterval)
         })
-    })
+        carousel.addEventListener('pointerleave', startCarousel)
+
+        carousel.addEventListener('click', function(_event) {
+            let _target = null
+            if (_target = _event.target.closest('.service-nav')) {
+                slideTo(_target.dataset.direction)
+            }
+        })
+    })()
 </script>
