@@ -16,8 +16,10 @@
 	"hasDependency": false,
 	"hasOwnDeamon": false,
 	"maxDependancyInstallTime": 0,
-	"changelog": "https://doc.jeedom.com/#language#/plugins/programming/jeeasy/changelog",
-	"documentation": "https://doc.jeedom.com/#language#/plugins/programming/jeeasy/",
+	"changelog_beta": "https://doc.jeedom.com/plugins/programming/jeeasy/beta/#language#/changelog",
+	"documentation_beta": "https://doc.jeedom.com/plugins/programming/jeeasy/beta/#language#/",
+	"changelog": "https://doc.jeedom.com/plugins/programming/jeeasy/#language#/changelog",
+	"documentation": "https://doc.jeedom.com/plugins/programming/jeeasy/#language#/",
 	"language": [
 		"de_DE",
 		"en_US",
@@ -36,7 +38,5 @@
 		"v4",
 		"atlas",
 		"luna"
-	],
-	"changelog_beta": "https://doc.jeedom.com/#language#/plugins/programming/jeeasy/beta/changelog",
-	"documentation_beta": "https://doc.jeedom.com/#language#/plugins/programming/jeeasy/beta"
+	]
 }
