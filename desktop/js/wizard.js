@@ -20,6 +20,8 @@ jeeFrontEnd.jeeasyWizard = {
 	init: function() {
 		window.jeeP = this
 		this.container = document.getElementById('wizard_container')
+		this.navigation = document.getElementById('wizard_navigation')
+		jeedomUtils.initTooltips(this.navigation)
 		// Optional step action run before moving forward, calls the given callback to proceed
 		this.onNext = null
 
@@ -28,9 +30,7 @@ jeeFrontEnd.jeeasyWizard = {
 			step = document.querySelector('.navDot').dataset.step
 		}
 		document.querySelector('.navDot[data-step="' + step + '"]').classList.add('active')
-		setTimeout(() => {
-			this.loadStep(step)
-		}, 250)
+		this.loadStep(step)
 	},
 	goToStep: function(_dot) {
 		let current = document.querySelector('.navDot.active')
@@ -87,6 +87,7 @@ jeeFrontEnd.jeeasyWizard = {
 			document.querySelector('.navBtn.bt_next').title = current.nextElementSibling.dataset.title
 			document.querySelector('.navBtn.bt_next.hidden')?.classList.remove('hidden')
 		}
+		jeedomUtils.initTooltips(this.navigation)
 		jeedomUtils.addOrUpdateUrl('step', _step)
 	},
 	exit: function() {
