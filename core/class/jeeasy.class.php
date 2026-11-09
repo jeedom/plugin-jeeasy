@@ -208,22 +208,29 @@ class jeeasy extends eqLogic {
 	}
 
 	public static function updateServicePackInfos() {
-		$servicePack = 'Community';
 		$plugins = array();
-		$jsonrpc = repo_market::getJsonRpc();
-		if ($jsonrpc->sendRequest('servicepack::info')) {
-			$result = $jsonrpc->getResult();
-			$servicePack = $result['licenceName'];
-			if ($servicePack != 'Community') {
-				if (is_array($result['licencePlugins'])) {
-					$plugins = $result['licencePlugins'];
-				}
-				$plugins = array_merge($plugins, $result['mainPlugins']);
+		if (class_exists('repo_market') && class_exists('marketClient', false)) {
+			try {
+				$result = marketClient::request('GET', '/me/service-pack');
+			} catch (Exception $e) {
+				return false;
 			}
-			config::save('SPInfos', array('servicePack' => $servicePack, 'plugins' => $plugins), __CLASS__);
-			return array('servicePack' => $servicePack, 'plugins' => $plugins);
+		} else {
+			$jsonrpc = repo_market::getJsonRpc();
+			if (!$jsonrpc->sendRequest('servicepack::info')) {
+				return false;
+			}
+			$result = $jsonrpc->getResult();
 		}
-		return false;
+		$servicePack = $result['licenceName'];
+		if ($servicePack != 'Community') {
+			if (is_array($result['licencePlugins'])) {
+				$plugins = $result['licencePlugins'];
+			}
+			$plugins = array_merge($plugins, $result['mainPlugins']);
+		}
+		config::save('SPInfos', array('servicePack' => $servicePack, 'plugins' => $plugins), __CLASS__);
+		return array('servicePack' => $servicePack, 'plugins' => $plugins);
 	}
 
 	public static function cronDaily() {
