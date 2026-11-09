@@ -8,10 +8,8 @@ editDns();
 
 $discovers = jeeasy::discoverNetwork();
 sleep(2);
-$jsonrpc = repo_market::getJsonRpc();
 $marketURL = config::byKey('market::address');
 $listPlugins = plugin::listPlugin();
-$imgPlugin = '';
 $arrayFirst = array();
 $arraySecond = array();
 
@@ -122,21 +120,20 @@ foreach ($arrayFirst as $name => $value)
          <?php
     foreach ($value['plugin'] as $plugin)
     {
-        $arrId = array();
-        $arrId['id'] = $plugin['id'];
-        if ($jsonrpc->sendRequest('market::byId', $arrId))
-        {
-            $result = $jsonrpc->getResult();
-            $imgPlugin = $result['img'];
-            $finalCost = '';
-            if ($result['cost'] > 0)
-            {
-                $finalCost = '(' . $result['cost'] . '.00 €)';
-            }
-            else
-            {
-                $finalCost = "(GRATUIT)";
-            }
+        try {
+            $marketPlugin = repo_market::byId($plugin['id']);
+        } catch (Exception $e) {
+            $marketPlugin = null;
+        }
+
+        $imgPlugin = '';
+        $finalCost = '';
+        $description = '';
+        if (is_object($marketPlugin)) {
+            $imgPlugin = (string) $marketPlugin->getImg('icon');
+            $cost = $marketPlugin->getCost();
+            $finalCost = $cost > 0 ? '(' . $cost . '.00 €)' : '(GRATUIT)';
+            $description = (string) $marketPlugin->getDescription();
         }
 
         $class = "btn-info";
@@ -145,9 +142,11 @@ foreach ($arrayFirst as $name => $value)
             $class = "btn-success";
         }
 
-        echo '<img class="test" src="' . $marketURL . '/' . $imgPlugin["icon"] . '" style="height:105px;width:90px;margin-right:20px">';
+        if ($imgPlugin !== '') {
+            echo '<img class="test" src="' . $marketURL . '/' . $imgPlugin . '" style="height:105px;width:90px;margin-right:20px">';
+        }
 
-        $arrayDescription = explode('.', $result['description']);
+        $arrayDescription = explode('.', $description, 2);
 
         if (in_array($plugin['id'], $listPlugins))
         {
